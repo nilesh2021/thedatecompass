@@ -1,5 +1,5 @@
 
-
+import Image from "next/image";
 const PlatformCard = ({ platform }) => {
     return (
         <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#171717] via-[#111111] to-[#080808] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-pink-500/40 hover:shadow-pink-500/20">
@@ -25,11 +25,12 @@ const PlatformCard = ({ platform }) => {
 
                 <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-[#1f1f1f]">
 
-                    <img
-                        src={platform.logo}
-                        alt={platform.name}
-                        className="h-16 w-16 object-contain"
-                    />
+                  <Image
+  src={platform.image}
+  alt={platform.name}
+  width={400}
+  height={250}
+/>
 
                 </div>
 

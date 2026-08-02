@@ -96,7 +96,7 @@ export default function OfferHubPage() {
   const categories = Object.keys(DATA);
 
   const [activeTab, setActiveTab] = useState(categories[0]);
-  const [search, setSearch] = useState("");
+ const [search] = useState("");
   const [selectedOffer, setSelectedOffer] = useState<OfferItem | null>(null);
 
   const offers = DATA[activeTab as keyof typeof DATA];
@@ -109,8 +109,7 @@ export default function OfferHubPage() {
     );
   }, [offers, search]);
 
-  const featuredOffer =
-    offers.find((offer) => offer.featured) || offers[0];
+   
 
   return (
     <main className="min-h-screen bg-black text-white">
