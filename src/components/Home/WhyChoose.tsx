@@ -68,7 +68,7 @@ export default function WhyChoose() {
 
         {/* Cards */}
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2">
+        <div className="mt-20 grid gap-8 md:grid-cols-4">
 
           {features.map((item) => {
 
@@ -99,7 +99,7 @@ export default function WhyChoose() {
 
                 </div>
 
-                <h3 className="mt-8 text-3xl font-black text-white">
+                <h3 className="mt-8 text-2xl font-black text-white">
                   {item.title}
                 </h3>
 

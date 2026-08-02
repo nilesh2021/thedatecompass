@@ -2,17 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FaBars,
-  FaTimes,
-  FaChevronDown,
-} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-import { countries } from "@/data/navigation";
+// countries menu removed from header
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [countryMenu, setCountryMenu] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-white/95 backdrop-blur-xl">
@@ -46,39 +41,6 @@ export default function Header() {
         {/* Desktop */}
 
         <nav className="hidden items-center gap-8 lg:flex">
-
-          <div className="relative">
-
-           <button
-  onClick={() => setCountryMenu(!countryMenu)}
-  className="flex items-center gap-2 font-semibold text-gray-700 transition hover:text-[#E83E9B]"
->
-              Countries
-              <FaChevronDown size={12} />
-            </button>
-
-            {countryMenu && (
-
-              <div className="absolute top-12 w-56 rounded-2xl border bg-white p-3 shadow-2xl">
-
-                {countries.map((country) => (
-
-                  <Link
-                    key={country.name}
-                    href={country.href}
-                    className="block rounded-xl px-4 py-3 transition hover:bg-pink-50"
-                  >
-                    {country.name}
-                  </Link>
-
-                ))}
-
-              </div>
-
-            )}
-
-          </div>
-
           <Link
             href="/category/ai-girlfriend"
             className="font-semibold text-gray-700 hover:text-[#E83E9B]"
@@ -154,48 +116,7 @@ export default function Header() {
       AI Girlfriend
     </Link>
 
-    <button
-      onClick={() => setCountryMenu(!countryMenu)}
-      className="flex w-full items-center justify-between rounded-xl px-5 py-4 font-semibold hover:bg-[#E83E9B]"
-    >
-      Countries
-      <FaChevronDown
-        className={`transition ${
-          countryMenu ? "rotate-180" : ""
-        }`}
-      />
-    </button>
 
-    {countryMenu && (
-
-      <div className="ml-5 space-y-2">
-
-        {countries.map((country) => (
-
-          <Link
-            key={country.name}
-            href={country.href}
-            onClick={() => setMobileMenu(false)}
-          className="
-block
-rounded-xl
-px-5
-py-4
-font-semibold
-text-white
-transition-all
-duration-300
-hover:bg-[#E83E9B]
-hover:text-white"
-          >
-            {country.name}
-          </Link>
-
-        ))}
-
-      </div>
-
-    )}
 
     <Link
       href="/usa"

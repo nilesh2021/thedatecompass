@@ -122,7 +122,7 @@ export default function Categories() {
 
         {/* Bottom CTA */}
 
-        <div className="mt-20 text-center">
+        {/* <div className="mt-20 text-center">
 
           <Link
             href="/categories"
@@ -134,7 +134,7 @@ export default function Categories() {
 
           </Link>
 
-        </div>
+        </div> */}
 
       </div>
 
