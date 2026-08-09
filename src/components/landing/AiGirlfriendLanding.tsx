@@ -16,7 +16,7 @@ const eyebrowClass =
   "text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-rose-700/80";
 
 const sectionTitleClass =
-  "font-display text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl";
+  "font-display text-4xl leading-tight   text-stone-900 md:text-5xl";
 
 const btnPrimaryClass =
   "inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-stone-800";
@@ -179,7 +179,7 @@ export default function AiGirlfriendLanding() {
               <p className={`${eyebrowClass} mb-6`}>AI girlfriend · 2026</p>
               <h1
                 data-css-debug-h1-ai
-                className="font-display mb-8 text-[clamp(2.75rem,6vw,4.75rem)] leading-[1.05] tracking-tight"
+                className="font-display mb-8 text-[clamp(2.75rem,6vw,4.75rem)] leading-[1.05]  "
               >
                 Your companion,{" "}
                 <em className="text-rose-800/90 not-italic">always online.</em>

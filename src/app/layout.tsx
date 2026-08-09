@@ -3,7 +3,19 @@ import "./globals.css";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import type { Metadata } from "next";
 import GoogleAnalyticsTracker from "@/components/GoogleAnalyticsTracker";
+import { Figtree, Playfair_Display } from "next/font/google";
 
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-figtree",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.thedatecompass.com"),
@@ -22,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${figtree.variable} ${playfair.variable}`}>
+      <body className="font-sans">
        <Script
     src="https://www.googletagmanager.com/gtag/js?id=G-C2QB1MM1F1"
     strategy="afterInteractive"

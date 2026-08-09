@@ -93,7 +93,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
               USA dating options
             </p>
 
-            <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h2 className="mt-3 font-serif text-4xl font-semibold   sm:text-5xl">
               Find your kind of{" "}
               <span className="italic text-rose-200/80">
                 connection.
@@ -124,7 +124,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                 Featured picks
                 </p>
 
-                <h3 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+                <h3 className="mt-2 font-serif text-3xl font-semibold   sm:text-4xl">
                 A few options to get started.
                 </h3>
               </div>
@@ -194,9 +194,9 @@ export default function USAOffers({ offers }: USAOffersProps) {
   href={offer.href}
   target="_blank"
   rel="sponsored nofollow noopener noreferrer"
-  className="mt-5 block rounded-full bg-[#E83E9B] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#F58BC5] hover:text-[#080808]"
+  className="mt-5 block rounded-full bg-[#E83E9B] px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-[#F58BC5] hover:text-[#080808] gradient-hover"
 >
-  View option
+  View  
 </a>
 
                 </article>
@@ -217,7 +217,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
   All USA options
 </p>
 
-<h3 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+<h3 className="mt-2 font-serif text-3xl font-semibold   sm:text-4xl">
   Find the right platform for you.
 </h3>
           </div>
@@ -316,7 +316,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
 
                       <div>
 
-                        <h3 className="font-serif text-3xl font-semibold tracking-tight text-white">
+                        <h3 className="font-serif text-3xl font-semibold   text-white">
                           {offer.name}
                         </h3>
 

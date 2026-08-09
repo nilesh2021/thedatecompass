@@ -1,24 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: place Mdprimer font files in /public/fonts and uncomment the @font-face block
-   Example filenames: /public/fonts/Mdprimer.woff2, /public/fonts/Mdprimer.woff */
-@font-face {
-  font-family: 'Mdprimer';
-  src: url('/fonts/Mdprimer.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-heading: 'Space Grotesk', 'Figtree', ui-sans-serif, system-ui;
-  --font-body: 'Mdprimer', 'Figtree', ui-sans-serif, system-ui;
+  --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-figtree), "Figtree", ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

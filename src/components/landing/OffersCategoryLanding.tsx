@@ -19,7 +19,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-stone-400">
             {tab.label}
           </p>
-          <h1 className="mb-6 text-4xl font-semibold tracking-tight text-stone-900 md:text-5xl">
+          <h1 className="mb-6 text-4xl font-semibold   text-stone-900 md:text-5xl">
             {tab.seoTitle}
           </h1>
           <p className="text-lg leading-relaxed text-stone-500">

@@ -286,7 +286,7 @@ export default function UsaPage() {
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a34b68]">
                   Start with your intention
                 </p>
-                <h2 className="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+                <h2 className="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-tight   sm:text-5xl">
                   Every good connection starts with being clear about what you
                   want.
                 </h2>
@@ -302,7 +302,7 @@ export default function UsaPage() {
                 <a
                   key={intention.title}
                   href={`#${intentionHashes[intention.filter]}`}
-                  className="group relative overflow-hidden rounded-3xl border border-[#ddd0c9] bg-white/70 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-rose-300 hover:shadow-rose-200/20 backdrop-blur-sm"
+                  className="group relative cursor-default overflow-hidden rounded-3xl border border-[#ddd0c9] bg-white/70 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-rose-300 hover:shadow-rose-200/20 backdrop-blur-sm"
                 >
                   <div className="relative h-44 overflow-hidden">
                     <Image
@@ -317,19 +317,19 @@ export default function UsaPage() {
                       {intention.number}
                     </span>
                   </div>
-                  <div className="p-8 pt-6">
-                    <h3 className="font-serif text-3xl font-semibold tracking-tight">
+                  <div className="p-4 pt-4">
+                    <h3 className="font-serif text-3xl font-semibold  ">
                       {intention.title}
                     </h3>
                     <p className="mt-3 leading-relaxed text-[#5f4652]">
                       {intention.text}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-rose-700/80 group-hover:text-rose-800">
+                  {/*   <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-rose-700/80 group-hover:text-rose-800">
                       Explore options{" "}
                       <span className="transition group-hover:translate-x-1">
                         →
                       </span>
-                    </span>
+                    </span> */}
                   </div>
                 </a>
               ))}
@@ -349,7 +349,7 @@ export default function UsaPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a34b68]">
               USA dating guide
             </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight   sm:text-5xl">
               How to choose adult dating sites in the USA
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-[#5f4652]">
@@ -419,7 +419,7 @@ export default function UsaPage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose-300/80">
               FAQ · USA offers
             </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-3 font-serif text-4xl font-semibold   text-white sm:text-5xl">
               Dating offers for USA users — common questions
             </h2>
             <div className="mt-10 space-y-4">
@@ -452,7 +452,7 @@ export default function UsaPage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a34b68]">
                 A gentle reminder
               </p>
-              <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight tracking-tight">
+              <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight  ">
                 The best kind of chemistry comes with good judgment.
               </h2>
               <p className="mt-5 leading-relaxed text-[#5f4652]">

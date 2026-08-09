@@ -1,18 +1,6 @@
 import AiGirlfriendLanding from "@/components/landing/AiGirlfriendLanding";
-import { Inter, Instrument_Serif } from "next/font/google";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs } from "@/data/aiGirlfriendOffers";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument-serif",
-});
 
 export const metadata: Metadata = {
   title: "Best AI Girlfriend Platforms & Offers 2026 | TheDateCompass",
@@ -33,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function AIGirlfriendPage() {
   return (
-    <div className={`${inter.variable} ${instrumentSerif.variable} font-sans`}>
+    <div className="font-sans">
       <AiGirlfriendLanding />
 
       <script

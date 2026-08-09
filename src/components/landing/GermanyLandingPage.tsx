@@ -31,7 +31,7 @@ export default function GermanyLandingPage() {
             Germany’s honest dating guide 2026
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-black leading-tight mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-black leading-tight mb-6  ">
             Find the{" "}
             <span className="italic text-pink-400">love</span> you deserve.
           </h1>
@@ -104,7 +104,7 @@ export default function GermanyLandingPage() {
 
       <section id="offers" className="max-w-5xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-black mb-5 tracking-tight">
+          <h2 className="text-5xl font-black mb-5  ">
             The best dating sites compared
           </h2>
 
@@ -192,7 +192,7 @@ export default function GermanyLandingPage() {
       <section className="bg-white/5 border-t border-white/10 backdrop-blur-xl py-24">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-14">
-            <h2 className="text-5xl font-black mb-4 tracking-tight">
+            <h2 className="text-5xl font-black mb-4  ">
               Frequently Asked Questions
             </h2>
 

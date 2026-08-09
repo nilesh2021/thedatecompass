@@ -9,9 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: [
+          "var(--font-figtree)",
+          "Figtree",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        serif: [
+          "var(--font-playfair)",
+          "Playfair Display",
+          "Georgia",
+          "serif",
+        ],
         display: [
-          "var(--font-instrument-serif)",
+          "var(--font-playfair)",
+          "Playfair Display",
           "Georgia",
           "serif",
         ],

@@ -62,7 +62,7 @@ export default function BrandLogo({
       aria-label="TheDateCompass home"
     >
       <LogoMark icon={icon} className="transition group-hover:scale-105" />
-      <span className="text-[15px] font-bold tracking-tight">
+      <span className="text-[15px] font-bold  ">
         <span className="text-[#E83E9B]">TheDate</span>
         <span className={dark ? "text-white" : "text-[#1a1a1a]"}>Compass</span>
       </span>

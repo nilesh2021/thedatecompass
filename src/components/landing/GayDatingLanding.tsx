@@ -15,7 +15,7 @@ const eyebrowClass =
   "text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-accent";
 
 const sectionTitleClass =
-  "font-display text-4xl leading-tight tracking-tight text-stone-900 md:text-5xl";
+  "font-display text-4xl leading-tight   text-stone-900 md:text-5xl";
 
 const btnPrimaryClass =
   "inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-stone-800";
@@ -163,7 +163,7 @@ export default function GayDatingLanding() {
             <p className={`${eyebrowClass} mb-6`}>Gay dating · 2026</p>
             <h1
               data-css-debug-h1-gay
-              className="font-display mb-8 text-[clamp(2.75rem,6vw,4.75rem)] leading-[1.05] tracking-tight"
+              className="font-display mb-8 text-[clamp(2.75rem,6vw,4.75rem)] leading-[1.05]  "
             >
               Find someone who{" "}
               <em className="text-accent not-italic">gets you.</em>

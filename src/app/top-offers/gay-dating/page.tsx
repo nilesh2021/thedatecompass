@@ -1,17 +1,4 @@
 import GayDatingLanding from "@/components/landing/GayDatingLanding";
-import { Inter, Instrument_Serif } from "next/font/google";
-
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument-serif",
-});
 
 export const metadata = {
   title: "Best Gay Dating Sites & Apps in 2026",
@@ -29,7 +16,7 @@ export const metadata = {
 
 export default function GayDatingPage() {
   return (
-    <div className={`${inter.variable} ${instrumentSerif.variable} font-sans`}>
+    <div className="font-sans">
       <GayDatingLanding />
     </div>
   );

@@ -208,7 +208,7 @@ export default function OfferHubPage() {
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#E83E9B]">
               Cozy Sites Hub
             </p>
-            <h1 className="max-w-3xl text-5xl font-black leading-[1.05] tracking-tight md:text-7xl">
+            <h1 className="max-w-3xl text-5xl font-black leading-[1.05]   md:text-7xl">
               Soft nights.
               <span className="mt-2 block text-[#E83E9B]">Better offers.</span>
             </h1>
@@ -281,7 +281,7 @@ export default function OfferHubPage() {
         >
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+              <h2 className="text-2xl font-bold   md:text-3xl">
                 {activeTab} offers
               </h2>
               <p className="mt-2 text-stone-400">
