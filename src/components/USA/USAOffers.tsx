@@ -226,16 +226,20 @@ export default function USAOffers({ offers }: USAOffersProps) {
           {/* FILTERS */}
           {/* ============================= */}
 
-          <div className="mt-8 flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-
+          <div
+            role="tablist"
+            aria-label="Filter USA dating offers"
+            className="mt-8 inline-flex max-w-full gap-1 overflow-x-auto rounded-2xl border border-white/10 bg-black/40 p-1.5 scrollbar-hide"
+          >
             {filters.map((filter) => {
-
               const active = activeFilter === filter;
 
               return (
                 <button
                   key={filter}
                   type="button"
+                  role="tab"
+                  aria-selected={active}
                   onClick={() => {
                     setActiveFilter(filter);
                     setShowAll(false);
@@ -246,38 +250,35 @@ export default function USAOffers({ offers }: USAOffersProps) {
                       "Gay Dating": "offers-gay",
                       AI: "offers-ai",
                     };
-                    
+
                     const hash = filterHashes[filter];
-                    
                     window.history.replaceState(null, "", `#${hash}`);
-                  
                   }}
-                  className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-semibold transition ${
+                  className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold tracking-wide transition ${
                     active
-                      ? "border-[#E83E9B] bg-[#E83E9B] text-white shadow-lg shadow-[#E83E9B]/20"
-                      : "border-white/10 bg-white/[0.04] text-white/60 hover:border-[#E83E9B]/50 hover:bg-[#E83E9B]/10 hover:text-white"
+                      ? "bg-[#E83E9B] text-white shadow-[0_8px_24px_rgba(232,62,155,0.45)] ring-2 ring-white/25"
+                      : "bg-transparent text-white/45 hover:bg-white/[0.06] hover:text-white/85"
                   }`}
                 >
                   {filter}
                 </button>
               );
-
             })}
-
           </div>
 
-          {/* Results count */}
-          <div className="mt-6 text-sm text-white/35">
-  Showing{" "}
-  <span className="font-semibold text-white/60">
-    {visibleOffers.length}
-  </span>{" "}
-  of{" "}
-  <span className="font-semibold text-white/60">
-    {filteredOffers.length}
-  </span>{" "}
-  {filteredOffers.length === 1 ? "option" : "options"}
-</div>
+          <p className="mt-4 text-sm text-white/50">
+            Viewing{" "}
+            <span className="font-semibold text-[#F58BC5]">{activeFilter}</span>
+            {" · "}
+            <span className="font-semibold text-white/70">
+              {visibleOffers.length}
+            </span>{" "}
+            of{" "}
+            <span className="font-semibold text-white/70">
+              {filteredOffers.length}
+            </span>{" "}
+            {filteredOffers.length === 1 ? "option" : "options"}
+          </p>
 
           {/* ============================= */}
           {/* OFFER CARDS */}

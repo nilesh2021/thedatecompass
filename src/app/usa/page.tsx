@@ -4,6 +4,7 @@ import Footer from "@/components/Home/Footer";
 import Header from "@/components/Home/Header";
 import Image from "next/image";
 import USAOffers from "@/components/USA/USAOffers";
+import { usaOffers } from "@/data/usaOffers";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/usa`;
@@ -62,182 +63,6 @@ export const metadata: Metadata = {
   },
 };
 
-const usaOffers = [
-  {
-    name: "CheekyCrush",
-    category: "Casual dating",
-    featured: true,
-    description:
-      "A casual adult dating option for people looking to explore new connections.",
-    badge: "USA available",
-    mark: "C",
-    accent: "from-[#E83E9B] via-[#F15BAF] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    tags: ["Casual", "USA"],
-  },
-  {
-    name: "GayBloom",
-    category: "Gay Dating",
-    featured: true,
-    description:
-      "An inclusive adult dating option for gay singles and communities in the USA.",
-    badge: "USA available",
-    mark: "G",
-    accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    tags: ["Gay Dating", "Adults 18+", "USA"],
-  },
-  {
-    name: "LitLatinz",
-    category: "Adult dating",
-    featured: true,
-    description:
-      "An adult dating option focused on Latino community connections in the United States.",
-    badge: "USA available",
-    mark: "L",
-    accent: "from-[#6138A8] via-[#9C5CDB] to-[#E83E9B]",
-    image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Adult", "Adults 18+", "USA"],
-  },
-  {
-    name: "NaughtyCharm",
-    category: "Adult dating",
-    description:
-      "An adult-focused dating option for people who know what they are looking for.",
-    badge: "USA available",
-    mark: "N",
-    accent: "from-[#8C1D4D] via-[#C8326D] to-[#E83E9B]",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    tags: ["Adult", "Adults 18+", "USA"],
-  },
-  {
-    name: "PridePair",
-    category: "Gay Dating",
-    featured: false,
-    description:
-      "An inclusive gay dating platform where users can match, chat, and connect with like-minded people.",
-    badge: "USA available",
-    mark: "P",
-    accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    tags: ["Gay Dating", "USA"],
-  },
-  {
-    name: "RealSexClub",
-    category: "Adult dating",
-    description:
-      "An adult social and dating option for people looking for direct connections.",
-    badge: "USA available",
-    mark: "R",
-    accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
-    image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Adult", "Adults 18+", "USA"],
-  },
-  {
-    name: "DirtyDating",
-    category: "Casual dating",
-    description:
-      "A casual adult dating option for people interested in meeting new connections.",
-    badge: "USA available",
-    mark: "D",
-    accent: "from-[#F15BAF] via-[#E83E9B] to-[#9B3CE8]",
-    image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Casual", "USA"],
-  },
-  {
-    name: "FetishPartner",
-    category: "Adult social",
-    description:
-      "An adult-focused platform for exploring connections around specific interests.",
-    badge: "USA available",
-    mark: "F",
-    accent: "from-[#6138A8] via-[#8C1D4D] to-[#E83E9B]",
-    image:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Adult social", "Adults 18+", "USA"],
-  },
-  {
-    name: "Grannyhunter",
-    category: "Mature dating",
-    description:
-      "An adult dating option focused on mature connections and age-specific preferences.",
-    badge: "USA available",
-    mark: "G",
-    accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Mature", "Adults 18+", "USA"],
-  },
-  {
-    name: "TransDate",
-    category: "Trans dating",
-    description:
-      "A dating option for people interested in transgender and inclusive connections.",
-    badge: "USA available",
-    mark: "T",
-    accent: "from-[#9B3CE8] via-[#E83E9B] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Trans", "Adults 18+", "USA"],
-  },
-  {
-    name: "Manfinder",
-    category: "Gay Dating",
-    featured: false,
-    description:
-      "A dating and social platform for men looking to meet and connect with other men.",
-    badge: "Gay dating",
-    mark: "M",
-    accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Gay dating", "USA"],
-  },
-  {
-    name: "Smoke and Poke",
-    category: "Adult social",
-    description:
-      "An adult social option for visitors interested in casual conversations and connections.",
-    badge: "USA available",
-    mark: "S",
-    accent: "from-[#6138A8] via-[#E83E9B] to-[#C8326D]",
-    image:
-      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/8228/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    tags: ["Adult social", "Adults 18+", "USA"],
-  },
-  {
-    name: "Dreamz.ai",
-    category: "AI",
-    featured: false,
-    description:
-      "Explore an AI companion experience designed for personalized conversations and virtual connections.",
-    badge: "AI companion",
-    mark: "D",
-    accent: "from-[#E83E9B] via-[#A855F7] to-[#6366F1]",
-    image: "/images/ai-model.webp",
-    href: "https://t.vlmai-5.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
-    tags: ["AI", "Virtual companion"],
-  },
-];
 
 const intentionHashes: Record<string, string> = {
   Casual: "offers-casual",
@@ -281,29 +106,34 @@ const safetyNotes = [
 
 const usaFaqs = [
   {
-    question: "What are the best adult dating sites in the USA in 2026?",
+    question: "What are the best dating offers for USA users in 2026?",
     answer:
-      "The strongest USA options on this page span casual dating (CheekyCrush, DirtyDating), gay dating (GayBloom, PridePair, Manfinder), mature dating (Grannyhunter), and AI companions (Dreamz.ai). The best fit depends on your intention, not a single ranking for every visitor.",
+      "The best dating offers for USA users on this page cover casual dating sites USA visitors use most, gay dating offers, mature dating platforms, adult dating offers, and AI companion offers. Featured picks for eligible United States users include CheekyCrush, GayBloom, LitLatinz, and Dreamz.ai depending on your goal.",
   },
   {
-    question: "Are these dating platforms free to join?",
+    question: "Which casual dating offers are available to USA users?",
     answer:
-      "Most platforms offer free registration with optional premium upgrades. You can usually create a profile and browse before committing to a paid plan. Pricing and features vary by provider.",
+      "CheekyCrush and DirtyDating are the main casual dating offers for USA users on this page. These casual dating sites USA adults can review for low-pressure chats, quick signup, and adult social discovery before visiting a third-party provider.",
   },
   {
-    question: "Does TheDateCompass operate these dating sites?",
+    question: "Are there gay dating offers for USA users?",
     answer:
-      "No. TheDateCompass is an independent comparison and discovery website. We do not operate the listed platforms or manage registrations, profiles, messages, payments, or customer support.",
+      "Yes. GayBloom, PridePair, and Manfinder are gay dating offers for USA users and eligible LGBTQ+ visitors in the United States. Compare them here, or browse our dedicated gay dating category for more USA-focused options.",
   },
   {
-    question: "Which USA dating sites are best for gay dating?",
+    question: "Do these USA dating offers include free signup?",
     answer:
-      "GayBloom, PridePair, and Manfinder are the gay dating options featured for eligible USA visitors. You can also compare our dedicated gay dating category for a deeper shortlist.",
+      "Most USA dating offers and adult dating sites listed here allow free registration with optional premium upgrades. USA users can often create a profile and browse before paying. Exact pricing depends on each dating platform’s offer terms.",
   },
   {
-    question: "Is online dating safe for adults in the USA?",
+    question: "Can USA users compare AI companion offers here too?",
     answer:
-      "Use platforms with privacy controls and verification tools, keep personal details private early on, never send money to someone you have not met, and choose public places for first meetings. Always follow each provider’s safety guidance.",
+      "Yes. Dreamz.ai is listed as an AI companion offer for USA users who want virtual conversations instead of traditional dating. You can also explore more AI girlfriend offers in our AI companion category.",
+  },
+  {
+    question: "How should USA users choose the right dating offer?",
+    answer:
+      "Start with intention: casual dating, gay dating, mature dating, adult dating, or AI companion. Then compare USA-available offers by category, safety tools, and signup experience. TheDateCompass only lists third-party dating offers for USA users and does not operate the platforms.",
   },
 ];
 
@@ -587,10 +417,10 @@ export default function UsaPage() {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(145deg,#0f0a0e,#1f1220_60%,#12101a)]" />
           <div className="mx-auto max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose-300/80">
-              FAQ
+              FAQ · USA offers
             </p>
             <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Common questions about USA dating sites
+              Dating offers for USA users — common questions
             </h2>
             <div className="mt-10 space-y-4">
               {usaFaqs.map((faq) => (

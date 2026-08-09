@@ -3,135 +3,90 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import BrandLogo from "@/components/Home/BrandLogo";
 
-// countries menu removed from header
+const navLinks = [
+  { href: "#featured", label: "Offers" },
+  { href: "#categories", label: "Categories" },
+  { href: "#countries", label: "Countries" },
+  { href: "/category/ai-girlfriend", label: "AI Girlfriend" },
+  { href: "#faq", label: "FAQ" },
+];
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/95 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5">
+    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
+        <BrandLogo icon="heart" />
 
-        {/* Logo */}
-
-        <Link href="/" className="flex items-center gap-3">
-
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E83E9B] shadow-lg shadow-pink-300">
-            <span className="text-2xl font-black italic text-white">
-              D
-            </span>
-          </div>
-
-          <div>
-
-            <h1 className="text-xl font-black md:text-2xl">
-              <span className="text-[#E83E9B]">TheDate</span>
-              <span className="text-[#222]">Compass</span>
-            </h1>
-
-          <p className="hidden text-[10px] uppercase tracking-[3px] text-gray-500 md:block">
-              Dating Directory
-            </p>
-
-          </div>
-
-        </Link>
-
-        {/* Desktop */}
-
-        <nav className="hidden items-center gap-8 lg:flex">
-          <Link
-            href="/category/ai-girlfriend"
-            className="font-semibold text-gray-700 hover:text-[#E83E9B]"
-          >
-            AI Girlfriend
-          </Link>
+        <nav className="hidden items-center gap-5 lg:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-semibold text-gray-600 transition hover:text-[#E83E9B]"
+            >
+              {link.label}
+            </Link>
+          ))}
 
           <Link
-            href="/usa"
-            className="rounded-full bg-[#E83E9B] px-6 py-3 font-bold text-white transition hover:scale-105"
+            href="#countries"
+            className="rounded-full bg-[#E83E9B] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#d12f88]"
           >
-            Explore USA
+            Browse countries
           </Link>
-
         </nav>
 
-        {/* Mobile Button */}
-
         <button
+          type="button"
           onClick={() => setMobileMenu(!mobileMenu)}
-          className="lg:hidden"
+          className="grid h-9 w-9 place-items-center rounded-full text-gray-700 transition hover:bg-gray-100 lg:hidden"
+          aria-label={mobileMenu ? "Close menu" : "Open menu"}
         >
-          {mobileMenu ? <FaTimes size={24} /> : <FaBars size={24} />}
+          {mobileMenu ? <FaTimes size={18} /> : <FaBars size={18} />}
         </button>
-
       </div>
 
-    {/* Mobile Menu */}
+      {mobileMenu && (
+        <div className="fixed inset-0 z-[999] bg-[#111111] text-white lg:hidden">
+          <div className="flex h-14 items-center justify-between border-b border-white/10 px-5">
+            <BrandLogo dark icon="heart" onClick={() => setMobileMenu(false)} />
 
-{mobileMenu && (
+            <button
+              type="button"
+              onClick={() => setMobileMenu(false)}
+              className="grid h-9 w-9 place-items-center rounded-full text-white/80 transition hover:bg-white/10"
+              aria-label="Close menu"
+            >
+              <FaTimes size={18} />
+            </button>
+          </div>
 
-<div className="fixed inset-0 z-[999] bg-gradient-to-b from-[#111111] via-[#1a1a1a] to-[#111111] text-white lg:hidden">
+          <div className="space-y-1 px-5 py-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenu(false)}
+                className="block rounded-xl px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/5 hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
 
-  {/* Header */}
-
-  <div className="flex h-20 items-center justify-between border-b border-white/10 bg-[#111111] px-6">
-
-    <Link
-      href="/"
-      onClick={() => setMobileMenu(false)}
-      className="flex items-center gap-3"
-    >
-     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E83E9B] shadow-lg shadow-pink-300 md:h-12 md:w-12">
-  <span className="text-xl font-black italic text-white md:text-2xl">
-    D
-  </span>
-</div>
-
-<h2 className="text-xl font-black md:text-2xl">
-        <span className="text-[#E83E9B]">
-          TheDate
-        </span>
-        Compass
-      </h2>
-    </Link>
-
-    <button
-      onClick={() => setMobileMenu(false)}
-    >
-      <FaTimes size={26} />
-    </button>
-
-  </div>
-
-  {/* Navigation */}
-<div className="overflow-y-auto bg-[#111111] px-6 py-8">
-
-    <Link
-      href="/category/ai-girlfriend"
-      onClick={() => setMobileMenu(false)}
-      className="block rounded-xl px-5 py-4 font-semibold transition hover:bg-pink-50"
-    >
-      AI Girlfriend
-    </Link>
-
-
-
-    <Link
-      href="/usa"
-      onClick={() => setMobileMenu(false)}
-      className="mt-8 block rounded-full bg-[#E83E9B] py-4 text-center font-bold text-white transition hover:bg-pink-600"
-    >
-      Explore USA
-    </Link>
-
-  </div>
-
-</div>
-
-)}
-
+            <Link
+              href="#countries"
+              onClick={() => setMobileMenu(false)}
+              className="mt-5 block rounded-full bg-[#E83E9B] py-3 text-center text-sm font-bold text-white transition hover:bg-[#d12f88]"
+            >
+              Browse countries
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
