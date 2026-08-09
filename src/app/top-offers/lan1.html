@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sparq. — Dating for the old souls</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #fff9f8;
+      --accent-coral: #f85c50;
+      --accent-pale: #fde8e6;
+      --dark: #1a1515;
+      --text-muted: #6b6565;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg-cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-serif {
+      font-family: "Playfair Display", serif;
+    }
+
+    .text-accent { color: var(--accent-coral) !important; }
+    .bg-accent { background-color: var(--accent-coral) !important; }
+    .bg-dark-custom { background-color: var(--dark) !important; }
+    .text-muted-custom { color: var(--text-muted) !important; }
+
+    /* Navbar */
+    .navbar-brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .nav-link-custom {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-link-custom:hover { color: var(--accent-coral); }
+
+    .btn-coral {
+      background: var(--accent-coral);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.75rem;
+      font-weight: 500;
+    }
+
+    .btn-coral:hover {
+      background: #e54a3e;
+      color: #fff;
+    }
+
+    .btn-dark-pill {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 50rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-dark-pill:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    /* Hero */
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-coral);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 400;
+    }
+
+    .hero-arch {
+      border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/5;
+    }
+
+    .hero-arch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255, 249, 248, 0.95);
+      color: var(--dark);
+      font-size: 0.75rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 50rem;
+      z-index: 2;
+    }
+
+    .link-arrow {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .link-arrow:hover { color: var(--accent-coral); }
+
+    .store-badge {
+      height: 36px;
+      opacity: 0.85;
+    }
+
+    /* Marquee */
+    .marquee-wrap {
+      background: var(--accent-pale);
+      overflow: hidden;
+      padding: 0.85rem 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+
+    .marquee-track span {
+      white-space: nowrap;
+      padding: 0 2rem;
+      font-size: 0.9rem;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Deal cards */
+    .deal-card {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      min-height: 320px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .deal-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+    }
+
+    .deal-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--accent-coral);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 50rem;
+      z-index: 2;
+    }
+
+    .deal-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .deal-title {
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .deal-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .deal-arrow:hover {
+      background: rgba(255,255,255,0.35);
+      color: #fff;
+    }
+
+    /* Steps */
+    .step-number {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(4rem, 10vw, 7rem);
+      color: var(--accent-coral);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .step-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      height: 100%;
+    }
+
+    .quote-icon {
+      color: var(--accent-coral);
+      font-size: 3rem;
+      line-height: 1;
+      font-family: "Playfair Display", serif;
+    }
+
+    .testimonial-text {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* CTA banner */
+    .cta-banner {
+      background: var(--accent-coral);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      color: #fff;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 400;
+    }
+
+    .email-group {
+      display: flex;
+      background: #fff;
+      border-radius: 50rem;
+      overflow: hidden;
+      padding: 0.35rem;
+      max-width: 420px;
+    }
+
+    .email-group input {
+      border: none;
+      flex: 1;
+      padding: 0.75rem 1.25rem;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .email-group button {
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      border-radius: 50rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-watermark {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(4rem, 12vw, 9rem);
+      color: rgba(255,255,255,0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .footer-link {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-link:hover { color: #fff; }
+
+    .footer-heading {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg py-4">
+    <div class="container">
+      <a class="navbar-brand" href="#">Sparq.</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-lg-4">
+          <li class="nav-item"><a class="nav-link-custom" href="#">Dating</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#">Matchmaking</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="btn btn-dark-pill">Manage your account</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <p class="eyebrow mb-3">Dating for the old souls</p>
+          <h1 class="hero-title font-serif mb-4">
+            Meet someone worth <em class="text-accent">staying up for.</em>
+          </h1>
+          <p class="text-muted-custom mb-4 pe-lg-5" style="max-width: 520px;">
+            Real connections for people who'd rather have one great conversation than a hundred small talks. No games. Just chemistry.
+          </p>
+          <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+            <a href="#" class="btn btn-coral rounded-pill">Claim your free week</a>
+            <a href="#" class="link-arrow">Become a member →</a>
+          </div>
+          <div class="d-flex gap-3 align-items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="store-badge">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="store-badge">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-arch">
+            <span class="member-badge">Member of the month</span>
+            <img src="https://images.unsplash.com/photo-1516589178581-6adb783a0d9d?w=600&h=750&fit=crop" alt="Couple at sunset">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Butterflies • First dates • Late-night talks • Slow dances • </span>
+      <span>Butterflies • First dates • Late-night talks • Slow dances • </span>
+    </div>
+  </div>
+
+  <!-- Deals -->
+  <section class="py-5 py-lg-6">
+    <div class="container">
+      <div class="row align-items-end mb-5 g-4">
+        <div class="col-lg-7">
+          <h2 class="font-serif display-5">Deals worth <em class="text-accent">falling for.</em></h2>
+        </div>
+        <div class="col-lg-5">
+          <p class="text-muted-custom mb-0">Premium plans designed for people who take love seriously — and want the tools to find it.</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="deal-card" style="background-image: url('https://images.unsplash.com/photo-1522673607800-1d9837241f65?w=800&h=600&fit=crop');">
+            <span class="deal-badge">HOT DEAL</span>
+            <div class="deal-content">
+              <h3 class="deal-title">Spark Premium</h3>
+              <a href="#" class="deal-arrow">→</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="deal-card" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a57590ae?w=800&h=600&fit=crop');">
+            <span class="deal-badge">NEW</span>
+            <div class="deal-content">
+              <h3 class="deal-title">Gold Membership</h3>
+              <a href="#" class="deal-arrow">→</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="deal-card" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd4a70?w=800&h=600&fit=crop');">
+            <span class="deal-badge">30% OFF</span>
+            <div class="deal-content">
+              <h3 class="deal-title">Spark Premium</h3>
+              <a href="#" class="deal-arrow">→</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="deal-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop');">
+            <div class="deal-content">
+              <h3 class="deal-title">Gold Membership</h3>
+              <a href="#" class="deal-arrow">→</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Steps -->
+  <section class="bg-dark-custom text-white py-5 py-lg-6">
+    <div class="container">
+      <h2 class="font-serif display-5 mb-5 pb-3">
+        Three steps between <em class="text-accent">you</em> and <em class="text-accent">them.</em>
+      </h2>
+
+      <div class="row align-items-center mb-5 pb-4">
+        <div class="col-md-4"><div class="step-number">01</div></div>
+        <div class="col-md-8">
+          <h3 class="step-title">Make it real</h3>
+          <p class="text-white-50 mb-0" style="max-width: 480px;">Tell us who you are — not just your best photo. We match on values, humor, and the things that actually matter.</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-5 pb-4">
+        <div class="col-md-8 order-md-1 order-2">
+          <h3 class="step-title">Meet fewer, better</h3>
+          <p class="text-white-50 mb-0" style="max-width: 480px;">No endless swiping. We curate a small number of high-quality matches each week — people worth your time.</p>
+        </div>
+        <div class="col-md-4 text-md-end order-md-2 order-1"><div class="step-number">02</div></div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-md-4"><div class="step-number">03</div></div>
+        <div class="col-md-8">
+          <h3 class="step-title">Light the spark</h3>
+          <p class="text-white-50 mb-0" style="max-width: 480px;">From first message to first date, we give you the prompts and plans to turn a match into something real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-5 py-lg-6">
+    <div class="container">
+      <p class="eyebrow mb-2">Success stories</p>
+      <h2 class="font-serif display-5 mb-5">They swiped. They stayed.</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">"I deleted every other app the week I met James. Sparq felt like someone actually cared about finding me the right person."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=88&h=88&fit=crop" alt="Sarah" class="avatar">
+              <div>
+                <div class="fw-semibold">Sarah M.</div>
+                <div class="text-muted-custom small">Brooklyn, NY · Together 2 years</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">"The match quality is unreal. Three dates in, and I'd already found someone I wanted to keep talking to past midnight."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop" alt="David" class="avatar">
+              <div>
+                <div class="fw-semibold">David K.</div>
+                <div class="text-muted-custom small">Austin, TX · Engaged</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <h2 class="font-serif mb-3">Your free week <em>starts</em> the second you sign up.</h2>
+            <p class="mb-0 opacity-75">No credit card. No commitment. Just a week to see what real matchmaking feels like.</p>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-lg-end">
+            <div class="email-group w-100">
+              <input type="email" placeholder="Enter your email">
+              <button type="button">Get started</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-custom text-white pt-5 pb-4">
+    <div class="container position-relative">
+      <div class="row g-4 pb-5">
+        <div class="col-lg-5">
+          <div class="font-serif fs-4 mb-3">Sparq.</div>
+          <p class="text-white-50 small" style="max-width: 280px;">Dating for people who believe in slow burns, deep talks, and love worth waiting for.</p>
+        </div>
+        <div class="col-lg-3">
+          <div class="footer-heading">Our services</div>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="footer-link">Dating</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Matchmaking</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Events</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Jobs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <div class="footer-heading">Socials</div>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="footer-link">Instagram</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-watermark">find your spark</div>
+
+      <div class="d-flex flex-wrap justify-content-between align-items-center pt-4 border-top border-secondary border-opacity-25 position-relative" style="z-index: 1;">
+        <small class="text-white-50">© 2026 Sparq. All rights reserved.</small>
+        <div class="d-flex gap-3">
+          <a href="#" class="footer-link small">Privacy</a>
+          <a href="#" class="footer-link small">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

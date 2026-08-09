@@ -105,8 +105,8 @@ export default function Home() {
       <Hero />
 
       <FeaturedOffers />
-<FeaturedPlatforms />
- 
+      <FeaturedPlatforms />
+
       <Categories />
 
       <WhyChoose />
