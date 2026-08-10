@@ -9,14 +9,7 @@ import {
   type DreamzCompanion,
 } from "@/data/aiGirlfriendOffers";
 
-const navItems = [
-  "Home",
-  "Chat",
-  "Companions",
-  "My Companions",
-  "Favorites",
-  "Create",
-];
+ 
 
 const featured = dreamzCompanions.find((c) => c.featured) ?? dreamzCompanions[0];
 

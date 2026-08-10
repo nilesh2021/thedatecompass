@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { countries } from "@/data/countries";
 import BrandLogo from "@/components/Home/BrandLogo";
 
 const legalLinks = [
