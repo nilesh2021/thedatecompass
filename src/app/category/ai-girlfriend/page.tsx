@@ -123,9 +123,7 @@ export default function AIGirlfriendCategoryPage() {
                         </p>
                       </div>
 
-                      <div className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-sm font-semibold text-yellow-400">
-                        ★ {offer.rating}
-                      </div>
+                      
                     </div>
 
                     <p className="mt-4 text-sm leading-relaxed text-white/60">
