@@ -21,6 +21,7 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/usa": { priority: 0.85, changeFrequency: "weekly" },
   "/germany": { priority: 0.85, changeFrequency: "weekly" },
   "/adult-offers": { priority: 0.9, changeFrequency: "weekly" },
+  "/offers/cheekycrush": { priority: 0.9, changeFrequency: "weekly" },
   "/privacy-policy": { priority: 0.3, changeFrequency: "yearly" },
   "/terms-and-conditions": { priority: 0.3, changeFrequency: "yearly" },
   "/cookie-policy": { priority: 0.3, changeFrequency: "yearly" },
