@@ -148,9 +148,7 @@ export default function AIGirlfriendCategoryPage() {
                         {offer.promo}
                       </span>
 
-                      <span className="text-xs text-white/40">
-                        {offer.reviews}+ reviews
-                      </span>
+                     
                     </div>
 
                     <a
