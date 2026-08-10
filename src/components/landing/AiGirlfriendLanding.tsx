@@ -1,7 +1,11 @@
+"use client";
+
+ 
 import Image from "next/image";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
+import { trackAffiliateClick } from "@/lib/analytics";
 import {
   aiGirlfriendFaqs,
   dreamzCompanions,
@@ -143,7 +147,7 @@ export default function AiGirlfriendLanding() {
                 </span>
               </h1>
               <p className="animate-fade-up-delay-2 mt-5 max-w-2xl text-base leading-relaxed text-gray-600 lg:text-lg lg:text-white/60">
-              Explore personalized AI companions for private conversations, different personalities, and roleplay. Start exploring for free.
+              Explore personalized AI companions for private conversations, roleplay, and virtual companionship. Choose a personality that fits your style and start exploring.
               </p>
 
               <ul className="animate-fade-up-delay-2 mt-6 grid max-w-2xl gap-2 sm:grid-cols-2">
@@ -164,6 +168,9 @@ export default function AiGirlfriendLanding() {
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
+                  onClick={() =>
+                    trackAffiliateClick("Dreamz.ai", "hero")
+                  }
                 >
                Try Dreamz.ai Free →
                 </a>

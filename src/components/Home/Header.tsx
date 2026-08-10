@@ -6,11 +6,11 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import BrandLogo from "@/components/Home/BrandLogo";
 
 const navLinks = [
-  { href: "#featured", label: "Offers" },
-  { href: "#categories", label: "Categories" },
-  { href: "#countries", label: "Countries" },
+  { href: "/#featured", label: "Offers" },
+  { href: "/#categories", label: "Categories" },
+  { href: "/#countries", label: "Countries" },
   { href: "/category/ai-girlfriend", label: "AI Girlfriend" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
           ))}
 
           <Link
-            href="#countries"
+            href="/#countries"
             className="rounded-full bg-[#E83E9B] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#d12f88]"
           >
             Browse countries
@@ -77,13 +77,13 @@ export default function Header() {
               </Link>
             ))}
 
-            <Link
-              href="#countries"
-              onClick={() => setMobileMenu(false)}
-              className="mt-5 block rounded-full bg-[#E83E9B] py-3 text-center text-sm font-bold text-white transition hover:bg-[#d12f88]"
-            >
-              Browse countries
-            </Link>
+<Link
+  href="/#countries"
+  onClick={() => setMobileMenu(false)}
+  className="mt-5 block rounded-full bg-[#E83E9B] py-3 text-center text-sm font-bold text-white transition hover:bg-[#d12f88]"
+>
+  Browse countries
+</Link>
           </div>
         </div>
       )}
