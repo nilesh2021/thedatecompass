@@ -1,98 +1,132 @@
 export interface AiGirlfriendOffer {
-  id: string;
   name: string;
-  rating: number;
-  reviews: number;
+  
   badge: string;
   bestFor: string;
   description: string;
   highlights: string[];
   url: string;
-  logo: string;
-  featured?: boolean;
-  promo?: string;
+  promo: string;
 }
 
+export const dreamzOffer: AiGirlfriendOffer = {
+  name: "Dreamz.ai",
+  badge: "Editor's Choice",
+  bestFor: "Custom companions & roleplay",
+  description:
+    "Create a personalized AI companion with natural conversation, immersive roleplay, and private chats — ready in minutes.",
+  highlights: [
+    "Custom personalities",
+    "AI roleplay",
+    "Private chat",
+    "Mobile friendly",
+  ],
+  url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+  promo: "Free to start",
+};
 export const aiGirlfriendOffers: AiGirlfriendOffer[] = [
+  dreamzOffer,
+];
+export type DreamzCompanion = {
+  name: string;
+  age: number;
+  likes: string;
+  pace: "FAST" | "FAST-BURN" | "EVEN PACED";
+  bio: string;
+  image: string;
+  imageAlt?: string;
+  video?: string;
+  featured?: boolean;
+};
+
+export const dreamzCompanions: DreamzCompanion[] = [
   {
-    id: "dreamz",
-    name: "Dreamz.ai",
-    rating: 4.9,
-    reviews: 312,
-    badge: "Editor's Choice",
-    bestFor: "Custom companions & roleplay",
-    description:
-      "Create a personalized AI companion with natural conversation, immersive roleplay, and private chats — ready in minutes.",
-    highlights: [
-      "Custom personalities",
-      "AI roleplay",
-      "Private chat",
-      "Mobile friendly",
-    ],
-    url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
-    logo: "https://api.dicebear.com/9.x/shapes/svg?seed=Dreamz",
+    name: "Ari",
+    age: 21,
+    likes: "1.9k",
+    pace: "FAST",
+    bio: "Soft-spoken companion who loves late-night talks and playful roleplay.",
+    image: "/images/dreamz/companion-1.webp",
+    video: "/images/dreamz/companion-video.mp4",
     featured: true,
-    promo: "Free to start",
   },
   {
-    id: "soulchat",
-    name: "SoulChat AI",
-    rating: 4.7,
-    reviews: 198,
-    badge: "Trending",
-    bestFor: "Emotional companionship",
-    description:
-      "Built for adults who want deeper, context-aware conversations with an AI companion that remembers your preferences.",
-    highlights: [
-      "Memory-aware chat",
-      "Voice messages",
-      "Mood matching",
-      "Quick signup",
-    ],
-    url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
-    logo: "https://api.dicebear.com/9.x/shapes/svg?seed=SoulChat",
-    promo: "7-day trial",
+    name: "Ella",
+    age: 23,
+    likes: "2.4k",
+    pace: "FAST-BURN",
+    bio: "Confident, flirty, and always ready for an immersive story with you.",
+    image: "/images/dreamz/companion-2.webp",
   },
   {
-    id: "novaflame",
-    name: "NovaFlame",
-    rating: 4.6,
-    reviews: 164,
-    badge: "Popular",
-    bestFor: "Flirty AI conversations",
-    description:
-      "A playful AI girlfriend platform with instant messaging, customizable looks, and late-night conversation modes.",
-    highlights: [
-      "Instant messaging",
-      "Custom looks",
-      "Adult-friendly",
-      "Works on mobile",
-    ],
-    url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
-    logo: "https://api.dicebear.com/9.x/shapes/svg?seed=NovaFlame",
-    promo: "Limited offer",
+    name: "Maya",
+    age: 22,
+    likes: "3.1k",
+    pace: "EVEN PACED",
+    bio: "Warm and thoughtful — perfect if you want deeper emotional companionship.",
+    image: "/images/dreamz/companion-3.webp",
+  },
+  {
+    name: "Luna",
+    age: 24,
+    likes: "1.6k",
+    pace: "FAST",
+    bio: "Creative muse energy. Chat, flirt, or build a whole fantasy world together.",
+    image: "/images/dreamz/companion-4.webp",
+  },
+  {
+    name: "Nina",
+    age: 22,
+    likes: "2.8k",
+    pace: "FAST-BURN",
+    bio: "Fitness-focused companion with playful energy and conversations that keep pace with you.",
+    image: "/images/dreamz/companion-5.webp",
+  },
+  {
+    name: "Zoe",
+    age: 23,
+    likes: "2.1k",
+    pace: "EVEN PACED",
+    bio: "Golden-hour vibes and easygoing chats that feel natural from the first message.",
+    image: "/images/dreamz/companion-6.webp",
+  },
+  {
+    name: "Ivy",
+    age: 21,
+    likes: "1.8k",
+    pace: "FAST",
+    bio: "Bright smile, casual style, and a companion who always has something fun to say.",
+    image: "/images/dreamz/companion-7.webp",
+  },
+  {
+    name: "Sienna",
+    age: 24,
+    likes: "3.4k",
+    pace: "FAST-BURN",
+    bio: "Beach-day energy and endless summer vibes — always ready to splash into a new chat.",
+    image: "/images/dreamz/companion-8.png",
   },
 ];
 
 export const aiGirlfriendFaqs = [
   {
-    question: "What is an AI girlfriend platform?",
+    question: "What is Dreamz.ai?",
     answer:
-      "An AI girlfriend platform lets adults chat with customizable virtual companions powered by artificial intelligence — for conversation, companionship, and roleplay.",
+      "Dreamz.ai is an AI companion platform where adults can create a personalized virtual girlfriend for conversation, companionship, and roleplay.",
   },
   {
-    question: "Are these platforms free to try?",
+    question: "Is Dreamz.ai free to try?",
     answer:
-      "Most platforms offer free registration with optional premium upgrades. You can usually start chatting before committing to a paid plan.",
+      "Yes — you can create an account and start chatting for free. Premium features are available if you want to unlock more.",
   },
   {
     question: "Is my chat private?",
     answer:
-      "Reputable platforms encrypt conversations and keep chats on their secure servers. Always review each provider's privacy policy before signing up.",
+      "Conversations stay on the provider's servers. Review Dreamz.ai's privacy policy before signing up, and never share sensitive personal information.",
   },
   {
     question: "Who is this for?",
     answer:
-      "These platforms are intended for adults aged 18 and older seeking virtual companionship, conversation, or AI roleplay experiences.",
+      "Dreamz.ai is intended for adults aged 18 and older seeking virtual companionship, conversation, or AI roleplay.",
   },
 ];

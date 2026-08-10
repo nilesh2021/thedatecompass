@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
-            {countries.map((country) => (
+          {/*   {countries.map((country) => (
               <Link
                 key={country.slug}
                 href={`/${country.slug}`}
@@ -37,7 +37,7 @@ export default function Footer() {
               >
                 {country.flag} {country.name}
               </Link>
-            ))}
+            ))} */}
             <span className="hidden h-3 w-px bg-white/15 sm:inline-block" />
             {legalLinks.map((link) => (
               <Link

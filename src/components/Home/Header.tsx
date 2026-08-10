@@ -51,27 +51,27 @@ export default function Header() {
       </div>
 
       {mobileMenu && (
-        <div className="fixed inset-0 z-[999] bg-[#111111] text-white lg:hidden">
-          <div className="flex h-14 items-center justify-between border-b border-white/10 px-5">
-            <BrandLogo dark icon="heart" onClick={() => setMobileMenu(false)} />
+        <div className="fixed inset-0 z-[999] bg-white text-gray-900 lg:hidden">
+          <div className="flex h-14 items-center justify-between border-b border-black/5 px-5">
+            <BrandLogo icon="heart" onClick={() => setMobileMenu(false)} />
 
             <button
               type="button"
               onClick={() => setMobileMenu(false)}
-              className="grid h-9 w-9 place-items-center rounded-full text-white/80 transition hover:bg-white/10"
+              className="grid h-9 w-9 place-items-center rounded-full text-gray-700 transition hover:bg-gray-100"
               aria-label="Close menu"
             >
               <FaTimes size={18} />
             </button>
           </div>
 
-          <div className="space-y-1 px-5 py-6">
+          <div className="space-y-1 px-5 py-3 bg-dark text-white" style={{ background: "#fbfbfb" }}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenu(false)}
-                className="block rounded-xl px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/5 hover:text-white"
+                className="block rounded-xl px-4 py-1 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 hover:text-[#E83E9B]"
               >
                 {link.label}
               </Link>

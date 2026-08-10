@@ -1,396 +1,347 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect } from "react";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import DreamzLogo from "@/components/landing/DreamzLogo";
 import {
   aiGirlfriendFaqs,
-  aiGirlfriendOffers,
+  dreamzCompanions,
+  dreamzOffer,
+  type DreamzCompanion,
 } from "@/data/aiGirlfriendOffers";
 
-const cardClass =
-  "rounded-3xl border border-stone-200/80 bg-white shadow-[0_2px_16px_rgba(28,25,23,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(28,25,23,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0";
-
-const eyebrowClass =
-  "text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-rose-700/80";
-
-const sectionTitleClass =
-  "font-display text-4xl leading-tight   text-stone-900 md:text-5xl";
-
-const btnPrimaryClass =
-  "inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-stone-800";
-
-const btnSecondaryClass =
-  "inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-stone-900 transition-colors hover:text-rose-800";
-
-const features = [
-  {
-    title: "Custom personalities",
-    description:
-      "Shape an AI companion that matches your vibe — playful, supportive, flirty, or thoughtful.",
-  },
-  {
-    title: "Private conversations",
-    description:
-      "Chat anytime without judgment. Our top picks prioritize discreet, secure messaging.",
-  },
-  {
-    title: "Instant access",
-    description:
-      "No long waitlists. Create an account and start talking in a few minutes.",
-  },
+const navItems = [
+  "Home",
+  "Chat",
+  "Companions",
+  "My Companions",
+  "Favorites",
+  "Create",
 ];
 
-const steps = [
-  {
-    step: "01",
-    title: "Pick a platform",
-    description:
-      "Compare our ranked offers below — each scored for chat quality, privacy, and ease of use.",
-  },
-  {
-    step: "02",
-    title: "Create your companion",
-    description:
-      "Sign up, customize personality and style, then start your first conversation.",
-  },
-  {
-    step: "03",
-    title: "Chat anytime",
-    description:
-      "Pick up where you left off — day or night — with an AI that adapts to you.",
-  },
-];
+const featured = dreamzCompanions.find((c) => c.featured) ?? dreamzCompanions[0];
 
-function StarRating({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-
+function PaceBadge({ pace }: { pace: string }) {
   return (
-    <span
-      className="text-sm tracking-wide text-amber-600"
-      aria-label={`${rating} out of 5 stars`}
-    >
-      {"★".repeat(full)}
-      {"☆".repeat(5 - full)}
-      <span className="ml-2 text-stone-500">{rating}</span>
+    <span className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg">
+      <span aria-hidden>🔥</span>
+      {pace}
     </span>
   );
 }
 
-export default function AiGirlfriendLanding() {
-  const featured =
-    aiGirlfriendOffers.find((o) => o.featured) ?? aiGirlfriendOffers[0];
-
-  // #region agent log
-  useEffect(() => {
-    const probe = document.getElementById("css-debug-probe-ai");
-    const h1 = document.querySelector("[data-css-debug-h1-ai]");
-    const root = document.documentElement;
-    const body = document.body;
-    const probeStyles = probe ? getComputedStyle(probe) : null;
-    const h1Styles = h1 ? getComputedStyle(h1) : null;
-    const bodyStyles = getComputedStyle(body);
-    const sheets = Array.from(document.styleSheets).map((s) => {
-      try {
-        return { href: s.href, rules: s.cssRules?.length ?? -1 };
-      } catch {
-        return { href: s.href, rules: -1 };
-      }
-    });
-    const hasTwUtility = sheets.some((s) =>
-      (s.href || "").includes("/_next/static/css")
+function CompanionMedia({
+  companion,
+  priority = false,
+  className = "",
+}: {
+  companion: DreamzCompanion;
+  priority?: boolean;
+  className?: string;
+}) {
+  if (companion.video) {
+    return (
+      <video
+        className={`h-full w-full object-cover ${className}`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={companion.image}
+        aria-label={`${companion.name} companion preview`}
+      >
+        <source src={companion.video} type="video/mp4" />
+      </video>
     );
-    fetch("http://127.0.0.1:7696/ingest/23f7ee04-52f4-47ec-893c-bfe86f572372", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Debug-Session-Id": "4e7dc8",
-      },
-      body: JSON.stringify({
-        sessionId: "4e7dc8",
-        runId: "pre-fix",
-        hypothesisId: "A-B-C-D-E",
-        location: "AiGirlfriendLanding.tsx:useEffect",
-        message: "AI girlfriend CSS runtime probe",
-        data: {
-          page: "/category/ai-girlfriend",
-          stylesheetCount: sheets.length,
-          hasNextCssLink: hasTwUtility,
-          sheetHrefs: sheets.map((s) => s.href).filter(Boolean).slice(0, 8),
-          fontInstrumentOnRoot: getComputedStyle(root).getPropertyValue(
-            "--font-instrument-serif"
-          ).trim(),
-          fontInstrumentOnH1: h1
-            ? getComputedStyle(h1)
-                .getPropertyValue("--font-instrument-serif")
-                .trim()
-            : "",
-          fontInterOnH1: h1
-            ? getComputedStyle(h1).getPropertyValue("--font-inter").trim()
-            : "",
-          prefersColorScheme: window.matchMedia("(prefers-color-scheme: dark)")
-            .matches
-            ? "dark"
-            : "light",
-          bodyBg: bodyStyles.backgroundColor,
-          bodyColor: bodyStyles.color,
-          bodyFont: bodyStyles.fontFamily,
-          probeBg: probeStyles?.backgroundColor,
-          probeColor: probeStyles?.color,
-          probeRadius: probeStyles?.borderRadius,
-          probeShadow: probeStyles?.boxShadow,
-          h1Font: h1Styles?.fontFamily,
-          h1Size: h1Styles?.fontSize,
-          headingOverrideLikely: Boolean(
-            h1Styles?.fontFamily?.includes("Space Grotesk")
-          ),
-          tailwindUtilitiesApplied: Boolean(
-            probeStyles &&
-              probeStyles.backgroundColor !== "rgba(0, 0, 0, 0)" &&
-              probeStyles.backgroundColor !== "transparent"
-          ),
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-  }, []);
-  // #endregion
+  }
+
+  return (
+    <Image
+      src={companion.image}
+      alt={`${companion.name} AI companion`}
+      width={400}
+      height={350}
+      priority={priority}
+      className={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${className}`}
+    />
+  );
+}
+
+function CompanionCard({
+  companion,
+  href,
+  priority = false,
+}: {
+  companion: DreamzCompanion;
+  href: string;
+  priority?: boolean;
+}) {
+  const cardMedia = { ...companion, video: undefined };
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="sponsored nofollow noopener noreferrer"
+      className="group flex flex-col overflow-hidden rounded-[1.25rem] border border-black/5 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl lg:border-white/10 lg:bg-[#16161c] lg:shadow-none lg:hover:border-violet-500/40"
+    >
+      <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 lg:bg-[#0d0d12]">
+        <CompanionMedia companion={cardMedia} priority={priority} />
+        <PaceBadge pace={companion.pace} />
+      </div>
+
+      <div className="flex flex-1 flex-col p-4">
+        <div className="mb-2 flex items-start justify-between gap-2">
+          <h3 className="text-[15px] font-bold text-gray-900 lg:text-white">
+            {companion.name}, {companion.age}
+          </h3>
+          <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-violet-600 lg:text-violet-400">
+            <svg
+              viewBox="0 0 24 24"
+              className="h-3.5 w-3.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M12 20.2c-.4 0-.7-.1-1-.3C7.4 17.2 4.5 14.5 3.2 11.8 2.2 9.6 2.5 7 4.2 5.4c1.5-1.4 3.8-1.6 5.5-.4L12 6.5l2.3-1.5c1.7-1.2 4-1 5.5.4 1.7 1.6 2 4.2 1 6.4-1.3 2.7-4.2 5.4-7.8 8.1-.3.2-.6.3-1 .3z" />
+            </svg>
+            {companion.likes}
+          </span>
+        </div>
+        <p className="line-clamp-2 text-sm leading-relaxed text-gray-600 lg:text-white/55">
+          {companion.bio}{" "}
+          <span className="text-violet-700 underline decoration-violet-500/60 underline-offset-2 lg:text-violet-300">
+            read more
+          </span>
+        </p>
+      </div>
+    </a>
+  );
+}
+
+export default function AiGirlfriendLanding() {
+  const offer = dreamzOffer;
 
   return (
     <>
       <Header />
 
-      <div
-        data-css-debug-root-ai
-        className="bg-[radial-gradient(ellipse_at_top,_#fdf6f4_0%,_#fafaf9_45%,_#f5f5f4_100%)] text-stone-900"
-      >
-        {/* #region agent log */}
-        <div
-          id="css-debug-probe-ai"
-          aria-hidden
-          className="pointer-events-none absolute h-0 w-0 overflow-hidden rounded-3xl bg-stone-50 text-stone-900 shadow-card"
-        />
-        {/* #endregion */}
+      <main className="bg-white text-gray-900 lg:bg-[#07070a] lg:text-white">
         {/* Hero */}
-        <section className="px-6 pb-20 pt-16 lg:px-10 lg:pb-32 lg:pt-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-2 lg:gap-24">
-            <div>
-              <p className={`${eyebrowClass} mb-6`}>AI girlfriend · 2026</p>
-              <h1
-                data-css-debug-h1-ai
-                className="font-display mb-8 text-[clamp(2.75rem,6vw,4.75rem)] leading-[1.05]  "
-              >
-                Your companion,{" "}
-                <em className="text-rose-800/90 not-italic">always online.</em>
-              </h1>
-              <p className="mb-10 max-w-lg text-lg leading-relaxed text-stone-500">
-                We compared the best AI girlfriend platforms so you can skip the
-                hype and find private, personalized companionship that actually
-                feels good to use.
-              </p>
-              <div className="flex flex-wrap items-center gap-6">
-                <a
-                  href={featured.url}
-                  target="_blank"
-                  rel="sponsored nofollow noopener noreferrer"
-                  className={btnPrimaryClass}
-                >
-                  Try {featured.name} free
-                </a>
-                <a href="#offers" className={btnSecondaryClass}>
-                  Compare offers →
-                </a>
-              </div>
-              <p className="mt-6 text-sm text-stone-400">
-                Adults 18+ · Free to start · Opens official provider sites
-              </p>
-            </div>
+        <section className="relative overflow-hidden border-b border-black/5 px-5 py-10 lg:border-white/5 lg:py-14">
+          <div className="pointer-events-none absolute -right-24 top-0 hidden h-80 w-80 rounded-full bg-violet-600/25 blur-[100px] lg:block" />
+          <div className="pointer-events-none absolute -left-20 bottom-0 hidden h-64 w-64 rounded-full bg-fuchsia-600/15 blur-[90px] lg:block" />
 
-            <div className="relative">
-              <div className="overflow-hidden rounded-[2rem] shadow-[0_8px_40px_rgba(28,25,23,0.08)]">
-                <Image
-                  src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=1000&fit=crop"
-                  alt="AI companion conversation concept"
-                  width={800}
-                  height={1000}
-                  className="aspect-[4/5] w-full object-cover"
-                  priority
+          <div className="relative mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_250px]">
+            <div className="min-w-0">
+              <div className="mb-5">
+                <DreamzLogo
+                  size="lg"
+                  className="text-gray-900 lg:text-white"
                 />
               </div>
-              <div
-                className={`${cardClass} absolute -bottom-6 -left-4 px-6 py-4 lg:-left-8`}
-              >
-                <p className="text-2xl font-semibold text-stone-900">
-                  {featured.rating}★
-                </p>
-                <p className="text-sm text-stone-500">Top editor rating</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Features */}
-        <section className="px-6 py-20 lg:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 max-w-2xl">
-              <p className={`${eyebrowClass} mb-4`}>Why these platforms</p>
-              <h2 className={sectionTitleClass}>
-                Companionship built around conversation.
-              </h2>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              {features.map((feature) => (
-                <div key={feature.title} className={`${cardClass} p-10`}>
-                  <h3 className="mb-4 text-xl font-medium text-stone-900">
-                    {feature.title}
-                  </h3>
-                  <p className="leading-relaxed text-stone-500">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Offers */}
-        <section id="offers" className="bg-white/70 px-6 py-20 lg:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 max-w-xl">
-              <p className={`${eyebrowClass} mb-4`}>Promotional offers</p>
-              <h2 className={`${sectionTitleClass} mb-4`}>
-                Best AI girlfriend platforms ranked.
-              </h2>
-              <p className="text-lg leading-relaxed text-stone-500">
-                Hand-picked AI companion sites with current promos — scored on
-                chat quality, privacy, and signup speed.
+              <p className="animate-fade-up mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-violet-600 lg:text-violet-400">
+                TheDateCompass pick · Adults 18+
               </p>
-            </div>
+              <h1 className="animate-fade-up-delay-1 max-w-3xl text-[clamp(2.25rem,5vw,3.75rem)] font-black leading-[1.05] tracking-tight">
+              Meet Your AI Companion on{" "}
+                <span className="bg-gradient-to-r from-violet-500 to-fuchsia-400 bg-clip-text text-transparent">
+                  Dreamz.ai
+                </span>
+              </h1>
+              <p className="animate-fade-up-delay-2 mt-5 max-w-2xl text-base leading-relaxed text-gray-600 lg:text-lg lg:text-white/60">
+              Explore personalized AI companions for private conversations, different personalities, and roleplay. Start exploring for free.
+              </p>
 
-            <div className="grid gap-8 lg:grid-cols-3">
-              {aiGirlfriendOffers.map((offer, index) => (
+              <ul className="animate-fade-up-delay-2 mt-6 grid max-w-2xl gap-2 sm:grid-cols-2">
+                {offer.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-sm font-medium text-gray-700 lg:text-white/75"
+                  >
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
                 <a
-                  key={offer.id}
                   href={offer.url}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
-                  className={`${cardClass} flex h-full flex-col p-8 no-underline ${
-                    offer.featured ? "ring-2 ring-rose-800/15" : ""
-                  }`}
+                  className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
                 >
-                  <div className="mb-6 flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-stone-100">
-                        <Image
-                          src={offer.logo}
-                          alt=""
-                          width={56}
-                          height={56}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <span className="text-xs font-medium uppercase tracking-wider text-stone-400">
-                          #{index + 1}
-                        </span>
-                        <h3 className="text-xl font-semibold text-stone-900">
-                          {offer.name}
-                        </h3>
-                      </div>
-                    </div>
-                    {offer.badge && (
-                      <span className="shrink-0 rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-800">
-                        {offer.badge}
-                      </span>
-                    )}
-                  </div>
-
-                  {offer.promo && (
-                    <p className="mb-4 text-sm font-medium text-rose-800/80">
-                      {offer.promo}
-                    </p>
-                  )}
-
-                  <StarRating rating={offer.rating} />
-                  <p className="mt-2 text-sm text-stone-400">
-                    {offer.reviews} reviews
-                  </p>
-
-                  <p className="mt-6 flex-1 leading-relaxed text-stone-500">
-                    {offer.description}
-                  </p>
-
-                  <p className="mt-4 text-sm font-medium text-stone-700">
-                    Best for: {offer.bestFor}
-                  </p>
-
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {offer.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="rounded-full bg-stone-100 px-3 py-1 text-xs text-stone-600"
-                      >
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <span
-                    className={`${btnPrimaryClass} mt-8 w-full text-center`}
-                  >
-                    Visit {offer.name}
-                  </span>
+               Try Dreamz.ai Free →
                 </a>
-              ))}
+                <a
+                  href="#companions"
+                  className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-transparent px-7 py-3.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-50 lg:border-white/15 lg:text-white lg:hover:bg-white/5"
+                >
+                  Browse companions
+                </a>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 lg:text-white/45">
+                <span>{offer.promo}</span>
+                
+                <span>Best for: {offer.bestFor}</span>
+              </div>
+            </div>
+
+            {/* Small featured video */}
+            <a
+              href={offer.url}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              className="group relative mx-auto w-[180px] shrink-0 overflow-hidden rounded-2xl border border-black/10 shadow-xl sm:w-[200px] lg:mx-0 lg:w-full lg:border-white/10 lg:shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
+            >
+              <div className="relative aspect-[3/4] bg-[#0d0d12]">
+                <CompanionMedia companion={featured} priority />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                <span className="absolute right-2 top-2 z-10 rounded-full bg-violet-600 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
+                  Live
+                </span>
+                <div className="absolute inset-x-0 bottom-0 z-10 p-2.5">
+                  <p className="text-xs font-bold text-white">
+                    {featured.name}, {featured.age}
+                  </p>
+                  <p className="text-[10px] text-white/70">Tap to chat →</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        {/* Companions grid */}
+        <section id="companions" className="px-5 py-14 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-violet-600 lg:text-violet-400">
+                  Inside Dreamz.ai
+                </p>
+                <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+                Explore AI companions
+                </h2>
+              </div>
+              <a
+                href={offer.url}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className="text-sm font-semibold text-violet-600 transition hover:text-violet-500 lg:text-violet-400"
+              >
+                Open full catalog on Dreamz →
+              </a>
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-[220px_1fr] lg:gap-6">
+              <aside className="hidden lg:block">
+                <div className="sticky top-20 rounded-2xl border border-white/10 bg-[#101018] p-3">
+                  <div className="mb-4 px-2 pt-1">
+                    <DreamzLogo size="sm" className="text-white" />
+                  </div>
+                  <div className="flex-1 p-4">
+  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/40">
+    Companion Preview
+  </p>
+
+  <p className="mt-3 text-sm leading-relaxed text-white/50">
+    Explore a preview of the AI companion experience available on Dreamz.ai.
+  </p>
+
+  <div className="mt-6 space-y-3">
+    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+      <p className="text-sm font-semibold text-white/80">
+        Personalized companions
+      </p>
+      <p className="mt-1 text-xs text-white/40">
+        Explore different personalities and conversation styles.
+      </p>
+    </div>
+
+    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+      <p className="text-sm font-semibold text-white/80">
+        AI conversations
+      </p>
+      <p className="mt-1 text-xs text-white/40">
+        Chat and explore conversations with your chosen companion.
+      </p>
+    </div>
+
+    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+      <p className="text-sm font-semibold text-white/80">
+        Roleplay experiences
+      </p>
+      <p className="mt-1 text-xs text-white/40">
+        Discover different conversation and roleplay experiences.
+      </p>
+    </div>
+  </div>
+</div>
+                  <a
+                    href={offer.url}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                    className="mt-4 block rounded-xl bg-violet-600 py-3 text-center text-sm font-bold text-white transition hover:bg-violet-500"
+                  >
+                   Explore on Dreamz.ai →
+                  </a>
+                </div>
+              </aside>
+
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+                {dreamzCompanions.map((companion, index) => (
+                  <CompanionCard
+                    key={companion.name}
+                    companion={companion}
+                    href={offer.url}
+                    priority={index < 2}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* How it works */}
-        <section className="px-6 py-20 lg:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 max-w-xl">
-              <p className={`${eyebrowClass} mb-4`}>How it works</p>
-              <h2 className={sectionTitleClass}>
-                Three steps to your first chat.
-              </h2>
-            </div>
+       
 
-            <div className="grid gap-12 md:grid-cols-3">
-              {steps.map((item) => (
-                <div key={item.step} className="space-y-4">
-                  <span className="font-display text-5xl text-rose-800/25">
-                    {item.step}
-                  </span>
-                  <h3 className="text-xl font-medium text-stone-900">
-                    {item.title}
-                  </h3>
-                  <p className="leading-relaxed text-stone-500">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* Highlights */}
+        <section className="border-y border-black/5 bg-gray-50 px-5 py-16 lg:border-white/5 lg:bg-[#0c0c12] lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+            {offer.highlights.slice(0, 3).map((title, i) => (
+              <div key={title}>
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-violet-600 lg:text-violet-400">
+                  0{i + 1}
+                </p>
+                <h3 className="mb-2 text-xl font-bold">{title}</h3>
+                <p className="text-sm leading-relaxed text-gray-600 lg:text-white/50">
+                  {
+                    [
+                      "Build a companion that matches your energy and conversation style.",
+                      "Private chats designed for adults — available anytime.",
+                      "Sign up and start talking in minutes on desktop or mobile.",
+                    ][i]
+                  }
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="bg-white/70 px-6 py-20 lg:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 max-w-xl">
-              <p className={`${eyebrowClass} mb-4`}>FAQ</p>
-              <h2 className={sectionTitleClass}>Common questions.</h2>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
+        <section className="px-5 py-16 lg:py-20">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-10 text-3xl font-black tracking-tight md:text-4xl">
+              Common questions
+            </h2>
+            <div className="divide-y divide-black/5 lg:divide-white/10">
               {aiGirlfriendFaqs.map((faq) => (
-                <div key={faq.question} className={`${cardClass} p-8`}>
-                  <h3 className="mb-3 text-lg font-medium text-stone-900">
-                    {faq.question}
-                  </h3>
-                  <p className="leading-relaxed text-stone-500">{faq.answer}</p>
+                <div key={faq.question} className="py-5 first:pt-0 last:pb-0">
+                  <h3 className="mb-2 text-base font-semibold">{faq.question}</h3>
+                  <p className="text-sm leading-relaxed text-gray-600 lg:text-white/55">
+                    {faq.answer}
+                  </p>
                 </div>
               ))}
             </div>
@@ -398,37 +349,29 @@ export default function AiGirlfriendLanding() {
         </section>
 
         {/* CTA */}
-        <section className="px-6 py-20 lg:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className={`${cardClass} overflow-hidden`}>
-              <div className="grid items-center gap-12 p-10 lg:grid-cols-2 lg:p-16">
-                <div>
-                  <h2 className={`${sectionTitleClass} mb-6`}>
-                    Ready to meet your AI companion?
-                  </h2>
-                  <p className="text-lg leading-relaxed text-stone-500">
-                    Start with our editor&apos;s pick — free to try, no credit
-                    card required to create an account.
-                  </p>
-                </div>
-                <div className="flex flex-col items-start gap-4 lg:items-end">
-                  <a
-                    href={featured.url}
-                    target="_blank"
-                    rel="sponsored nofollow noopener noreferrer"
-                    className={`${btnPrimaryClass} px-10 py-4 text-base`}
-                  >
-                    Get started with {featured.name}
-                  </a>
-                  <p className="text-sm text-stone-400">
-                    Takes less than 2 minutes · Adults 18+
-                  </p>
-                </div>
-              </div>
-            </div>
+        <section className="px-5 pb-20 pt-4 lg:pb-28">
+          <div className="mx-auto max-w-3xl rounded-[1.5rem] border border-black/5 bg-gradient-to-br from-violet-50 to-fuchsia-50 px-8 py-12 text-center lg:border-violet-500/20 lg:from-violet-600/20 lg:to-fuchsia-600/10 lg:px-12">
+            <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+            Ready to Explore Dreamz.ai?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/55 md:text-base">
+  Create your AI companion, choose a personality, and start exploring
+  conversations on Dreamz.ai.
+</p>
+<a
+  href={offer.url}
+  target="_blank"
+  rel="nofollow sponsored noopener"
+  className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
+>
+  Try Dreamz.ai Free →
+</a>
+            <p className="mt-4 text-xs text-gray-400 lg:text-white/35">
+              Affiliate link · Adults 18+
+            </p>
           </div>
         </section>
-      </div>
+      </main>
 
       <Footer />
     </>
