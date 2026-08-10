@@ -2,6 +2,7 @@ import AiGirlfriendLanding from "@/components/landing/AiGirlfriendLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs } from "@/data/aiGirlfriendOffers";
+import { trackAffiliateClick } from "@/lib/analytics";
 export const metadata: Metadata = {
   title: "Dreamz.ai AI Companion | TheDateCompass",
   description:
