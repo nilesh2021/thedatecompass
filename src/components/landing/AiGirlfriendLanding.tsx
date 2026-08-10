@@ -6,6 +6,7 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
 import { trackAffiliateClick } from "@/lib/analytics";
+ 
 import {
   aiGirlfriendFaqs,
   dreamzCompanions,
@@ -67,10 +68,12 @@ function CompanionCard({
   companion,
   href,
   priority = false,
+  onAffiliateClick,
 }: {
   companion: DreamzCompanion;
   href: string;
   priority?: boolean;
+  onAffiliateClick?: () => void;
 }) {
   const cardMedia = { ...companion, video: undefined };
 
@@ -79,6 +82,7 @@ function CompanionCard({
       href={href}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
+      onClick={onAffiliateClick}
       className="group flex flex-col overflow-hidden rounded-[1.25rem] border border-black/5 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl lg:border-white/10 lg:bg-[#16161c] lg:shadow-none lg:hover:border-violet-500/40"
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 lg:bg-[#0d0d12]">
@@ -117,6 +121,10 @@ function CompanionCard({
 
 export default function AiGirlfriendLanding() {
   const offer = dreamzOffer;
+
+  const trackOfferClick = (placement: string) => {
+    trackAffiliateClick(offer.name, placement);
+  };
 
   return (
     <>
@@ -168,9 +176,7 @@ export default function AiGirlfriendLanding() {
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
-                  onClick={() =>
-                    trackAffiliateClick("Dreamz.ai", "hero")
-                  }
+                  onClick={() => trackOfferClick("hero")}
                 >
                Try Dreamz.ai Free →
                 </a>
@@ -194,6 +200,7 @@ export default function AiGirlfriendLanding() {
               href={offer.url}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
+              onClick={() => trackOfferClick("featured-video")}
               className="group relative mx-auto w-[180px] shrink-0 overflow-hidden rounded-2xl border border-black/10 shadow-xl sm:w-[200px] lg:mx-0 lg:w-full lg:border-white/10 lg:shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
             >
               <div className="relative aspect-[3/4] bg-[#0d0d12]">
@@ -229,6 +236,7 @@ export default function AiGirlfriendLanding() {
                 href={offer.url}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackOfferClick("catalog-link")}
                 className="text-sm font-semibold text-violet-600 transition hover:text-violet-500 lg:text-violet-400"
               >
                 Open full catalog on Dreamz →
@@ -283,6 +291,7 @@ export default function AiGirlfriendLanding() {
                     href={offer.url}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
+                    onClick={() => trackOfferClick("sidebar")}
                     className="mt-4 block rounded-xl bg-violet-600 py-3 text-center text-sm font-bold text-white transition hover:bg-violet-500"
                   >
                    Explore on Dreamz.ai →
@@ -297,6 +306,9 @@ export default function AiGirlfriendLanding() {
                     companion={companion}
                     href={offer.url}
                     priority={index < 2}
+                    onAffiliateClick={() =>
+                      trackOfferClick(`companion-${companion.name.toLowerCase()}`)
+                    }
                   />
                 ))}
               </div>
@@ -362,6 +374,7 @@ export default function AiGirlfriendLanding() {
   href={offer.url}
   target="_blank"
   rel="nofollow sponsored noopener"
+  onClick={() => trackOfferClick("footer-cta")}
   className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
 >
   Try Dreamz.ai Free →
