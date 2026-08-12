@@ -10,6 +10,17 @@ export default function GermanyLandingPage() {
 
     <main className="bg-[radial-gradient(circle_at_top,_#3b0f24_0%,_#120b12_45%,_#090909_100%)] text-white min-h-screen overflow-hidden">
 
+        {/* Platform details */}
+        <div className={isFeatured ? "max-w-3xl" : "min-w-0"}>
+          <h3
+            className={
+              isFeatured
+                ? "text-3xl font-extrabold tracking-tight text-cream sm:text-4xl"
+                : "text-xl font-extrabold tracking-tight text-cream sm:text-2xl"
+            }
+          >
+            {name}
+          </h3>
 
       <header className="border-b border-white/10 bg-white/5 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
