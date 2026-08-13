@@ -1,8 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { MetadataRoute } from "next";
+import { countries } from "@/data/countries";
 
 export const SITE_URL = "https://www.thedatecompass.com";
+
+/** Country landing paths keyed by `/slug` from countries.ts */
+const COUNTRY_ROUTE_AVAILABILITY = new Map<string, boolean>(
+  countries.map((country) => [`/${country.slug}`, country.isAvailable])
+);
+
+function isIndexableCountryRoute(route: string): boolean {
+  if (!COUNTRY_ROUTE_AVAILABILITY.has(route)) {
+    return true;
+  }
+
+  return COUNTRY_ROUTE_AVAILABILITY.get(route) === true;
+}
 
 type RouteMeta = {
   changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -18,14 +32,28 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/": { priority: 1, changeFrequency: "weekly" },
   "/category/ai-girlfriend": { priority: 0.9, changeFrequency: "weekly" },
   "/offers/dreamz-ai": { priority: 0.9, changeFrequency: "weekly" },
+  "/gay-dating": { priority: 0.85, changeFrequency: "weekly" },
+  "/cozy-sites": { priority: 0.8, changeFrequency: "weekly" },
   "/usa": { priority: 0.85, changeFrequency: "weekly" },
   "/germany": { priority: 0.85, changeFrequency: "weekly" },
+  "/france": { priority: 0.85, changeFrequency: "weekly" },
+  "/canada": { priority: 0.85, changeFrequency: "weekly" },
+  "/australia": { priority: 0.85, changeFrequency: "weekly" },
+  "/uk": { priority: 0.85, changeFrequency: "weekly" },
   "/privacy-policy": { priority: 0.3, changeFrequency: "yearly" },
   "/terms-and-conditions": { priority: 0.3, changeFrequency: "yearly" },
   "/cookie-policy": { priority: 0.3, changeFrequency: "yearly" },
   "/disclaimer": { priority: 0.3, changeFrequency: "yearly" },
   "/affiliate-disclosure": { priority: 0.3, changeFrequency: "yearly" },
 };
+
+/** Routes that must not appear in the sitemap (noindex drafts or redirects). */
+const SITEMAP_EXCLUDED_ROUTES = new Set([
+  "/category/ai-girlfriend-sites",
+  "/category/ai-girlfriend-v2",
+  "/category/ai-chat-platform",
+  "/top-offers/gay-dating",
+]);
 
 const SKIP_DIRS = new Set(["api"]);
 const PAGE_FILES = new Set(["page.tsx", "page.ts", "page.jsx", "page.js"]);
@@ -124,7 +152,10 @@ export function discoverAppRoutes(): DiscoveredRoute[] {
 }
 
 export function buildSitemapEntries(): MetadataRoute.Sitemap {
-  const routes = discoverAppRoutes();
+  const routes = discoverAppRoutes().filter(
+    ({ route }) =>
+      isIndexableCountryRoute(route) && !SITEMAP_EXCLUDED_ROUTES.has(route)
+  );
 
   return routes.map(({ route, pagePath }) => {
     const meta = getRouteMeta(route);

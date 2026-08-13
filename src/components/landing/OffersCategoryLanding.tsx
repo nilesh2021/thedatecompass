@@ -1,17 +1,19 @@
+"use client";
+
 import type { OfferTab } from "@/data/datingOffersTabs";
 import Image from "next/image";
 import Link from "next/link";
-
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <span className="text-brand-mint" aria-label={`${rating} out of 5 stars`}>
-      {"★".repeat(Math.floor(rating))}
-      <span className="ml-1 text-fog">{rating}</span>
-    </span>
-  );
-}
+import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
+import {
+  getCountryBrowseLinks,
+  getCountryBrowseThemeForOfferTab,
+} from "@/data/countryBrowseLinks";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
+  const browseTheme = getCountryBrowseThemeForOfferTab(tab.route);
+  const countryLinks = browseTheme ? getCountryBrowseLinks(browseTheme) : [];
+
   return (
     <div className="px-6 py-16 font-display lg:px-10 lg:py-24">
       <div className="mx-auto max-w-6xl">
@@ -24,12 +26,15 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
         </header>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          {tab.offers.map((offer, index) => (
+          {tab.offers.map((offer) => (
             <a
               key={offer.id}
               href={offer.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored nofollow noopener noreferrer"
+              onClick={() =>
+                trackAffiliateClick(offer.name, "top_offers_card")
+              }
               className={`group flex flex-col border border-cream/10 bg-ink-soft p-8 transition hover:-translate-y-0.5 hover:border-brand-rose/30 ${
                 offer.featured ? "ring-1 ring-brand-rose/25" : ""
               }`}
@@ -46,10 +51,8 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
                     />
                   </div>
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-fog">
-                      #{index + 1}
-                    </span>
                     <h2 className="text-xl font-bold text-cream">{offer.name}</h2>
+                    <p className="mt-1 text-sm text-fog">{offer.bestFor}</p>
                   </div>
                 </div>
                 {offer.badge && (
@@ -59,12 +62,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
                 )}
               </div>
 
-              <StarRating rating={offer.rating} />
-              <p className="mt-1 text-sm text-fog">
-                {offer.reviews} reviews · {offer.bestFor}
-              </p>
-
-              <p className="mt-6 flex-1 leading-relaxed text-cream/65">
+              <p className="mt-2 flex-1 leading-relaxed text-cream/65">
                 {offer.description}
               </p>
 
@@ -85,8 +83,19 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
             </a>
           ))}
         </div>
+      </div>
 
-        <footer className="mt-20 border-t border-cream/10 pt-8 text-center text-sm text-fog">
+      {countryLinks.length > 0 ? (
+        <BrowseByCountrySection
+          links={countryLinks}
+          title={`Explore ${tab.label.toLowerCase()} by country`}
+          description={`Open country shortlists that include ${tab.label.toLowerCase()} themes from our active regional pages.`}
+          className="mt-16 px-0"
+        />
+      ) : null}
+
+      <div className="mx-auto max-w-6xl">
+        <footer className="mt-12 border-t border-cream/10 pt-8 text-center text-sm text-fog">
           <div className="flex justify-center gap-6">
             <Link href="/privacy-policy" className="hover:text-cream">
               Privacy

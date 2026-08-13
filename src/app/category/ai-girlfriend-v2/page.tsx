@@ -5,32 +5,29 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best AI Companion Platform 2026 | TheDateCompass",
+  title: {
+    absolute: "AI Companion Platform Draft | TheDateCompass",
+  },
   description:
-    "Discover one of the best AI companion platforms for adults. Compare features, explore AI conversations, and start chatting today.",
+    "Draft AI companion landing page. Prefer /category/ai-girlfriend and /offers/dreamz-ai for current comparisons.",
   keywords: [
     "AI companion",
     "AI girlfriend",
     "virtual girlfriend",
     "AI chat",
-    "AI relationship",
-    "AI dating",
   ],
   alternates: {
-    canonical:
-      "https://www.thedatecompass.com/category/ai-girlfriend-v2",
+    canonical: "https://www.thedatecompass.com/category/ai-girlfriend-v2",
   },
   openGraph: {
-    title: "Best AI Companion Platform",
+    title: "AI Companion Platform Draft | TheDateCompass",
     description:
-      "Compare AI companion platforms and discover intelligent virtual conversations.",
-    url:
-      "https://www.thedatecompass.com/category/ai-girlfriend-v2",
-    images: [
-      {
-        url: "/images/ai/hero.webp",
-      },
-    ],
+      "Draft AI companion landing. See the main AI girlfriend category for current listings.",
+    url: "https://www.thedatecompass.com/category/ai-girlfriend-v2",
+  },
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 export default function AIGirlfriendV2() {

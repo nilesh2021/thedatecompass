@@ -1,4 +1,7 @@
+"use client";
+
 import { dreamzOffer } from "@/data/aiGirlfriendOffers";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 export default function FixedOfferCta() {
   const offer = dreamzOffer;
@@ -18,6 +21,9 @@ export default function FixedOfferCta() {
             href={offer.url}
             target="_blank"
             rel="sponsored nofollow noopener noreferrer"
+            onClick={() =>
+              trackAffiliateClick(offer.name, "dreamz_fixed_cta")
+            }
             className="tdc-btn-primary flex min-w-0 flex-1 sm:flex-none sm:px-8 !rounded-none !py-3.5 !text-sm"
           >
             Start chatting on {offer.name}

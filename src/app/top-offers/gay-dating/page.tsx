@@ -1,23 +1,13 @@
-import GayDatingLanding from "@/components/landing/GayDatingLanding";
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "Best Gay Dating Sites & Apps in 2026",
-  description:
-    "Discover top-rated gay dating platforms with verified profiles, inclusive communities, and smart matching for men seeking real connections.",
-  keywords: [
-    "gay dating sites",
-    "gay dating apps",
-    "best gay dating",
-    "LGBTQ dating",
-    "gay men dating",
-    "gay hookup apps",
-  ],
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
-export default function GayDatingPage() {
-  return (
-    <div className="font-sans">
-      <GayDatingLanding />
-    </div>
-  );
+export default function GayDatingTopOffersRedirect() {
+  redirect("/gay-dating");
 }

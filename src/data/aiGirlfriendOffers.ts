@@ -11,7 +11,7 @@ export interface AiGirlfriendOffer {
 
 export const dreamzOffer: AiGirlfriendOffer = {
   name: "Dreamz.ai",
-  badge: "Editor's Choice",
+  badge: "AI companion",
   bestFor: "Custom companions & roleplay",
   description:
     "Create a personalized AI companion with natural conversation, immersive roleplay, and private chats — ready in minutes.",

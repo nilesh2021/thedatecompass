@@ -1,23 +1,21 @@
 "use client";
 
- 
 import Image from "next/image";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
+import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 import { trackAffiliateClick } from "@/lib/analytics";
- 
+import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+
 import {
   aiGirlfriendFaqs,
   dreamzCompanions,
   dreamzOffer,
   type DreamzCompanion,
 } from "@/data/aiGirlfriendOffers";
-
- 
-
 const featured = dreamzCompanions.find((c) => c.featured) ?? dreamzCompanions[0];
 
 function PaceBadge({ pace }: { pace: string }) {
@@ -386,7 +384,7 @@ export default function AiGirlfriendLanding() {
 <a
   href={offer.url}
   target="_blank"
-  rel="nofollow sponsored noopener"
+  rel="nofollow sponsored noopener noreferrer"
   onClick={() => trackOfferClick("footer-cta")}
   className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
 >
@@ -397,6 +395,12 @@ export default function AiGirlfriendLanding() {
             </p>
           </div>
         </section>
+
+        <BrowseByCountrySection
+          links={getCountryBrowseLinks("dreamz")}
+          title="Explore AI dating offers by country"
+          description="See how Dreamz.ai and related AI companion listings appear on our active country shortlists."
+        />
       </main>
 
       <Footer />

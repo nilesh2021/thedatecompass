@@ -21,7 +21,7 @@ const faqs = [
       "You can compare casual dating sites, adult dating platforms, gay dating apps, mature dating offers, niche adult social communities, and AI companion platforms. Each dating offer is listed with category focus so you can pick the connection style you want.",
   },
   {
-    question: "Which sites are best for casual dating?",
+    question: "Which listings focus on casual dating?",
     answer:
       "Casual dating platforms are built for flirty chats, low-pressure meetups, and fast connections. Browse our country pages and casual dating categories to compare dating offers that focus on chemistry and easy messaging rather than long onboarding.",
   },

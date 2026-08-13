@@ -4,7 +4,9 @@ import type { Metadata } from "next";
 import { aiGirlfriendFaqs } from "@/data/aiGirlfriendOffers";
 
 export const metadata: Metadata = {
-  title: "Dreamz.ai AI Companion | TheDateCompass",
+  title: {
+    absolute: "Dreamz.ai AI Companion | TheDateCompass",
+  },
   description:
     "Explore Dreamz.ai, an AI companion platform with personalized personalities, private conversations, and roleplay experiences. Adults 18+.",
   keywords: [
@@ -26,6 +28,13 @@ export const metadata: Metadata = {
     url: "https://www.thedatecompass.com/offers/dreamz-ai",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dreamz.ai AI Companion | TheDateCompass",
+    description:
+      "Explore Dreamz.ai and discover personalized AI companions for conversation and roleplay.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function AIGirlfriendPage() {

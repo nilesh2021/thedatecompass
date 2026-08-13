@@ -79,10 +79,28 @@ export default function Categories() {
                     <ArrowRight size={14} />
                   </a>
                   <Link
-                    href="#countries"
+                    href={
+                      category.slug === "gay-dating"
+                        ? "/gay-dating"
+                        : category.slug === "ai"
+                          ? "/category/ai-girlfriend"
+                          : category.slug === "casual"
+                            ? "/top-offers"
+                            : category.slug === "mature"
+                              ? "/top-offers/mature"
+                              : "#countries"
+                    }
                     className="tdc-btn-line w-full py-3 text-xs"
                   >
-                    Browse by country
+                    {category.slug === "gay-dating"
+                      ? "Compare gay dating"
+                      : category.slug === "ai"
+                        ? "Compare AI companions"
+                        : category.slug === "casual"
+                          ? "Compare casual dating"
+                          : category.slug === "mature"
+                            ? "Compare mature dating"
+                            : "Browse by country"}
                   </Link>
                 </div>
               </div>

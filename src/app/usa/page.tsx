@@ -3,7 +3,8 @@ import Link from "next/link";
 import Footer from "@/components/Home/Footer";
 import Header from "@/components/Home/Header";
 import Image from "next/image";
-import USAOffers from "@/components/USA/USAOffers";
+import CountryFaqSection from "@/components/country/common/CountryFaqSection";
+import USAOffers from "@/components/country/usa/USAOffers";
 import { usaOffers } from "@/data/usaOffers";
 
 const SITE_URL = "https://www.thedatecompass.com";
@@ -12,9 +13,9 @@ const OG_IMAGE =
   "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80";
 
 export const metadata: Metadata = {
-  title: "Best Adult Dating Sites in the USA 2026",
+  title: "Adult Dating Sites in the USA 2026 | Compare Offers",
   description:
-    "Compare the best adult dating sites in the USA for 2026. Browse casual dating, gay dating, mature dating, and AI companion platforms available to eligible US visitors.",
+    "Compare adult dating sites in the USA for 2026. Browse casual dating, gay dating, mature dating, and AI companion platforms listed for eligible US visitors.",
   keywords: [
     "adult dating sites USA",
     "casual dating sites USA",
@@ -27,9 +28,9 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Best Adult Dating Sites in the USA 2026",
+    title: "Adult Dating Sites in the USA 2026 | Compare Offers",
     description:
-      "Compare casual, gay dating, mature, and AI companion platforms available to eligible visitors in the United States.",
+      "Compare casual, gay dating, mature, and AI companion platforms listed for eligible visitors in the United States.",
     url: PAGE_URL,
     siteName: "TheDateCompass",
     locale: "en_US",
@@ -45,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Adult Dating Sites in the USA 2026",
+    title: "Adult Dating Sites in the USA 2026 | Compare Offers",
     description:
-      "Compare casual, gay dating, mature, and AI companion platforms available to eligible visitors in the United States.",
+      "Compare casual, gay dating, mature, and AI companion platforms listed for eligible visitors in the United States.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -106,43 +107,43 @@ const safetyNotes = [
 
 const usaFaqs = [
   {
-    question: "What are the best dating offers for USA users in 2026?",
+    question: "What dating offers are listed for USA users on this page?",
     answer:
-      "The best dating offers for USA users on this page cover casual dating sites USA visitors use most, gay dating offers, mature dating platforms, adult dating offers, and AI companion offers. Featured picks for eligible United States users include CheekyCrush, GayBloom, LitLatinz, and Dreamz.ai depending on your goal.",
+      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and AI companion offers for eligible visitors in the United States. Examples on this page include CheekyCrush, GayBloom, LitLatinz, and Dreamz.ai, depending on the category you want to compare.",
   },
   {
-    question: "Which casual dating offers are available to USA users?",
+    question: "Which casual dating offers are listed for USA users?",
     answer:
-      "CheekyCrush and DirtyDating are the main casual dating offers for USA users on this page. These casual dating sites USA adults can review for low-pressure chats, quick signup, and adult social discovery before visiting a third-party provider.",
+      "CheekyCrush and DirtyDating are the casual dating offers listed for USA users on this page. Compare their categories and descriptions here before visiting a third-party provider.",
   },
   {
     question: "Are there gay dating offers for USA users?",
     answer:
-      "Yes. GayBloom, PridePair, and Manfinder are gay dating offers for USA users and eligible LGBTQ+ visitors in the United States. Compare them here, or browse our dedicated gay dating category for more USA-focused options.",
+      "Yes. GayBloom, PridePair, and Manfinder are gay dating offers listed for USA users and eligible LGBTQ+ visitors in the United States. Compare them here, or browse our dedicated gay dating category for more options.",
   },
   {
-    question: "Do these USA dating offers include free signup?",
+    question: "Where can I find signup and pricing details for these offers?",
     answer:
-      "Most USA dating offers and adult dating sites listed here allow free registration with optional premium upgrades. USA users can often create a profile and browse before paying. Exact pricing depends on each dating platform’s offer terms.",
+      "Signup requirements, pricing, and any free or paid features are set by each third-party platform. Check the destination site for current terms before you register.",
   },
   {
     question: "Can USA users compare AI companion offers here too?",
     answer:
-      "Yes. Dreamz.ai is listed as an AI companion offer for USA users who want virtual conversations instead of traditional dating. You can also explore more AI girlfriend offers in our AI companion category.",
+      "Yes. Dreamz.ai is listed as an AI companion offer on this USA page for visitors who want virtual conversations instead of traditional dating. You can also explore more AI girlfriend offers in our AI companion category.",
   },
   {
     question: "How should USA users choose the right dating offer?",
     answer:
-      "Start with intention: casual dating, gay dating, mature dating, adult dating, or AI companion. Then compare USA-available offers by category, safety tools, and signup experience. TheDateCompass only lists third-party dating offers for USA users and does not operate the platforms.",
+      "Start with intention: casual dating, gay dating, mature dating, adult dating, or AI companion. Then compare the offers listed on this page by category and description. TheDateCompass only lists third-party dating offers and does not operate the platforms.",
   },
 ];
 
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Best Adult Dating Sites in the USA 2026",
+  name: "Adult Dating Sites in the USA 2026",
   description:
-    "A comparison and discovery page for third-party adult dating, gay dating, mature dating, and AI companion platforms available in the United States.",
+    "A comparison and discovery page for third-party adult dating, gay dating, mature dating, and AI companion platforms listed for visitors in the United States.",
   url: PAGE_URL,
   isPartOf: {
     "@type": "WebSite",
@@ -235,17 +236,17 @@ export default function UsaPage() {
             </div>
 
             <h1 className="mx-auto mt-8 max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
-              Best adult dating sites
+              Adult dating sites
               <br />
               <span className="text-brand-rose">in the USA.</span>
             </h1>
 
             <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
               TheDateCompass is an independent adult dating site comparison
-              resource for visitors in the United States. We review and present
-              third-party platforms based on availability and category. We do
-              not operate these platforms or manage registrations, profiles,
-              messages, payments, or customer support.
+              resource for visitors in the United States. We present third-party
+              platforms by availability and category. We do not operate these
+              platforms or manage registrations, profiles, messages, payments, or
+              customer support.
             </p>
 
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
@@ -275,7 +276,10 @@ export default function UsaPage() {
           </div>
         </section>
 
-        {/* -------- INTENTIONS SECTION -------- */}
+        {/* -------- OFFERS SECTION -------- */}
+        <USAOffers offers={usaOffers} />
+
+        {/* -------- INTENTIONS SECTION (kept below offers for shorter ad path) -------- */}
         <section
           id="how-it-works"
           className="tdc-section-stone px-6 py-20 sm:px-8 lg:px-12"
@@ -292,8 +296,8 @@ export default function UsaPage() {
                 </h2>
               </div>
               <p className="max-w-sm leading-relaxed text-ink/70">
-                Choose a direction, then compare the platforms that best align
-                with it.
+                Choose a direction, then compare the platforms that align with
+                it.
               </p>
             </div>
 
@@ -302,7 +306,7 @@ export default function UsaPage() {
                 <a
                   key={intention.title}
                   href={`#${intentionHashes[intention.filter]}`}
-                  className="group relative cursor-default overflow-hidden border border-ink/10 bg-cream/80 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-brand-rose/40 backdrop-blur-sm"
+                  className="group relative overflow-hidden border border-ink/10 bg-cream/80 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-brand-rose/40 backdrop-blur-sm"
                 >
                   <div className="relative h-44 overflow-hidden">
                     <Image
@@ -337,9 +341,6 @@ export default function UsaPage() {
           </div>
         </section>
 
-        {/* -------- OFFERS SECTION -------- */}
-        <USAOffers offers={usaOffers} />
-
         {/* -------- SEO EDITORIAL -------- */}
         <section
           id="usa-dating-guide"
@@ -364,7 +365,7 @@ export default function UsaPage() {
                 </a>
                 , others prefer{" "}
                 <Link
-                  href="/top-offers/gay-dating"
+                  href="/gay-dating"
                   className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
                   gay dating platforms
@@ -410,40 +411,12 @@ export default function UsaPage() {
         </section>
 
         {/* -------- FAQ -------- */}
-        <section
-          id="faq"
-          className="relative px-6 py-20 sm:px-8 lg:px-12"
-        >
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(145deg,#0f0a0e,#1f1220_60%,#12101a)]" />
-          <div className="mx-auto max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose-300/80">
-              FAQ · USA offers
-            </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold   text-white sm:text-5xl">
-              Dating offers for USA users — common questions
-            </h2>
-            <div className="mt-10 space-y-4">
-              {usaFaqs.map((faq) => (
-                <details
-                  key={faq.question}
-                  className="group border border-cream/10 bg-cream/[0.04] px-6 py-5 open:border-brand-rose/40"
-                >
-                  <summary className="cursor-pointer list-none font-semibold text-white marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-start justify-between gap-4">
-                      {faq.question}
-                      <span className="shrink-0 text-white/40 transition group-open:rotate-45">
-                        +
-                      </span>
-                    </span>
-                  </summary>
-                  <p className="mt-4 text-sm leading-relaxed text-white/60">
-                    {faq.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <CountryFaqSection
+          variant="usa"
+          eyebrow="FAQ · USA offers"
+          title="Dating offers for USA users — common questions"
+          items={usaFaqs}
+        />
 
         {/* -------- SAFETY SECTION -------- */}
         <section className="bg-stone px-6 py-20 text-ink sm:px-8 lg:px-12">
@@ -453,7 +426,7 @@ export default function UsaPage() {
                 A gentle reminder
               </p>
               <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight  ">
-                The best kind of chemistry comes with good judgment.
+                Chemistry works better with good judgment.
               </h2>
               <p className="mt-5 leading-relaxed text-ink/70">
                 Keep your experience enjoyable by moving thoughtfully and
@@ -473,6 +446,46 @@ export default function UsaPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="usa-other-countries"
+          className="border-t border-white/10 bg-ink px-6 py-12 sm:px-8 lg:px-12"
+        >
+          <div className="mx-auto max-w-7xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
+              More countries
+            </p>
+            <h2
+              id="usa-other-countries"
+              className="mt-3 font-serif text-3xl font-semibold text-white sm:text-4xl"
+            >
+              Explore other countries
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/50">
+              Compare similar shortlists on our other active country pages.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-3">
+              {(
+                [
+                  { href: "/germany", label: "🇩🇪 Germany" },
+                  { href: "/france", label: "🇫🇷 France" },
+                  { href: "/canada", label: "🇨🇦 Canada" },
+                  { href: "/australia", label: "🇦🇺 Australia" },
+                  { href: "/uk", label: "🇬🇧 United Kingdom" },
+                ] as const
+              ).map((country) => (
+                <li key={country.href}>
+                  <Link
+                    href={country.href}
+                    className="inline-flex border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-bold tracking-wide text-white/80 transition hover:border-brand-rose/40 hover:text-brand-rose-soft"
+                  >
+                    {country.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

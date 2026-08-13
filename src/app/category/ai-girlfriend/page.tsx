@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
+import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import { aiGirlfriendOffers } from "@/data/aiGirlfriendOffers";
 export const metadata: Metadata = {
-  title: "AI Girlfriend & AI Companion Sites | TheDateCompass",
+  title: {
+    absolute: "AI Girlfriend & AI Companion Sites | TheDateCompass",
+  },
   description:
-    "Explore AI girlfriend and AI companion platforms available through TheDateCompass. Compare different options and discover AI chat experiences.",
+    "Explore AI girlfriend and AI companion platforms listed on TheDateCompass. Compare options and discover AI chat experiences for adults 18+.",
   keywords: [
     "AI girlfriend",
     "AI companion",
@@ -16,9 +20,23 @@ export const metadata: Metadata = {
     "AI roleplay",
   ],
   alternates: {
-    canonical:
-      "https://www.thedatecompass.com/category/ai-girlfriend",
+    canonical: "https://www.thedatecompass.com/category/ai-girlfriend",
   },
+  openGraph: {
+    title: "AI Girlfriend & AI Companion Sites | TheDateCompass",
+    description:
+      "Explore AI girlfriend and AI companion platforms listed on TheDateCompass.",
+    url: "https://www.thedatecompass.com/category/ai-girlfriend",
+    siteName: "TheDateCompass",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Girlfriend & AI Companion Sites | TheDateCompass",
+    description:
+      "Explore AI girlfriend and AI companion platforms listed on TheDateCompass.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function AIGirlfriendCategoryPage() {
@@ -165,6 +183,14 @@ export default function AIGirlfriendCategoryPage() {
             </div>
           </div>
         </section>
+
+        <BrowseByCountrySection
+          tone="violet"
+          links={getCountryBrowseLinks("ai")}
+          title="Explore AI companions by country"
+          description="Country shortlists that include AI companion listings such as Dreamz.ai from our active regional pages."
+          className="px-5"
+        />
       </main>
 
       <Footer />

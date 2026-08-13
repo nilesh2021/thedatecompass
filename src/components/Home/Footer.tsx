@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandLogo from "@/components/Home/BrandLogo";
+import { availableCountries } from "@/data/countries";
 
 const legalLinks = [
   { href: "/privacy-policy", label: "Privacy" },
@@ -28,7 +29,7 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
-          {/*   {countries.map((country) => (
+            {availableCountries.map((country) => (
               <Link
                 key={country.slug}
                 href={`/${country.slug}`}
@@ -36,8 +37,10 @@ export default function Footer() {
               >
                 {country.flag} {country.name}
               </Link>
-            ))} */}
-            <span className="hidden h-3 w-px bg-white/15 sm:inline-block" />
+            ))}
+            {availableCountries.length > 0 && (
+              <span className="hidden h-3 w-px bg-white/15 sm:inline-block" />
+            )}
             {legalLinks.map((link) => (
               <Link
                 key={link.href}

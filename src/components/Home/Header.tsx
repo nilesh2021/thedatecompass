@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/#featured", label: "Offers" },
   { href: "/#categories", label: "Categories" },
   { href: "/#countries", label: "Countries" },
+  { href: "/gay-dating", label: "Gay Dating" },
   { href: "/category/ai-girlfriend", label: "AI Girlfriend" },
   { href: "/#faq", label: "FAQ" },
 ];

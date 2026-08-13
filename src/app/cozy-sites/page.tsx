@@ -7,6 +7,8 @@ import { ShieldCheck } from "lucide-react";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import MarqueeBand from "@/components/theme/MarqueeBand";
+import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
+import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
 interface OfferItem {
   id: string;
@@ -402,6 +404,12 @@ export default function OfferHubPage() {
           </div>
         </section>
 
+        <BrowseByCountrySection
+          links={getCountryBrowseLinks("niche")}
+          title="Explore niche dating by country"
+          description="Country shortlists that include niche and alternative adult social listings from our active regional pages."
+        />
+
         <section className="border-t border-cream/10 bg-ink-soft py-10 sm:py-12">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <p className="tdc-eyebrow mb-3">Keep exploring</p>
@@ -409,14 +417,11 @@ export default function OfferHubPage() {
               More ways to compare
             </h2>
             <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <Link href="/germany" className="tdc-btn-line">
-                Germany guide
-              </Link>
-              <Link href="/usa" className="tdc-btn-line">
-                USA guide
-              </Link>
               <Link href="/category/ai-girlfriend" className="tdc-btn-primary">
                 AI girlfriend picks
+              </Link>
+              <Link href="/top-offers/adult" className="tdc-btn-line">
+                Adult dating offers
               </Link>
             </div>
           </div>

@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import CountryAffiliateDisclaimer from "@/components/country/common/CountryAffiliateDisclaimer";
+import CountryOfferCta from "@/components/country/common/CountryOfferCta";
+import CountrySectionHeading from "@/components/country/common/CountrySectionHeading";
 
 type Offer = {
   name: string;
@@ -75,11 +78,33 @@ export default function USAOffers({ offers }: USAOffersProps) {
     : filteredOffers.slice(0, 6);
 
   return (
-    <section id="offers" className="relative px-6 py-20 sm:px-8 lg:px-12">
+    <section id="offers" className="relative scroll-mt-20 px-6 py-20 sm:px-8 lg:px-12">
       {/* Background */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(145deg,#0a0b0d,#16181c_60%,#0a0b0d)]" />
 
       <div className="absolute -left-20 top-1/3 -z-10 h-64 w-64 rounded-full bg-brand-rose/5 blur-3xl" />
+
+      {/* Deep-link targets for intention / editorial category hashes */}
+      <span
+        id="offers-casual"
+        className="pointer-events-none absolute top-0"
+        aria-hidden
+      />
+      <span
+        id="offers-mature"
+        className="pointer-events-none absolute top-0"
+        aria-hidden
+      />
+      <span
+        id="offers-gay"
+        className="pointer-events-none absolute top-0"
+        aria-hidden
+      />
+      <span
+        id="offers-ai"
+        className="pointer-events-none absolute top-0"
+        aria-hidden
+      />
 
       <div className="mx-auto max-w-7xl">
 
@@ -89,16 +114,16 @@ export default function USAOffers({ offers }: USAOffersProps) {
 
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
-              USA dating options
-            </p>
-
-            <h2 className="mt-3 font-serif text-4xl font-semibold   sm:text-5xl">
-              Find your kind of{" "}
-              <span className="italic text-brand-mint/80">
-                connection.
-              </span>
-            </h2>
+            <CountrySectionHeading
+              variant="usa"
+              eyebrow="USA dating options"
+              title={
+                <>
+                  Find your kind of{" "}
+                  <span className="italic text-brand-mint/80">connection.</span>
+                </>
+              }
+            />
           </div>
 
           <p className="max-w-md leading-relaxed text-white/50">
@@ -118,21 +143,18 @@ export default function USAOffers({ offers }: USAOffersProps) {
           <div className="mt-16">
 
             <div className="flex items-end justify-between gap-4">
-
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
-                Featured picks
-                </p>
-
-                <h3 className="mt-2 font-serif text-3xl font-semibold   sm:text-4xl">
-                A few options to get started.
-                </h3>
+                <CountrySectionHeading
+                  variant="usa"
+                  titleAs="h3"
+                  eyebrow="Featured picks"
+                  title="A few options to get started."
+                />
               </div>
 
               <span className="hidden text-sm text-white/35 sm:block">
                 {featuredOffers.length} featured platforms
               </span>
-
             </div>
 
             <div className="mt-7 grid gap-6 md:grid-cols-3">
@@ -189,15 +211,13 @@ export default function USAOffers({ offers }: USAOffersProps) {
     </span>
   ))}
 </div>
-                  {/* CTA */}
-                  <a
-  href={offer.href}
-  target="_blank"
-  rel="sponsored nofollow noopener noreferrer"
-  className="mt-5 block rounded-full bg-brand-rose px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink gradient-hover"
->
-  View  
-</a>
+                  <CountryOfferCta
+                    href={offer.href}
+                    label="Visit site"
+                    variant="usaFeatured"
+                    offerName={offer.name}
+                    country="usa"
+                  />
 
                 </article>
               ))}
@@ -213,13 +233,12 @@ export default function USAOffers({ offers }: USAOffersProps) {
         <div className="mt-20">
 
           <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
-  All USA options
-</p>
-
-<h3 className="mt-2 font-serif text-3xl font-semibold   sm:text-4xl">
-  Find the right platform for you.
-</h3>
+            <CountrySectionHeading
+              variant="usa"
+              titleAs="h3"
+              eyebrow="All USA options"
+              title="Find the right platform for you."
+            />
           </div>
 
           {/* ============================= */}
@@ -356,15 +375,13 @@ export default function USAOffers({ offers }: USAOffersProps) {
 </p>
 
 
-                {/* CTA */}
-                <a
+                <CountryOfferCta
                   href={offer.href}
-                  target="_blank"
-                  rel="sponsored nofollow noopener noreferrer"
-                  className="mt-5 block rounded-full bg-brand-rose px-5 py-3.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink"
-                >
-                  Visit site
-                </a>
+                  label="Visit site"
+                  variant="usaDefault"
+                  offerName={offer.name}
+                  country="usa"
+                />
 
               </article>
 
@@ -396,10 +413,10 @@ export default function USAOffers({ offers }: USAOffersProps) {
         {/* DISCLAIMER */}
         {/* ============================= */}
 
-        <p className="mt-10 text-center text-xs text-white/30">
-          TheDateCompass is an independent comparison and discovery site. We
-          do not own or operate the third-party platforms listed here.
-        </p>
+        <CountryAffiliateDisclaimer
+          variant="usa"
+          text="TheDateCompass is an independent comparison and discovery site. We do not own or operate the third-party platforms listed here."
+        />
 
       </div>
     </section>

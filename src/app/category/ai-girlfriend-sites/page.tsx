@@ -5,24 +5,17 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best AI Girlfriend Platform 2026 | AI Companion Chat | TheDateCompass",
+  title: {
+    absolute: "AI Girlfriend Platform Draft | TheDateCompass",
+  },
   description:
-    "Discover realistic AI girlfriend platforms with private conversations, customizable personalities, and instant AI companionship. Compare the best AI companion websites in 2026.",
-  keywords: [
-    "AI Girlfriend",
-    "AI Companion",
-    "Virtual Girlfriend",
-    "AI Chat",
-    "AI Relationship",
-    "Adult AI Chat",
-    "AI Dating",
-    "AI Companion Platform",
-    "Best AI Girlfriend",
-    "AI Girlfriend 2026",
-  ],
+    "Draft AI girlfriend landing page. Prefer the main AI companion category and Dreamz.ai offer pages for current comparisons.",
   alternates: {
-    canonical:
-      "https://www.thedatecompass.com/category/ai-girlfriend-v2",
+    canonical: "https://www.thedatecompass.com/category/ai-girlfriend-sites",
+  },
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 

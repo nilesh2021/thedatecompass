@@ -12,8 +12,10 @@ import FAQ from "@/components/Home/FAQ";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 export const metadata: Metadata = {
-  title:
-    "Best Dating Sites & AI Companion Platforms by Country | TheDateCompass",
+  title: {
+    absolute:
+      "Dating Sites & AI Companion Platforms by Country | TheDateCompass",
+  },
   description:
     "Compare dating websites, adult dating platforms, and AI companion services by country. Independent directory with affiliate links to third-party providers for eligible adults.",
   keywords: [
@@ -31,28 +33,30 @@ export const metadata: Metadata = {
     canonical: "https://www.thedatecompass.com",
   },
   openGraph: {
-    title: "Best Dating Sites by Country | TheDateCompass",
+    title: "Dating Sites & AI Companions by Country | TheDateCompass",
     description:
-      "Compare dating platforms and AI companions available in your country.",
+      "Compare dating platforms and AI companions by country on TheDateCompass.",
     url: "https://www.thedatecompass.com",
     siteName: "TheDateCompass",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.thedatecompass.com/og-image.jpg",
+        url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "TheDateCompass",
+        alt: "TheDateCompass dating comparison",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Dating Sites by Country | TheDateCompass",
+    title: "Dating Sites & AI Companions by Country | TheDateCompass",
     description:
-      "Compare dating platforms and AI companions available in your country.",
-    images: ["https://www.thedatecompass.com/og-image.jpg"],
+      "Compare dating platforms and AI companions by country on TheDateCompass.",
+    images: [
+      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80",
+    ],
   },
   robots: {
     index: true,

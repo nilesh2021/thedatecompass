@@ -17,11 +17,10 @@ export default function Hero() {
           </p>
 
           <h1 className="text-5xl font-extrabold leading-[0.92] tracking-[-0.04em] text-cream md:text-6xl xl:text-7xl">
-            Find the best
+            Find dating sites
             <span className="block font-serif-accent text-[1.05em] italic text-brand-rose">
-              dating sites
+              for your country
             </span>
-            for your country
           </h1>
 
           <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-cream/70">
