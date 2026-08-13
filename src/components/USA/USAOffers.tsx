@@ -77,9 +77,9 @@ export default function USAOffers({ offers }: USAOffersProps) {
   return (
     <section id="offers" className="relative px-6 py-20 sm:px-8 lg:px-12">
       {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(145deg,#0f0a0e,#1f1220_60%,#12101a)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(145deg,#0a0b0d,#16181c_60%,#0a0b0d)]" />
 
-      <div className="absolute -left-20 top-1/3 -z-10 h-64 w-64 rounded-full bg-rose-500/5 blur-3xl" />
+      <div className="absolute -left-20 top-1/3 -z-10 h-64 w-64 rounded-full bg-brand-rose/5 blur-3xl" />
 
       <div className="mx-auto max-w-7xl">
 
@@ -89,13 +89,13 @@ export default function USAOffers({ offers }: USAOffersProps) {
 
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose-300/80">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
               USA dating options
             </p>
 
             <h2 className="mt-3 font-serif text-4xl font-semibold   sm:text-5xl">
               Find your kind of{" "}
-              <span className="italic text-rose-200/80">
+              <span className="italic text-brand-mint/80">
                 connection.
               </span>
             </h2>
@@ -120,7 +120,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
             <div className="flex items-end justify-between gap-4">
 
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose-300/80">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
                 Featured picks
                 </p>
 
@@ -140,11 +140,11 @@ export default function USAOffers({ offers }: USAOffersProps) {
               {featuredOffers.map((offer, index) => (
                 <article
                   key={offer.name}
-                  className="group overflow-hidden rounded-3xl border border-[#E83E9B]/25 bg-[#E83E9B]/[0.06] p-4 shadow-xl shadow-[#E83E9B]/5 transition duration-300 hover:-translate-y-2 hover:border-[#E83E9B]/50"
+                  className="group overflow-hidden rounded-3xl border border-brand-rose/25 bg-brand-rose/[0.06] p-4 shadow-xl shadow-brand-rose/5 transition duration-300 hover:-translate-y-2 hover:border-brand-rose/50"
                 >
 
                   {/* Image */}
-                  <div className="relative h-44 overflow-hidden rounded-2xl bg-[#1a1018]">
+                  <div className="relative h-44 overflow-hidden rounded-2xl bg-ink-soft">
 
                     <Image
                       src={offer.image}
@@ -158,7 +158,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
                     {/* Featured badge */}
-                    <span className="absolute left-4 top-4 rounded-full bg-[#E83E9B] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white shadow-lg shadow-[#E83E9B]/30">
+                    <span className="absolute left-4 top-4 rounded-full bg-brand-rose px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white shadow-lg shadow-brand-rose/30">
                       Featured
                     </span>
 
@@ -194,7 +194,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
   href={offer.href}
   target="_blank"
   rel="sponsored nofollow noopener noreferrer"
-  className="mt-5 block rounded-full bg-[#E83E9B] px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-[#F58BC5] hover:text-[#080808] gradient-hover"
+  className="mt-5 block rounded-full bg-brand-rose px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink gradient-hover"
 >
   View  
 </a>
@@ -213,7 +213,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
         <div className="mt-20">
 
           <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-rose-300/80">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
   All USA options
 </p>
 
@@ -256,7 +256,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                   }}
                   className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold tracking-wide transition ${
                     active
-                      ? "bg-[#E83E9B] text-white shadow-[0_8px_24px_rgba(232,62,155,0.45)] ring-2 ring-white/25"
+                      ? "bg-brand-rose text-white shadow-[0_8px_24px_rgba(232,62,155,0.45)] ring-2 ring-white/25"
                       : "bg-transparent text-white/45 hover:bg-white/[0.06] hover:text-white/85"
                   }`}
                 >
@@ -268,7 +268,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
 
           <p className="mt-4 text-sm text-white/50">
             Viewing{" "}
-            <span className="font-semibold text-[#F58BC5]">{activeFilter}</span>
+            <span className="font-semibold text-brand-rose-soft">{activeFilter}</span>
             {" · "}
             <span className="font-semibold text-white/70">
               {visibleOffers.length}
@@ -294,7 +294,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
               >
 
                 {/* Image */}
-                <div className="relative h-52 overflow-hidden rounded-2xl bg-[#1a1018]">
+                <div className="relative h-52 overflow-hidden rounded-2xl bg-ink-soft">
 
                   <Image
                     src={offer.image}
@@ -304,11 +304,11 @@ export default function USAOffers({ offers }: USAOffersProps) {
                     className="object-cover transition duration-700 group-hover:scale-110"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
 
                   <div className="absolute inset-x-0 bottom-0 p-5">
 
-                    <span className="inline-block rounded-full border border-white/25 bg-[#E83E9B]/85 px-3.5 py-1 text-xs font-bold tracking-wide text-white backdrop-blur-sm">
+                    <span className="inline-block rounded-full border border-white/25 bg-brand-rose/85 px-3.5 py-1 text-xs font-bold tracking-wide text-white backdrop-blur-sm">
                       {offer.badge}
                     </span>
 
@@ -326,7 +326,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
 
                       </div>
 
-                      <span className="grid h-10 w-10 place-items-center rounded-full bg-[#E83E9B] text-lg text-white shadow-lg shadow-[#E83E9B]/30 transition group-hover:scale-110">
+                      <span className="grid h-10 w-10 place-items-center rounded-full bg-brand-rose text-lg text-white shadow-lg shadow-brand-rose/30 transition group-hover:scale-110">
                         ↗
                       </span>
 
@@ -361,7 +361,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                   href={offer.href}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
-                  className="mt-5 block rounded-full bg-[#E83E9B] px-5 py-3.5 text-center text-sm font-bold text-white transition hover:bg-[#F58BC5] hover:text-[#080808]"
+                  className="mt-5 block rounded-full bg-brand-rose px-5 py-3.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink"
                 >
                   Visit site
                 </a>
@@ -376,7 +376,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
     <button
       type="button"
       onClick={() => setShowAll((prev) => !prev)}
-      className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.04] px-7 py-3.5 text-sm font-bold text-white/80 transition hover:border-[#E83E9B]/60 hover:bg-[#E83E9B]/10 hover:text-white"
+      className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.04] px-7 py-3.5 text-sm font-bold text-white/80 transition hover:border-brand-rose/60 hover:bg-brand-rose/10 hover:text-white"
     >
       {showAll ? "Show fewer options" : "Show more options"}
 

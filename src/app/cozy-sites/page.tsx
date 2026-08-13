@@ -1,14 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import MarqueeBand from "@/components/theme/MarqueeBand";
 
 interface OfferItem {
   id: string;
   title: string;
+  categoryLabel: string;
   description: string;
   url: string;
   featured?: boolean;
@@ -17,11 +20,16 @@ interface OfferItem {
 }
 
 const IMG = {
+  hero: "/images/ai-companion-hero.png",
   aiModel: "/images/ai-model.webp",
   aiModel3: "/images/ai-model-3.webp",
   chatAi: "/images/chat-ai.webp",
   ctaAi: "/images/cta-ai.webp",
-  hero: "/images/ai-companion-hero.png",
+  companion1: "/images/dreamz/companion-1.webp",
+  companion2: "/images/dreamz/companion-2.webp",
+  companion3: "/images/dreamz/companion-3.webp",
+  companion4: "/images/dreamz/companion-4.webp",
+  companion5: "/images/dreamz/companion-5.webp",
   neon: "/images/extra/2.jpg",
   portraitA:
     "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.jpg",
@@ -37,45 +45,55 @@ const IMG = {
 const DATA: Record<string, OfferItem[]> = {
   Dating: [
     {
-      id: "premium-dating",
-      title: "Premium Dating",
-      description: "Find meaningful connections with advanced matching.",
-      url: "#",
+      id: "cheekycrush",
+      title: "CheekyCrush",
+      categoryLabel: "Casual dating",
+      description:
+        "Fast signup for flirty adult dating with active members looking for chemistry — not endless swiping.",
+      url: "https://t.datsk11.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       featured: true,
-      image: IMG.chatAi,
-      highlights: ["Smart matching", "Verified profiles", "Private chat"],
-    },
-    {
-      id: "elite-singles",
-      title: "Elite Singles",
-      description: "Dating experience for professionals.",
-      url: "#",
       image: IMG.portraitA,
-      highlights: ["Career-focused", "Curated matches", "Desktop & mobile"],
+      highlights: ["Quick registration", "Verified-style profiles", "Private chat"],
     },
     {
-      id: "spark-match",
-      title: "Spark Match",
-      description: "AI-powered dating recommendations for faster chemistry.",
-      url: "#",
-      image: IMG.neon,
-      highlights: ["AI suggestions", "Quick signup", "Active members"],
-    },
-    {
-      id: "nightline",
-      title: "Nightline",
-      description: "Evening-first dating for adults who prefer low-pressure chats.",
-      url: "#",
+      id: "naughtycharm",
+      title: "NaughtyCharm",
+      categoryLabel: "Adult dating",
+      description:
+        "Direct adult dating for people who know what they want — straightforward profiles and messaging.",
+      url: "https://t.datsk11.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       image: IMG.portraitD,
-      highlights: ["Discreet profiles", "Night-friendly", "Instant messaging"],
+      highlights: ["No-games connections", "Discreet profiles", "Mobile friendly"],
     },
     {
-      id: "harbor-hearts",
-      title: "Harbor Hearts",
-      description: "Warm, conversation-first dating with thoughtful prompts.",
-      url: "#",
+      id: "litlatinz",
+      title: "LitLatinz",
+      categoryLabel: "Latino dating",
+      description:
+        "Focused on Latino community connections with adult-friendly profiles and chat.",
+      url: "https://t.datsk11.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
       image: IMG.portraitE,
-      highlights: ["Prompted icebreakers", "Local discovery", "Safe messaging"],
+      highlights: ["Community vibe", "Active chat", "Easy browse"],
+    },
+    {
+      id: "dirtydating",
+      title: "DirtyDating",
+      categoryLabel: "Casual adult",
+      description:
+        "Casual dating with an adult edge — browse, message, and meet without the pressure.",
+      url: "https://t.crdtg2.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
+      image: IMG.neon,
+      highlights: ["Fast signup", "Adult profiles", "Private messaging"],
+    },
+    {
+      id: "fetishpartner",
+      title: "FetishPartner",
+      categoryLabel: "Niche dating",
+      description:
+        "Niche matching for alternative interests beyond mainstream dating apps.",
+      url: "https://t.crdtg2.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+      image: IMG.portraitB,
+      highlights: ["Niche filters", "Engaged community", "Private chat"],
     },
   ],
 
@@ -83,11 +101,12 @@ const DATA: Record<string, OfferItem[]> = {
     {
       id: "dreamz-ai",
       title: "Dreamz.ai",
+      categoryLabel: "AI companion",
       description:
-        "Create your own personalized AI companion and enjoy immersive conversations with customizable personalities.",
+        "Create your own personalized AI companion with immersive conversations and customizable personalities.",
       url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
       featured: true,
-      image: IMG.aiModel,
+      image: IMG.companion1,
       highlights: [
         "Personalized companions",
         "Immersive roleplay",
@@ -97,60 +116,91 @@ const DATA: Record<string, OfferItem[]> = {
       ],
     },
     {
-      id: "chatcraft-ai",
-      title: "ChatCraft AI",
-      description: "AI tools for realistic chat experiences and content creation.",
-      url: "#",
-      image: IMG.chatAi,
-      highlights: ["Realistic chat", "Content tools", "Fast responses"],
+      id: "dreamz-ella",
+      title: "Dreamz — Ella",
+      categoryLabel: "AI companion",
+      description:
+        "Confident, flirty companion energy for immersive stories and late-night chats.",
+      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      image: IMG.companion2,
+      highlights: ["Flirty tone", "Story-ready", "Always online"],
     },
     {
-      id: "visionary-ai",
-      title: "Visionary AI",
-      description: "Advanced image generation for new creative campaigns.",
-      url: "#",
-      image: IMG.aiModel3,
-      highlights: ["Image generation", "Campaign ready", "High fidelity"],
+      id: "dreamz-maya",
+      title: "Dreamz — Maya",
+      categoryLabel: "AI companion",
+      description:
+        "Warm and thoughtful AI companionship when you want deeper emotional conversations.",
+      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      image: IMG.companion3,
+      highlights: ["Emotional depth", "Calm pace", "Private chats"],
+    },
+    {
+      id: "dreamz-luna",
+      title: "Dreamz — Luna",
+      categoryLabel: "AI companion",
+      description:
+        "Creative muse energy — chat, flirt, or build a fantasy world together.",
+      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      image: IMG.companion4,
+      highlights: ["Creative roleplay", "Fantasy chats", "Custom vibe"],
     },
   ],
 
-  VPN: [
+  "Gay Dating": [
     {
-      id: "secure-vpn",
-      title: "Secure VPN",
-      description: "Browse safely and securely with encrypted tunnels.",
-      url: "#",
+      id: "gaybloom",
+      title: "GayBloom",
+      categoryLabel: "Gay dating",
+      description:
+        "Inclusive space for gay singles who want real conversations, easy matching, and private messaging.",
+      url: "https://t.datsk11.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       featured: true,
       image: IMG.ctaAi,
-      highlights: ["No-logs policy", "Fast servers", "Multi-device"],
+      highlights: [
+        "LGBTQ+ community",
+        "Private messaging",
+        "Verified-style profiles",
+      ],
     },
     {
-      id: "streaming-vpn",
-      title: "Streaming VPN",
-      description: "Fast VPN optimized for streaming content worldwide.",
-      url: "#",
+      id: "pridepair",
+      title: "PridePair",
+      categoryLabel: "Gay dating community",
+      description:
+        "Match and chat with like-minded gay singles in a community-first dating experience.",
+      url: "https://t.datsk11.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       image: IMG.hero,
-      highlights: ["Streaming unlock", "Low latency", "Easy apps"],
+      highlights: ["Inclusive matching", "Fast conversations", "Safe community"],
+    },
+    {
+      id: "manfinder",
+      title: "Manfinder",
+      categoryLabel: "Gay dating for men",
+      description:
+        "Men looking to meet other men — dating and social features in one place to start chatting fast.",
+      url: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+      image: IMG.aiModel3,
+      highlights: ["Men seeking men", "Social + dating", "Quick signup"],
     },
   ],
 
-  Finance: [
+  "Trans Dating": [
     {
-      id: "trading-platform",
-      title: "Trading Platform",
-      description: "Invest and trade with a clean, beginner-friendly interface.",
-      url: "#",
+      id: "transdate",
+      title: "TransDate",
+      categoryLabel: "Trans dating",
+      description:
+        "Inclusive dating for trans connections with clear preferences and respectful private messaging.",
+      url: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
       featured: true,
-      image: IMG.portraitB,
-      highlights: ["Live charts", "Low fees", "Mobile trading"],
-    },
-    {
-      id: "credit-service",
-      title: "Credit Service",
-      description: "Access financial products quickly with transparent terms.",
-      url: "#",
-      image: IMG.portraitC,
-      highlights: ["Fast approval", "Clear rates", "Secure portal"],
+      image: IMG.companion5,
+      highlights: [
+        "Trans-inclusive",
+        "Clear preferences",
+        "Respectful chats",
+        "Private messaging",
+      ],
     },
   ],
 };
@@ -159,38 +209,19 @@ const CATEGORIES = Object.keys(DATA);
 
 export default function OfferHubPage() {
   const [activeTab, setActiveTab] = useState(CATEGORIES[0]);
-  const [selectedOffer, setSelectedOffer] = useState<OfferItem | null>(null);
+  const tabsId = useId();
 
   const filteredOffers = DATA[activeTab] ?? [];
 
-  const featuredOffer =
-    filteredOffers.find((o) => o.featured) ?? filteredOffers[0] ?? null;
-
   const handleTabClick = (category: string) => {
     setActiveTab(category);
-    setSelectedOffer(null);
   };
 
   return (
-    <div className="min-h-screen bg-[#0c0a0b] text-stone-100">
+    <div className="min-h-screen bg-ink font-display text-cream">
       <Header />
 
       <main>
-        {/* Atmosphere */}
-        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,62,155,0.18),_transparent_55%)]" />
-          <div className="absolute -left-24 top-40 h-72 w-72 rounded-full bg-[#E83E9B]/10 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-rose-900/20 blur-3xl" />
-          <div
-            className="absolute inset-0 opacity-[0.04]"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            }}
-          />
-        </div>
-
-        {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
             <Image
@@ -198,224 +229,201 @@ export default function OfferHubPage() {
               alt=""
               fill
               priority
-              className="object-cover object-[center_20%] opacity-40"
+              className="object-cover object-[center_18%] opacity-40"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a0b]/40 via-[#0c0a0b]/75 to-[#0c0a0b]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/85 to-ink" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_70%_30%,rgba(255,61,110,0.2),transparent_70%)]" />
           </div>
 
-          <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-end px-6 pb-16 pt-28 md:pb-24">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#E83E9B]">
-              Cozy Sites Hub
+          <div className="relative mx-auto max-w-6xl px-4 pb-8 pt-24 sm:px-6 sm:pb-10 sm:pt-28">
+            <p className="tdc-eyebrow-mint mb-3 flex items-center gap-3 before:h-px before:w-8 before:bg-brand-mint before:content-['']">
+              TheDateCompass · Cozy Sites
             </p>
-            <h1 className="max-w-3xl text-5xl font-black leading-[1.05]   md:text-7xl">
-              Soft nights.
-              <span className="mt-2 block text-[#E83E9B]">Better offers.</span>
+
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-[0.95] tracking-[-0.04em] sm:text-5xl md:text-6xl">
+              Cozy Sites
+              <span className="mt-1 block font-serif-accent text-[1.02em] italic text-brand-rose">
+                Soft nights. Better offers.
+              </span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-stone-300">
-              Browse dating, AI companions, VPN, and finance picks — curated
-              with the right visual for every listing.
+
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-fog sm:text-lg">
+              Browse dating, gay dating, AI companions, and trans dating picks —
+              curated with the right visual for every listing.
             </p>
-            {featuredOffer && (
-              <div className="mt-10 flex flex-wrap gap-4">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const el = document.getElementById("offer-tabs");
-                    el?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                  className="rounded-full bg-[#E83E9B] px-7 py-3.5 text-sm font-bold text-white transition hover:bg-[#d12f8a]"
+          </div>
+        </section>
+
+        <MarqueeBand
+          items={[
+            "Casual dating",
+            "Gay dating",
+            "AI companions",
+            "Trans dating",
+            "Adults 18+",
+            "Affiliate links",
+          ]}
+        />
+
+        <section
+          id="offer-tabs"
+          className="tdc-section-pitch"
+          aria-labelledby={`${tabsId}-${activeTab}`}
+        >
+          <div className="sticky top-14 z-40 border-b-2 border-brand-rose/50 bg-ink/95 backdrop-blur-md">
+            <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 sm:py-4">
+              <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
+                <div>
+                  <p className="tdc-eyebrow">Categories</p>
+                  <h2 className="mt-1 text-xl font-extrabold tracking-tight sm:text-2xl">
+                    Pick a tab · browse offers
+                  </h2>
+                </div>
+                <p className="flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.14em] text-fog">
+                  <ShieldCheck size={13} className="text-brand-mint" />
+                  Independent hub · 18+
+                </p>
+              </div>
+
+              <div
+                role="tablist"
+                aria-label="Offer categories"
+                className="grid grid-cols-2 gap-2 lg:grid-cols-4"
+              >
+                {CATEGORIES.map((category) => {
+                  const isActive = activeTab === category;
+                  const count = DATA[category]?.length ?? 0;
+                  return (
+                    <button
+                      key={category}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      id={`${tabsId}-${category}`}
+                      onClick={() => handleTabClick(category)}
+                      className={`border-2 px-3 py-3 text-left transition duration-200 sm:px-4 ${
+                        isActive
+                          ? "border-brand-rose bg-brand-rose text-cream shadow-[4px_4px_0_0_rgba(255,107,143,0.5)]"
+                          : "border-cream/20 bg-ink-soft text-cream hover:border-brand-rose/60"
+                      }`}
+                    >
+                      <span className="block text-xs font-extrabold uppercase tracking-[0.1em] sm:text-sm">
+                        {category}
+                      </span>
+                      <span
+                        className={`mt-1 block text-[0.65rem] font-bold uppercase tracking-[0.14em] ${
+                          isActive ? "text-cream/85" : "text-fog"
+                        }`}
+                      >
+                        {count} {count === 1 ? "offer" : "offers"}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div
+            role="tabpanel"
+            id="offers"
+            aria-labelledby={`${tabsId}-${activeTab}`}
+            className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8"
+          >
+            <p className="mb-4 text-sm text-fog">
+              <span className="font-bold text-cream">{activeTab}</span>
+              {" · "}
+              {filteredOffers.length} handpicked{" "}
+              {filteredOffers.length === 1 ? "listing" : "listings"}
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {filteredOffers.map((offer, index) => (
+                <article
+                  key={`${activeTab}-${offer.id}`}
+                  className="group flex flex-col border border-cream/10 bg-ink-soft transition duration-300 hover:border-brand-rose/35 sm:flex-row sm:items-stretch xl:flex-col"
                 >
-                  Browse categories
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedOffer(featuredOffer)}
-                  className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:border-[#E83E9B]/50"
-                >
-                  View featured
-                </button>
+                  <div className="relative aspect-[16/10] shrink-0 overflow-hidden sm:aspect-auto sm:w-36 xl:aspect-[16/10] xl:w-auto">
+                    <Image
+                      src={offer.image}
+                      alt={offer.title}
+                      fill
+                      className="object-cover object-top transition duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 40vw, 33vw"
+                      priority={index < 3}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-4">
+                    <span className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-brand-rose">
+                      {offer.categoryLabel}
+                    </span>
+                    <h3 className="mt-1 text-lg font-extrabold tracking-tight">
+                      {offer.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-fog">
+                      {offer.description}
+                    </p>
+
+                    <div className="mt-3">
+                      <a
+                        href={offer.url}
+                        target={
+                          offer.url.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          offer.url.startsWith("http")
+                            ? "nofollow sponsored noopener noreferrer"
+                            : undefined
+                        }
+                        className="text-xs font-bold uppercase tracking-[0.12em] text-brand-mint transition hover:text-cream"
+                      >
+                        View offer →
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {filteredOffers.length === 0 && (
+              <div className="py-12 text-center text-fog">
+                No offers found in this category.
               </div>
             )}
+
+            <p className="mt-6 border border-cream/10 bg-ink-soft px-4 py-3 text-center text-xs leading-relaxed text-fog">
+              TheDateCompass is an independent comparison hub. We may earn a
+              commission when you visit a platform through our links. All listed
+              services are third-party providers for adults 18+.
+            </p>
           </div>
         </section>
 
-        {/* Tabs */}
-        <section id="offer-tabs" className="mx-auto max-w-6xl px-6 pt-8">
-          <div
-            role="tablist"
-            aria-label="Offer categories"
-            className="flex flex-wrap gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-2 backdrop-blur-md"
-          >
-            {CATEGORIES.map((category) => {
-              const isActive = activeTab === category;
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  id={`tab-${category}`}
-                  onClick={() => handleTabClick(category)}
-                  className={`rounded-xl px-5 py-3 text-sm font-semibold transition ${
-                    isActive
-                      ? "bg-[#E83E9B] text-white shadow-[0_8px_24px_rgba(232,62,155,0.35)]"
-                      : "text-stone-300 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  {category}
-                  <span className="ml-2 text-xs opacity-70">
-                    {DATA[category]?.length ?? 0}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Offer grid */}
-        <section
-          role="tabpanel"
-          aria-labelledby={`tab-${activeTab}`}
-          className="mx-auto max-w-6xl px-6 py-12"
-        >
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-2xl font-bold   md:text-3xl">
-                {activeTab} offers
-              </h2>
-              <p className="mt-2 text-stone-400">
-                {filteredOffers.length} handpicked{" "}
-                {filteredOffers.length === 1 ? "listing" : "listings"}
-              </p>
+        <section className="border-t border-cream/10 bg-ink-soft py-10 sm:py-12">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <p className="tdc-eyebrow mb-3">Keep exploring</p>
+            <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+              More ways to compare
+            </h2>
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              <Link href="/germany" className="tdc-btn-line">
+                Germany guide
+              </Link>
+              <Link href="/usa" className="tdc-btn-line">
+                USA guide
+              </Link>
+              <Link href="/category/ai-girlfriend" className="tdc-btn-primary">
+                AI girlfriend picks
+              </Link>
             </div>
           </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {filteredOffers.map((offer, index) => (
-              <article
-                key={`${activeTab}-${offer.id}`}
-                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] transition duration-300 hover:-translate-y-1 hover:border-[#E83E9B]/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={offer.image}
-                    alt={offer.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    priority={index < 2}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a0b] via-[#0c0a0b]/20 to-transparent" />
-                  {offer.featured && (
-                    <span className="absolute left-4 top-4 rounded-full bg-[#E83E9B] px-3 py-1 text-xs font-bold text-white">
-                      Featured
-                    </span>
-                  )}
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold">{offer.title}</h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-stone-400">
-                    {offer.description}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedOffer(offer)}
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#E83E9B] transition hover:text-pink-300"
-                  >
-                    View offer
-                    <span aria-hidden>→</span>
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {filteredOffers.length === 0 && (
-            <div className="py-20 text-center text-stone-500">
-              No offers found in this category.
-            </div>
-          )}
         </section>
       </main>
 
       <Footer />
-
-      {/* Offer modal */}
-      {selectedOffer && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/75 px-4 py-6 backdrop-blur-sm"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="offer-modal-title"
-        >
-          <button
-            type="button"
-            className="absolute inset-0 cursor-default"
-            aria-label="Close dialog"
-            onClick={() => setSelectedOffer(null)}
-          />
-          <div className="relative grid w-full max-w-3xl overflow-hidden rounded-[28px] border border-white/10 bg-[#141112] shadow-2xl md:grid-cols-2">
-            <div className="relative min-h-[240px] md:min-h-full">
-              <Image
-                src={selectedOffer.image}
-                alt={selectedOffer.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div className="relative flex flex-col p-7">
-              <button
-                type="button"
-                onClick={() => setSelectedOffer(null)}
-                className="absolute right-4 top-4 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white transition hover:border-[#E83E9B]"
-              >
-                Close
-              </button>
-              <h2
-                id="offer-modal-title"
-                className="pr-16 text-2xl font-black text-white"
-              >
-                {selectedOffer.title}
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-stone-400">
-                {selectedOffer.description}
-              </p>
-              <ul className="mt-5 space-y-2 text-sm text-stone-300">
-                {selectedOffer.highlights.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="text-[#E83E9B]">•</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={selectedOffer.url}
-                target="_blank"
-                rel="sponsored nofollow noopener noreferrer"
-                className="mt-auto inline-flex w-fit rounded-full bg-[#E83E9B] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#d12f8a]"
-              >
-                Open offer
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Featured shortcut */}
-      {featuredOffer && (
-        <div className="fixed bottom-6 right-6 z-50">
-          <button
-            type="button"
-            onClick={() => setSelectedOffer(featuredOffer)}
-            className="rounded-full bg-[#E83E9B] px-5 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#E83E9B]/30 transition hover:bg-[#d12f8a]"
-          >
-            Featured: {featuredOffer.title}
-          </button>
-        </div>
-      )}
     </div>
   );
 }

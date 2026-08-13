@@ -221,23 +221,23 @@ export default function UsaPage() {
       />
 
       <Header />
-      <main className="min-h-screen bg-[#080808] text-white antialiased selection:bg-[#E83E9B]/40 selection:text-white">
+      <main className="min-h-screen bg-ink text-white antialiased selection:bg-brand-rose/40 selection:text-white">
         {/* -------- HERO SECTION -------- */}
-        <section className="relative isolate overflow-hidden bg-[#080808] px-6 pb-20 pt-6 sm:px-8 lg:px-12 lg:pb-28 lg:pt-8">
-          <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_20%,rgba(232,62,155,0.30),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(245,139,197,0.14),transparent_30%),linear-gradient(145deg,#080808_0%,#181018_55%,#080808_100%)]" />
-          <div className="absolute -left-32 top-24 -z-10 h-96 w-96 rounded-full bg-[#E83E9B]/20 blur-3xl" />
-          <div className="absolute -right-28 bottom-0 -z-10 h-96 w-96 rounded-full bg-[#F58BC5]/10 blur-3xl" />
+        <section className="relative isolate overflow-hidden bg-ink px-6 pb-20 pt-6 sm:px-8 lg:px-12 lg:pb-28 lg:pt-8">
+          <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_20%,rgba(255,61,110,0.28),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(255,107,143,0.12),transparent_30%),linear-gradient(145deg,#0a0b0d_0%,#16181c_55%,#0a0b0d_100%)]" />
+          <div className="absolute -left-32 top-24 -z-10 h-96 w-96 rounded-full bg-brand-rose/20 blur-3xl" />
+          <div className="absolute -right-28 bottom-0 -z-10 h-96 w-96 rounded-full bg-brand-rose-soft/10 blur-3xl" />
 
           <div className="mx-auto max-w-7xl pb-4 pt-16 text-center sm:pt-20 lg:pt-28">
-            <div className="inline-flex items-center gap-3 rounded-full border border-[#E83E9B]/30 bg-[#E83E9B]/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#F8B6DA] backdrop-blur-sm">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-[#E83E9B]" />
+            <div className="inline-flex items-center gap-3 border border-brand-rose/30 bg-brand-rose/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-brand-rose-soft backdrop-blur-sm">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-rose" />
               Adults-only dating discovery · 2026
             </div>
 
             <h1 className="mx-auto mt-8 max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
               Best adult dating sites
               <br />
-              <span className="text-[#E83E9B]">in the USA.</span>
+              <span className="text-brand-rose">in the USA.</span>
             </h1>
 
             <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
@@ -251,7 +251,7 @@ export default function UsaPage() {
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <a
                 href="#offers"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#E83E9B] px-8 py-4 text-sm font-bold uppercase tracking-[0.1em] text-white shadow-xl shadow-[#E83E9B]/30 transition duration-300 hover:-translate-y-1 hover:bg-[#F58BC5] hover:text-[#080808]"
+                className="tdc-btn-primary group !rounded-none shadow-xl shadow-brand-rose/30"
               >
                 Explore USA options
                 <span className="text-lg transition duration-300 group-hover:translate-x-1">
@@ -261,7 +261,7 @@ export default function UsaPage() {
 
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-8 py-4 text-sm font-bold uppercase tracking-[0.1em] text-white/85 transition duration-300 hover:-translate-y-1 hover:border-[#E83E9B]/60 hover:bg-[#E83E9B]/10"
+                className="tdc-btn-line !rounded-none"
               >
                 How it works
               </a>
@@ -278,12 +278,12 @@ export default function UsaPage() {
         {/* -------- INTENTIONS SECTION -------- */}
         <section
           id="how-it-works"
-          className="bg-[#f3eae4] px-6 py-20 text-[#21151d] sm:px-8 lg:px-12"
+          className="tdc-section-stone px-6 py-20 sm:px-8 lg:px-12"
         >
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a34b68]">
+                <p className="tdc-eyebrow">
                   Start with your intention
                 </p>
                 <h2 className="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-tight   sm:text-5xl">
@@ -291,7 +291,7 @@ export default function UsaPage() {
                   want.
                 </h2>
               </div>
-              <p className="max-w-sm leading-relaxed text-[#5f4652]">
+              <p className="max-w-sm leading-relaxed text-ink/70">
                 Choose a direction, then compare the platforms that best align
                 with it.
               </p>
@@ -302,7 +302,7 @@ export default function UsaPage() {
                 <a
                   key={intention.title}
                   href={`#${intentionHashes[intention.filter]}`}
-                  className="group relative cursor-default overflow-hidden rounded-3xl border border-[#ddd0c9] bg-white/70 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-rose-300 hover:shadow-rose-200/20 backdrop-blur-sm"
+                  className="group relative cursor-default overflow-hidden border border-ink/10 bg-cream/80 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-brand-rose/40 backdrop-blur-sm"
                 >
                   <div className="relative h-44 overflow-hidden">
                     <Image
@@ -321,7 +321,7 @@ export default function UsaPage() {
                     <h3 className="font-serif text-3xl font-semibold  ">
                       {intention.title}
                     </h3>
-                    <p className="mt-3 leading-relaxed text-[#5f4652]">
+                    <p className="mt-3 leading-relaxed text-ink/70">
                       {intention.text}
                     </p>
                   {/*   <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-rose-700/80 group-hover:text-rose-800">
@@ -343,36 +343,36 @@ export default function UsaPage() {
         {/* -------- SEO EDITORIAL -------- */}
         <section
           id="usa-dating-guide"
-          className="bg-[#f3eae4] px-6 py-20 text-[#21151d] sm:px-8 lg:px-12"
+          className="tdc-section-stone px-6 py-20 sm:px-8 lg:px-12"
         >
           <div className="mx-auto max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a34b68]">
+            <p className="tdc-eyebrow">
               USA dating guide
             </p>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight   sm:text-5xl">
               How to choose adult dating sites in the USA
             </h2>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-[#5f4652]">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-ink/70">
               <p>
                 Finding the right adult dating site in the United States starts
                 with intention. Some visitors want low-pressure{" "}
                 <a
                   href="#offers-casual"
-                  className="font-semibold text-[#a34b68] underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
                   casual dating
                 </a>
                 , others prefer{" "}
                 <Link
                   href="/top-offers/gay-dating"
-                  className="font-semibold text-[#a34b68] underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
                   gay dating platforms
                 </Link>
                 , mature connections, or an{" "}
                 <Link
                   href="/category/ai-girlfriend"
-                  className="font-semibold text-[#a34b68] underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
                   AI companion experience
                 </Link>
@@ -386,14 +386,14 @@ export default function UsaPage() {
                 broader adult and niche comparisons, explore our{" "}
                 <Link
                   href="/top-offers/adult"
-                  className="font-semibold text-[#a34b68] underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
                   adult dating offers
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/cozy-sites"
-                  className="font-semibold text-[#a34b68] underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
                   cozy companion sites
                 </Link>
@@ -426,7 +426,7 @@ export default function UsaPage() {
               {usaFaqs.map((faq) => (
                 <details
                   key={faq.question}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-5 open:border-[#E83E9B]/40"
+                  className="group border border-cream/10 bg-cream/[0.04] px-6 py-5 open:border-brand-rose/40"
                 >
                   <summary className="cursor-pointer list-none font-semibold text-white marker:content-none [&::-webkit-details-marker]:hidden">
                     <span className="flex items-start justify-between gap-4">
@@ -446,16 +446,16 @@ export default function UsaPage() {
         </section>
 
         {/* -------- SAFETY SECTION -------- */}
-        <section className="bg-[#efe4dc] px-6 py-20 text-[#21151d] sm:px-8 lg:px-12">
+        <section className="bg-stone px-6 py-20 text-ink sm:px-8 lg:px-12">
           <div className="mx-auto grid max-w-7xl gap-10 rounded-3xl border border-white/60 bg-white/80 p-8 shadow-2xl shadow-black/5 backdrop-blur-sm md:grid-cols-[0.85fr_1.15fr] md:p-12">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a34b68]">
+              <p className="tdc-eyebrow">
                 A gentle reminder
               </p>
               <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight  ">
                 The best kind of chemistry comes with good judgment.
               </h2>
-              <p className="mt-5 leading-relaxed text-[#5f4652]">
+              <p className="mt-5 leading-relaxed text-ink/70">
                 Keep your experience enjoyable by moving thoughtfully and
                 staying in control of your information.
               </p>

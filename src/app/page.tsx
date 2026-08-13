@@ -9,7 +9,7 @@ import Categories from "@/components/Home/Categories";
 import WhyChoose from "@/components/Home/WhyChoose";
 import HowItWorks from "@/components/Home/HowItWorks";
 import FAQ from "@/components/Home/FAQ";
-import CTA from "@/components/Home/CTA";
+import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 export const metadata: Metadata = {
   title:
@@ -72,14 +72,16 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
-      <FeaturedOffers />
-      <Categories />
-      <HowItWorks />
-      <Countries />
-      <WhyChoose />
-      <FAQ />
-      <CTA />
+      <div className="relative bg-ink">
+        <NoiseOverlay />
+        <Hero />
+        <FeaturedOffers />
+        <Categories />
+        <HowItWorks />
+        <Countries />
+        <WhyChoose />
+        <FAQ />
+      </div>
       <Footer />
     </>
   );

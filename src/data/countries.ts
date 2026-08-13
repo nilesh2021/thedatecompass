@@ -61,7 +61,7 @@ export const countries: Country[] = [
     heroTitle: "Find Adult Dating Platforms Available in Germany",
     heroDescription:
       "Browse trusted third-party dating platforms available for adults in Germany.",
-    isAvailable: false,
+    isAvailable: true,
   },
   {
     name: "France",

@@ -15,7 +15,7 @@ function LogoMark({
 }) {
   return (
     <span
-      className={`relative grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#E83E9B] ${className}`}
+      className={`relative grid h-7 w-7 shrink-0 place-items-center bg-brand-rose ${className}`}
       aria-hidden
     >
       {icon === "heart" ? (
@@ -62,9 +62,9 @@ export default function BrandLogo({
       aria-label="TheDateCompass home"
     >
       <LogoMark icon={icon} className="transition group-hover:scale-105" />
-      <span className="text-[15px] font-bold  ">
-        <span className="text-[#E83E9B]">TheDate</span>
-        <span className={dark ? "text-white" : "text-[#1a1a1a]"}>Compass</span>
+      <span className="text-[15px] font-bold tracking-tight">
+        <span className="text-brand-rose">TheDate</span>
+        <span className={dark ? "text-cream" : "text-ink"}>Compass</span>
       </span>
     </Link>
   );

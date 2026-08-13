@@ -14,7 +14,7 @@ export default function OfferTabsNav() {
   return (
     <nav
       aria-label="Offer categories"
-      className="border-b border-stone-200/80 bg-white/80 backdrop-blur-md"
+      className="border-b border-cream/10 bg-ink-soft/90 backdrop-blur-md"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="flex gap-2 overflow-x-auto py-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -29,10 +29,10 @@ export default function OfferTabsNav() {
               <Link
                 key={tab.id}
                 href={href}
-                className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
+                className={`shrink-0 px-5 py-2.5 text-sm font-bold uppercase tracking-[0.08em] transition-all duration-200 ${
                   isActive
-                    ? "bg-stone-900 text-white shadow-sm"
-                    : "text-stone-500 hover:bg-stone-100 hover:text-stone-800"
+                    ? "bg-brand-rose text-cream"
+                    : "text-fog hover:bg-cream/5 hover:text-cream"
                 }`}
               >
                 {tab.label}

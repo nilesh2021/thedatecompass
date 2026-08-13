@@ -2,38 +2,53 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, HelpCircle, ShieldCheck } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
     question: "What is TheDateCompass?",
     answer:
-      "TheDateCompass is an independent comparison website that helps adults discover third-party dating platforms and AI companion services by country. We do not own or operate the platforms listed here.",
+      "TheDateCompass is an independent dating site comparison directory for adults. We help you discover dating offers, online dating platforms, and AI companion services by country so you can find better connections without guessing which provider fits.",
   },
   {
-    question: "Is TheDateCompass a dating website?",
+    question: "Is TheDateCompass a dating website or dating app?",
     answer:
-      "No. We do not host profiles, chats, or memberships. We compare third-party platforms and redirect you to the provider you choose.",
+      "No. TheDateCompass is not a dating website and does not host profiles, chats, or memberships. We compare third-party dating platforms and AI girlfriend / AI companion services, then send you to the provider you choose.",
   },
   {
-    question: "How do affiliate links work?",
+    question: "What dating offers can I compare?",
     answer:
-      "Some links on this website are affiliate links. If you visit a partner platform through those links, we may earn a commission at no extra cost to you.",
+      "You can compare casual dating sites, adult dating platforms, gay dating apps, mature dating offers, niche adult social communities, and AI companion platforms. Each dating offer is listed with category focus so you can pick the connection style you want.",
   },
   {
-    question: "Why browse by country?",
+    question: "Which sites are best for casual dating?",
     answer:
-      "Dating platform availability, pricing, and eligibility can vary by region. Country pages help you find offers that are relevant where you are.",
+      "Casual dating platforms are built for flirty chats, low-pressure meetups, and fast connections. Browse our country pages and casual dating categories to compare dating offers that focus on chemistry and easy messaging rather than long onboarding.",
   },
   {
-    question: "What dating categories can I compare?",
+    question: "Do you list AI companion and AI girlfriend platforms?",
     answer:
-      "Depending on the country page, you can compare casual dating, gay dating, mature dating, adult social, and AI companion platforms.",
+      "Yes. Alongside traditional online dating sites, we compare AI companion and AI girlfriend platforms for private chats, custom personalities, and always-available virtual connections. These dating-adjacent offers are useful if you want conversation without a live meetup.",
   },
   {
-    question: "Are these platforms free to join?",
+    question: "Can I find gay dating and LGBTQ+ connection options?",
     answer:
-      "Each provider sets its own pricing. Many offer free registration with optional premium upgrades. Always confirm terms on the destination site.",
+      "Yes. Our comparisons include gay dating sites and inclusive LGBTQ+ dating platforms designed for men seeking men and community-first connections. Check country and category pages for gay dating offers currently available.",
+  },
+  {
+    question: "Why browse dating platforms by country?",
+    answer:
+      "Dating site availability, adult dating eligibility, pricing, and member focus can vary by region. Country pages help you find dating offers and AI companion platforms that are relevant where you live, including live USA and Germany guides.",
+  },
+  {
+    question: "How do affiliate links on dating offers work?",
+    answer:
+      "Some dating offer links and AI companion links are affiliate links. If you visit a partner dating platform through those links, we may earn a commission at no extra cost to you. We remain an independent comparison site and do not operate the listed platforms.",
+  },
+  {
+    question: "Are these dating sites free to join?",
+    answer:
+      "Each dating platform and AI companion service sets its own pricing. Many adult dating and casual dating sites offer free registration with optional premium upgrades. Always confirm terms, privacy settings, and connection features on the destination site.",
   },
 ];
 
@@ -41,53 +56,41 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#0b0b0b] py-24">
-      <div className="absolute left-0 top-0 h-[420px] w-[420px] rounded-full bg-[#E83E9B]/10 blur-[180px]" />
-      <div className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-fuchsia-600/10 blur-[180px]" />
-
-      <div className="relative mx-auto max-w-5xl px-6">
+    <section id="faq" className="bg-ink py-24 font-display text-cream">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#E83E9B]/30 bg-[#E83E9B]/10 px-5 py-2 text-sm font-semibold text-[#E83E9B]">
-            <HelpCircle size={16} />
-            Frequently asked questions
-          </span>
+          <p className="tdc-eyebrow flex items-center justify-center gap-2">
+            <HelpCircle size={14} />
+            FAQ
+          </p>
 
-          <h2 className="mt-6 text-4xl font-black text-white sm:text-5xl">
-            Everything you need to know
+          <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+            Dating offers, connections & AI companions
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/65">
-            Learn how TheDateCompass works, how affiliate links are used, and
-            how to compare dating platforms by country.
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-cream/65">
+            Answers about casual dating, adult dating sites, gay dating,
+            AI companion platforms, and how to compare dating offers by country.
           </p>
         </div>
 
-        <div className="mt-14 space-y-4">
+        <div className="mt-14 divide-y divide-cream/10 border-y border-cream/10">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
-                key={faq.question}
-                className="overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] backdrop-blur-xl transition-all duration-300 hover:border-[#E83E9B]/40"
-              >
+              <div key={faq.question}>
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left sm:px-8 sm:py-6"
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left sm:py-6"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#E83E9B]/15 sm:flex">
-                      <ShieldCheck size={20} className="text-[#E83E9B]" />
-                    </div>
-                    <span className="text-lg font-bold text-white sm:text-xl">
-                      {faq.question}
-                    </span>
-                  </div>
-
+                  <span className="text-lg font-bold sm:text-xl">
+                    {faq.question}
+                  </span>
                   <ChevronDown
                     size={22}
-                    className={`shrink-0 text-[#E83E9B] transition duration-300 ${
+                    className={`shrink-0 text-brand-rose transition duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -99,9 +102,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-6 leading-7 text-white/65 sm:px-8">
-                      {faq.answer}
-                    </p>
+                    <p className="pb-6 leading-7 text-cream/65">{faq.answer}</p>
                   </div>
                 </div>
               </div>
@@ -112,7 +113,7 @@ export default function FAQ() {
         <div className="mt-10 text-center">
           <Link
             href="#countries"
-            className="text-sm font-semibold text-[#E83E9B] transition hover:text-pink-300"
+            className="text-sm font-bold uppercase tracking-wider text-brand-mint transition hover:text-brand-rose"
           >
             Browse dating offers by country →
           </Link>

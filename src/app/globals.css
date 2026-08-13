@@ -3,23 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0b0d;
+  --foreground: #faf9f7;
   --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-body: var(--font-figtree), "Figtree", ui-sans-serif, system-ui, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --ink: #0a0b0d;
+  --ink-soft: #16181c;
+  --stone: #ece8e2;
+  --fog: #b8b3ab;
+  --rose: #ff3d6e;
+  --rose-soft: #ff6b8f;
+  --mint: #7dffc3;
+  --cream: #faf9f7;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -31,6 +33,38 @@ h6 {
   font-family: var(--font-heading);
 }
 
+@layer components {
+  .tdc-eyebrow {
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.2em] text-brand-rose;
+  }
+
+  .tdc-eyebrow-mint {
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.2em] text-brand-mint;
+  }
+
+  .tdc-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-brand-rose px-7 py-4 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-cream transition duration-300 hover:-translate-y-0.5 hover:bg-brand-rose-soft;
+  }
+
+  .tdc-btn-line {
+    @apply inline-flex items-center justify-center gap-2 rounded-none border border-cream/35 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-cream transition duration-300 hover:-translate-y-0.5 hover:border-brand-mint hover:text-brand-mint;
+  }
+
+  .tdc-section-dark {
+    @apply bg-ink text-cream;
+  }
+
+  .tdc-section-pitch {
+    background:
+      radial-gradient(ellipse 60% 50% at 100% 0%, rgba(255, 61, 110, 0.12), transparent 55%),
+      linear-gradient(165deg, #0a0b0d 0%, #16181c 100%);
+  }
+
+  .tdc-section-stone {
+    @apply bg-stone text-ink;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -40,33 +74,6 @@ h6 {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 0.7s ease-out both;
-}
-
-.animate-fade-up-delay-1 {
-  animation: fade-up 0.7s ease-out 0.1s both;
-}
-
-.animate-fade-up-delay-2 {
-  animation: fade-up 0.7s ease-out 0.2s both;
-}
-
-.animate-fade-up-delay-3 {
-  animation: fade-up 0.7s ease-out 0.3s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,12 +89,8 @@ html {
     transition-duration: 0.01ms !important;
   }
 
-  .animate-fade-up,
-  .animate-fade-up-delay-1,
-  .animate-fade-up-delay-2,
-  .animate-fade-up-delay-3 {
-    animation: none;
-    opacity: 1;
-    transform: none;
+  .animate-marquee,
+  .animate-fade-up {
+    animation: none !important;
   }
 }

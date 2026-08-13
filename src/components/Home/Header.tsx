@@ -17,16 +17,16 @@ export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-cream/10 bg-ink/95 font-display text-cream backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
-        <BrandLogo icon="heart" />
+        <BrandLogo dark icon="heart" />
 
-        <nav className="hidden items-center gap-5 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold text-gray-600 transition hover:text-[#E83E9B]"
+              className="text-sm font-semibold text-fog transition hover:text-brand-rose"
             >
               {link.label}
             </Link>
@@ -34,7 +34,7 @@ export default function Header() {
 
           <Link
             href="/#countries"
-            className="rounded-full bg-[#E83E9B] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#d12f88]"
+            className="bg-brand-rose px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.1em] text-cream transition hover:bg-brand-rose-soft"
           >
             Browse countries
           </Link>
@@ -43,7 +43,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMobileMenu(!mobileMenu)}
-          className="grid h-9 w-9 place-items-center rounded-full text-gray-700 transition hover:bg-gray-100 lg:hidden"
+          className="grid h-9 w-9 place-items-center border border-cream/15 text-cream transition hover:border-brand-rose hover:text-brand-rose lg:hidden"
           aria-label={mobileMenu ? "Close menu" : "Open menu"}
         >
           {mobileMenu ? <FaTimes size={18} /> : <FaBars size={18} />}
@@ -51,39 +51,43 @@ export default function Header() {
       </div>
 
       {mobileMenu && (
-        <div className="fixed inset-0 z-[999] bg-white text-gray-900 lg:hidden">
-          <div className="flex h-14 items-center justify-between border-b border-black/5 px-5">
-            <BrandLogo icon="heart" onClick={() => setMobileMenu(false)} />
+        <div className="fixed inset-0 z-[999] bg-ink text-cream lg:hidden">
+          <div className="flex h-14 items-center justify-between border-b border-cream/10 px-5">
+            <BrandLogo
+              dark
+              icon="heart"
+              onClick={() => setMobileMenu(false)}
+            />
 
             <button
               type="button"
               onClick={() => setMobileMenu(false)}
-              className="grid h-9 w-9 place-items-center rounded-full text-gray-700 transition hover:bg-gray-100"
+              className="grid h-9 w-9 place-items-center border border-cream/15 text-cream transition hover:border-brand-rose hover:text-brand-rose"
               aria-label="Close menu"
             >
               <FaTimes size={18} />
             </button>
           </div>
 
-          <div className="space-y-1 px-5 py-3 bg-dark text-white" style={{ background: "#fbfbfb" }}>
+          <div className="space-y-1 bg-ink-soft px-5 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenu(false)}
-                className="block rounded-xl px-4 py-1 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 hover:text-[#E83E9B]"
+                className="block border border-transparent px-4 py-3 text-sm font-semibold text-fog transition hover:border-cream/10 hover:bg-ink hover:text-brand-rose"
               >
                 {link.label}
               </Link>
             ))}
 
-<Link
-  href="/#countries"
-  onClick={() => setMobileMenu(false)}
-  className="mt-5 block rounded-full bg-[#E83E9B] py-3 text-center text-sm font-bold text-white transition hover:bg-[#d12f88]"
->
-  Browse countries
-</Link>
+            <Link
+              href="/#countries"
+              onClick={() => setMobileMenu(false)}
+              className="mt-4 block bg-brand-rose py-3.5 text-center text-[0.78rem] font-bold uppercase tracking-[0.1em] text-cream transition hover:bg-brand-rose-soft"
+            >
+              Browse countries
+            </Link>
           </div>
         </div>
       )}

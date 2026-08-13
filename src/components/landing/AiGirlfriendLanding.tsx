@@ -5,6 +5,8 @@ import Image from "next/image";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
+import NoiseOverlay from "@/components/theme/NoiseOverlay";
+import MarqueeBand from "@/components/theme/MarqueeBand";
 import { trackAffiliateClick } from "@/lib/analytics";
  
 import {
@@ -83,19 +85,19 @@ function CompanionCard({
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
       onClick={onAffiliateClick}
-      className="group flex flex-col overflow-hidden rounded-[1.25rem] border border-black/5 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl lg:border-white/10 lg:bg-[#16161c] lg:shadow-none lg:hover:border-violet-500/40"
+      className="group flex flex-col overflow-hidden border border-cream/10 bg-cream text-ink transition duration-300 hover:-translate-y-1 hover:border-brand-rose/40 lg:bg-ink-soft lg:text-cream"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 lg:bg-[#0d0d12]">
+      <div className="relative aspect-[4/5] overflow-hidden bg-stone lg:bg-ink">
         <CompanionMedia companion={cardMedia} priority={priority} />
         <PaceBadge pace={companion.pace} />
       </div>
 
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-2 flex items-start justify-between gap-2">
-          <h3 className="text-[15px] font-bold text-gray-900 lg:text-white">
+          <h3 className="text-[15px] font-bold">
             {companion.name}, {companion.age}
           </h3>
-          <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-violet-600 lg:text-violet-400">
+          <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-brand-rose">
             <svg
               viewBox="0 0 24 24"
               className="h-3.5 w-3.5"
@@ -108,9 +110,9 @@ function CompanionCard({
             {companion.likes}
           </span>
         </div>
-        <p className="line-clamp-2 text-sm leading-relaxed text-gray-600 lg:text-white/55">
+        <p className="line-clamp-2 text-sm leading-relaxed text-ink/65 lg:text-cream/55">
           {companion.bio}{" "}
-          <span className="text-violet-700 underline decoration-violet-500/60 underline-offset-2 lg:text-violet-300">
+          <span className="text-brand-rose underline decoration-brand-rose/60 underline-offset-2">
             read more
           </span>
         </p>
@@ -130,11 +132,12 @@ export default function AiGirlfriendLanding() {
     <>
       <Header />
 
-      <main className="bg-white text-gray-900 lg:bg-[#07070a] lg:text-white">
+      <main className="relative bg-cream font-display text-ink lg:bg-ink lg:text-cream">
+        <NoiseOverlay />
         {/* Hero */}
         <section className="relative overflow-hidden border-b border-black/5 px-5 py-10 lg:border-white/5 lg:py-14">
-          <div className="pointer-events-none absolute -right-24 top-0 hidden h-80 w-80 rounded-full bg-violet-600/25 blur-[100px] lg:block" />
-          <div className="pointer-events-none absolute -left-20 bottom-0 hidden h-64 w-64 rounded-full bg-fuchsia-600/15 blur-[90px] lg:block" />
+          <div className="pointer-events-none absolute -right-24 top-0 hidden h-80 w-80 rounded-full bg-brand-rose/25 blur-[100px] lg:block" />
+          <div className="pointer-events-none absolute -left-20 bottom-0 hidden h-64 w-64 rounded-full bg-brand-rose-soft-600/15 blur-[90px] lg:block" />
 
           <div className="relative mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_250px]">
             <div className="min-w-0">
@@ -145,12 +148,12 @@ export default function AiGirlfriendLanding() {
                 />
               </div>
 
-              <p className="animate-fade-up mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-violet-600 lg:text-violet-400">
+              <p className="animate-fade-up mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-brand-rose lg:text-brand-mint">
                 TheDateCompass pick · Adults 18+
               </p>
               <h1 className="animate-fade-up-delay-1 max-w-3xl text-[clamp(2.25rem,5vw,3.75rem)] font-black leading-[1.05] tracking-tight">
               Meet Your AI Companion on{" "}
-                <span className="bg-gradient-to-r from-violet-500 to-fuchsia-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-rose to-brand-rose-soft bg-clip-text text-transparent">
                   Dreamz.ai
                 </span>
               </h1>
@@ -164,7 +167,7 @@ export default function AiGirlfriendLanding() {
                     key={item}
                     className="flex items-center gap-2 text-sm font-medium text-gray-700 lg:text-white/75"
                   >
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-rose" />
                     {item}
                   </li>
                 ))}
@@ -175,7 +178,7 @@ export default function AiGirlfriendLanding() {
                   href={offer.url}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500"
+                  className="inline-flex items-center justify-center rounded-xl bg-brand-rose px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-rose/30 transition hover:bg-brand-rose"
                   onClick={() => trackOfferClick("hero")}
                 >
                Try Dreamz.ai Free →
@@ -206,7 +209,7 @@ export default function AiGirlfriendLanding() {
               <div className="relative aspect-[3/4] bg-[#0d0d12]">
                 <CompanionMedia companion={featured} priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                <span className="absolute right-2 top-2 z-10 rounded-full bg-violet-600 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
+                <span className="absolute right-2 top-2 z-10 rounded-full bg-brand-rose px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
                   Live
                 </span>
                 <div className="absolute inset-x-0 bottom-0 z-10 p-2.5">
@@ -218,6 +221,16 @@ export default function AiGirlfriendLanding() {
               </div>
             </a>
           </div>
+
+          <MarqueeBand
+            items={[
+              "AI companions",
+              "Private chat",
+              "Free to start",
+              "Adults 18+",
+              "Dreamz.ai",
+            ]}
+          />
         </section>
 
         {/* Companions grid */}
@@ -225,7 +238,7 @@ export default function AiGirlfriendLanding() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-violet-600 lg:text-violet-400">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-rose lg:text-brand-mint">
                   Inside Dreamz.ai
                 </p>
                 <h2 className="text-3xl font-black tracking-tight md:text-4xl">
@@ -237,7 +250,7 @@ export default function AiGirlfriendLanding() {
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackOfferClick("catalog-link")}
-                className="text-sm font-semibold text-violet-600 transition hover:text-violet-500 lg:text-violet-400"
+                className="text-sm font-semibold text-brand-rose transition hover:text-brand-rose-soft lg:text-brand-mint"
               >
                 Open full catalog on Dreamz →
               </a>
@@ -292,7 +305,7 @@ export default function AiGirlfriendLanding() {
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     onClick={() => trackOfferClick("sidebar")}
-                    className="mt-4 block rounded-xl bg-violet-600 py-3 text-center text-sm font-bold text-white transition hover:bg-violet-500"
+                    className="mt-4 block rounded-xl bg-brand-rose py-3 text-center text-sm font-bold text-white transition hover:bg-brand-rose"
                   >
                    Explore on Dreamz.ai →
                   </a>
@@ -319,15 +332,15 @@ export default function AiGirlfriendLanding() {
        
 
         {/* Highlights */}
-        <section className="border-y border-black/5 bg-gray-50 px-5 py-16 lg:border-white/5 lg:bg-[#0c0c12] lg:py-20">
+        <section className="tdc-section-stone px-5 py-16">
           <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
             {offer.highlights.slice(0, 3).map((title, i) => (
               <div key={title}>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-violet-600 lg:text-violet-400">
+                <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-rose ">
                   0{i + 1}
                 </p>
                 <h3 className="mb-2 text-xl font-bold">{title}</h3>
-                <p className="text-sm leading-relaxed text-gray-600 lg:text-white/50">
+                <p className="text-sm leading-relaxed text-gray-600">
                   {
                     [
                       "Build a companion that matches your energy and conversation style.",
@@ -362,7 +375,7 @@ export default function AiGirlfriendLanding() {
 
         {/* CTA */}
         <section className="px-5 pb-20 pt-4 lg:pb-28">
-          <div className="mx-auto max-w-3xl rounded-[1.5rem] border border-black/5 bg-gradient-to-br from-violet-50 to-fuchsia-50 px-8 py-12 text-center lg:border-violet-500/20 lg:from-violet-600/20 lg:to-fuchsia-600/10 lg:px-12">
+          <div className="mx-auto max-w-3xl border border-cream/10 bg-ink-soft px-8 py-12 text-center lg:px-12">
             <h2 className="text-3xl font-black tracking-tight md:text-4xl">
             Ready to Explore Dreamz.ai?
             </h2>

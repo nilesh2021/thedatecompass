@@ -3,7 +3,7 @@ import "./globals.css";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import type { Metadata } from "next";
 import GoogleAnalyticsTracker from "@/components/GoogleAnalyticsTracker";
-import { Figtree, Playfair_Display } from "next/font/google";
+import { Figtree, Instrument_Serif, Playfair_Display, Syne } from "next/font/google";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -14,6 +14,21 @@ const figtree = Figtree({
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -34,7 +49,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${figtree.variable} ${playfair.variable}`}>
+    <html
+      lang="en"
+      className={`${figtree.variable} ${playfair.variable} ${syne.variable} ${instrumentSerif.variable}`}
+    >
       <body className="font-sans">
        <Script
     src="https://www.googletagmanager.com/gtag/js?id=G-C2QB1MM1F1"
