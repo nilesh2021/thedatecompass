@@ -1,11 +1,7 @@
 /**
  * France country offer configuration.
  *
- * Standardized core inventory (6 offers). Availability is PENDING VERIFICATION
- * for every offer below — not confirmation that an offer is live in France.
- *
- * Source material is copied from existing USA / Germany datasets only.
- * Update `href` and `franceLinkStatus` per offer after you verify each link.
+ * Inventory ordered by Offer Master priority for France.
  */
 
 export type FranceLinkStatus = "reused_existing" | "needs_verification";
@@ -31,49 +27,7 @@ export type FranceOffer = {
   sourcedFrom: Array<"usa" | "germany">;
 };
 
-/**
- * Core 6-offer France inventory (pending verification).
- */
 export const franceOffers: FranceOffer[] = [
-  {
-    id: "cheekycrush",
-    name: "CheekyCrush",
-    category: "Casual dating",
-    description:
-      "A casual adult dating option for people looking to explore new connections.",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    franceLinkStatus: "reused_existing",
-    franceAvailabilityVerified: true,
-    sourcedFrom: ["usa", "germany"],
-  },
-  {
-    id: "gaybloom",
-    name: "GayBloom",
-    category: "Gay Dating",
-    description:
-      "An inclusive adult dating option for gay singles and communities.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    franceLinkStatus: "reused_existing",
-    franceAvailabilityVerified: true,
-    sourcedFrom: ["usa", "germany"],
-  },
-  {
-    id: "naughtycharm",
-    name: "NaughtyCharm",
-    category: "Adult dating",
-    description:
-      "An adult-focused dating option for people who know what they are looking for.",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    franceLinkStatus: "reused_existing",
-    franceAvailabilityVerified: true,
-    sourcedFrom: ["usa", "germany"],
-  },
   {
     id: "grannyhunter",
     name: "Grannyhunter",
@@ -88,6 +42,32 @@ export const franceOffers: FranceOffer[] = [
     sourcedFrom: ["usa", "germany"],
   },
   {
+    id: "manfinder",
+    name: "Manfinder",
+    category: "Gay Dating",
+    description:
+      "A dating and social platform for men looking to meet and connect with other men.",
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+    href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+    franceLinkStatus: "reused_existing",
+    franceAvailabilityVerified: true,
+    sourcedFrom: ["usa", "germany"],
+  },
+  {
+    id: "realsexclub",
+    name: "RealSexClub",
+    category: "Adult dating",
+    description:
+      "An adult social and dating option for people looking for direct connections.",
+    image:
+      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
+    href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+    franceLinkStatus: "reused_existing",
+    franceAvailabilityVerified: true,
+    sourcedFrom: ["usa", "germany"],
+  },
+  {
     id: "fetishpartner",
     name: "FetishPartner",
     category: "Adult social",
@@ -96,18 +76,6 @@ export const franceOffers: FranceOffer[] = [
     image:
       "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
     href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
-    franceLinkStatus: "reused_existing",
-    franceAvailabilityVerified: true,
-    sourcedFrom: ["usa", "germany"],
-  },
-  {
-    id: "dreamz-ai",
-    name: "Dreamz.ai",
-    category: "AI",
-    description:
-      "Explore an AI companion experience designed for personalized conversations and virtual connections.",
-    image: "/images/ai-model.webp",
-    href: "https://t.vlmai-5.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
     sourcedFrom: ["usa", "germany"],

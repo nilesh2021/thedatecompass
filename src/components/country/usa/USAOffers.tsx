@@ -27,7 +27,8 @@ const filters = [
   "Casual",
   "Mature",
   "Gay Dating",
-  "AI",
+  "Adult",
+  "Trans",
 ];
 
 const categoryMap: Record<string, string[]> = {
@@ -35,14 +36,16 @@ const categoryMap: Record<string, string[]> = {
   Casual: ["Casual dating"],
   Mature: ["Mature dating"],
   "Gay Dating": ["Gay Dating"],
-  AI: ["AI"],
+  Adult: ["Adult dating"],
+  Trans: ["Trans dating"],
 };
 
 const hashToFilter: Record<string, string> = {
   "offers-casual": "Casual",
   "offers-mature": "Mature",
   "offers-gay": "Gay Dating",
-  "offers-ai": "AI",
+  "offers-adult": "Adult",
+  "offers-trans": "Trans",
   offers: "All",
 };
 
@@ -101,7 +104,12 @@ export default function USAOffers({ offers }: USAOffersProps) {
         aria-hidden
       />
       <span
-        id="offers-ai"
+        id="offers-adult"
+        className="pointer-events-none absolute top-0"
+        aria-hidden
+      />
+      <span
+        id="offers-trans"
         className="pointer-events-none absolute top-0"
         aria-hidden
       />
@@ -267,7 +275,8 @@ export default function USAOffers({ offers }: USAOffersProps) {
                       Casual: "offers-casual",
                       Mature: "offers-mature",
                       "Gay Dating": "offers-gay",
-                      AI: "offers-ai",
+                      Adult: "offers-adult",
+                      Trans: "offers-trans",
                     };
 
                     const hash = filterHashes[filter];

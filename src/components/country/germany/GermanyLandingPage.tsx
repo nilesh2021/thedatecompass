@@ -14,7 +14,6 @@ import { ShieldCheck } from "lucide-react";
 /** Internal category pages that clearly match current Germany offer themes. */
 const relatedCategories = [
   { href: "/gay-dating", label: "Gay dating" },
-  { href: "/category/ai-girlfriend", label: "AI girlfriend" },
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating" },
   { href: "/cozy-sites", label: "Cozy & niche sites" },
@@ -51,7 +50,7 @@ const germanyFaqs = [
   {
     question: "Which dating sites are listed for Germany visitors?",
     answer:
-      "The offers on this page are third-party dating and companion platforms presented for visitors comparing options with a Germany focus. Always confirm eligibility and terms on the destination site.",
+      "The offers on this page are third-party dating and adult dating platforms presented for visitors comparing options with a Germany focus. Always confirm eligibility and terms on the destination site.",
   },
   {
     question: "Which offers on this page focus on casual dating?",
@@ -225,9 +224,9 @@ export default function GermanyLandingPage() {
             </h1>
 
             <p className="mb-10 max-w-xl text-lg leading-8 text-fog">
-              Casual dating, niche communities, mature matches, and AI
-              companions — compared side by side so you can skip the guesswork
-              and click what fits.
+              Casual dating, niche communities, mature matches, and adult
+              social spaces — compared side by side so you can skip the
+              guesswork and click what fits.
             </p>
 
             <div className="mb-8 flex flex-wrap items-center gap-4">
@@ -300,7 +299,7 @@ export default function GermanyLandingPage() {
                   variant="germany"
                   eyebrow="Germany offers"
                   title="Adult dating platforms compared"
-                  description="From CheekyCrush and RealSexClub to niche picks like FetishPartner, MilfFinder, and Dreamz.ai — each offer below matches our live affiliate lineup."
+                  description="From DirtyDating and RealSexClub to niche picks like FetishPartner, Grannyhunter, and Manfinder — each offer below matches our live affiliate lineup."
                 />
               </div>
 
@@ -368,7 +367,7 @@ export default function GermanyLandingPage() {
                   Explore dating categories in Germany
                 </span>
               }
-              description="Category pages that match the Germany offers above — gay dating, AI companions, adult and mature dating, and niche sites."
+              description="Category pages that match the Germany offers above — gay dating, adult and mature dating, and niche sites."
             />
 
             <ul className="mt-6 flex flex-wrap gap-3">
@@ -401,21 +400,20 @@ export default function GermanyLandingPage() {
             <div className="mt-8 space-y-5 text-base leading-relaxed text-fog">
               <p>
                 This Germany page is built for comparison, not for rushing into
-                a signup. Visitors can scan third-party adult dating and
-                companion listings by category—casual dating, gay dating, mature
-                audiences, niche adult social spaces, and AI companions—before
-                deciding whether to open a provider site. TheDateCompass
-                presents those options with short descriptions and bullet
-                points. We do not operate the platforms, host profiles, or
-                handle payments and support.
+                a signup. Visitors can scan third-party adult dating listings by
+                category—casual dating, gay dating, mature audiences, and niche
+                adult social spaces—before deciding whether to open a provider
+                site. TheDateCompass presents those options with short
+                descriptions and bullet points. We do not operate the platforms,
+                host profiles, or handle payments and support.
               </p>
               <p>
                 Start with intention. If you want low-pressure chats, focus on
                 casual or adult dating cards. If you are looking for gay dating
-                communities, mature connections, fetish-oriented adult social
-                spaces, or AI companion chat, use those category labels to
-                narrow the list. Matching intention to category first usually
-                makes the remaining cards easier to evaluate.
+                communities, mature connections, or fetish-oriented adult social
+                spaces, use those category labels to narrow the list. Matching
+                intention to category first usually makes the remaining cards
+                easier to evaluate.
               </p>
               <p>
                 After you shortlist, click through only when a listing’s framing
@@ -444,8 +442,8 @@ export default function GermanyLandingPage() {
               <ul className="mt-5 space-y-3 text-sm leading-relaxed text-fog sm:text-base">
                 <li>
                   <span className="font-semibold text-cream">Categories —</span>{" "}
-                  Match casual, gay dating, mature, niche adult social, or AI
-                  companion listings to the experience you want.
+                  Match casual, gay dating, mature, or niche adult social
+                  listings to the experience you want.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">

@@ -10,7 +10,6 @@ import { franceOffers } from "@/data/countries/france";
 
 const franceCategories = [
   { href: "/gay-dating", label: "Gay dating" },
-  { href: "/category/ai-girlfriend", label: "AI girlfriend" },
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating" },
   { href: "/cozy-sites", label: "Cozy & niche sites" },
@@ -28,12 +27,12 @@ const franceFaqs = [
   {
     question: "What is this France dating comparison page for?",
     answer:
-      "This page helps visitors who want a France-focused place to compare third-party adult dating and social platforms. You can review categories and short descriptions for the six offers listed here, then open a provider site if an option looks relevant. TheDateCompass does not operate those platforms.",
+      "This page helps visitors who want a France-focused place to compare third-party adult dating and social platforms. You can review categories and short descriptions for the four offers listed here, then open a provider site if an option looks relevant. TheDateCompass does not operate those platforms.",
   },
   {
     question: "Which types of platforms are listed on this France page?",
     answer:
-      "The shortlist covers casual dating, gay dating, adult dating, mature dating, adult social / niche interests, and an AI companion option. Use the category labels on each card—and the related category links on this page—to narrow by intention before you leave for a third-party site.",
+      "The shortlist covers mature dating, gay dating, adult dating, and adult social / niche interests. Use the category labels on each card—and the related category links on this page—to narrow by intention before you leave for a third-party site.",
   },
   {
     question: "Does TheDateCompass operate these dating platforms?",
@@ -48,7 +47,7 @@ const franceFaqs = [
   {
     question: "What should I check before creating an account?",
     answer:
-      "Confirm that you meet the provider’s age and eligibility requirements, review the privacy policy and community rules, and understand how messaging, profiles, and any paid features work on that site. Terms and features can change, so always verify details on the destination page rather than relying only on this summary.",
+      "Confirm that you meet the provider’s age and eligibility requirements, review the privacy policy and community rules, and understand how messaging and profiles work on that site. Terms and features can change, so always verify details on the destination page rather than relying only on this summary.",
   },
 ];
 
@@ -72,8 +71,8 @@ export default function FranceLandingPage() {
             </h1>
 
             <p className="mb-6 max-w-xl text-lg leading-8 text-fog">
-              Browse casual dating, gay dating, mature, adult social, and AI
-              companion listings in a France-focused layout. TheDateCompass
+              Browse mature dating, gay dating, adult dating, and niche adult
+              social listings in a France-focused layout. TheDateCompass
               compares third-party options — we do not run these platforms.
             </p>
 
@@ -116,8 +115,8 @@ export default function FranceLandingPage() {
             <CountrySectionHeading
               variant="germany"
               eyebrow="France offers"
-              title="Six platforms to compare"
-              description="A France-focused shortlist spanning casual dating, gay dating, adult and mature dating, niche adult social, and AI companions. Open any card to visit the third-party site."
+              title="Four platforms to compare"
+              description="A France-focused shortlist spanning mature dating, gay dating, adult dating, and niche adult social. Open any card to visit the third-party site."
             />
 
             <div className="mt-10 space-y-4 sm:mt-14">
@@ -182,37 +181,34 @@ export default function FranceLandingPage() {
                 Finding an adult dating or social platform that fits your goals
                 starts with clarity, not with rushing into signup. Visitors who
                 land on this France page often want a single place to scan
-                different connection styles—casual chats, community-focused
-                dating, mature audiences, niche adult social spaces, or AI
-                companion experiences—before deciding whether to leave for a
-                provider site. TheDateCompass is built for that comparison step.
-                We present third-party listings with category labels and short
-                descriptions so you can orient yourself quickly. We do not run
-                the platforms, manage profiles, or handle payments and support.
+                different connection styles—gay dating, mature audiences, adult
+                dating, or niche adult social spaces—before deciding whether to
+                leave for a provider site. TheDateCompass is built for that
+                comparison step. We present third-party listings with category
+                labels and short descriptions so you can orient yourself
+                quickly. We do not run the platforms, manage profiles, or handle
+                payments and support.
               </p>
               <p>
                 A useful way to work through the shortlist is to begin with
                 intention. Ask what kind of interaction you want right now. Some
-                people prefer low-pressure casual dating. Others look for gay
-                dating spaces, mature connections, or adult social communities
-                organised around specific interests. Separate from traditional
-                dating, AI companion products focus on conversation and virtual
-                interaction rather than meeting people in person. Matching your
-                intention to a category first usually makes the rest of the
-                comparison easier, because you can ignore offers that are simply
-                aimed at a different experience.
+                people prefer gay dating spaces, mature connections, adult
+                dating, or adult social communities organised around specific
+                interests. Matching your intention to a category first usually
+                makes the rest of the comparison easier, because you can ignore
+                offers that are simply aimed at a different experience.
               </p>
               <p>
                 Once you have a category in mind, read each relevant card for
                 tone and focus rather than treating every listing as
                 interchangeable. Look at how the platform describes itself: is
-                it framed around flirty encounters, community matching, mature
-                audiences, niche interests, or AI chat? Cross-check that framing
-                against the related category pages linked from this France
-                layout if you want a broader view of similar offer types. Those
-                category pages are part of the same site and can help you
-                understand how TheDateCompass groups adult dating and companion
-                options without requiring you to invent a ranking of your own.
+                it framed around community matching, mature audiences, adult
+                dating, or niche interests? Cross-check that framing against the
+                related category pages linked from this France layout if you
+                want a broader view of similar offer types. Those category pages
+                are part of the same site and can help you understand how
+                TheDateCompass groups adult dating options without requiring you
+                to invent a ranking of your own.
               </p>
               <p>
                 Comparison also means planning for what happens after you click
@@ -241,7 +237,7 @@ export default function FranceLandingPage() {
               </p>
               <p>
                 Finally, treat this France page as a comparison aid rather than
-                a substitute for your own judgment. The six offers below the
+                a substitute for your own judgment. The four offers below the
                 hero are a curated shortlist from our catalog for this layout.
                 They are not ranked as winners, and this guide does not assert
                 which option is most popular, cheapest, or officially endorsed
@@ -261,8 +257,8 @@ export default function FranceLandingPage() {
               <ul className="mt-5 space-y-3 text-sm leading-relaxed text-fog sm:text-base">
                 <li>
                   <span className="font-semibold text-cream">Categories —</span>{" "}
-                  Match casual, gay dating, mature, adult social, or AI
-                  companion listings to the experience you actually want.
+                  Match gay dating, mature, adult dating, or adult social
+                  listings to the experience you actually want.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">
@@ -280,8 +276,8 @@ export default function FranceLandingPage() {
                   <span className="font-semibold text-cream">
                     Communication features —
                   </span>{" "}
-                  Confirm how messaging, matching, or AI chat works on the
-                  destination site.
+                  Confirm how messaging and matching work on the destination
+                  site.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">

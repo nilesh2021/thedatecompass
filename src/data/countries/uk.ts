@@ -1,11 +1,8 @@
 /**
  * United Kingdom country offer configuration.
  *
- * No offers in project data are explicitly tagged UK/GB.
- * This shortlist reuses existing USA/Germany catalog entries only.
- *
- * UK availability is PENDING VERIFICATION for every offer below.
- * Do not treat inclusion here as confirmation that an offer is live in the UK.
+ * Inventory ordered by Offer Master priority for the UK.
+ * SexyFans / WannaHookup omitted — no real affiliate URL exists in project data.
  */
 
 export type UkLinkStatus = "reused_existing" | "needs_verification";
@@ -25,52 +22,7 @@ export type UkOffer = {
   sourcedFrom: Array<"usa" | "germany">;
 };
 
-/**
- * 6 pending fillers — standardized core inventory; no UK/GB-tagged offers in src/data yet.
- */
 export const ukOffers: UkOffer[] = [
-  {
-    id: "cheekycrush",
-    name: "CheekyCrush",
-    category: "Casual dating",
-    description:
-      "A casual adult dating option for people looking to explore new connections.",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    ukLinkStatus: "reused_existing",
-    ukAvailabilityVerified: true,
-    markedForUkInSource: false,
-    sourcedFrom: ["usa", "germany"],
-  },
-  {
-    id: "gaybloom",
-    name: "GayBloom",
-    category: "Gay Dating",
-    description:
-      "An inclusive adult dating option for gay singles and communities.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    ukLinkStatus: "reused_existing",
-    ukAvailabilityVerified: true,
-    markedForUkInSource: false,
-    sourcedFrom: ["usa", "germany"],
-  },
-  {
-    id: "naughtycharm",
-    name: "NaughtyCharm",
-    category: "Adult dating",
-    description:
-      "An adult-focused dating option for people who know what they are looking for.",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-    ukLinkStatus: "reused_existing",
-    ukAvailabilityVerified: true,
-    markedForUkInSource: false,
-    sourcedFrom: ["usa", "germany"],
-  },
   {
     id: "grannyhunter",
     name: "Grannyhunter",
@@ -86,27 +38,56 @@ export const ukOffers: UkOffer[] = [
     sourcedFrom: ["usa", "germany"],
   },
   {
-    id: "fetishpartner",
-    name: "FetishPartner",
-    category: "Adult social",
+    id: "milffinder",
+    name: "MilfFinder",
+    category: "Mature dating",
     description:
-      "An adult-focused platform for exploring connections around specific interests.",
+      "An adult dating option for mature singles interested in genuine conversations and chemistry.",
     image:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
-    href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+      "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=900&q=80",
+    href: "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+    ukLinkStatus: "reused_existing",
+    ukAvailabilityVerified: true,
+    markedForUkInSource: false,
+    sourcedFrom: ["germany"],
+  },
+  {
+    id: "realsexclub",
+    name: "RealSexClub",
+    category: "Adult dating",
+    description:
+      "An adult social and dating option for people looking for direct connections.",
+    image:
+      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
+    href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     ukLinkStatus: "reused_existing",
     ukAvailabilityVerified: true,
     markedForUkInSource: false,
     sourcedFrom: ["usa", "germany"],
   },
   {
-    id: "dreamz-ai",
-    name: "Dreamz.ai",
-    category: "AI",
+    id: "litlatinz",
+    name: "LitLatinz",
+    category: "Adult dating",
     description:
-      "Explore an AI companion experience designed for personalized conversations and virtual connections.",
-    image: "/images/ai-model.webp",
-    href: "https://t.vlmai-5.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      "An adult dating option focused on Latino community connections.",
+    image:
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=80",
+    href: "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+    ukLinkStatus: "reused_existing",
+    ukAvailabilityVerified: true,
+    markedForUkInSource: false,
+    sourcedFrom: ["usa", "germany"],
+  },
+  {
+    id: "transdate",
+    name: "TransDate",
+    category: "Trans dating",
+    description:
+      "A dating option for people interested in transgender and inclusive connections.",
+    image:
+      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
+    href: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     ukLinkStatus: "reused_existing",
     ukAvailabilityVerified: true,
     markedForUkInSource: false,

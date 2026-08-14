@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 const intentionHashes: Record<string, string> = {
   Casual: "offers-casual",
   "Gay Dating": "offers-gay",
-  AI: "offers-ai",
+  Mature: "offers-mature",
 };
 
 const intentions = [
@@ -90,11 +90,11 @@ const intentions = [
   },
   {
     number: "03",
-    title: "Explore AI connections",
-    text: "Discover AI companion experiences and virtual connections.",
-    filter: "AI",
+    title: "Explore mature dating",
+    text: "Browse mature dating options for experienced adults.",
+    filter: "Mature",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -109,12 +109,12 @@ const usaFaqs = [
   {
     question: "What dating offers are listed for USA users on this page?",
     answer:
-      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and AI companion offers for eligible visitors in the United States. Examples on this page include CheekyCrush, GayBloom, LitLatinz, and Dreamz.ai, depending on the category you want to compare.",
+      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current examples include Grannyhunter, LitLatinz, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, GayBloom, and PridePair.",
   },
   {
     question: "Which casual dating offers are listed for USA users?",
     answer:
-      "CheekyCrush and DirtyDating are the casual dating offers listed for USA users on this page. Compare their categories and descriptions here before visiting a third-party provider.",
+      "CheekyCrush is the casual dating offer listed for USA users on this page. Compare its category and description here before visiting a third-party provider.",
   },
   {
     question: "Are there gay dating offers for USA users?",
@@ -127,14 +127,14 @@ const usaFaqs = [
       "Signup requirements, pricing, and any free or paid features are set by each third-party platform. Check the destination site for current terms before you register.",
   },
   {
-    question: "Can USA users compare AI companion offers here too?",
+    question: "Are there mature or adult dating offers for USA users?",
     answer:
-      "Yes. Dreamz.ai is listed as an AI companion offer on this USA page for visitors who want virtual conversations instead of traditional dating. You can also explore more AI girlfriend offers in our AI companion category.",
+      "Yes. Mature dating listings on this page include Grannyhunter and MilfFinder. Adult dating listings include LitLatinz and RealSexClub. Compare categories and descriptions here before visiting a provider site.",
   },
   {
     question: "How should USA users choose the right dating offer?",
     answer:
-      "Start with intention: casual dating, gay dating, mature dating, adult dating, or AI companion. Then compare the offers listed on this page by category and description. TheDateCompass only lists third-party dating offers and does not operate the platforms.",
+      "Start with intention: casual dating, gay dating, mature dating, adult dating, or trans dating. Then compare the offers listed on this page by category and description. TheDateCompass only lists third-party dating offers and does not operate the platforms.",
   },
 ];
 
@@ -143,7 +143,7 @@ const collectionJsonLd = {
   "@type": "CollectionPage",
   name: "Adult Dating Sites in the USA 2026",
   description:
-    "A comparison and discovery page for third-party adult dating, gay dating, mature dating, and AI companion platforms listed for visitors in the United States.",
+    "A comparison and discovery page for third-party adult dating, gay dating, mature dating, and related dating platforms listed for visitors in the United States.",
   url: PAGE_URL,
   isPartOf: {
     "@type": "WebSite",
@@ -159,7 +159,7 @@ const collectionJsonLd = {
     "Casual dating",
     "Gay dating",
     "Mature dating",
-    "AI companion",
+    "Trans dating",
   ],
   mainEntity: {
     "@type": "ItemList",
@@ -370,15 +370,23 @@ export default function UsaPage() {
                 >
                   gay dating platforms
                 </Link>
-                , mature connections, or an{" "}
-                <Link
-                  href="/category/ai-girlfriend"
+                ,{" "}
+                <a
+                  href="#offers-mature"
                   className="font-semibold text-brand-rose underline-offset-2 hover:underline"
                 >
-                  AI companion experience
-                </Link>
-                . This page helps eligible 18+ visitors compare third-party
-                options by category before leaving for a provider site.
+                  mature dating
+                </a>
+                , or{" "}
+                <a
+                  href="#offers-adult"
+                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                >
+                  adult dating
+                </a>{" "}
+                options. This page helps eligible 18+ visitors compare
+                third-party listings by category before leaving for a provider
+                site.
               </p>
               <p>
                 TheDateCompass does not operate these platforms. We present

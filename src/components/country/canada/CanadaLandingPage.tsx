@@ -10,7 +10,6 @@ import { canadaOffers } from "@/data/countries/canada";
 
 const canadaCategories = [
   { href: "/gay-dating", label: "Gay dating" },
-  { href: "/category/ai-girlfriend", label: "AI girlfriend" },
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating" },
   { href: "/cozy-sites", label: "Cozy & niche sites" },
@@ -28,12 +27,12 @@ const canadaFaqs = [
   {
     question: "What does this Canada dating page help me do?",
     answer:
-      "It gives visitors a Canada-focused shortlist of third-party adult dating and companion platforms. You can compare category labels and brief descriptions for the six offers here, then open a provider site if something looks relevant. TheDateCompass does not operate those platforms.",
+      "It gives visitors a Canada-focused shortlist of third-party adult dating platforms. You can compare category labels and brief descriptions for the nine offers here, then open a provider site if something looks relevant. TheDateCompass does not operate those platforms.",
   },
   {
     question: "What kinds of offers appear on the Canada shortlist?",
     answer:
-      "The listings cover casual dating, gay dating, adult dating, mature dating, niche adult social, and an AI companion option. Use the category tags on each card—and the related category links on this page—to filter by intention before you click through.",
+      "The listings cover casual dating, gay dating, adult dating, mature dating, trans dating, and niche adult social. Use the category tags on each card—and the related category links on this page—to filter by intention before you click through.",
   },
   {
     question: "Is TheDateCompass a Canadian dating service?",
@@ -48,7 +47,7 @@ const canadaFaqs = [
   {
     question: "What should I verify before registering on a platform?",
     answer:
-      "Check age and eligibility requirements, read the privacy policy and community guidelines, and understand how messaging or AI chat works on that site. Features and policies can change, so rely on the provider’s live pages—not only this summary—before you create an account.",
+      "Check age and eligibility requirements, read the privacy policy and community guidelines, and understand how messaging works on that site. Features and policies can change, so rely on the provider’s live pages—not only this summary—before you create an account.",
   },
 ];
 
@@ -72,9 +71,9 @@ export default function CanadaLandingPage() {
             </h1>
 
             <p className="mb-6 max-w-xl text-lg leading-8 text-fog">
-              A Canada-focused shortlist of third-party dating and companion
-              listings from our catalog. TheDateCompass compares options — we do
-              not operate these platforms.
+              A Canada-focused shortlist of third-party dating listings from our
+              catalog. TheDateCompass compares options — we do not operate these
+              platforms.
             </p>
 
             <p className="mb-10 max-w-xl text-sm leading-7 text-fog/90">
@@ -119,8 +118,8 @@ export default function CanadaLandingPage() {
             <CountrySectionHeading
               variant="germany"
               eyebrow="Canada offers"
-              title="Six platforms to compare"
-              description="A Canada-focused shortlist spanning casual dating, gay dating, adult and mature dating, niche adult social, and AI companions. Open any card to visit the third-party site."
+              title="Nine platforms to compare"
+              description="A Canada-focused shortlist spanning casual dating, gay dating, adult and mature dating, trans dating, and niche adult social. Open any card to visit the third-party site."
             />
 
             <div className="mt-10 space-y-4 sm:mt-14">
@@ -185,13 +184,12 @@ export default function CanadaLandingPage() {
                 Online dating decisions often start with too many tabs and too
                 little structure. This Canada page is meant to slow that moment
                 down: instead of jumping straight into signup, you can scan a
-                small set of third-party adult dating and companion listings
-                organised by category. TheDateCompass presents those listings
-                with short descriptions so you can see whether an offer leans
-                casual, community-focused, mature, niche adult social, or AI
-                companion. We do not run the platforms, host profiles, or handle
-                payments and support—those details live on each provider’s own
-                site.
+                set of third-party adult dating listings organised by category.
+                TheDateCompass presents those listings with short descriptions
+                so you can see whether an offer leans casual, community-focused,
+                mature, trans-inclusive, or niche adult social. We do not run
+                the platforms, host profiles, or handle payments and
+                support—those details live on each provider’s own site.
               </p>
               <p>
                 Because Canada spans multiple time zones and long distances
@@ -199,16 +197,14 @@ export default function CanadaLandingPage() {
                 before anything in person. That makes category fit especially
                 useful early on. If you want low-pressure chats, start with
                 casual adult dating cards. If you are looking for gay dating
-                spaces, mature audiences, or niche adult social communities,
-                filter by those labels. If you prefer conversational AI rather
-                than meeting people, look at the AI companion listing separately
-                so you do not confuse it with traditional dating products.
+                spaces, mature audiences, trans dating, or niche adult social
+                communities, filter by those labels.
               </p>
               <p>
                 After you pick a direction, read the cards that remain for tone
                 and focus. Ask whether the listing describes flirty encounters,
-                community matching, age-focused connections, interest-based
-                adult social spaces, or virtual AI chat. Then use the related
+                community matching, age-focused connections, inclusive dating,
+                or interest-based adult social spaces. Then use the related
                 category links on this Canada layout when you want a wider view
                 of how TheDateCompass groups similar offer types. Those pages
                 are internal guides, not rankings, and they can help you compare
@@ -237,7 +233,7 @@ export default function CanadaLandingPage() {
               </p>
               <p>
                 Treat this Canada page as a comparison worksheet, not a verdict.
-                The six offers in the list above are a curated shortlist for
+                The nine offers in the list above are a curated shortlist for
                 this layout. They are not ordered as winners, and this guide
                 does not claim which service is most popular, cheapest, or
                 right for every visitor. Shortlist here, explore related
@@ -256,8 +252,8 @@ export default function CanadaLandingPage() {
                 <li>
                   <span className="font-semibold text-cream">Categories —</span>{" "}
                   Decide whether you want casual dating, gay dating, mature
-                  connections, niche adult social, or AI companion chat before
-                  you compare brands.
+                  connections, trans dating, or niche adult social before you
+                  compare brands.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">
@@ -283,7 +279,7 @@ export default function CanadaLandingPage() {
                   <span className="font-semibold text-cream">
                     Communication features —
                   </span>{" "}
-                  Confirm how messaging, matching, or AI chat works on the
+                  Confirm how messaging and matching work on the
                   provider site.
                 </li>
                 <li>

@@ -10,7 +10,6 @@ import { ukOffers } from "@/data/countries/uk";
 
 const ukCategories = [
   { href: "/gay-dating", label: "Gay dating" },
-  { href: "/category/ai-girlfriend", label: "AI girlfriend" },
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating" },
   { href: "/cozy-sites", label: "Cozy & niche sites" },
@@ -28,12 +27,12 @@ const ukFaqs = [
   {
     question: "What is this UK dating comparison page designed for?",
     answer:
-      "It gives United Kingdom visitors a focused place to compare six third-party adult dating and companion listings. Review categories and short descriptions here, then open a provider site if an option looks relevant. TheDateCompass does not operate those platforms.",
+      "It gives United Kingdom visitors a focused place to compare five third-party adult dating listings. Review categories and short descriptions here, then open a provider site if an option looks relevant. TheDateCompass does not operate those platforms.",
   },
   {
     question: "What categories appear on the UK shortlist?",
     answer:
-      "Casual dating, gay dating, adult dating, mature dating, niche adult social, and an AI companion option. Use the labels on each card—and the related category links on this page—to narrow by what kind of experience you want.",
+      "Mature dating, adult dating, and trans dating. Use the labels on each card—and the related category links on this page—to narrow by what kind of experience you want.",
   },
   {
     question: "Is TheDateCompass a UK dating operator?",
@@ -48,7 +47,7 @@ const ukFaqs = [
   {
     question: "What is worth checking before I create a profile?",
     answer:
-      "Age and eligibility requirements, the privacy policy and community rules, and how messaging or AI chat works on that platform today. Features and policies can change, so confirm details on the provider’s live pages before you register.",
+      "Age and eligibility requirements, the privacy policy and community rules, and how messaging works on that platform today. Features and policies can change, so confirm details on the provider’s live pages before you register.",
   },
 ];
 
@@ -72,9 +71,9 @@ export default function UKLandingPage() {
             </h1>
 
             <p className="mb-6 max-w-xl text-lg leading-8 text-fog">
-              A United Kingdom–focused shortlist of third-party dating and
-              companion listings from our catalog. TheDateCompass compares
-              options — we do not operate these platforms.
+              A United Kingdom–focused shortlist of third-party dating listings
+              from our catalog. TheDateCompass compares options — we do not
+              operate these platforms.
             </p>
 
             <p className="mb-10 max-w-xl text-sm leading-7 text-fog/90">
@@ -116,8 +115,8 @@ export default function UKLandingPage() {
             <CountrySectionHeading
               variant="germany"
               eyebrow="UK offers"
-              title="Six platforms to compare"
-              description="A UK-focused shortlist spanning casual dating, gay dating, adult and mature dating, niche adult social, and AI companions. Open any card to visit the third-party site."
+              title="Five platforms to compare"
+              description="A UK-focused shortlist spanning mature dating, adult dating, and trans dating. Open any card to visit the third-party site."
             />
 
             <div className="mt-10 space-y-4 sm:mt-14">
@@ -181,9 +180,8 @@ export default function UKLandingPage() {
               <p>
                 Adult dating and social platforms are easier to evaluate when
                 you separate intention from marketing. This UK page gathers a
-                small third-party shortlist so you can see, in one place,
-                whether an offer is framed as casual dating, gay dating, mature
-                connections, niche adult social browsing, or AI companion chat.
+                third-party shortlist so you can see, in one place, whether an
+                offer is framed as mature dating, adult dating, or trans dating.
                 TheDateCompass exists for that comparison moment. We do not run
                 the platforms, host profiles, or manage registrations, payments,
                 or support—those responsibilities sit with each external
@@ -191,13 +189,10 @@ export default function UKLandingPage() {
               </p>
               <p>
                 Start by naming the experience you want. Some visitors prefer
-                low-pressure adult chats; others want community-oriented gay
-                dating spaces, mature audiences, or interest-led adult social
-                environments. AI companion products are a different category
-                altogether: they centre on conversation and virtual interaction
-                rather than meeting people in person. Choosing a category first
-                makes the six-offer list below more useful, because you can set
-                aside listings that simply target a different kind of connection.
+                mature audiences; others want adult dating or inclusive trans
+                dating spaces. Choosing a category first makes the five-offer
+                list below more useful, because you can set aside listings that
+                simply target a different kind of connection.
               </p>
               <p>
                 Next, read the cards that remain for focus and wording. Look at
@@ -230,7 +225,7 @@ export default function UKLandingPage() {
               </p>
               <p>
                 Treat this UK page as a comparison aid, not a substitute for
-                your own checks. The six offers above are a curated shortlist
+                your own checks. The five offers above are a curated shortlist
                 for this layout and are not ordered as winners. This guide does
                 not claim which option is most popular, cheapest, or right for
                 every visitor. Shortlist by category here, use related links for
@@ -247,8 +242,8 @@ export default function UKLandingPage() {
               <ul className="mt-5 space-y-3 text-sm leading-relaxed text-fog sm:text-base">
                 <li>
                   <span className="font-semibold text-cream">Categories —</span>{" "}
-                  Align casual, gay dating, mature, niche adult social, or AI
-                  companion listings with the experience you actually want.
+                  Align mature, adult dating, or trans dating listings with the
+                  experience you actually want.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">
@@ -268,8 +263,8 @@ export default function UKLandingPage() {
                   <span className="font-semibold text-cream">
                     Communication features —
                   </span>{" "}
-                  Confirm how messaging, matching, or AI chat works on the
-                  destination site.
+                  Confirm how messaging and matching work on the destination
+                  site.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">

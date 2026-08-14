@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, ShieldCheck, Globe } from "lucide-react";
 import { usaCategories } from "@/data/usaOffers";
 
 const homeCategories = usaCategories.filter((category) =>
-  ["casual", "gay-dating", "mature", "ai"].includes(category.slug)
+  ["casual", "gay-dating", "mature", "adult"].includes(category.slug)
 );
 
 export default function Categories() {
@@ -22,8 +22,8 @@ export default function Categories() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl font-serif-accent text-xl italic text-cream/65">
-            Compare platforms by category — casual, gay dating, mature, and AI
-            companions.
+            Compare platforms by category — casual, gay dating, mature, and adult
+            dating.
           </p>
         </div>
 
@@ -82,8 +82,8 @@ export default function Categories() {
                     href={
                       category.slug === "gay-dating"
                         ? "/gay-dating"
-                        : category.slug === "ai"
-                          ? "/category/ai-girlfriend"
+                        : category.slug === "adult"
+                          ? "/top-offers/adult"
                           : category.slug === "casual"
                             ? "/top-offers"
                             : category.slug === "mature"
@@ -94,8 +94,8 @@ export default function Categories() {
                   >
                     {category.slug === "gay-dating"
                       ? "Compare gay dating"
-                      : category.slug === "ai"
-                        ? "Compare AI companions"
+                      : category.slug === "adult"
+                        ? "Compare adult dating"
                         : category.slug === "casual"
                           ? "Compare casual dating"
                           : category.slug === "mature"

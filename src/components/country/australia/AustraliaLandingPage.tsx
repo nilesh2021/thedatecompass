@@ -10,7 +10,6 @@ import { australiaOffers } from "@/data/countries/australia";
 
 const australiaCategories = [
   { href: "/gay-dating", label: "Gay dating" },
-  { href: "/category/ai-girlfriend", label: "AI girlfriend" },
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating" },
   { href: "/cozy-sites", label: "Cozy & niche sites" },
@@ -28,12 +27,12 @@ const australiaFaqs = [
   {
     question: "Why use this Australia dating comparison page?",
     answer:
-      "It brings a small set of third-party adult dating and companion offers into one Australia-focused layout. You can review categories and short descriptions for the six listings here, then visit a provider site if an option fits what you are looking for. TheDateCompass does not operate those services.",
+      "It brings a set of third-party adult dating offers into one Australia-focused layout. You can review categories and short descriptions for the nine listings here, then visit a provider site if an option fits what you are looking for. TheDateCompass does not operate those services.",
   },
   {
     question: "Which offer types are included for Australia visitors?",
     answer:
-      "The shortlist includes casual dating, gay dating, adult dating, mature dating, niche adult social, and an AI companion listing. Category labels on the cards—and the related category links below—help you narrow by intention before leaving this page.",
+      "The shortlist includes casual dating, gay dating, adult dating, mature dating, trans dating, and niche adult social. Category labels on the cards—and the related category links below—help you narrow by intention before leaving this page.",
   },
   {
     question: "Does TheDateCompass run Australian dating apps?",
@@ -72,9 +71,9 @@ export default function AustraliaLandingPage() {
             </h1>
 
             <p className="mb-6 max-w-xl text-lg leading-8 text-fog">
-              An Australia-focused shortlist of third-party dating and companion
-              listings from our catalog. TheDateCompass compares options — we do
-              not operate these platforms.
+              An Australia-focused shortlist of third-party dating listings from
+              our catalog. TheDateCompass compares options — we do not operate
+              these platforms.
             </p>
 
             <p className="mb-10 max-w-xl text-sm leading-7 text-fog/90">
@@ -116,8 +115,8 @@ export default function AustraliaLandingPage() {
             <CountrySectionHeading
               variant="germany"
               eyebrow="Australia offers"
-              title="Six platforms to compare"
-              description="An Australia-focused shortlist spanning casual dating, gay dating, adult and mature dating, niche adult social, and AI companions. Open any card to visit the third-party site."
+              title="Nine platforms to compare"
+              description="An Australia-focused shortlist spanning casual dating, gay dating, adult and mature dating, trans dating, and niche adult social. Open any card to visit the third-party site."
             />
 
             <div className="mt-10 space-y-4 sm:mt-14">
@@ -181,10 +180,10 @@ export default function AustraliaLandingPage() {
               <p>
                 Choosing an adult dating or social platform can feel noisy when
                 every site promises a different experience. This Australia page
-                is designed as a quiet comparison step: a compact shortlist of
+                is designed as a quiet comparison step: a shortlist of
                 third-party listings with clear category labels so you can see
                 whether an offer is aimed at casual dating, gay dating, mature
-                audiences, niche adult social spaces, or AI companion chat.
+                audiences, trans dating, or niche adult social spaces.
                 TheDateCompass only presents those options for comparison. We do
                 not operate the platforms, manage accounts, or process payments
                 and support requests.
@@ -195,20 +194,19 @@ export default function AustraliaLandingPage() {
                 because distance between cities makes digital contact more
                 practical at the start. That is why intention matters before
                 brand names. Decide whether you want low-pressure adult chats,
-                a community-oriented dating space, mature connections, interest-
-                based adult social browsing, or an AI companion that stays in
-                the realm of virtual conversation. Matching intention to category
-                first usually removes half the noise.
+                a community-oriented dating space, mature connections, inclusive
+                dating, or interest-based adult social browsing. Matching
+                intention to category first usually removes half the noise.
               </p>
               <p>
                 With a category in mind, read the remaining cards for framing
                 rather than assuming every listing works the same way. Notice
                 whether the copy emphasises flirty encounters, inclusive gay
-                dating, mature preferences, niche interests, or AI chat. If you
-                want a wider view of how TheDateCompass groups similar themes,
-                use the related category links on this Australia layout. Those
-                pages help you explore offer types; they are not scoreboards and
-                do not rank platforms against each other.
+                dating, mature preferences, or niche interests. If you want a
+                wider view of how TheDateCompass groups similar themes, use the
+                related category links on this Australia layout. Those pages
+                help you explore offer types; they are not scoreboards and do
+                not rank platforms against each other.
               </p>
               <p>
                 When you click Visit, you leave this site for a third-party
@@ -233,7 +231,7 @@ export default function AustraliaLandingPage() {
               </p>
               <p>
                 Use this Australia page as a shortlist tool, not as a final
-                verdict. The six offers above are curated for this layout and
+                verdict. The nine offers above are curated for this layout and
                 are not presented as winners. This guide does not say which
                 platform is most popular, cheapest, or suitable for every
                 visitor. Compare categories here, follow related links when you
@@ -253,8 +251,8 @@ export default function AustraliaLandingPage() {
                   <span className="font-semibold text-cream">
                     Start with intention —
                   </span>{" "}
-                  Casual dating, gay dating, mature, niche adult social, and AI
-                  companion products solve different needs—pick the category
+                  Casual dating, gay dating, mature, trans dating, and niche
+                  adult social products solve different needs—pick the category
                   first.
                 </li>
                 <li>
@@ -269,8 +267,7 @@ export default function AustraliaLandingPage() {
                     Online-first practicality —
                   </span>{" "}
                   If distance or schedule means chat comes before meeting,
-                  check how messaging or AI conversation works on the
-                  destination site.
+                  check how messaging works on the destination site.
                 </li>
                 <li>
                   <span className="font-semibold text-cream">Privacy —</span>{" "}
