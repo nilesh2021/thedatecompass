@@ -32,6 +32,7 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/": { priority: 1, changeFrequency: "weekly" },
   "/category/ai-girlfriend": { priority: 0.9, changeFrequency: "weekly" },
   "/offers/dreamz-ai": { priority: 0.9, changeFrequency: "weekly" },
+  "/offers/realsexclub": { priority: 0.9, changeFrequency: "weekly" },
   "/gay-dating": { priority: 0.85, changeFrequency: "weekly" },
   "/cozy-sites": { priority: 0.8, changeFrequency: "weekly" },
   "/usa": { priority: 0.85, changeFrequency: "weekly" },
