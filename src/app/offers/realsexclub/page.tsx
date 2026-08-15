@@ -103,7 +103,7 @@ export default function RealSexClubOfferPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: (getOfferPageData("realsexclub")?.faqs || []).map((faq: any) => ({
+            mainEntity: (getOfferPageData("realsexclub")?.faqs || []).map((faq) => ({
               "@type": "Question",
               name: faq.question,
               acceptedAnswer: {

@@ -131,9 +131,11 @@ export function trackAffiliateClick(
     gtag("event", "affiliate_click", params);
   }
 }
-
 export function getTrafficStarsClickId(): string {
   if (typeof window === "undefined") return "";
+
+  // Capture ts_click_id from the current URL for later use
+  captureTrafficStarsClickId();
 
   const params = new URLSearchParams(window.location.search);
   const fromUrl = params.get("ts_click_id")?.trim();
