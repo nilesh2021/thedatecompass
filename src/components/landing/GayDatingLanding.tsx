@@ -234,7 +234,7 @@ export default function GayDatingLanding() {
             {otherOffers.map((offer) => (
               <a
                 key={offer.id}
-                href={offer.url}
+                href={affiliateUrl}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
                 onClick={() =>

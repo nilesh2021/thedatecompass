@@ -1,14 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
+
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
+
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   aiGirlfriendFaqs,
@@ -18,6 +22,10 @@ import {
 } from "@/data/aiGirlfriendOffers";
 const featured = dreamzCompanions.find((c) => c.featured) ?? dreamzCompanions[0];
 
+
+ 
+
+ 
 function PaceBadge({ pace }: { pace: string }) {
   return (
     <span className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg">
@@ -118,9 +126,19 @@ function CompanionCard({
     </a>
   );
 }
-
+ 
 export default function AiGirlfriendLanding() {
   const offer = dreamzOffer;
+
+  const [affiliateUrl, setAffiliateUrl] = useState(offer.url);
+
+  useEffect(() => {
+    const trackedUrl = getTrackedAffiliateUrl(offer.url);
+
+    setAffiliateUrl(trackedUrl);
+
+    console.log("Final Affiliate URL:", trackedUrl);
+  }, [offer.url]);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);
@@ -173,7 +191,7 @@ export default function AiGirlfriendLanding() {
 
               <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
                 <a
-                  href={offer.url}
+           href={affiliateUrl}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-brand-rose px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-rose/30 transition hover:bg-brand-rose"
@@ -181,6 +199,9 @@ export default function AiGirlfriendLanding() {
                 >
                Try Dreamz.ai Free →
                 </a>
+
+
+                
                 <a
                   href="#companions"
                   className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-transparent px-7 py-3.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-50 lg:border-white/15 lg:text-white lg:hover:bg-white/5"
@@ -198,7 +219,7 @@ export default function AiGirlfriendLanding() {
 
             {/* Small featured video */}
             <a
-              href={offer.url}
+            href={affiliateUrl}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() => trackOfferClick("featured-video")}
@@ -244,7 +265,7 @@ export default function AiGirlfriendLanding() {
                 </h2>
               </div>
               <a
-                href={offer.url}
+                href={affiliateUrl}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackOfferClick("catalog-link")}
@@ -299,7 +320,7 @@ export default function AiGirlfriendLanding() {
   </div>
 </div>
                   <a
-                    href={offer.url}
+                    href={affiliateUrl}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     onClick={() => trackOfferClick("sidebar")}
@@ -315,7 +336,7 @@ export default function AiGirlfriendLanding() {
                   <CompanionCard
                     key={companion.name}
                     companion={companion}
-                    href={offer.url}
+                    href={affiliateUrl}
                     priority={index < 2}
                     onAffiliateClick={() =>
                       trackOfferClick(`companion-${companion.name.toLowerCase()}`)
@@ -382,7 +403,7 @@ export default function AiGirlfriendLanding() {
   conversations on Dreamz.ai.
 </p>
 <a
-  href={offer.url}
+  href={affiliateUrl}
   target="_blank"
   rel="nofollow sponsored noopener noreferrer"
   onClick={() => trackOfferClick("footer-cta")}

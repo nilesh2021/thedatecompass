@@ -371,7 +371,7 @@ export default function OfferHubPage() {
 
                     <div className="mt-3">
                       <a
-                        href={offer.url}
+                        href={affiliateUrl}
                         target={
                           offer.url.startsWith("http") ? "_blank" : undefined
                         }

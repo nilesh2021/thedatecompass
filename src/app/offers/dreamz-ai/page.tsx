@@ -1,5 +1,6 @@
 import AiGirlfriendLanding from "@/components/landing/AiGirlfriendLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
+import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs } from "@/data/aiGirlfriendOffers";
 
@@ -34,12 +35,18 @@ export const metadata: Metadata = {
     description:
       "Explore Dreamz.ai and discover personalized AI companions for conversation and roleplay.",
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function AIGirlfriendPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
+
+      <TrafficStarsTracker />
+
       <AiGirlfriendLanding />
 
       <FixedOfferCta />

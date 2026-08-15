@@ -1,10 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { getTrafficStarsClickId } from "@/lib/trafficstars";
 import { dreamzOffer } from "@/data/aiGirlfriendOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 export default function FixedOfferCta() {
   const offer = dreamzOffer;
+
+  const [clickId, setClickId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const id = getTrafficStarsClickId();
+    setClickId(id);
+  }, []);
+
+  const affiliateUrl = new URL(offer.url);
+
+  if (clickId) {
+    affiliateUrl.searchParams.set("aff_sub5", clickId);
+  }
 
   return (
     <div
@@ -17,20 +32,24 @@ export default function FixedOfferCta() {
           <p className="hidden shrink-0 text-sm font-medium text-fog sm:block">
             {offer.promo}
           </p>
+
           <a
-            href={offer.url}
-            target="_blank"
+            href={affiliateUrl.toString()}
+            target="_self"
             rel="sponsored nofollow noopener noreferrer"
             onClick={() =>
               trackAffiliateClick(offer.name, "dreamz_fixed_cta")
             }
-            className="tdc-btn-primary flex min-w-0 flex-1 sm:flex-none sm:px-8 !rounded-none !py-3.5 !text-sm"
+            className="tdc-btn-primary flex min-w-0 flex-1 flex-none sm:px-8 !rounded-none !py-3.5 !text-sm"
           >
             Start chatting on {offer.name}
           </a>
         </div>
 
-        <div className="h-14 w-14 shrink-0 sm:w-16" aria-hidden />
+        <div
+          className="h-14 w-14 shrink-0 sm:w-16"
+          aria-hidden
+        />
       </div>
     </div>
   );

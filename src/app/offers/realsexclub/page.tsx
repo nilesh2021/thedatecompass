@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import RealSexClubLanding from "@/components/landing/RealSexClubLanding";
-import { realSexClubFaqs } from "@/data/realSexClubOffer";
+import OfferLandingPage from "@/components/landing/OfferLandingPage";
+import { getOfferPageData } from "@/data/offerLandingData";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/realsexclub";
 const OG_IMAGE =
@@ -60,9 +60,12 @@ export const metadata: Metadata = {
 };
 
 export default function RealSexClubOfferPage() {
+  const data = getOfferPageData("realsexclub");
+
   return (
-    <div className="pb-24 font-sans lg:pb-0">
-      <RealSexClubLanding />
+    <div className="pb-24 font-sans lg:pb-0">{
+      data ? <OfferLandingPage data={data} /> : null
+    }
 
       <script
         type="application/ld+json"
@@ -100,7 +103,7 @@ export default function RealSexClubOfferPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: realSexClubFaqs.map((faq) => ({
+            mainEntity: (getOfferPageData("realsexclub")?.faqs || []).map((faq: any) => ({
               "@type": "Question",
               name: faq.question,
               acceptedAnswer: {

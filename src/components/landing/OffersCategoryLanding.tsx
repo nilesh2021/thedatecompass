@@ -29,7 +29,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
           {tab.offers.map((offer) => (
             <a
               key={offer.id}
-              href={offer.url}
+              href={affiliateUrl}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() =>

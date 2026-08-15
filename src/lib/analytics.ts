@@ -1,4 +1,5 @@
 const UTM_STORAGE_KEY = "tdc_campaign_utms";
+const TS_CLICK_ID_KEY = "tdc_ts_click_id";
 
 const UTM_KEYS = [
   "utm_source",
@@ -10,6 +11,21 @@ const UTM_KEYS = [
 
 type UtmKey = (typeof UTM_KEYS)[number];
 type UtmParams = Partial<Record<UtmKey, string>>;
+function captureTrafficStarsClickId(): void {
+  if (typeof window === "undefined") return;
+
+  const params = new URLSearchParams(window.location.search);
+  const clickId = params.get("ts_click_id")?.trim();
+
+  if (!clickId) return;
+
+  try {
+    sessionStorage.setItem(TS_CLICK_ID_KEY, clickId);
+  } catch {
+    // Storage unavailable
+  }
+}
+
 
 function readUtmsFromSearch(search: string): UtmParams {
   const params = new URLSearchParams(search);
@@ -113,5 +129,22 @@ export function trackAffiliateClick(
     }
 
     gtag("event", "affiliate_click", params);
+  }
+}
+
+export function getTrafficStarsClickId(): string {
+  if (typeof window === "undefined") return "";
+
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("ts_click_id")?.trim();
+
+  if (fromUrl) {
+    return fromUrl;
+  }
+
+  try {
+    return sessionStorage.getItem(TS_CLICK_ID_KEY) || "";
+  } catch {
+    return "";
   }
 }
