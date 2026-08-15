@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { getTrafficStarsClickId } from "@/lib/trafficstars";
+import {
+  captureCampaignUtms,
+  getTrafficStarsClickId,
+} from "@/lib/analytics";
 
 export default function TrafficStarsTracker() {
   useEffect(() => {
-    const clickId = getTrafficStarsClickId();
+    captureCampaignUtms();
 
-    console.log("TrafficStars Click ID:", clickId);
+    // Capture TrafficStars click ID from landing URL
+    getTrafficStarsClickId();
   }, []);
 
   return null;

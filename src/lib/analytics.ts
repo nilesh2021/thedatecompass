@@ -11,7 +11,7 @@ const UTM_KEYS = [
 
 type UtmKey = (typeof UTM_KEYS)[number];
 type UtmParams = Partial<Record<UtmKey, string>>;
-function captureTrafficStarsClickId(): void {
+export function captureTrafficStarsClickId(): void {
   if (typeof window === "undefined") return;
 
   const params = new URLSearchParams(window.location.search);
