@@ -2,12 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { getTrafficStarsClickId } from "@/lib/trafficstars";
-import { dreamzOffer } from "@/data/aiGirlfriendOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
-export default function FixedOfferCta() {
-  const offer = dreamzOffer;
+type FixedOfferCtaProps = {
+  offer: {
+    name: string;
+    url: string;
+    promo: string;
+  };
+  placement: string;
+  ctaLabel?: string;
+};
 
+export default function FixedOfferCta({
+  offer,
+  placement,
+  ctaLabel,
+}: FixedOfferCtaProps) {
   const [clickId, setClickId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -37,19 +48,14 @@ export default function FixedOfferCta() {
             href={affiliateUrl.toString()}
             target="_self"
             rel="sponsored nofollow noopener noreferrer"
-            onClick={() =>
-              trackAffiliateClick(offer.name, "dreamz_fixed_cta")
-            }
+            onClick={() => trackAffiliateClick(offer.name, placement)}
             className="tdc-btn-primary flex min-w-0 flex-1 flex-none sm:px-8 !rounded-none !py-3.5 !text-sm"
           >
-            Start chatting on {offer.name}
+            {ctaLabel ?? `Start chatting on ${offer.name}`}
           </a>
         </div>
 
-        <div
-          className="h-14 w-14 shrink-0 sm:w-16"
-          aria-hidden
-        />
+        <div className="h-14 w-14 shrink-0 sm:w-16" aria-hidden />
       </div>
     </div>
   );

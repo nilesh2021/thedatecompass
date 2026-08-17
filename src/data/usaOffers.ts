@@ -142,7 +142,26 @@ export const usaOffers: UsaOffer[] = [
     rating: 4.8,
     country: "USA",
   },
+
+
+
   {
+    name: "Manfinder",
+    category: "Gay Dating",
+    featured: true,
+    description:
+      "ManFinder is a well-established gay dating brand focused on connecting men seeking casual encounters and real connections. .",
+    badge: "USA available",
+    mark: "G",
+    accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
+    image:
+      "https://images.unsplash.com/photo-1579650382425-256093056bca?q=80&w=1024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+    tags: ["Gay dating", "USA"],
+    rating: 4.8,
+    country: "USA",
+  },
+  {     
     name: "PridePair",
     category: "Gay Dating",
     featured: false,

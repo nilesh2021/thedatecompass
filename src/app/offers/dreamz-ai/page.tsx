@@ -2,7 +2,7 @@ import AiGirlfriendLanding from "@/components/landing/AiGirlfriendLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
-import { aiGirlfriendFaqs } from "@/data/aiGirlfriendOffers";
+import { aiGirlfriendFaqs, dreamzOffer } from "@/data/aiGirlfriendOffers";
 
 export const metadata: Metadata = {
   title: {
@@ -49,7 +49,7 @@ export default function AIGirlfriendPage() {
 
       <AiGirlfriendLanding />
 
-      <FixedOfferCta />
+      <FixedOfferCta offer={dreamzOffer} placement="dreamz_fixed_cta" />
 
       {/* Breadcrumb Schema */}
       <script
