@@ -116,7 +116,7 @@ function Glow({
 }
 
 export default function ManFinderLanding() {
-  const [affiliateUrl, setAffiliateUrl] = useState(
+  const [affiliateUrl, setAffiliateUrl] = useState<string>(
     manFinderOffer.url
   );
 
@@ -346,7 +346,7 @@ export default function ManFinderLanding() {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {manFinderExploreCards.map((card, index) => (
+            {manFinderExploreCards.map((card, index) => (
                 <div
                   key={card.title}
                   className={`group relative overflow-hidden rounded-2xl border border-white/10 ${
@@ -449,7 +449,7 @@ export default function ManFinderLanding() {
               </p>
 
               <div className="mt-8 space-y-3">
-                {manFinderFeatures.map((feature, index) => (
+                {manFinderFeatures.map((feature) => (
                   <div
                     key={feature.title}
                     className="flex gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-brand-rose/30 hover:bg-white/[0.05]"
@@ -653,39 +653,39 @@ export default function ManFinderLanding() {
         {/* =========================================================
             FAQ
         ========================================================= */}
-        <section
-          id="faq"
-          className="border-b border-white/10 px-5 py-16 lg:px-8 lg:py-24"
+       <section
+  id="faq"
+  className="border-b border-white/10 px-5 py-16 lg:px-8 lg:py-24"
+>
+  <div className="mx-auto max-w-4xl">
+    <div className="text-center">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">
+        FAQ
+      </p>
+
+      <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+        Common questions
+      </h2>
+    </div>
+
+    <div className="mt-10 divide-y divide-white/10 rounded-2xl border border-white/10 bg-ink-soft">
+      {manFinderFaqs.map((faq) => (
+        <details
+          key={faq.question}
+          className="group px-6 py-5"
         >
-          <div className="mx-auto max-w-4xl">
-            <div className="text-center">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">
-                FAQ
-              </p>
+          <summary className="cursor-pointer list-none pr-8 text-sm font-bold transition group-hover:text-brand-rose">
+            {faq.question}
+          </summary>
 
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Common questions
-              </h2>
-            </div>
-
-            <div className="mt-10 divide-y divide-white/10 rounded-2xl border border-white/10 bg-ink-soft">
-              {manFinderFaqs.map((faq) => (
-                <details
-                  key={faq.question}
-                  className="group px-6 py-5"
-                >
-                  <summary className="cursor-pointer list-none pr-8 text-sm font-bold transition group-hover:text-brand-rose">
-                    {faq.question}
-                  </summary>
-
-                  <p className="mt-3 max-w-3xl text-sm leading-6 text-fog">
-                    {faq.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-fog">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* =========================================================
             FINAL CTA
