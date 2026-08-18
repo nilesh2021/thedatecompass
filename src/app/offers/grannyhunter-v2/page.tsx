@@ -1,4 +1,4 @@
-import GrannyHunterLanding from "@/components/landing/GrannyHunterLanding";
+import GrannyHunterLandingV2 from "@/components/landing/GrannyHunterLandingV2";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
@@ -7,7 +7,7 @@ import {
   grannyHunterOffer,
 } from "@/data/grannyHunterOffers";
 
-const PAGE_URL = "https://www.thedatecompass.com/offers/grannyhunter";
+const PAGE_URL = "https://www.thedatecompass.com/offers/grannyhunter-v2";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=1200&q=80";
@@ -67,16 +67,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GrannyHunterPage() {
+export default function GrannyHunterV2Page() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
       <TrafficStarsTracker />
 
-      <GrannyHunterLanding />
+      <GrannyHunterLandingV2 />
 
       <FixedOfferCta
         offer={grannyHunterOffer}
-        placement="grannyhunter_fixed_cta"
+        placement="grannyhunter-v2_fixed_cta"
         ctaLabel="Join GrannyHunter Free →"
       />
 

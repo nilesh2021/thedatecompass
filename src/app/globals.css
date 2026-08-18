@@ -5,7 +5,7 @@
 :root {
   --background: #0a0b0d;
   --foreground: #faf9f7;
-  --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-heading: var(--font-playfair), "Figtree", Georgia, serif;
   --font-body: var(--font-figtree), "Figtree", ui-sans-serif, system-ui, sans-serif;
   --ink: #0a0b0d;
   --ink-soft: #16181c;
