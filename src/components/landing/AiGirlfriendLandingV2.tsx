@@ -6,12 +6,13 @@ import Image from "next/image";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
-import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
+ 
+import ExitIntentOfferModal from "@/components/landing/ExitIntentOfferModal";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { trackAffiliateClick } from "@/lib/analytics";
-import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+ 
 import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
@@ -422,14 +423,18 @@ export default function AiGirlfriendLandingV2() {
           </div>
         </section>
 
-        <BrowseByCountrySection
-          links={getCountryBrowseLinks("dreamz")}
-          title="Explore AI dating offers by country"
-          description="See how Dreamz.ai and related AI companion listings appear on our active country shortlists."
-        />
+       
       </main>
 
       <Footer />
+
+      <ExitIntentOfferModal
+        affiliateUrl={affiliateUrl}
+        offerName={offer.name}
+        onTrackClick={trackOfferClick}
+        imageSrc={featured.image}
+        imageAlt={`${featured.name} AI companion`}
+      />
     </>
   );
 }

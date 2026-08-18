@@ -6,12 +6,12 @@ import Image from "next/image";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import DreamzLogo from "@/components/landing/DreamzLogo";
-import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
+
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { trackAffiliateClick } from "@/lib/analytics";
-import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+
 import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
@@ -23,9 +23,9 @@ import {
 const featured = dreamzCompanions.find((c) => c.featured) ?? dreamzCompanions[0];
 
 
- 
 
- 
+
+
 function PaceBadge({ pace }: { pace: string }) {
   return (
     <span className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg">
@@ -126,7 +126,7 @@ function CompanionCard({
     </a>
   );
 }
- 
+
 export default function AiGirlfriendLanding() {
   const offer = dreamzOffer;
 
@@ -168,13 +168,13 @@ export default function AiGirlfriendLanding() {
                 TheDateCompass pick · Adults 18+
               </p>
               <h1 className="animate-fade-up-delay-1 max-w-3xl text-[clamp(2.25rem,5vw,3.75rem)] font-black leading-[1.05] tracking-tight">
-              Meet Your AI Companion on{" "}
+                Meet Your AI Companion on{" "}
                 <span className="bg-gradient-to-r from-brand-rose to-brand-rose-soft bg-clip-text text-transparent">
                   Dreamz.ai
                 </span>
               </h1>
               <p className="animate-fade-up-delay-2 mt-5 max-w-2xl text-base leading-relaxed text-gray-600 lg:text-lg lg:text-white/60">
-              Explore personalized AI companions for private conversations, roleplay, and virtual companionship. Choose a personality that fits your style and start exploring.
+                Explore personalized AI companions for private conversations, roleplay, and virtual companionship. Choose a personality that fits your style and start exploring.
               </p>
 
               <ul className="animate-fade-up-delay-2 mt-6 grid max-w-2xl gap-2 sm:grid-cols-2">
@@ -191,17 +191,17 @@ export default function AiGirlfriendLanding() {
 
               <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
                 <a
-           href={affiliateUrl}
+                  href={affiliateUrl}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-brand-rose px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-rose/30 transition hover:bg-brand-rose"
                   onClick={() => trackOfferClick("hero")}
                 >
-               Try Dreamz.ai Free →
+                  Try Dreamz.ai Free →
                 </a>
 
 
-                
+
                 <a
                   href="#companions"
                   className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-transparent px-7 py-3.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-50 lg:border-white/15 lg:text-white lg:hover:bg-white/5"
@@ -212,14 +212,14 @@ export default function AiGirlfriendLanding() {
 
               <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 lg:text-white/45">
                 <span>{offer.promo}</span>
-                
+
                 <span>Best for: {offer.bestFor}</span>
               </div>
             </div>
 
             {/* Small featured video */}
             <a
-            href={affiliateUrl}
+              href={affiliateUrl}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() => trackOfferClick("featured-video")}
@@ -261,7 +261,7 @@ export default function AiGirlfriendLanding() {
                   Inside Dreamz.ai
                 </p>
                 <h2 className="text-3xl font-black tracking-tight md:text-4xl">
-                Explore AI companions
+                  Explore AI companions
                 </h2>
               </div>
               <a
@@ -282,43 +282,43 @@ export default function AiGirlfriendLanding() {
                     <DreamzLogo size="sm" className="text-white" />
                   </div>
                   <div className="flex-1 p-4">
-  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/40">
-    Companion Preview
-  </p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/40">
+                      Companion Preview
+                    </p>
 
-  <p className="mt-3 text-sm leading-relaxed text-white/50">
-    Explore a preview of the AI companion experience available on Dreamz.ai.
-  </p>
+                    <p className="mt-3 text-sm leading-relaxed text-white/50">
+                      Explore a preview of the AI companion experience available on Dreamz.ai.
+                    </p>
 
-  <div className="mt-6 space-y-3">
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-      <p className="text-sm font-semibold text-white/80">
-        Personalized companions
-      </p>
-      <p className="mt-1 text-xs text-white/40">
-        Explore different personalities and conversation styles.
-      </p>
-    </div>
+                    <div className="mt-6 space-y-3">
+                      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                        <p className="text-sm font-semibold text-white/80">
+                          Personalized companions
+                        </p>
+                        <p className="mt-1 text-xs text-white/40">
+                          Explore different personalities and conversation styles.
+                        </p>
+                      </div>
 
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-      <p className="text-sm font-semibold text-white/80">
-        AI conversations
-      </p>
-      <p className="mt-1 text-xs text-white/40">
-        Chat and explore conversations with your chosen companion.
-      </p>
-    </div>
+                      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                        <p className="text-sm font-semibold text-white/80">
+                          AI conversations
+                        </p>
+                        <p className="mt-1 text-xs text-white/40">
+                          Chat and explore conversations with your chosen companion.
+                        </p>
+                      </div>
 
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-      <p className="text-sm font-semibold text-white/80">
-        Roleplay experiences
-      </p>
-      <p className="mt-1 text-xs text-white/40">
-        Discover different conversation and roleplay experiences.
-      </p>
-    </div>
-  </div>
-</div>
+                      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                        <p className="text-sm font-semibold text-white/80">
+                          Roleplay experiences
+                        </p>
+                        <p className="mt-1 text-xs text-white/40">
+                          Discover different conversation and roleplay experiences.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <a
                     href={affiliateUrl}
                     target="_blank"
@@ -326,7 +326,7 @@ export default function AiGirlfriendLanding() {
                     onClick={() => trackOfferClick("sidebar")}
                     className="mt-4 block rounded-xl bg-brand-rose py-3 text-center text-sm font-bold text-white transition hover:bg-brand-rose"
                   >
-                   Explore on Dreamz.ai →
+                    Explore on Dreamz.ai →
                   </a>
                 </div>
               </aside>
@@ -348,7 +348,7 @@ export default function AiGirlfriendLanding() {
           </div>
         </section>
 
-       
+
 
         {/* Highlights */}
         <section className="tdc-section-stone px-5 py-16">
@@ -396,32 +396,28 @@ export default function AiGirlfriendLanding() {
         <section className="px-5 pb-20 pt-4 lg:pb-28">
           <div className="mx-auto max-w-3xl border border-cream/10 bg-ink-soft px-8 py-12 text-center lg:px-12">
             <h2 className="text-3xl font-black tracking-tight md:text-4xl">
-            Ready to Explore Dreamz.ai?
+              Ready to Explore Dreamz.ai?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/55 md:text-base">
-  Create your AI companion, choose a personality, and start exploring
-  conversations on Dreamz.ai.
-</p>
-<a
-  href={affiliateUrl}
-  target="_blank"
-  rel="nofollow sponsored noopener noreferrer"
-  onClick={() => trackOfferClick("footer-cta")}
-  className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
->
-  Try Dreamz.ai Free →
-</a>
+              Create your AI companion, choose a personality, and start exploring
+              conversations on Dreamz.ai.
+            </p>
+            <a
+              href={affiliateUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              onClick={() => trackOfferClick("footer-cta")}
+              className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
+            >
+              Try Dreamz.ai Free →
+            </a>
             <p className="mt-4 text-xs text-gray-400 lg:text-white/35">
               Affiliate link · Adults 18+
             </p>
           </div>
         </section>
 
-        <BrowseByCountrySection
-          links={getCountryBrowseLinks("dreamz")}
-          title="Explore AI dating offers by country"
-          description="See how Dreamz.ai and related AI companion listings appear on our active country shortlists."
-        />
+
       </main>
 
       <Footer />

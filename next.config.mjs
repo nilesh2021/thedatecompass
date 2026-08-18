@@ -13,7 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "api.dicebear.com",
       },
+      
     ],
+  },experimental: {
+    cpus: 1,
   },
 };
 
