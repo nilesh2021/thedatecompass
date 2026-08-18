@@ -74,7 +74,7 @@ export default function ManFinderLandingV2() {
               </div>
 
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#d93468]">
-                Gay dating · Men seeking men
+                Gay dating · Men seeking men · Adults 18+
               </p>
 
               <h1 className="text-5xl font-black uppercase leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl">
