@@ -174,7 +174,11 @@ export default function ManFinderLanding() {
               </div>
 
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <VisitCta href={affiliateUrl} placement="hero" />
+              <VisitCta
+  href={affiliateUrl}
+  placement="hero"
+  label="Visit ManFinder"
+/>
 
                 <a href="#features" className={secondaryButton}>
                   Explore privately
@@ -196,42 +200,50 @@ export default function ManFinderLanding() {
               <div className="absolute -inset-4 bg-gradient-to-br from-[#8b1e3f]/50 via-[#c9a96e]/20 to-transparent opacity-70 blur-3xl" />
 
               <a
-                href={affiliateUrl}
-                target="_blank"
-                rel={REL}
-                onClick={() =>
-                  trackAffiliateClick(manFinderOffer.name, "hero-portrait")
-                }
-                className="group relative block overflow-hidden border border-[#c9a96e]/30 bg-black/40 shadow-[0_40px_90px_rgba(0,0,0,0.65)]"
-              >
-                <div className="pointer-events-none absolute inset-3 z-10 border border-[#c9a96e]/20" />
+  href={affiliateUrl}
+  target="_blank"
+  rel={REL}
+  onClick={() =>
+    trackAffiliateClick(manFinderOffer.name, "hero-portrait")
+  }
+  aria-label="Visit ManFinder"
+  className="group relative block cursor-pointer overflow-hidden border-2 border-[#c9a96e]/40 bg-black/40 shadow-[0_40px_90px_rgba(0,0,0,0.65)] transition duration-300 hover:-translate-y-1 hover:border-[#c9a96e] hover:shadow-[0_45px_100px_rgba(201,169,110,0.28)] focus:outline-none focus:ring-2 focus:ring-[#c9a96e] focus:ring-offset-2 focus:ring-offset-[#070505]"
+>
+  <div className="pointer-events-none absolute inset-3 z-20 border border-[#c9a96e]/20 transition duration-300 group-hover:border-[#c9a96e]/60" />
 
-                <div className="relative aspect-[3/4]">
-                  <Image
-                    src={manFinderVisuals.portrait}
-                    alt="ManFinder dating profiles"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 360px, 400px"
-                    className="object-cover object-top saturate-[0.8] transition duration-700 group-hover:scale-105"
-                  />
+  <div className="relative aspect-[3/4]">
+    <Image
+      src={manFinderVisuals.portrait}
+      alt="ManFinder dating profiles"
+      fill
+      priority
+      sizes="(max-width: 1024px) 360px, 400px"
+      className="object-cover object-top saturate-[0.8] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
+    />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070505] via-transparent to-black/20" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#070505] via-transparent to-black/20" />
 
-                  <span className="absolute left-5 top-5 z-20 border border-[#c9a96e]/50 bg-[#070505]/70 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#c9a96e] backdrop-blur-md">
-                    {manFinderOffer.badge}
-                  </span>
+    {/* Click indicator */}
+    <div className="absolute right-5 top-5 z-30 flex h-10 w-10 items-center justify-center border border-[#c9a96e]/60 bg-[#070505]/75 text-[#c9a96e] backdrop-blur-sm transition duration-300 group-hover:bg-[#c9a96e] group-hover:text-[#140c0c]">
+      <ArrowUpRight
+        size={18}
+        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      />
+    </div>
 
-                  <div className="absolute inset-x-0 bottom-0 z-20 p-6">
-                    <p className="font-serif-accent text-xl italic text-[#f3ebe3]">
-                      Enter the lounge
-                    </p>
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-[#c9a96e]">
-                      View the destination →
-                    </p>
-                  </div>
-                </div>
-              </a>
+    {/* Clickable CTA */}
+    <div className="absolute inset-x-5 bottom-5 z-30">
+      <div className="border border-[#c9a96e] bg-[#c9a96e] px-5 py-3 text-center text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#140c0c] shadow-[0_12px_30px_rgba(0,0,0,0.35)] transition duration-300 group-hover:bg-[#e8d5a3]">
+        Visit ManFinder
+        <span className="ml-2">↗</span>
+      </div>
+
+      <p className="mt-2 text-center text-[9px] font-semibold uppercase tracking-[0.18em] text-[#e8dcc4]/80">
+        Click to explore
+      </p>
+    </div>
+  </div>
+</a>
             </div>
           </div>
         </section>
