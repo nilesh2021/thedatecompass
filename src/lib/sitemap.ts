@@ -3,7 +3,7 @@ import path from "node:path";
 import type { MetadataRoute } from "next";
 import { countries } from "@/data/countries";
 
-export const SITE_URL = "https://www.thedatecompass.com";
+export const SITE_URL = "https://thedatecompass.com";
 
 /** Country landing paths keyed by `/slug` from countries.ts */
 const COUNTRY_ROUTE_AVAILABILITY = new Map<string, boolean>(
@@ -25,7 +25,7 @@ type RouteMeta = {
 
 type DiscoveredRoute = {
   route: string;
-  pagePath: string;
+  pagePath: string | null;
 };
 
 const ROUTE_META: Record<string, RouteMeta> = {
@@ -48,7 +48,7 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/affiliate-disclosure": { priority: 0.3, changeFrequency: "yearly" },
 };
 
-/** Routes that must not appear in the sitemap (noindex drafts or redirects). */
+/** Noindex drafts, redirects, and duplicate/test landings. */
 const SITEMAP_EXCLUDED_ROUTES = new Set([
   "/category/ai-girlfriend-sites",
   "/category/ai-girlfriend-v2",
@@ -56,8 +56,9 @@ const SITEMAP_EXCLUDED_ROUTES = new Set([
   "/top-offers/gay-dating",
 ]);
 
-const SKIP_DIRS = new Set(["api"]);
+const SKIP_DIRS = new Set(["api", "private", "test", "tests"]);
 const PAGE_FILES = new Set(["page.tsx", "page.ts", "page.jsx", "page.js"]);
+const SKIP_ROUTE_SEGMENTS = new Set(["api", "private", "test", "tests"]);
 
 function getRouteMeta(route: string): RouteMeta {
   if (ROUTE_META[route]) {
@@ -79,9 +80,14 @@ function getRouteMeta(route: string): RouteMeta {
   return { priority: 0.7, changeFrequency: "monthly" };
 }
 
+function isSkippedRoute(route: string): boolean {
+  const segments = route.split("/").filter(Boolean);
+  return segments.some((segment) => SKIP_ROUTE_SEGMENTS.has(segment));
+}
+
 /**
  * Walk src/app and collect every route backed by a page file.
- * New pages are included automatically — no manual URL list needed.
+ * New pages are included automatically when this runs at build time.
  */
 function collectAppRoutes(dir: string, routePrefix = ""): DiscoveredRoute[] {
   if (!fs.existsSync(dir)) {
@@ -147,20 +153,95 @@ function dedupeRoutes(routes: DiscoveredRoute[]): DiscoveredRoute[] {
   return Array.from(byRoute.values()).sort(sortRoutes);
 }
 
+function resolveAppDir(): string | null {
+  const candidates = [
+    path.join(process.cwd(), "src", "app"),
+    path.join(process.cwd(), "app"),
+  ];
+
+  return candidates.find((dir) => fs.existsSync(dir)) ?? null;
+}
+
 export function discoverAppRoutes(): DiscoveredRoute[] {
-  const appDir = path.join(process.cwd(), "src", "app");
+  const appDir = resolveAppDir();
+  if (!appDir) {
+    return [];
+  }
+
   return dedupeRoutes(collectAppRoutes(appDir));
 }
 
-export function buildSitemapEntries(): MetadataRoute.Sitemap {
-  const routes = discoverAppRoutes().filter(
-    ({ route }) =>
-      isIndexableCountryRoute(route) && !SITEMAP_EXCLUDED_ROUTES.has(route)
+function isPublicSitemapRoute(route: string): boolean {
+  return (
+    !isSkippedRoute(route) &&
+    isIndexableCountryRoute(route) &&
+    !SITEMAP_EXCLUDED_ROUTES.has(route)
   );
+}
+
+/**
+ * Public indexable routes (34 pages). Used when src/app is not on the server.
+ * Keep in sync with src/app page.tsx files; exclude API, private, test, noindex, and duplicates.
+ */
+const PUBLIC_ROUTES: string[] = [
+  "/",
+  "/affiliate-disclosure",
+  "/australia",
+  "/canada",
+  "/category/ai-girlfriend",
+  "/cookie-policy",
+  "/cozy-sites",
+  "/disclaimer",
+  "/france",
+  "/gay-dating",
+  "/germany",
+  "/offers/ai-companion",
+  "/offers/casual-dating",
+  "/offers/dreamz-ai",
+  "/offers/dreamz-ai-companion",
+  "/offers/fetishpartner",
+  "/offers/gay-dating-sites",
+  "/offers/grannyhunter",
+  "/offers/grannyhunter-v2",
+  "/offers/litlatinz",
+  "/offers/manfinder",
+  "/offers/manfinder-v2",
+  "/offers/milf-dating",
+  "/offers/milffinder",
+  "/offers/realsexclub",
+  "/offers/transdate",
+  "/offers/transdate-dating",
+  "/privacy-policy",
+  "/terms-and-conditions",
+  "/top-offers",
+  "/top-offers/adult",
+  "/top-offers/mature",
+  "/uk",
+  "/usa",
+];
+
+export function buildSitemapEntries(): MetadataRoute.Sitemap {
+  const byRoute = new Map<string, DiscoveredRoute>();
+
+  for (const route of PUBLIC_ROUTES) {
+    byRoute.set(route, { route, pagePath: null });
+  }
+
+  for (const item of discoverAppRoutes()) {
+    if (!isPublicSitemapRoute(item.route)) {
+      continue;
+    }
+    byRoute.set(item.route, item);
+  }
+
+  const routes = Array.from(byRoute.values()).sort(sortRoutes);
 
   return routes.map(({ route, pagePath }) => {
     const meta = getRouteMeta(route);
-    const lastModified = fs.statSync(pagePath).mtime;
+    const lastModified =
+      pagePath && fs.existsSync(pagePath)
+        ? fs.statSync(pagePath).mtime
+        : new Date();
 
     return {
       url: toAbsoluteUrl(route),

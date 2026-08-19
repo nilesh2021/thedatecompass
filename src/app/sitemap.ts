@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { buildSitemapEntries } from "@/lib/sitemap";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return buildSitemapEntries();
