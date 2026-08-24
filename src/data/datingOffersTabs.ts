@@ -1,3 +1,5 @@
+import { getOfferAdultImage } from "@/data/adultOfferImages";
+
 export interface DatingOffer {
   id: string;
   name: string;
@@ -49,7 +51,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Mobile friendly",
         ],
         url: "https://t.datsk11.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=CheekyCrush",
+        logo: getOfferAdultImage("cheekycrush"),
         featured: true,
       },
       {
@@ -67,7 +69,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Discreet profiles",
         ],
         url: "https://t.datsk11.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=NaughtyCharm",
+        logo: getOfferAdultImage("naughtycharm"),
       },
       {
         id: "litlatinz",
@@ -84,7 +86,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Mobile friendly",
         ],
         url: "https://t.datsk11.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=LitLatinz",
+        logo: getOfferAdultImage("litlatinz"),
       },
     ],
   },
@@ -194,7 +196,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Easy signup",
         ],
         url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=MilfFinder",
+        logo: getOfferAdultImage("milffinder"),
         featured: true,
       },
       {
@@ -212,7 +214,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Mobile access",
         ],
         url: "https://t.crdtg2.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=RealSexClub",
+        logo: getOfferAdultImage("realsexclub"),
       },
     ],
   },
@@ -241,7 +243,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Responsive design",
         ],
         url: "https://t.crdtg2.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=DirtyDating",
+        logo: getOfferAdultImage("dirtydating"),
         featured: true,
       },
       {
@@ -259,7 +261,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Mobile friendly",
         ],
         url: "https://t.crdtg2.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=FuckFinder",
+        logo: getOfferAdultImage("fuckfinder"),
       },
       {
         id: "fetishpartner",
@@ -276,7 +278,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Verified members",
         ],
         url: "https://t.crdtg2.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
-        logo: "https://api.dicebear.com/9.x/shapes/svg?seed=FetishPartner",
+        logo: getOfferAdultImage("fetishpartner"),
       },
     ],
   },

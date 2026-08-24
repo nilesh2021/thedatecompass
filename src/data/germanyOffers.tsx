@@ -2,12 +2,13 @@
  * Germany inventory ordered by Offer Master priority.
  * Fremdgehen69 omitted — no affiliate URL exists in project data.
  */
+
+import { getOfferAdultImage } from "@/data/adultOfferImages";
 export const germanyOffers = [
   {
     name: "DirtyDating",
     category: "Casual adult dating",
-    image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("dirtydating"),
     highlighted: true,
     affiliateLink:
       "https://t.datsk9.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
@@ -21,8 +22,7 @@ export const germanyOffers = [
   {
     name: "FuckFinder",
     category: "Casual adult dating",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("fuckfinder"),
     affiliateLink:
       "https://t.crdtg2.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit FuckFinder",
@@ -35,8 +35,7 @@ export const germanyOffers = [
   {
     name: "RealSexClub",
     category: "Adult dating & social",
-    image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("realsexclub"),
     affiliateLink:
       "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit RealSexClub",
@@ -49,8 +48,7 @@ export const germanyOffers = [
   {
     name: "Grannyhunter",
     category: "Mature dating",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("grannyhunter"),
     affiliateLink:
       "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit Grannyhunter",
@@ -63,8 +61,7 @@ export const germanyOffers = [
   {
     name: "Manfinder",
     category: "Gay dating for men",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("manfinder"),
     affiliateLink:
       "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit Manfinder",
@@ -77,8 +74,7 @@ export const germanyOffers = [
   {
     name: "TransDate",
     category: "Trans & inclusive dating",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("transdate"),
     affiliateLink:
       "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit TransDate",
@@ -91,8 +87,7 @@ export const germanyOffers = [
   {
     name: "FetishPartner",
     category: "Adult social & niche interests",
-    image:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("fetishpartner"),
     affiliateLink:
       "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit FetishPartner",

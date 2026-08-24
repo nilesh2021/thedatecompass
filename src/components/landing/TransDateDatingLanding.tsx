@@ -224,7 +224,7 @@ export default function TransDateDatingLanding() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-soft via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink-soft/90" />
-                  <span className="absolute left-5 top-5 rounded-full bg-violet-500/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] shadow-lg">
+                  <span className="absolute left-5 top-5 rounded-full bg-violet-500/90 px-3 py-1.5 text-[10px] font-bold uppercase shadow-lg">
                     {transDateOffer.badge}
                   </span>
                 </div>

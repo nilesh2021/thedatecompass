@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "api.dicebear.com",
       },
+      {
+        protocol: "https",
+        hostname: "assets.gonaughty.com",
+      },
       
     ],
   },experimental: {

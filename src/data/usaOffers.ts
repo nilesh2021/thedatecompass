@@ -1,3 +1,5 @@
+import { getOfferAdultImage } from "@/data/adultOfferImages";
+
 export type UsaOffer = {
   name: string;
   category: string;
@@ -26,8 +28,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "G",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("grannyhunter"),
     href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     tags: ["Mature", "Adults 18+", "USA"],
     rating: 4.5,
@@ -42,8 +43,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "L",
     accent: "from-[#6138A8] via-[#9C5CDB] to-[#E83E9B]",
-    image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("litlatinz"),
     href: "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
     tags: ["Adult", "Adults 18+", "USA"],
     rating: 4.7,
@@ -58,8 +58,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "Gay dating",
     mark: "M",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("manfinder"),
     href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     tags: ["Gay dating", "USA"],
     rating: 4.6,
@@ -73,8 +72,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "R",
     accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
-    image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("realsexclub"),
     href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     tags: ["Adult", "Adults 18+", "USA"],
     rating: 4.6,
@@ -88,8 +86,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "T",
     accent: "from-[#9B3CE8] via-[#E83E9B] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("transdate"),
     href: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     tags: ["Trans", "Adults 18+", "USA"],
     rating: 4.6,
@@ -103,8 +100,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "M",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("milffinder"),
     href: "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
     tags: ["Mature", "Adults 18+", "USA"],
     rating: 4.5,
@@ -119,8 +115,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "C",
     accent: "from-[#E83E9B] via-[#F15BAF] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("cheekycrush"),
     href: "https://t.datsk9.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
     tags: ["Casual", "USA"],
     rating: 4.9,
@@ -135,8 +130,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "G",
     accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("gaybloom"),
     href: "https://t.datsk9.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
     tags: ["Gay Dating", "Adults 18+", "USA"],
     rating: 4.8,
@@ -154,8 +148,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "G",
     accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
-    image:
-      "https://images.unsplash.com/photo-1579650382425-256093056bca?q=80&w=1024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: getOfferAdultImage("manfinder"),
     href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     tags: ["Gay dating", "USA"],
     rating: 4.8,
@@ -170,8 +163,7 @@ export const usaOffers: UsaOffer[] = [
     badge: "USA available",
     mark: "P",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("pridepair"),
     href: "https://t.datsk9.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
     tags: ["Gay Dating", "USA"],
     rating: 4.8,
@@ -188,8 +180,7 @@ export const usaCategories = [
     hash: "offers-casual",
     description:
       "Low-pressure dating offers for USA users looking for fun, relaxed connections.",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("cheekycrush"),
     href: "https://t.datsk9.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
     offerName: "CheekyCrush",
     color: "from-pink-500 to-rose-400",
@@ -200,8 +191,7 @@ export const usaCategories = [
     hash: "offers-gay",
     description:
       "Gay dating offers for USA users seeking inclusive communities and real connections.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("gaybloom"),
     href: "https://t.datsk9.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
     offerName: "GayBloom",
     color: "from-violet-500 to-pink-500",
@@ -212,8 +202,7 @@ export const usaCategories = [
     hash: "offers-mature",
     description:
       "Mature dating offers for experienced USA adults who want meaningful conversations.",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("grannyhunter"),
     href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     offerName: "Grannyhunter",
     color: "from-amber-400 to-orange-400",
@@ -224,8 +213,7 @@ export const usaCategories = [
     hash: "offers-adult",
     description:
       "Adult dating offers for USA users who want direct, open-minded connections.",
-    image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("litlatinz"),
     href: "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
     offerName: "LitLatinz",
     color: "from-rose-600 to-pink-500",
@@ -236,8 +224,7 @@ export const usaCategories = [
     hash: "offers-trans",
     description:
       "Trans dating offers for USA users seeking inclusive communities and connections.",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("transdate"),
     href: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     offerName: "TransDate",
     color: "from-teal-500 to-cyan-400",

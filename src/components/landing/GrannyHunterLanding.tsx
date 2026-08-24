@@ -253,7 +253,7 @@ export default function GrannyHunterLanding() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#110c0e] via-transparent to-[#110c0e]/10" />
 
-                  <span className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-[#8b4d63] to-[#a65d72] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-cream shadow-lg shadow-[#8b4d63]/40">
+                  <span className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-[#8b4d63] to-[#a65d72] px-3 py-1.5 text-[10px] font-bold uppercase text-cream shadow-lg shadow-[#8b4d63]/40">
                     {grannyHunterOffer.badge}
                   </span>
 

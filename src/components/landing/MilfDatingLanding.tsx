@@ -255,7 +255,7 @@ export default function MilfDatingLanding() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-transparent to-[#0c0a09]/10" />
 
-                  <span className="absolute left-4 top-4 rounded-full bg-amber-500 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-ink shadow-lg shadow-amber-500/30">
+                  <span className="absolute left-4 top-4 rounded-full bg-amber-500 px-3 py-1.5 text-[10px] font-bold uppercase text-ink shadow-lg shadow-amber-500/30">
                     {milfDatingOffer.badge}
                   </span>
 

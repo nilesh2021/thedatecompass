@@ -4,6 +4,8 @@
  * Inventory ordered by Offer Master priority for France.
  */
 
+import { getOfferAdultImage } from "@/data/adultOfferImages";
+
 export type FranceLinkStatus = "reused_existing" | "needs_verification";
 
 export type FranceOffer = {
@@ -34,8 +36,7 @@ export const franceOffers: FranceOffer[] = [
     category: "Mature dating",
     description:
       "An adult dating option focused on mature connections and age-specific preferences.",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("grannyhunter"),
     href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
@@ -47,8 +48,7 @@ export const franceOffers: FranceOffer[] = [
     category: "Gay Dating",
     description:
       "A dating and social platform for men looking to meet and connect with other men.",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("manfinder"),
     href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
@@ -60,8 +60,7 @@ export const franceOffers: FranceOffer[] = [
     category: "Adult dating",
     description:
       "An adult social and dating option for people looking for direct connections.",
-    image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("realsexclub"),
     href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
@@ -73,8 +72,7 @@ export const franceOffers: FranceOffer[] = [
     category: "Adult social",
     description:
       "An adult-focused platform for exploring connections around specific interests.",
-    image:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("fetishpartner"),
     href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,

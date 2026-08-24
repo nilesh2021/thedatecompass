@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Globe2, Layers3 } from "lucide-react";
 import { countries, availableCountries } from "@/data/countries";
-import { usaOffers } from "@/data/usaOffers";
+import { featuredUsaOffers, usaOffers } from "@/data/usaOffers";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
 export default function Hero() {
@@ -70,21 +70,32 @@ export default function Hero() {
         </div>
 
         <div className="relative hidden lg:block">
-          <div className="overflow-hidden border border-cream/10 shadow-hero">
-            <Image
-              src="/images/ai-companion-hero.png"
-              alt="Discover dating platforms and AI companions by country"
-              width={700}
-              height={900}
-              priority
-              className="h-[700px] w-full object-cover transition duration-700 hover:scale-[1.02]"
-            />
+          <div className="grid grid-cols-2 gap-3">
+            {featuredUsaOffers.slice(0, 4).map((offer, index) => (
+              <div
+                key={`${offer.name}-${index}`}
+                className="relative overflow-hidden border border-cream/10"
+              >
+                <Image
+                  src={offer.image}
+                  alt={`${offer.name} dating platform`}
+                  width={420}
+                  height={520}
+                  priority={index < 2}
+                  className="h-[330px] w-full object-cover object-top transition duration-700 hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+                <p className="absolute bottom-3 left-3 text-sm font-bold text-cream">
+                  {offer.name}
+                </p>
+              </div>
+            ))}
           </div>
 
           <div className="absolute -bottom-6 right-6 w-72 border border-cream/10 bg-ink-soft/90 p-5 backdrop-blur-md">
             <p className="text-sm text-fog">Popular categories</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {["Casual", "Gay dating", "Mature", "AI"].map((item) => (
+              {["Casual", "Gay dating", "Mature", "Adult"].map((item) => (
                 <span
                   key={item}
                   className="bg-brand-rose/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-mint"

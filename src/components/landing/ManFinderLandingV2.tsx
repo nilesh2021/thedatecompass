@@ -318,7 +318,7 @@ export default function ManFinderLandingV2() {
                   target="_blank"
                   rel={REL}
                   onClick={() => handleClick("v2-final")}
-                  className="mt-7 inline-flex items-center gap-4 bg-[#941940] px-7 py-4 text-xs font-bold uppercase tracking-[0.15em] transition hover:bg-[#ad1f4d]"
+                  className="mt-7 inline-flex items-center gap-4 bg-[#941940] px-7 py-4 text-xs font-bold uppercase transition hover:bg-[#ad1f4d]"
                 >
                   Visit ManFinder
                   <ArrowUpRight size={17} />

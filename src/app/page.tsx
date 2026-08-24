@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80",
+        url: "https://www.thedatecompass.com/images/extra/2.jpg",
         width: 1200,
         height: 630,
         alt: "TheDateCompass dating comparison",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description:
       "Compare dating platforms and AI companions by country on TheDateCompass.",
     images: [
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80",
+      "https://www.thedatecompass.com/images/extra/2.jpg",
     ],
   },
   robots: {

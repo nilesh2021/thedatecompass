@@ -5,6 +5,8 @@
  * SexyFans / WannaHookup omitted — no real affiliate URL exists in project data.
  */
 
+import { getOfferAdultImage } from "@/data/adultOfferImages";
+
 export type AustraliaLinkStatus = "reused_existing" | "needs_verification";
 
 export type AustraliaOffer = {
@@ -24,13 +26,25 @@ export type AustraliaOffer = {
 
 export const australiaOffers: AustraliaOffer[] = [
   {
+    id: "gonaughty",
+    name: "GoNaughty",
+    category: "Adult dating",
+    description:
+      "An adult dating option targeting Australian visitors looking for casual and discreet connections.",
+    image: getOfferAdultImage("gonaughty"),
+    href: "https://t.datsk9.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    australiaLinkStatus: "reused_existing",
+    australiaAvailabilityVerified: true,
+    markedForAustraliaInSource: true,
+    sourcedFrom: [],
+  },
+  {
     id: "realsexclub",
     name: "RealSexClub",
     category: "Adult dating",
     description:
       "An adult social and dating option for people looking for direct connections.",
-    image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("realsexclub"),
     href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -43,8 +57,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Trans dating",
     description:
       "A dating option for people interested in transgender and inclusive connections.",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("transdate"),
     href: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -57,8 +70,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Casual dating",
     description:
       "A casual adult dating option for people interested in meeting new connections.",
-    image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("dirtydating"),
     href: "https://t.datsk9.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -71,8 +83,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Mature dating",
     description:
       "An adult dating option for mature singles interested in genuine conversations and chemistry.",
-    image:
-      "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("milffinder"),
     href: "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -85,8 +96,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Mature dating",
     description:
       "An adult dating option focused on mature connections and age-specific preferences.",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("grannyhunter"),
     href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -99,8 +109,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Adult social",
     description:
       "An adult-focused platform for exploring connections around specific interests.",
-    image:
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("fetishpartner"),
     href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -113,8 +122,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Casual dating",
     description:
       "An adult dating option for casual encounters and direct connections.",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("fuckfinder"),
     href: "https://t.crdtg2.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -127,8 +135,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Adult dating",
     description:
       "An adult dating option focused on Latino community connections.",
-    image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("litlatinz"),
     href: "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,
@@ -141,8 +148,7 @@ export const australiaOffers: AustraliaOffer[] = [
     category: "Gay Dating",
     description:
       "A dating and social platform for men looking to meet and connect with other men.",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("manfinder"),
     href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     australiaLinkStatus: "reused_existing",
     australiaAvailabilityVerified: true,

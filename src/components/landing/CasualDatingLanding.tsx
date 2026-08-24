@@ -252,7 +252,7 @@ export default function CasualDatingLanding() {
                     className="object-cover object-center transition duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#09080a] via-transparent to-[#09080a]/10" />
-                  <span className="absolute left-4 top-4 rounded-full bg-red-600 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white shadow-lg shadow-red-600/30">
+                  <span className="absolute left-4 top-4 rounded-full bg-red-600 px-3 py-1.5 text-[10px] font-bold uppercase text-white shadow-lg shadow-red-600/30">
                     {casualDatingOffer.badge}
                   </span>
                   <div className="absolute inset-x-0 bottom-0 p-5">

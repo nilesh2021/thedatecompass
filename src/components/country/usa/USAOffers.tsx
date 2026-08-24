@@ -188,7 +188,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
                     {/* Featured badge */}
-                    <span className="absolute left-4 top-4 rounded-full bg-brand-rose px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white shadow-lg shadow-brand-rose/30">
+                    <span className="absolute left-4 top-4 rounded-full bg-brand-rose px-3 py-1 text-[10px] font-bold uppercase text-white shadow-lg shadow-brand-rose/30">
                       Featured
                     </span>
 

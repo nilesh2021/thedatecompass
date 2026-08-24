@@ -3,8 +3,7 @@ import CanadaLandingPage from "@/components/country/canada/CanadaLandingPage";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/canada`;
-const OG_IMAGE =
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1200&q=80";
+const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 
 /**
  * Canada route metadata.

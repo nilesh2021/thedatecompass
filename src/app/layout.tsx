@@ -1,7 +1,7 @@
 import Script from "next/script";
 import "./globals.css";
 import ScrollToTop from "@/components/common/ScrollToTop";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import GoogleAnalyticsTracker from "@/components/GoogleAnalyticsTracker";
 import { Figtree, Instrument_Serif, Playfair_Display, Syne } from "next/font/google";
 
@@ -42,6 +42,10 @@ export const metadata: Metadata = {
 
   description:
     "Compare dating sites and AI girlfriend platforms worldwide.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ff3d6e",
 };
 export default function RootLayout({
   children,

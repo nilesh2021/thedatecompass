@@ -3,8 +3,7 @@ import GermanyLandingPage from "@/components/country/germany/GermanyLandingPage"
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/germany`;
-const OG_IMAGE =
-  "https://images.unsplash.com/flagged/photo-1556151994-b611e5ab3675?q=80&w=1200&auto=format&fit=crop";
+const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 
 export const metadata: Metadata = {
   title: "Adult Dating Sites in Germany 2026 | Compare Offers",

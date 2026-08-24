@@ -90,7 +90,7 @@ export default function AIGirlfriendCategoryPage() {
         {/* Offers */}
         <section className="px-5 pb-20">
           <div className="mx-auto max-w-6xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-violet-400">
+            <p className="text-xs font-semibold uppercase text-violet-400">
               Featured AI companion
             </p>
 

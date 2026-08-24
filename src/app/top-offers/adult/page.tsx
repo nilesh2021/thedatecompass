@@ -4,8 +4,7 @@ import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import { notFound } from "next/navigation";
 
 const PAGE_URL = "https://www.thedatecompass.com/top-offers/adult";
-const OG_IMAGE =
-  "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80";
+const OG_IMAGE = "https://www.thedatecompass.com/images/extra/2.jpg";
 
 export function generateMetadata(): Metadata {
   const tab = getOfferTabByRoute("adult");

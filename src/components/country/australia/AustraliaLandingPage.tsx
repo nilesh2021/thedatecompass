@@ -27,7 +27,7 @@ const australiaFaqs = [
   {
     question: "Why use this Australia dating comparison page?",
     answer:
-      "It brings a set of third-party adult dating offers into one Australia-focused layout. You can review categories and short descriptions for the nine listings here, then visit a provider site if an option fits what you are looking for. TheDateCompass does not operate those services.",
+      "It brings a set of third-party adult dating offers into one Australia-focused layout. You can review categories and short descriptions for the ten listings here, then visit a provider site if an option fits what you are looking for. TheDateCompass does not operate those services.",
   },
   {
     question: "Which offer types are included for Australia visitors?",
@@ -115,7 +115,7 @@ export default function AustraliaLandingPage() {
             <CountrySectionHeading
               variant="germany"
               eyebrow="Australia offers"
-              title="Nine platforms to compare"
+              title="Ten platforms to compare"
               description="An Australia-focused shortlist spanning casual dating, gay dating, adult and mature dating, trans dating, and niche adult social. Open any card to visit the third-party site."
             />
 
@@ -176,7 +176,8 @@ export default function AustraliaLandingPage() {
               description="A calm, informational guide for visitors shortlisting third-party platforms before they sign up."
             />
 
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-fog">
+            <div
+             className="mt-8 space-y-5 text-base leading-relaxed text-fog">
               <p>
                 Choosing an adult dating or social platform can feel noisy when
                 every site promises a different experience. This Australia page
@@ -231,7 +232,7 @@ export default function AustraliaLandingPage() {
               </p>
               <p>
                 Use this Australia page as a shortlist tool, not as a final
-                verdict. The nine offers above are curated for this layout and
+                verdict. The ten offers above are curated for this layout and
                 are not presented as winners. This guide does not say which
                 platform is most popular, cheapest, or suitable for every
                 visitor. Compare categories here, follow related links when you

@@ -6,11 +6,11 @@ import Image from "next/image";
 import CountryFaqSection from "@/components/country/common/CountryFaqSection";
 import USAOffers from "@/components/country/usa/USAOffers";
 import { usaOffers } from "@/data/usaOffers";
+import { getOfferAdultImage } from "@/data/adultOfferImages";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/usa`;
-const OG_IMAGE =
-  "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80";
+const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 
 export const metadata: Metadata = {
   title: "Adult Dating Sites in the USA 2026 | Compare Offers",
@@ -77,24 +77,21 @@ const intentions = [
     title: "Keep it casual",
     text: "Browse relaxed dating options for a fun, low-pressure connection.",
     filter: "Casual",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("cheekycrush"),
   },
   {
     number: "02",
     title: "Find your community",
     text: "Discover gay dating platforms and connections.",
     filter: "Gay Dating",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("pridepair"),
   },
   {
     number: "03",
     title: "Explore mature dating",
     text: "Browse mature dating options for experienced adults.",
     filter: "Mature",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=900&q=80",
+    image: getOfferAdultImage("grannyhunter"),
   },
 ];
 
@@ -230,7 +227,7 @@ export default function UsaPage() {
           <div className="absolute -right-28 bottom-0 -z-10 h-96 w-96 rounded-full bg-brand-rose-soft/10 blur-3xl" />
 
           <div className="mx-auto max-w-7xl pb-4 pt-16 text-center sm:pt-20 lg:pt-28">
-            <div className="inline-flex items-center gap-3 border border-brand-rose/30 bg-brand-rose/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-brand-rose-soft backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 border border-brand-rose/30 bg-brand-rose/10 px-5 py-2 text-xs font-bold uppercase text-brand-rose-soft backdrop-blur-sm">
               <span className="h-2 w-2 animate-pulse rounded-full bg-brand-rose" />
               Adults-only dating discovery · 2026
             </div>
