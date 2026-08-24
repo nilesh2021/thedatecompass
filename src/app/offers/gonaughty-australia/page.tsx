@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { adultImages } from "@/data/adultOfferImages";
-import FixedOfferCta from "@/components/landing/FixedOfferCta";
+import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLanding";
 
 const HERO_BG = "https://assets.gonaughty.com/st/static/background.jpg";
 
@@ -361,7 +361,7 @@ export default function GoNaughtyAustraliaPage() {
         </p>
       </footer>
 
-      
+      <FreeGayDatingSitesLanding />
     </main>
   );
 }
