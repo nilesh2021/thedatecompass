@@ -118,7 +118,7 @@ export default function FreeGayDatingSitesLanding() {
       <p className="mt-6 max-w-xl text-sm leading-7 text-fog sm:text-base">
         Discover free-to-explore dating platforms for gay singles and
         gay men. Compare options, browse your choices, and find a
-        platform that fits the kind of connection you're looking for.
+        platform that fits the kind of connection you&apos;re looking for.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
