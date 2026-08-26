@@ -16,17 +16,17 @@ const REL = "sponsored nofollow noopener noreferrer";
 const FREE_TO_JOIN_IDS = new Set(["gaybloom", "manfinder"]);
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=1400&q=80";
+  "https://images.unsplash.com/photo-1568590320589-8a16645ec483?auto=format&fit=crop&w=1400&q=80";
 
 const offerImages: Record<string, string> = {
   gaybloom:
-    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1567476783296-fff06012e17a?auto=format&fit=crop&w=900&q=80",
   pridepair:
-    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1577130661762-1e4944ba63ac?auto=format&fit=crop&w=900&q=80",
   manfinder:
-    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1580353588316-395bcff2eb2d?auto=format&fit=crop&w=900&q=80",
   transdate:
-    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1650550740607-24aa0eff1c4a?auto=format&fit=crop&w=900&q=80",
 };
 
 function useTrackedUrls(offers: DatingOffer[]) {
@@ -83,11 +83,11 @@ export default function FreeGayDatingSitesLanding() {
 
     <> 
     
-    <div className="bg-page font-display text-ink">
+    <div className="bg-ink font-display text-cream">
 
 {/* HERO */}
-<section className="relative overflow-hidden border-b border-border">
-  <div className="absolute inset-0 bg-gradient-to-br from-panel via-page to-page" />
+<section className="relative overflow-hidden border-b border-cream/10">
+  <div className="absolute inset-0 bg-gradient-to-br from-ink-soft via-ink to-ink" />
 
   <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
 
@@ -99,7 +99,7 @@ export default function FreeGayDatingSitesLanding() {
           Adults 18+
         </span>
 
-        <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-fog">
           Free Gay Dating
         </span>
       </div>
@@ -115,17 +115,17 @@ export default function FreeGayDatingSitesLanding() {
         </span>
       </h1>
 
-      <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base">
+      <p className="mt-6 max-w-xl text-sm leading-7 text-fog sm:text-base">
         Discover free-to-explore dating platforms for gay singles and
         gay men. Compare options, browse your choices, and find a
-        platform that fits the kind of connection you&apos;re looking for.
+        platform that fits the kind of connection you're looking for.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
 
         <a
           href="#offers"
-          className="group inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-accent px-6 text-[10px] font-extrabold uppercase tracking-[0.15em] text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-accent2"
+          className="group inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-accent px-6 text-[10px] font-extrabold uppercase tracking-[0.15em] text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-accent-soft"
         >
           Explore Gay Dating
           <ArrowRight
@@ -136,7 +136,7 @@ export default function FreeGayDatingSitesLanding() {
 
         <a
           href="#how-it-works"
-          className="inline-flex min-h-[50px] items-center justify-center rounded-xl border border-border bg-panel px-6 text-[10px] font-bold uppercase tracking-[0.14em] text-ink transition hover:border-accent/40 hover:text-accent"
+          className="inline-flex min-h-[50px] items-center justify-center rounded-xl border border-cream/10 bg-ink-soft px-6 text-[10px] font-bold uppercase tracking-[0.14em] text-cream transition hover:border-accent/40 hover:text-accent"
         >
           How It Works
         </a>
@@ -144,34 +144,34 @@ export default function FreeGayDatingSitesLanding() {
       </div>
 
       {/* QUICK INFO */}
-      <div className="mt-9 grid max-w-lg grid-cols-3 divide-x divide-border border-y border-border py-4">
+      <div className="mt-9 grid max-w-lg grid-cols-3 divide-x divide-cream/10 border-y border-cream/10 py-4">
 
         <div className="pr-4">
-          <p className="text-base font-bold text-ink">
+          <p className="text-base font-bold text-cream">
             18+
           </p>
 
-          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-muted">
+          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-fog">
             Adults only
           </p>
         </div>
 
         <div className="px-4">
-          <p className="text-base font-bold text-ink">
+          <p className="text-base font-bold text-cream">
             Free
           </p>
 
-          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-muted">
+          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-fog">
             Explore options
           </p>
         </div>
 
         <div className="pl-4">
-          <p className="text-base font-bold text-ink">
+          <p className="text-base font-bold text-cream">
             Online
           </p>
 
-          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-muted">
+          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-fog">
             Gay dating
           </p>
         </div>
@@ -184,11 +184,11 @@ export default function FreeGayDatingSitesLanding() {
 
       <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-3xl" />
 
-      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-panel shadow-soft">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-cream/10 bg-ink-soft shadow-hero">
 
         <Image
           src={HERO_IMG}
-          alt="Lifestyle portrait for online gay dating"
+          alt="Adult gay couple for online gay dating"
           fill
           priority
           sizes="(max-width: 1024px) 90vw, 420px"
@@ -238,7 +238,7 @@ export default function FreeGayDatingSitesLanding() {
 
       </div>
 
-      <p className="max-w-md text-sm leading-6 text-muted">
+      <p className="max-w-md text-sm leading-6 text-fog">
         Explore selected platforms for gay singles and discover
         different ways to meet people online.
       </p>
@@ -252,7 +252,7 @@ export default function FreeGayDatingSitesLanding() {
 
         <article
           key={offer.id}
-          className="group overflow-hidden rounded-2xl border border-border bg-panel shadow-sm transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-soft"
+          className="group overflow-hidden rounded-2xl border border-cream/10 bg-ink-soft shadow-sm transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-hero"
         >
 
           <div className="grid sm:grid-cols-[190px_1fr]">
@@ -263,7 +263,7 @@ export default function FreeGayDatingSitesLanding() {
 
               <Image
                 src={offerImages[offer.id] ?? offer.logo}
-                alt={`${offer.name} gay dating`}
+                alt={`${offer.name} adult gay dating`}
                 fill
                 sizes="(max-width: 640px) 100vw, 190px"
                 className="object-cover object-top transition duration-500 group-hover:scale-105"
@@ -296,7 +296,7 @@ export default function FreeGayDatingSitesLanding() {
                   {offer.badge}
                 </span>
 
-                <span className="text-[10px] text-muted">
+                <span className="text-[10px] text-fog">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
@@ -310,7 +310,7 @@ export default function FreeGayDatingSitesLanding() {
                 {offer.bestFor}
               </p>
 
-              <p className="mt-4 line-clamp-3 text-sm leading-6 text-muted">
+              <p className="mt-4 line-clamp-3 text-sm leading-6 text-fog">
                 {offer.description}
               </p>
 
@@ -320,7 +320,7 @@ export default function FreeGayDatingSitesLanding() {
                   offer={offer}
                   href={trackedUrls[offer.id]}
                   placement={`free_gay_dating_sites_offer_${offer.id}`}
-                  className="group/cta inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-accent2"
+                  className="group/cta inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-accent-soft"
                 >
                   Explore {offer.name}
 
@@ -344,7 +344,7 @@ export default function FreeGayDatingSitesLanding() {
     </div>
 
 
-    <p className="mt-5 text-center text-[10px] text-muted">
+    <p className="mt-5 text-center text-[10px] text-fog">
       Availability, features and pricing are determined by each
       destination platform.
     </p>
@@ -356,7 +356,7 @@ export default function FreeGayDatingSitesLanding() {
 
 {/* BENEFITS */}
 
-<section className="border-y border-border bg-panel px-5 py-14 sm:py-18 lg:px-8">
+<section className="border-y border-cream/10 bg-ink-soft px-5 py-14 sm:py-18 lg:px-8">
 
   <div className="mx-auto max-w-6xl">
 
@@ -401,7 +401,7 @@ export default function FreeGayDatingSitesLanding() {
 
         <div
           key={title}
-          className="rounded-2xl border border-border bg-page p-6 transition hover:border-accent/30 hover:shadow-sm"
+          className="rounded-2xl border border-cream/10 bg-ink p-6 transition hover:border-accent/30 hover:shadow-sm"
         >
 
           <div className="flex items-center justify-between">
@@ -410,7 +410,7 @@ export default function FreeGayDatingSitesLanding() {
               <Icon size={18} />
             </div>
 
-            <span className="text-[10px] font-bold tracking-[0.2em] text-muted">
+            <span className="text-[10px] font-bold tracking-[0.2em] text-fog">
               {number}
             </span>
 
@@ -420,7 +420,7 @@ export default function FreeGayDatingSitesLanding() {
             {title}
           </h3>
 
-          <p className="mt-3 text-sm leading-6 text-muted">
+          <p className="mt-3 text-sm leading-6 text-fog">
             {text}
           </p>
 
@@ -441,7 +441,7 @@ export default function FreeGayDatingSitesLanding() {
 
   <div className="mx-auto max-w-4xl">
 
-    <div className="rounded-2xl border border-border bg-panel p-6 sm:p-8 lg:p-10">
+    <div className="rounded-2xl border border-cream/10 bg-ink-soft p-6 sm:p-8 lg:p-10">
 
       <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-accent">
         Gay dating guide
@@ -454,7 +454,7 @@ export default function FreeGayDatingSitesLanding() {
         </span>
       </h2>
 
-      <div className="mt-6 space-y-4 text-sm leading-7 text-muted sm:text-base">
+      <div className="mt-6 space-y-4 text-sm leading-7 text-fog sm:text-base">
 
         <p>
           Looking for free gay dating sites for men? Explore
@@ -488,7 +488,7 @@ export default function FreeGayDatingSitesLanding() {
 
 <section
   id="how-it-works"
-  className="border-t border-border bg-panel px-5 py-14 sm:py-18 lg:px-8"
+  className="border-t border-cream/10 bg-ink-soft px-5 py-14 sm:py-18 lg:px-8"
 >
 
   <div className="mx-auto max-w-6xl">
@@ -539,7 +539,7 @@ export default function FreeGayDatingSitesLanding() {
             {item.title}
           </h3>
 
-          <p className="mt-3 text-sm leading-6 text-muted">
+          <p className="mt-3 text-sm leading-6 text-fog">
             {item.body}
           </p>
 
@@ -558,7 +558,7 @@ export default function FreeGayDatingSitesLanding() {
 
 <section className="px-5 py-8 lg:px-8">
 
-  <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl border border-accent/20 bg-panel">
+  <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl border border-accent/20 bg-ink-soft">
 
     <div className="relative px-6 py-14 text-center sm:px-10 lg:py-18">
 
@@ -577,7 +577,7 @@ export default function FreeGayDatingSitesLanding() {
           </span>
         </h2>
 
-        <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-muted">
+        <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-fog">
           Start with a featured listing and explore the platform
           to learn more about its signup options and features.
         </p>
@@ -588,7 +588,7 @@ export default function FreeGayDatingSitesLanding() {
             offer={featured}
             href={trackedUrls[featured.id]}
             placement="free_gay_dating_sites_footer"
-            className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-accent px-7 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-accent2"
+            className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-accent px-7 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-accent-soft"
           >
             Explore {featured.name}
             <ArrowRight size={15} />
@@ -596,7 +596,7 @@ export default function FreeGayDatingSitesLanding() {
 
           <a
             href="#offers"
-            className="inline-flex min-h-[50px] items-center justify-center rounded-xl border border-border bg-page px-7 text-[10px] font-bold uppercase tracking-[0.14em] text-ink transition hover:border-accent/40 hover:text-accent"
+            className="inline-flex min-h-[50px] items-center justify-center rounded-xl border border-cream/10 bg-ink px-7 text-[10px] font-bold uppercase tracking-[0.14em] text-cream transition hover:border-accent/40 hover:text-accent"
           >
             Compare Listings
           </a>
@@ -616,7 +616,7 @@ export default function FreeGayDatingSitesLanding() {
 
 <section className="px-5 pb-14 lg:px-8">
 
-  <p className="mx-auto max-w-3xl text-center text-[10px] leading-5 text-muted">
+  <p className="mx-auto max-w-3xl text-center text-[10px] leading-5 text-fog">
 
     Affiliate disclosure: TheDateCompass is an independent
     comparison site. We may earn a commission if you visit
@@ -627,7 +627,7 @@ export default function FreeGayDatingSitesLanding() {
 
     <Link
       href="/affiliate-disclosure"
-      className="text-accent underline decoration-accent/30 underline-offset-2 hover:text-accent2"
+      className="text-accent underline decoration-accent/30 underline-offset-2 hover:text-accent-soft"
     >
       Full affiliate disclosure
     </Link>

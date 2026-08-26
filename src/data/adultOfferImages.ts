@@ -5,12 +5,13 @@
 export const adultImages = {
   neon: "/images/extra/2.jpg",
   stairs: "/images/extra/ai-model.jpg",
+  gay: "/images/extra/manfinder-gay-dating.jpg",
+  alt: "/images/extra/a.jpg",
   portraitA:
-    "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.jpg",
-  portraitB:
-    "/images/extra/808vP-M-5b6gTi0tN1Yc-6H4TwhXsw_gO_zVgTJzfnMfUCrQsSJS4SHm4VhudkvN0j6pITl47QVYDUxnKXnqB_TJjeuZikZ6Bme7G1u__7XfxMA6xxsaUBBjQoqsz3F4r8MLSWm4O7Lxb4bLXGucr2V69UMS15YGEvT5eAhmb0s.jpg",
+    "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.png",
+  portraitB: "/images/extra/a.jpg",
   portraitC:
-    "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.jpg",
+    "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.png",
   portraitD:
     "/images/extra/IuJU7xxK5CBG801VwI4LrRyJZrR3nvIbBpM-A6Ig59zbMHpDjDcfTsmLinTPxKj3XtpB4vk1lOlp9WKaOeJZSD9eDNOar8yIAHvLjURnTPuAXngQObP8aqve7qEg6c1TZ5U3On8ZMYDnCDary9VzstCL2pTdpEAsNSgB14sEER8.jpg",
   portraitE:
@@ -19,9 +20,9 @@ export const adultImages = {
   portraitG:
     "/images/extra/IuJU7xxK5CBG801VwI4LrRyJZrR3nvIbBpM-A6Ig59zbMHpDjDcfTsmLinTPxKj3XtpB4vk1lOlp9WKaOeJZSD9eDNOar8yIAHvLjURnTPuAXngQObP8aqve7qEg6c1TZ5U3On8ZMYDnCDary9VzstCL2pTdpEAsNSgB14sEER8.jpg",
   portraitH: "/images/extra/2.jpg",
+  aiCompanion: "/images/dreamz/companion-1.webp",
 } as const;
 
-/** Canonical adult image per offer id / lowercase name. */
 export const offerAdultImages: Record<string, string> = {
   gonaughty: adultImages.portraitA,
   realsexclub: adultImages.portraitD,
@@ -29,14 +30,14 @@ export const offerAdultImages: Record<string, string> = {
   dirtydating: adultImages.neon,
   milffinder: adultImages.stairs,
   grannyhunter: adultImages.stairs,
-  fetishpartner: adultImages.portraitB,
+  fetishpartner: adultImages.alt,
   fuckfinder: adultImages.portraitA,
   litlatinz: adultImages.portraitD,
-  manfinder: adultImages.neon,
+  manfinder: adultImages.gay,
   cheekycrush: adultImages.portraitA,
   naughtycharm: adultImages.portraitD,
-  gaybloom: adultImages.portraitB,
-  pridepair: adultImages.portraitE,
+  gaybloom: adultImages.gay,
+  pridepair: adultImages.gay,
 };
 
 export function getOfferAdultImage(offerKey: string): string {

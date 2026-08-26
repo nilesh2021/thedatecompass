@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Globe,
   ShieldCheck,
@@ -7,6 +8,7 @@ import {
 } from "lucide-react";
 import { countries } from "@/data/countries";
 import { usaOffers } from "@/data/usaOffers";
+import { adultImages } from "@/data/adultOfferImages";
 
 const features = [
   {
@@ -14,24 +16,28 @@ const features = [
     title: "Country-based listings",
     description:
       "See dating platforms organized by country so you can focus on offers available in your region.",
+    image: adultImages.portraitA,
   },
   {
     icon: RefreshCcw,
     title: "Updated comparisons",
     description:
       "Featured offers and affiliate links are reviewed so you can compare active platforms more confidently.",
+    image: adultImages.portraitD,
   },
   {
     icon: BadgeCheck,
     title: "Adults 18+ only",
     description:
       "Every offer on TheDateCompass is intended only for adults aged 18 years or older.",
+    image: adultImages.stairs,
   },
   {
     icon: ShieldCheck,
     title: "Independent directory",
     description:
       "We compare third-party platforms independently. We don't own or operate any listed service.",
+    image: adultImages.gay,
   },
 ];
 
@@ -58,8 +64,19 @@ export default function WhyChoose() {
             return (
               <article
                 key={item.title}
-                className="border border-cream/10 bg-cream/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-brand-rose/30"
+                className="overflow-hidden border border-cream/10 bg-cream/[0.03] transition duration-300 hover:-translate-y-1 hover:border-brand-rose/30"
               >
+                <div className="relative h-40">
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+                </div>
+                <div className="p-7">
                 <div className="flex items-start justify-between">
                   <div className="flex h-14 w-14 items-center justify-center border border-brand-rose/30 bg-brand-rose/10">
                     <Icon size={26} className="text-brand-rose" />
@@ -70,6 +87,7 @@ export default function WhyChoose() {
                   {item.title}
                 </h3>
                 <p className="mt-4 leading-7 text-cream/65">{item.description}</p>
+                </div>
               </article>
             );
           })}

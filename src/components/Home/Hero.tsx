@@ -2,8 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Globe2, Layers3 } from "lucide-react";
 import { countries, availableCountries } from "@/data/countries";
-import { featuredUsaOffers, usaOffers } from "@/data/usaOffers";
+import { usaOffers } from "@/data/usaOffers";
+import { adultImages } from "@/data/adultOfferImages";
 import MarqueeBand from "@/components/theme/MarqueeBand";
+
+const heroVisuals = [
+  { name: "Casual dating", image: adultImages.portraitA },
+  { name: "Gay dating", image: adultImages.gay },
+  { name: "Mature dating", image: adultImages.stairs },
+  { name: "AI companion", image: adultImages.aiCompanion },
+];
 
 export default function Hero() {
   return (
@@ -71,14 +79,14 @@ export default function Hero() {
 
         <div className="relative hidden lg:block">
           <div className="grid grid-cols-2 gap-3">
-            {featuredUsaOffers.slice(0, 4).map((offer, index) => (
+            {heroVisuals.map((visual, index) => (
               <div
-                key={`${offer.name}-${index}`}
+                key={visual.name}
                 className="relative overflow-hidden border border-cream/10"
               >
                 <Image
-                  src={offer.image}
-                  alt={`${offer.name} dating platform`}
+                  src={visual.image}
+                  alt={visual.name}
                   width={420}
                   height={520}
                   priority={index < 2}
@@ -86,7 +94,7 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
                 <p className="absolute bottom-3 left-3 text-sm font-bold text-cream">
-                  {offer.name}
+                  {visual.name}
                 </p>
               </div>
             ))}

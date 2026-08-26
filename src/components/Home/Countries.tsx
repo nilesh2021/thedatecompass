@@ -1,8 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Globe2, CheckCircle2, Clock3 } from "lucide-react";
 import { availableCountries, countries } from "@/data/countries";
 import { usaOffers } from "@/data/usaOffers";
 import { germanyOffers } from "@/data/germanyOffers";
+import { adultImages } from "@/data/adultOfferImages";
+
+const countryImages: Record<string, string> = {
+  usa: adultImages.portraitD,
+  germany: adultImages.stairs,
+  australia: adultImages.portraitA,
+  uk: adultImages.neon,
+  canada: adultImages.gay,
+  france: adultImages.portraitE,
+};
 
 function getFlagEmoji(countryCode: string) {
   return countryCode
@@ -55,8 +66,19 @@ export default function Countries() {
             return (
               <article
                 key={country.slug}
-                className="flex flex-col border border-brand-rose/40 bg-brand-rose/5 p-6 transition duration-300 hover:-translate-y-1"
+                className="flex flex-col overflow-hidden border border-brand-rose/40 bg-brand-rose/5 transition duration-300 hover:-translate-y-1"
               >
+                <div className="relative h-40">
+                  <Image
+                    src={countryImages[country.slug] ?? adultImages.neon}
+                    alt={`${country.name} adult dating`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex h-14 w-14 items-center justify-center border border-cream/10 text-3xl">
                     {getFlagEmoji(country.code)}
@@ -93,6 +115,7 @@ export default function Countries() {
                     Explore
                     <ArrowRight size={15} />
                   </Link>
+                </div>
                 </div>
               </article>
             );

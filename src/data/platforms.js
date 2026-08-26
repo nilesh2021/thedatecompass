@@ -65,7 +65,7 @@ const platforms = [
   ],
 
   affiliateLink:
-    "https://t.datsk11.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 },
 
   {

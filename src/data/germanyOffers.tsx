@@ -63,7 +63,7 @@ export const germanyOffers = [
     category: "Gay dating for men",
     image: getOfferAdultImage("manfinder"),
     affiliateLink:
-      "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit Manfinder",
     points: [
       "Men looking to meet other men",

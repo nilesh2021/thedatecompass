@@ -114,7 +114,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Private messaging",
           "Mobile friendly",
         ],
-        url: "https://t.datsk11.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+        url: "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
         logo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
         featured: true,
       },
@@ -149,7 +149,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Quick signup",
           "Private messaging",
         ],
-        url: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+        url: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
         logo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
       },
       {

@@ -197,7 +197,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Gay dating",
       description:
         "Inclusive space for gay singles who want real conversations, easy matching, and private messaging.",
-      url: "https://t.datsk11.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       featured: true,
       image: IMG.ctaAi,
       highlights: [
@@ -226,7 +226,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Gay dating for men",
       description:
         "Men looking to meet other men — dating and social features in one place to start chatting fast.",
-      url: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
       image: IMG.aiModel3,
       highlights: [
         "Men seeking men",

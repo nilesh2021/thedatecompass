@@ -69,7 +69,7 @@ const dreamzDiscoveryOffer: UsaOffer = {
   badge: dreamzOffer.badge,
   mark: "D",
   accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-  image: "/images/dreamz/companion-1.webp",
+  image: "/images/dreamz/companion-2.webp",
   href: dreamzOffer.url,
   tags: ["AI", "Adults 18+"],
 };

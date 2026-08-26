@@ -110,7 +110,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "A dating and social platform for men looking to meet and connect with other men.",
     image: getOfferAdultImage("manfinder"),
-    href: "https://t.datsk9.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,

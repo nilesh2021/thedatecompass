@@ -3,10 +3,10 @@
  */
 
 export const GAYBLOOM_AFFILIATE_URL =
-  "https://t.datsk9.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN";
 
 export const MANFINDER_SITES_AFFILIATE_URL =
-  "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN";
 
 const GB_PHOTO =
   "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80";

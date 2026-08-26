@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { adultImages } from "@/data/adultOfferImages";
 
 const faqs = [
   {
@@ -72,6 +74,25 @@ export default function FAQ() {
             Answers about casual dating, adult dating sites, gay dating,
             AI companion platforms, and how to compare dating offers by country.
           </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[
+            { src: adultImages.portraitA, alt: "Casual dating" },
+            { src: adultImages.gay, alt: "Gay dating" },
+            { src: adultImages.stairs, alt: "Mature dating" },
+            { src: adultImages.aiCompanion, alt: "AI companion" },
+          ].map((item) => (
+            <div key={item.alt} className="relative h-28 overflow-hidden border border-cream/10 sm:h-36">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="25vw"
+                className="object-cover object-top"
+              />
+            </div>
+          ))}
         </div>
 
         <div className="mt-14 divide-y divide-cream/10 border-y border-cream/10">

@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Search, ExternalLink, Globe2 } from "lucide-react";
+import { adultImages } from "@/data/adultOfferImages";
 
 const steps = [
   {
@@ -8,6 +10,7 @@ const steps = [
     title: "Choose your country",
     description:
       "Pick your region to see dating platforms and offers available where you are.",
+    image: adultImages.neon,
   },
   {
     number: "02",
@@ -15,6 +18,7 @@ const steps = [
     title: "Compare by category",
     description:
       "Browse casual dating, gay dating, mature dating, adult social, or AI companion options.",
+    image: adultImages.portraitD,
   },
   {
     number: "03",
@@ -22,6 +26,7 @@ const steps = [
     title: "Visit the provider",
     description:
       "Open the affiliate link and continue on the third-party platform to register and connect.",
+    image: adultImages.aiCompanion,
   },
 ];
 
@@ -51,6 +56,15 @@ export default function HowItWorks() {
                   index > 0 ? "md:pl-8" : ""
                 } ${index === steps.length - 1 ? "md:border-r-0" : ""}`}
               >
+                <div className="relative mb-6 h-44 overflow-hidden border border-ink/10">
+                  <Image
+                    src={step.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-top"
+                  />
+                </div>
                 <p className="font-serif-accent text-4xl italic text-brand-rose">
                   {step.number}
                 </p>

@@ -5,7 +5,7 @@ import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLa
 
 const PAGE_URL = "https://www.thedatecompass.com/free-gay-dating-sites";
 const OG_IMAGE =
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1568590320589-8a16645ec483?auto=format&fit=crop&w=1200&q=80";
 
 export const metadata: Metadata = {
   title: {
