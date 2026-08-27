@@ -7,7 +7,7 @@ type RouteMeta = {
 };
 
 /**
- * Public indexable pages (34). Excludes API, private/test routes,
+ * Public indexable pages (35). Excludes API, private/test routes,
  * noindex drafts, and duplicate redirects such as /top-offers/gay-dating.
  */
 const PUBLIC_ROUTES: string[] = [
@@ -39,6 +39,7 @@ const PUBLIC_ROUTES: string[] = [
   "/offers/realsexclub",
   "/offers/transdate",
   "/offers/transdate-dating",
+  "/offers/transdate-dating-sites",
   "/privacy-policy",
   "/terms-and-conditions",
   "/top-offers",
