@@ -70,6 +70,11 @@ export const metadata: Metadata = {
     },
   },
   category: "Dating Directory",
+  verification: {
+    other: {
+      "impact-site-verification": "bbf507ac-9ef6-4fce-8439-fcd5938f83cf",
+    },
+  },
 };
 
 export default function Home() {
