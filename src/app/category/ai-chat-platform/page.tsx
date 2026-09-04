@@ -1,21 +1,11 @@
+"use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
+import { trackAffiliateClick } from "@/lib/analytics";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "AI Chat Platform Draft | TheDateCompass",
-  },
-  description:
-    "Draft AI chat platform page. Prefer /category/ai-girlfriend and /offers/dreamz-ai for current AI companion listings.",
-  alternates: {
-    canonical: "https://www.thedatecompass.com/category/ai-chat-platform",
-  },
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+const AFFILIATE_URL =
+  "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN";
+const OFFER_NAME = "Dreamz.ai";
 
 export default function AIPlatformPage() {
   const features = [
@@ -80,9 +70,10 @@ export default function AIPlatformPage() {
 
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               <Link
-                href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+                href={AFFILIATE_URL}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
                 className="rounded-full bg-pink-500 px-6 py-3 font-semibold text-white"
               >
                 Get Started
@@ -267,9 +258,10 @@ export default function AIPlatformPage() {
 
             <div className="mt-8">
               <Link
-                href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+                href={AFFILIATE_URL}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
                 className="rounded-full bg-pink-500 px-6 py-3 font-semibold text-white"
               >
                 Start Free

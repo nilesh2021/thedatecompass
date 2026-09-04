@@ -1,23 +1,14 @@
+"use client";
+
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { trackAffiliateClick } from "@/lib/analytics";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "AI Girlfriend Platform Draft | TheDateCompass",
-  },
-  description:
-    "Draft AI girlfriend landing page. Prefer the main AI companion category and Dreamz.ai offer pages for current comparisons.",
-  alternates: {
-    canonical: "https://www.thedatecompass.com/category/ai-girlfriend-sites",
-  },
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+const AFFILIATE_URL =
+  "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN";
+const OFFER_NAME = "Dreamz.ai";
 
 export default function AIGirlfriendLanding() {
   return (
@@ -43,9 +34,10 @@ export default function AIGirlfriendLanding() {
 
             <div className="mt-8 flex justify-center gap-4">
               <Link
-                href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+                href={AFFILIATE_URL}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
+                onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
                 className="rounded-full bg-pink-500 px-6 py-3 font-semibold text-white"
               >
                 Start Chatting
@@ -98,9 +90,10 @@ export default function AIGirlfriendLanding() {
           <div className="container mx-auto px-6 text-center">
             <p className="text-gray-400">Ready to try?</p>
             <Link
-              href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+              href={AFFILIATE_URL}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
+              onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
               className="mt-4 inline-block rounded-full bg-pink-500 px-8 py-3 font-semibold text-white"
             >
               Start Chatting Now

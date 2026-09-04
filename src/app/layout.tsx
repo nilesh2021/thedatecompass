@@ -42,6 +42,10 @@ export const metadata: Metadata = {
 
   description:
     "Compare dating sites and AI girlfriend platforms worldwide.",
+
+  other: {
+    "mitgo-verification": "f5b6679f-e350-42f0-9599-d2f5070142a2",
+  },
 };
 
 export const viewport: Viewport = {

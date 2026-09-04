@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   MANFINDER_AFFILIATE_URL,
@@ -5,6 +7,7 @@ import {
   manFinderVisuals,
 } from "@/data/manFinderOffers";
 import ManFinderLogo from "@/components/landing/ManFinderLogo";
+import { trackAffiliateClick } from "@/lib/analytics";
 import FixedOfferCta from "./FixedOfferCta";
 
 const AFFILIATE_URL = MANFINDER_AFFILIATE_URL;
@@ -12,14 +15,17 @@ const REL = "noopener noreferrer";
 
 function ExploreCta({
   label = "Explore ManFinder",
+  placement,
 }: {
   label?: string;
+  placement: string;
 }) {
   return (
     <a
       href={AFFILIATE_URL}
       target="_blank"
       rel={REL}
+      onClick={() => trackAffiliateClick(manFinderOffer.name, placement)}
       className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full bg-[#d5b06a] px-8 text-[11px] font-black uppercase tracking-[0.18em] text-[#120d0d] shadow-[0_15px_45px_rgba(213,176,106,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#e3c481] hover:shadow-[0_20px_60px_rgba(213,176,106,0.3)]"
     >
       <span>{label}</span>
@@ -94,7 +100,7 @@ export default function ManFinderGayDatingLanding() {
             </p>
 
             <div className="mt-9">
-              <ExploreCta label="Explore ManFinder →" />
+              <ExploreCta label="Explore ManFinder →" placement="hero" />
             </div>
 
             <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-white/35">
@@ -229,7 +235,7 @@ export default function ManFinderGayDatingLanding() {
               </p>
 
               <div className="mt-9">
-                <ExploreCta label="Discover ManFinder →" />
+                <ExploreCta label="Discover ManFinder →" placement="mid-cta" />
               </div>
 
             </div>
@@ -312,7 +318,7 @@ export default function ManFinderGayDatingLanding() {
               </p>
 
               <div className="mt-9">
-                <ExploreCta label="Explore ManFinder →" />
+                <ExploreCta label="Explore ManFinder →" placement="footer-cta" />
               </div>
 
             </div>

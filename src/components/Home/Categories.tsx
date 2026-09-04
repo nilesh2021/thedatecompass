@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, ShieldCheck, Globe } from "lucide-react";
 import { usaCategories } from "@/data/usaOffers";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 const homeCategories = usaCategories.filter((category) =>
   ["casual", "gay-dating", "mature", "adult"].includes(category.slug)
@@ -74,6 +77,9 @@ export default function Categories() {
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     className="tdc-btn-primary w-full py-3 text-xs"
+                    onClick={() =>
+                      trackAffiliateClick(category.offerName, "category")
+                    }
                   >
                     Visit {category.offerName}
                     <ArrowRight size={14} />

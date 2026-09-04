@@ -15,6 +15,20 @@ export type OfferData = {
   availableCountries: string[];
 };
 
+/** Existing CrakRevenue basic links (with aff_sub5) from project offer data. */
+const AFFILIATE_URLS: Partial<Record<string, string>> = {
+  realsexclub:
+    "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+  milffinder:
+    "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+  litlatinz:
+    "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+  fetishpartner:
+    "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  transdate:
+    "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+};
+
 const makeOffer = (slug: string): OfferData => {
   const name = slug.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   return {
@@ -41,7 +55,7 @@ const makeOffer = (slug: string): OfferData => {
       { question: "What is this service?", answer: "A placeholder FAQ entry — replace with accurate content." },
       { question: "Is this for adults?", answer: "Yes — intended for users aged 18 and over." },
     ],
-    affiliateUrl: "",
+    affiliateUrl: AFFILIATE_URLS[slug] ?? "",
     availableCountries: ["USA", "UK", "Germany"],
   };
 };

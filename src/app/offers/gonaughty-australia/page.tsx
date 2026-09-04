@@ -1,59 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { adultImages } from "@/data/adultOfferImages";
 import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLanding";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 const HERO_BG = "https://assets.gonaughty.com/st/static/background.jpg";
 
 const AFFILIATE_URL =
   "https://t.datsk9.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN";
 const REL = "noopener noreferrer";
-const PAGE_URL = "https://www.thedatecompass.com/offers/gonaughty-australia";
-
-export const metadata: Metadata = {
-  title: {
-    absolute: "GoNaughty Australia | Online & Casual Dating",
-  },
-  description:
-    "GoNaughty is an adult dating option for online dating Australia. Compare Australian dating sites, casual dating Australia, and meet singles in Australia. Adults 18+.",
-  keywords: [
-    "dating sites Australia",
-    "Australian dating sites",
-    "online dating Australia",
-    "casual dating Australia",
-    "adult dating Australia",
-    "meet singles in Australia",
-    "GoNaughty",
-  ],
-  alternates: {
-    canonical: PAGE_URL,
-  },
-  openGraph: {
-    title: "GoNaughty Australia | Online & Casual Dating",
-    description:
-      "Meet singles in Australia with GoNaughty — online dating and casual dating for Australian adults 18+.",
-    url: PAGE_URL,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GoNaughty Australia | Online & Casual Dating",
-    description:
-      "Adult dating Australia with GoNaughty. Explore casual dating and Australian dating sites. Adults 18+.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+const OFFER_NAME = "GoNaughty";
+const COUNTRY = "australia";
 
 function Cta({
   label,
   variant = "rose",
+  placement,
 }: {
   label: string;
   variant?: "rose" | "ink" | "cream";
+  placement: string;
 }) {
   const styles = {
     rose: "bg-[#ff3d6e] text-white shadow-[0_16px_40px_rgba(255,61,110,0.32)] hover:bg-[#ff5a84]",
@@ -67,6 +35,7 @@ function Cta({
       href={AFFILIATE_URL}
       target="_blank"
       rel={REL}
+      onClick={() => trackAffiliateClick(OFFER_NAME, placement, COUNTRY)}
       className={`group inline-flex min-h-[54px] w-full items-center justify-center gap-3 rounded-2xl px-8 text-[12px] font-bold uppercase tracking-[0.16em] transition-all duration-300 hover:-translate-y-0.5 sm:w-auto ${styles[variant]}`}
     >
       <span>{label}</span>
@@ -154,7 +123,7 @@ export default function GoNaughtyAustraliaPage() {
               terms.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Cta label="Join GoNaughty Free" />
+              <Cta label="Join GoNaughty Free" placement="hero" />
               <p className="text-[11px] leading-5 text-[#14110f]/40">
                 External destination · Affiliate disclosure
               </p>
@@ -281,7 +250,7 @@ export default function GoNaughtyAustraliaPage() {
               </p>
             </div>
             <div className="mt-8">
-              <Cta label="Browse GoNaughty" variant="rose" />
+              <Cta label="Browse GoNaughty" variant="rose" placement="mid-cta" />
             </div>
           </div>
         </div>
@@ -340,7 +309,7 @@ export default function GoNaughtyAustraliaPage() {
                 dating Australia and Australian dating sites.
               </p>
               <div className="mt-8">
-                <Cta label="Start on GoNaughty" variant="cream" />
+                <Cta label="Start on GoNaughty" variant="cream" placement="footer-cta" />
               </div>
             </div>
           </div>

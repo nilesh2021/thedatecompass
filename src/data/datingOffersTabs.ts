@@ -195,7 +195,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Secure messaging",
           "Easy signup",
         ],
-        url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+        url: "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
         logo: getOfferAdultImage("milffinder"),
         featured: true,
       },

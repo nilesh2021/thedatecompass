@@ -11,6 +11,7 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 interface OfferItem {
   id: string;
@@ -456,7 +457,7 @@ export default function OfferHubPage() {
                       {/* CTA */}
                       <div className="mt-3">
                         <a
-                          href={offer.url}
+                          href={affiliateUrl}
                           target={
                             affiliateUrl.startsWith("http")
                               ? "_blank"
@@ -466,6 +467,12 @@ export default function OfferHubPage() {
                             affiliateUrl.startsWith("http")
                               ? "nofollow sponsored noopener noreferrer"
                               : undefined
+                          }
+                          onClick={() =>
+                            trackAffiliateClick(
+                              offer.title,
+                              `cozy_sites_${offer.id}`
+                            )
                           }
                           className="text-xs font-bold uppercase tracking-[0.12em] text-brand-mint transition hover:text-cream"
                         >

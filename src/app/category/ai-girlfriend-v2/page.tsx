@@ -1,35 +1,15 @@
+"use client";
+
 import Footer from "@/components/Home/Footer";
 import Header from "@/components/Home/Header";
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { trackAffiliateClick } from "@/lib/analytics";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "AI Companion Platform Draft | TheDateCompass",
-  },
-  description:
-    "Draft AI companion landing page. Prefer /category/ai-girlfriend and /offers/dreamz-ai for current comparisons.",
-  keywords: [
-    "AI companion",
-    "AI girlfriend",
-    "virtual girlfriend",
-    "AI chat",
-  ],
-  alternates: {
-    canonical: "https://www.thedatecompass.com/category/ai-girlfriend-v2",
-  },
-  openGraph: {
-    title: "AI Companion Platform Draft | TheDateCompass",
-    description:
-      "Draft AI companion landing. See the main AI girlfriend category for current listings.",
-    url: "https://www.thedatecompass.com/category/ai-girlfriend-v2",
-  },
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+const AFFILIATE_URL =
+  "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN";
+const OFFER_NAME = "Dreamz.ai";
+
 export default function AIGirlfriendV2() {
   return (
     <>
@@ -84,9 +64,10 @@ export default function AIGirlfriendV2() {
               <div className="mt-10 flex flex-wrap gap-4">
 
               <Link
-    href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+    href={AFFILIATE_URL}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
+    onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
     className="rounded-full bg-pink-500 px-8 py-4 font-bold text-white"
   >
     ❤️ Start Chatting
@@ -439,9 +420,10 @@ export default function AIGirlfriendV2() {
         {/* CTA */}
 
         <Link
-          href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+          href={AFFILIATE_URL}
           target="_blank"
           rel="sponsored nofollow noopener noreferrer"
+          onClick={() => trackAffiliateClick(OFFER_NAME, "features-cta")}
           className="mt-12 inline-flex items-center rounded-full bg-pink-500 px-8 py-4 text-lg font-semibold text-white transition hover:bg-pink-600"
         >
           Start Your AI Journey →
@@ -496,9 +478,10 @@ export default function AIGirlfriendV2() {
           <div className="mt-10 flex flex-wrap gap-4">
 
           <Link
-    href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+    href={AFFILIATE_URL}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
+    onClick={() => trackAffiliateClick(OFFER_NAME, "mid-cta")}
     className="rounded-full bg-pink-500 px-8 py-4 font-bold text-white"
   >
     ❤️ Start Chatting
@@ -675,9 +658,10 @@ export default function AIGirlfriendV2() {
       <div className="mt-12">
 
      <Link
-    href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+    href={AFFILIATE_URL}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
+    onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
     className="rounded-full bg-pink-500 px-8 py-4 font-bold text-white"
   >
     ❤️ Start Chatting
@@ -726,9 +710,10 @@ export default function AIGirlfriendV2() {
 </section>
 <div className="fixed bottom-5 right-5 z-50">
   <Link
-    href="https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN"
+    href={AFFILIATE_URL}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
+    onClick={() => trackAffiliateClick(OFFER_NAME, "fixed-cta")}
     className="rounded-full bg-pink-500 px-6 py-4 font-bold text-white shadow-lg"
   >
     ❤️ Start Chatting

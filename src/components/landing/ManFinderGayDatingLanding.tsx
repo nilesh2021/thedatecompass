@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   MANFINDER_AFFILIATE_URL,
@@ -5,6 +7,7 @@ import {
   manFinderVisuals,
 } from "@/data/manFinderOffers";
 import ManFinderLogo from "@/components/landing/ManFinderLogo";
+import { trackAffiliateClick } from "@/lib/analytics";
 import FixedOfferCta from "./FixedOfferCta";
 
 const AFFILIATE_URL = MANFINDER_AFFILIATE_URL;
@@ -12,14 +15,17 @@ const REL = "noopener noreferrer";
 
 function ExploreCta({
   label = "Explore ManFinder",
+  placement,
 }: {
   label?: string;
+  placement: string;
 }) {
   return (
     <a
       href={AFFILIATE_URL}
       target="_blank"
       rel={REL}
+      onClick={() => trackAffiliateClick(manFinderOffer.name, placement)}
       className="group inline-flex min-h-[52px] items-center overflow-hidden rounded-full bg-[#c82a5c] pl-7 pr-1.5 text-[11px] font-black uppercase tracking-[0.16em] text-white shadow-[0_16px_40px_rgba(200,42,92,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e0386e] hover:shadow-[0_22px_50px_rgba(200,42,92,0.45)]"
     >
       <span>{label}</span>
@@ -66,6 +72,9 @@ export default function ManFinderGayDatingLanding() {
             href={AFFILIATE_URL}
             target="_blank"
             rel={REL}
+            onClick={() =>
+              trackAffiliateClick(manFinderOffer.name, "header")
+            }
             className="hidden text-[10px] font-bold uppercase tracking-[0.22em] text-white/55 transition hover:text-[#ff6b93] sm:inline"
           >
             Open ManFinder →
@@ -106,7 +115,7 @@ export default function ManFinderGayDatingLanding() {
             </div>
 
             <div className="mt-10">
-              <ExploreCta label="Explore ManFinder" />
+              <ExploreCta label="Explore ManFinder" placement="hero" />
             </div>
 
             <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-white/30">
@@ -243,7 +252,7 @@ export default function ManFinderGayDatingLanding() {
                 and mixed-audience dating sites.
               </p>
               <div className="mt-9">
-                <ExploreCta label="Discover ManFinder" />
+                <ExploreCta label="Discover ManFinder" placement="mid-cta" />
               </div>
             </div>
           </div>
@@ -311,7 +320,7 @@ export default function ManFinderGayDatingLanding() {
                 interested in gay dating and new connections.
               </p>
               <div className="mt-9">
-                <ExploreCta label="Explore ManFinder" />
+                <ExploreCta label="Explore ManFinder" placement="footer-cta" />
               </div>
             </div>
           </div>

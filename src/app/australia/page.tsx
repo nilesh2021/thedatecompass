@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import AustraliaLandingPage from "@/components/country/australia/AustraliaLandingPage";
+import AustraliaPopinClickTracker from "@/components/country/australia/AustraliaPopinClickTracker";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/australia`;
@@ -57,6 +58,7 @@ export default function AustraliaPage() {
   return (
     <>
       <AustraliaLandingPage />
+      <AustraliaPopinClickTracker />
       <Script id="australia-popin-config" strategy="afterInteractive">
         {`var crakPopInParamsOverlay = {
 url: 'https://t.datsk9.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN&aff_sub4=AT_0019',
