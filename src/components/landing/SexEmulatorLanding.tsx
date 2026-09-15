@@ -12,6 +12,7 @@ const AFFILIATE_URL =
   "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_0060G000004lmDN";
 const CTA_REL = "nofollow sponsored noopener";
 const HERO_IMAGE = "https://www.sexemulator.com/images/home_img3.png";
+const GAME_IMAGE = "/images/game-img.png";
 
 const FEATURES = [
   {
@@ -402,12 +403,20 @@ export default function SexEmulatorLanding() {
       </section>
 
       <section className="relative z-10 px-5 pb-20 sm:px-8 lg:px-12">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-[#ff4ecd]/25 bg-[#ff2e9a]/10 px-6 py-14 text-center shadow-[0_0_80px_rgba(255,46,154,0.16)] sm:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-[#ff4ecd]/25 bg-[#ff2e9a]/10 text-center shadow-[0_0_80px_rgba(255,46,154,0.16)]">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,46,154,0.22),transparent_60%)]"
             aria-hidden
           />
-          <div className="relative">
+          <img
+            src={GAME_IMAGE}
+            alt="Virtual characters from the adult game world"
+            width={1600}
+            height={480}
+            decoding="async"
+            className="relative z-[1] h-auto w-full object-cover"
+          />
+          <div className="relative px-6 py-14 sm:px-10 lg:py-20">
             <h2 className="font-display text-4xl font-extrabold tracking-[-0.04em] text-white sm:text-6xl">
               READY TO ENTER?
             </h2>
