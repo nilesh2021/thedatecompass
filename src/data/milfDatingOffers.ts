@@ -3,7 +3,7 @@
  */
 
 export const MILF_DATING_AFFILIATE_URL =
-  "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN";
 
 const MF_PHOTO =
   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2";

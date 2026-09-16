@@ -1,6 +1,5 @@
 import TransDateDatingLanding from "@/components/landing/TransDateDatingLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import { transDateFaqs, transDateOffer } from "@/data/transDateDatingOffers";
 
@@ -43,7 +42,6 @@ export const metadata: Metadata = {
 export default function TransDateDatingPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <TransDateDatingLanding />
 

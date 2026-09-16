@@ -1,15 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Globe } from "lucide-react";
-import { usaOffers, type UsaOffer } from "@/data/usaOffers";
-import { dreamzOffer } from "@/data/aiGirlfriendOffers";
+import { usaOffers } from "@/data/usaOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
-const TABS = ["All", "AI", "Dating", "Gay", "Mature", "Casual", "Adult"] as const;
+const TABS = ["All", "AI", "Dating", "Gay", "Mature", "Casual", "Adult", "TransDate"] as const;
 type OfferTab = (typeof TABS)[number];
+const VISIBLE_TABS: OfferTab[] = ["All", "Gay", "TransDate", "Adult"];
 
 /** One secondary internal link per clearly matched category. */
 function getExploreLink(category: string): { href: string; label: string } | null {
@@ -41,12 +41,19 @@ function matchesTab(offer: { name: string; category: string }, tab: OfferTab): b
   const key = offer.category.trim().toLowerCase();
   const name = offer.name.trim().toLowerCase();
 
-  if (tab === "All") return true;
+  if (tab === "All") return !key.includes("ai") && !name.includes("dreamz");
   if (tab === "AI") return key.includes("ai") || name.includes("dreamz");
   if (tab === "Gay") return key.includes("gay");
+  if (tab === "TransDate") return key.includes("trans") || name.includes("transdate");
   if (tab === "Mature") return key.includes("mature");
   if (tab === "Casual") return key.includes("casual");
-  if (tab === "Adult") return key.includes("adult") && !key.includes("casual");
+  if (tab === "Adult") {
+    return (
+      key.includes("adult") ||
+      key.includes("mature") ||
+      key.includes("casual")
+    );
+  }
   if (tab === "Dating") {
     return (
       key.includes("dating") &&
@@ -61,98 +68,130 @@ function matchesTab(offer: { name: string; category: string }, tab: OfferTab): b
   return false;
 }
 
-const dreamzDiscoveryOffer: UsaOffer = {
-  name: dreamzOffer.name,
-  category: "AI",
-  featured: true,
-  description: dreamzOffer.description,
-  badge: dreamzOffer.badge,
-  mark: "D",
-  accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-  image: "/images/dreamz/companion-2.webp",
-  href: dreamzOffer.url,
-  tags: ["AI", "Adults 18+"],
-};
-
-const discoveryOffers = [
-  dreamzDiscoveryOffer,
-  ...usaOffers.filter(
-    (offer, index, list) => list.findIndex((item) => item.name === offer.name) === index
-  ),
-];
+const discoveryOffers = usaOffers.filter(
+  (offer, index, list) =>
+    !offer.name.trim().toLowerCase().includes("dreamz") &&
+    list.findIndex((item) => item.name === offer.name) === index
+);
 
 export default function FeaturedOffers() {
   const [activeTab, setActiveTab] = useState<OfferTab>("All");
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   const visibleOffers = useMemo(
     () => discoveryOffers.filter((offer) => matchesTab(offer, activeTab)),
     [activeTab]
   );
 
+  const selectTab = (tab: OfferTab, index: number, focus = false) => {
+    setActiveTab(tab);
+    if (focus) tabRefs.current[index]?.focus();
+  };
+
+  const onTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+    const current = VISIBLE_TABS.indexOf(activeTab);
+    let next = current;
+
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (current + 1) % VISIBLE_TABS.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (current - 1 + VISIBLE_TABS.length) % VISIBLE_TABS.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = VISIBLE_TABS.length - 1;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    selectTab(VISIBLE_TABS[next], next, true);
+  };
+
   return (
     <section
       id="featured"
-      className="relative overflow-hidden py-24 font-display text-cream"
+      className="relative overflow-x-clip py-16 font-display text-cream sm:py-24"
       style={{
         background:
           "radial-gradient(ellipse 70% 55% at 8% 0%, rgba(122, 28, 52, 0.38), transparent 58%), radial-gradient(ellipse 50% 40% at 100% 80%, rgba(90, 18, 40, 0.28), transparent 55%), linear-gradient(180deg, #070708 0%, #12080d 48%, #070708 100%)",
       }}
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#d4af87]">
             Discover platforms
           </p>
 
-          <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] text-cream sm:text-5xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] text-cream sm:text-5xl">
             Browse dating offers by category
           </h2>
 
-          <p className="mx-auto mt-6 font-serif-accent text-xl italic text-cream/55">
-            Explore featured third-party dating and AI companion platforms.
-            Availability varies by country.
+          <p className="mx-auto mt-5 max-w-xl font-serif-accent text-lg italic leading-relaxed text-cream/70 sm:mt-6 sm:text-xl">
+            Explore featured third-party dating platforms. Availability varies
+            by country.
           </p>
         </div>
 
-        <div
-          className="mt-12 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          role="tablist"
-          aria-label="Offer categories"
-        >
-          {TABS.map((tab) => {
-            const isActive = activeTab === tab;
+        <div className="sticky top-[3.625rem] z-30 -mx-4 mt-8 bg-[#12080d]/90 px-4 py-3 backdrop-blur-md sm:static sm:mx-0 sm:mt-12 sm:bg-transparent sm:px-0 sm:py-0 sm:backdrop-blur-none">
+          <div
+            className="mx-auto grid w-full max-w-2xl grid-cols-2 gap-2 rounded-2xl border border-[#d4af87]/30 bg-black/45 p-2 sm:flex sm:gap-1 sm:rounded-full sm:p-1.5"
+            role="tablist"
+            aria-label="Filter dating offers by category"
+          >
+            {VISIBLE_TABS.map((tab, index) => {
+              const isActive = activeTab === tab;
+              const tabId = `featured-tab-${tab.toLowerCase()}`;
 
-            return (
-              <button
-                key={tab}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => setActiveTab(tab)}
-                className={`shrink-0 border px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.16em] transition duration-300 ${
-                  isActive
-                    ? "border-[#d4af87] bg-[#d4af87]/15 text-[#f3e6d4] shadow-[0_0_0_1px_rgba(212,175,135,0.35)]"
-                    : "border-cream/15 bg-cream/[0.03] text-cream/55 hover:border-brand-rose/40 hover:text-cream"
-                }`}
-              >
-                {tab}
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={tab}
+                  id={tabId}
+                  ref={(node) => {
+                    tabRefs.current[index] = node;
+                  }}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls="featured-offers-panel"
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={() => selectTab(tab, index)}
+                  onKeyDown={onTabKeyDown}
+                  className={`min-h-11 rounded-xl px-3 text-[0.72rem] font-bold uppercase tracking-[0.12em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af87] sm:min-h-12 sm:flex-1 sm:rounded-full sm:px-6 sm:tracking-[0.16em] ${
+                    isActive
+                      ? "bg-gradient-to-r from-brand-rose to-[#d4af87] text-ink shadow-[0_8px_24px_rgba(255,61,110,0.28)]"
+                      : "text-cream/80 hover:bg-cream/[0.08] hover:text-cream"
+                  }`}
+                >
+                  {tab}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
+        <p className="sr-only" aria-live="polite">
+          Showing {visibleOffers.length} {activeTab === "All" ? "dating" : activeTab}{" "}
+          platforms.
+        </p>
+
         {visibleOffers.length === 0 ? (
-          <p className="mt-16 text-center font-serif-accent text-lg italic text-cream/45">
+          <p className="mt-10 text-center font-serif-accent text-lg italic text-cream/70 sm:mt-16">
             No platforms in this category on the homepage yet.
           </p>
         ) : (
-          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <div
+            id="featured-offers-panel"
+            role="tabpanel"
+            aria-labelledby={`featured-tab-${activeTab.toLowerCase()}`}
+            className="mt-8 grid gap-6 sm:mt-12 sm:gap-8 md:grid-cols-2 xl:grid-cols-4"
+          >
             {visibleOffers.map((offer) => {
               const explore = getExploreLink(offer.category);
 
               return (
                 <article
-                  key={offer.name}
+                  key={`${offer.name}-${offer.href}`}
                   className="group flex h-full flex-col overflow-hidden border border-[#d4af87]/20 bg-[#0e0a0c] transition duration-300 hover:-translate-y-1 hover:border-brand-rose/45"
                 >
                   <div className="relative h-72 overflow-hidden">
@@ -186,18 +225,20 @@ export default function FeaturedOffers() {
                       {offer.name}
                     </h3>
 
-                    <p className="mt-3 flex items-center gap-2 text-sm text-cream/50">
+                    <p className="mt-3 flex items-center gap-2 text-sm text-cream/75">
                       <ShieldCheck size={16} className="text-brand-rose" />
                       Adults 18+ only
                     </p>
 
-                    <p className="mt-3 flex-1 text-cream/65">{offer.description}</p>
+                    <p className="mt-3 flex-1 leading-relaxed text-cream/80">
+                      {offer.description}
+                    </p>
 
                     <a
                       href={offer.href}
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"
-                      className="tdc-btn-primary mt-8 w-full"
+                      className="tdc-btn-primary mt-8 min-h-12 w-full"
                       onClick={() =>
                         trackAffiliateClick(
                           offer.name,
@@ -206,13 +247,14 @@ export default function FeaturedOffers() {
                         )
                       }
                     >
-                      Visit site
+                      Visit {offer.name}
+                      <span className="sr-only"> (opens in a new tab)</span>
                     </a>
 
                     {explore ? (
                       <Link
                         href={explore.href}
-                        className="mt-3 text-center text-xs font-semibold text-cream/40 underline-offset-2 transition hover:text-brand-rose hover:underline"
+                        className="mt-2 inline-flex min-h-11 w-full items-center justify-center text-center text-sm font-semibold text-cream/80 underline-offset-4 transition hover:text-brand-rose hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af87]"
                       >
                         {explore.label}
                       </Link>
@@ -227,7 +269,7 @@ export default function FeaturedOffers() {
         <div className="mt-16 text-center">
           <Link
             href="#countries"
-            className="tdc-btn-line border-[#d4af87]/40 text-[#f3e6d4] hover:border-brand-rose hover:text-brand-rose"
+            className="tdc-btn-line min-h-12 w-full border-[#d4af87]/40 text-[#f3e6d4] hover:border-brand-rose hover:text-brand-rose sm:w-auto"
           >
             Browse offers by country
             <ArrowRight size={18} />

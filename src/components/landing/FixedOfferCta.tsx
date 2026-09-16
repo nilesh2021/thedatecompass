@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getTrafficStarsClickId } from "@/lib/trafficstars";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 type FixedOfferCtaProps = {
@@ -19,19 +17,6 @@ export default function FixedOfferCta({
   placement,
   ctaLabel,
 }: FixedOfferCtaProps) {
-  const [clickId, setClickId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const id = getTrafficStarsClickId();
-    setClickId(id);
-  }, []);
-
-  const affiliateUrl = new URL(offer.url);
-
-  if (clickId) {
-    affiliateUrl.searchParams.set("aff_sub5", clickId);
-  }
-
   return (
     <div
       className="fixed bottom-0 left-0 right-0 z-40 border-t border-cream/10 bg-ink-soft/95 px-4 py-3 shadow-[0_-8px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden"
@@ -45,7 +30,7 @@ export default function FixedOfferCta({
           </p>
 
           <a
-            href={affiliateUrl.toString()}
+            href={offer.url}
             target="_self"
             rel="sponsored nofollow noopener noreferrer"
             onClick={() => trackAffiliateClick(offer.name, placement)}

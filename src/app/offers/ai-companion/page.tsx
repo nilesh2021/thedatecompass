@@ -1,6 +1,5 @@
 import AiCompanionLanding from "@/components/landing/AiCompanionLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs, dreamzOffer } from "@/data/aiGirlfriendOffers";
 
@@ -46,7 +45,6 @@ export const metadata: Metadata = {
 export default function AiCompanionPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <AiCompanionLanding />
 

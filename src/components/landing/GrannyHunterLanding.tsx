@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -23,7 +22,6 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   grannyHunterFaqs,
@@ -136,13 +134,7 @@ function VelvetGlow({
 }
 
 export default function GrannyHunterLanding() {
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(
-    grannyHunterOffer.url
-  );
-
-  useEffect(() => {
-    setAffiliateUrl(getTrackedAffiliateUrl(grannyHunterOffer.url));
-  }, []);
+  const affiliateUrl = grannyHunterOffer.url;
 
   return (
     <>

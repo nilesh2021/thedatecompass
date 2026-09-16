@@ -32,7 +32,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "A dating option for people interested in transgender and inclusive connections.",
     image: getOfferAdultImage("transdate"),
-    href: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: true,
@@ -45,7 +45,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "An adult dating option for casual encounters and direct connections.",
     image: getOfferAdultImage("fuckfinder"),
-    href: "https://t.crdtg2.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,
@@ -58,7 +58,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "An adult dating option focused on Latino community connections.",
     image: getOfferAdultImage("litlatinz"),
-    href: "https://t.datsk9.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: true,
@@ -71,7 +71,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "An adult social and dating option for people looking for direct connections.",
     image: getOfferAdultImage("realsexclub"),
-    href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,
@@ -84,7 +84,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "A casual adult dating option for people interested in meeting new connections.",
     image: getOfferAdultImage("dirtydating"),
-    href: "https://t.datsk9.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,
@@ -97,7 +97,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "An adult dating option focused on mature connections and age-specific preferences.",
     image: getOfferAdultImage("grannyhunter"),
-    href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,
@@ -123,7 +123,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "An adult dating option for mature singles interested in genuine conversations and chemistry.",
     image: getOfferAdultImage("milffinder"),
-    href: "https://t.datsk9.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,
@@ -136,7 +136,7 @@ export const canadaOffers: CanadaOffer[] = [
     description:
       "An adult-focused platform for exploring connections around specific interests.",
     image: getOfferAdultImage("fetishpartner"),
-    href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
     canadaLinkStatus: "reused_existing",
     canadaAvailabilityVerified: true,
     markedForCanadaInSource: false,

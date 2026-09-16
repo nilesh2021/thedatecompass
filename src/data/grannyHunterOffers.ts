@@ -3,7 +3,7 @@
  */
 
 export const GRANNY_HUNTER_AFFILIATE_URL =
-  "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN";
 
 const GH_HERO =
   "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5";

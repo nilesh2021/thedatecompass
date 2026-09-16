@@ -1,6 +1,5 @@
 import GayDatingSitesLanding from "@/components/landing/GayDatingSitesLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import {
   gayDatingSitesFaqs,
@@ -67,7 +66,6 @@ export const metadata: Metadata = {
 export default function GayDatingSitesPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <GayDatingSitesLanding />
 

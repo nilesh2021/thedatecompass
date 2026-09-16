@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { adultImages } from "@/data/adultOfferImages";
 import { trackAffiliateClick } from "@/lib/analytics";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 export const TRANSDATE_NORWAY_URL =
   "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN";
@@ -153,8 +152,7 @@ const steps = [
 const cities = ["Oslo", "Bergen", "Trondheim", "Stavanger", "Tromsø"];
 
 export default function TransDateNorwayLanding() {
-  const [href, setHref] = useState(TRANSDATE_NORWAY_URL);
-  useEffect(() => setHref(getTrackedAffiliateUrl(TRANSDATE_NORWAY_URL)), []);
+  const href = TRANSDATE_NORWAY_URL;
 
   return (
     <main className="overflow-hidden bg-ink font-display text-cream antialiased">

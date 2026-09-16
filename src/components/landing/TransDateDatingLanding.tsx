@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -22,7 +21,6 @@ import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection"
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   transDateFaqs,
@@ -113,13 +111,7 @@ function AffiliateNote({ className = "" }: { className?: string }) {
 }
 
 export default function TransDateDatingLanding() {
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(
-    transDateOffer.url
-  );
-
-  useEffect(() => {
-    setAffiliateUrl(getTrackedAffiliateUrl(transDateOffer.url));
-  }, []);
+  const affiliateUrl = transDateOffer.url;
 
   return (
     <>

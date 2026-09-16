@@ -10,8 +10,8 @@ import Footer from "@/components/Home/Footer";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { getOfferAdultImage } from "@/data/adultOfferImages";
 
 interface OfferItem {
   id: string;
@@ -62,7 +62,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Casual dating",
       description:
         "Fast signup for flirty adult dating with active members looking for chemistry — not endless swiping.",
-      url: "https://t.datsk11.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       featured: true,
       image: IMG.portraitA,
       highlights: [
@@ -77,7 +77,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Adult dating",
       description:
         "Direct adult dating for people who know what they want — straightforward profiles and messaging.",
-      url: "https://t.datsk11.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       image: IMG.portraitD,
       highlights: [
         "No-games connections",
@@ -91,7 +91,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Latino dating",
       description:
         "Focused on Latino community connections with adult-friendly profiles and chat.",
-      url: "https://t.datsk11.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
       image: IMG.portraitE,
       highlights: [
         "Community vibe",
@@ -105,7 +105,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Casual adult",
       description:
         "Casual dating with an adult edge — browse, message, and meet without the pressure.",
-      url: "https://t.crdtg2.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
       image: IMG.neon,
       highlights: [
         "Fast signup",
@@ -119,7 +119,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Niche dating",
       description:
         "Niche matching for alternative interests beyond mainstream dating apps.",
-      url: "https://t.crdtg2.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
       image: IMG.portraitB,
       highlights: [
         "Niche filters",
@@ -200,7 +200,7 @@ const DATA: Record<string, OfferItem[]> = {
         "Inclusive space for gay singles who want real conversations, easy matching, and private messaging.",
       url: "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
       featured: true,
-      image: IMG.ctaAi,
+      image: getOfferAdultImage("gaybloom"),
       highlights: [
         "LGBTQ+ community",
         "Private messaging",
@@ -213,8 +213,8 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Gay dating community",
       description:
         "Match and chat with like-minded gay singles in a community-first dating experience.",
-      url: "https://t.datsk11.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-      image: IMG.hero,
+      url: "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      image: getOfferAdultImage("pridepair"),
       highlights: [
         "Inclusive matching",
         "Fast conversations",
@@ -228,7 +228,7 @@ const DATA: Record<string, OfferItem[]> = {
       description:
         "Men looking to meet other men — dating and social features in one place to start chatting fast.",
       url: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-      image: IMG.aiModel3,
+      image: getOfferAdultImage("manfinder"),
       highlights: [
         "Men seeking men",
         "Social + dating",
@@ -244,7 +244,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Trans dating",
       description:
         "Inclusive dating for trans connections with clear preferences and respectful private messaging.",
-      url: "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+      url: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
       featured: true,
       image: IMG.companion5,
       highlights: [
@@ -413,13 +413,7 @@ export default function OfferHubPage() {
 
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {filteredOffers.map((offer, index) => {
-                /*
-                 * Build the tracked affiliate URL for THIS offer.
-                 * This fixes the previous "offer is not defined" error.
-                 */
-                const affiliateUrl = getTrackedAffiliateUrl(
-                  offer.url
-                );
+                const affiliateUrl = offer.url;
 
                 return (
                   <article

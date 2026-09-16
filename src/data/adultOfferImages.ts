@@ -6,6 +6,12 @@ export const adultImages = {
   neon: "/images/extra/2.jpg",
   stairs: "/images/extra/ai-model.jpg",
   gay: "/images/extra/manfinder-gay-dating.jpg",
+  gaybloom:
+    "https://images.unsplash.com/photo-1567476783296-fff06012e17a?auto=format&fit=crop&w=900&q=80",
+  pridepair:
+    "https://images.unsplash.com/photo-1577130661762-1e4944ba63ac?auto=format&fit=crop&w=900&q=80",
+  manfinderPortrait:
+    "https://images.unsplash.com/photo-1580353588316-395bcff2eb2d?auto=format&fit=crop&w=900&q=80",
   alt: "/images/extra/a.jpg",
   portraitA:
     "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.png",
@@ -33,11 +39,11 @@ export const offerAdultImages: Record<string, string> = {
   fetishpartner: adultImages.alt,
   fuckfinder: adultImages.portraitA,
   litlatinz: adultImages.portraitD,
-  manfinder: adultImages.gay,
+  manfinder: adultImages.manfinderPortrait,
   cheekycrush: adultImages.portraitA,
   naughtycharm: adultImages.portraitD,
-  gaybloom: adultImages.gay,
-  pridepair: adultImages.gay,
+  gaybloom: adultImages.gaybloom,
+  pridepair: adultImages.pridepair,
 };
 
 export function getOfferAdultImage(offerKey: string): string {

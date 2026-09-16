@@ -31,7 +31,7 @@ const platforms = [
   ],
 
   affiliateLink:
-    "https://t.datsk11.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 },
 
  {
@@ -99,7 +99,7 @@ const platforms = [
   ],
 
   affiliateLink:
-    "https://t.datsk11.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+    "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
 },
 
   {
@@ -133,7 +133,7 @@ const platforms = [
   ],
 
   affiliateLink:
-    "https://t.datsk11.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    "https://t.aslr1.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 },
   {
   id: 5,
@@ -166,7 +166,7 @@ const platforms = [
   ],
 
   affiliateLink:
-    "https://t.datsk11.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 },
 
   {

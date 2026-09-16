@@ -4,7 +4,7 @@
  */
 
 export const REALSEXCLUB_AFFILIATE_URL =
-  "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN";
 
 const RSC_PHOTO =
   "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2";

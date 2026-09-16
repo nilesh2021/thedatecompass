@@ -1,6 +1,5 @@
 import GrannyHunterLanding from "@/components/landing/GrannyHunterLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import {
   grannyHunterFaqs,
@@ -70,7 +69,6 @@ export const metadata: Metadata = {
 export default function GrannyHunterPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <GrannyHunterLanding />
 

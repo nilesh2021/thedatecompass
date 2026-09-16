@@ -3,7 +3,7 @@
  */
 
 export const CASUAL_DATING_AFFILIATE_URL =
-  "https://t.datsk9.com/358917/7346?aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN";
 
 export const CASUAL_DATING_BANNER_URL =
   "https://www.imglnkx.com/9956/DAT-460_DESIGN-23859_4_300250.gif";

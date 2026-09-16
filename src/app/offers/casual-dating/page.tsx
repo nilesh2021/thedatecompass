@@ -2,7 +2,6 @@ import Script from "next/script";
 
 import CasualDatingLanding from "@/components/landing/CasualDatingLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import {
   casualDatingFaqs,
@@ -64,7 +63,6 @@ export const metadata: Metadata = {
 export default function CasualDatingPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <CasualDatingLanding />
 

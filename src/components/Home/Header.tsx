@@ -147,8 +147,10 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMobileMenu(!mobileMenu)}
-          className="relative grid h-9 w-9 place-items-center border border-cream/10 bg-cream/[0.03] text-cream/80 transition hover:border-cream/20 hover:bg-cream/[0.06] hover:text-cream lg:hidden"
+          className="relative grid h-11 w-11 place-items-center border border-cream/10 bg-cream/[0.03] text-cream/80 transition hover:border-cream/20 hover:bg-cream/[0.06] hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af87] lg:hidden"
           aria-label={mobileMenu ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenu}
+          aria-controls="mobile-nav"
         >
           {mobileMenu ? <FaTimes size={16} /> : <FaBars size={16} />}
         </button>
@@ -164,7 +166,13 @@ export default function Header() {
           />
 
           {/* Panel */}
-          <div className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-cream/8 bg-[linear-gradient(165deg,#16181c_0%,#0a0b0d_100%)] shadow-[-8px_0_40px_rgba(0,0,0,0.5)]">
+          <div
+            id="mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-cream/8 bg-[linear-gradient(165deg,#16181c_0%,#0a0b0d_100%)] shadow-[-8px_0_40px_rgba(0,0,0,0.5)]"
+          >
             <div
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_100%_0%,rgba(255,61,110,0.1),transparent_60%)]"
               aria-hidden
@@ -180,7 +188,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenu(false)}
-                className="grid h-9 w-9 place-items-center border border-cream/10 bg-cream/[0.03] text-cream/80 transition hover:border-cream/20 hover:text-cream"
+                className="grid h-11 w-11 place-items-center border border-cream/10 bg-cream/[0.03] text-cream/80 transition hover:border-cream/20 hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af87]"
                 aria-label="Close menu"
               >
                 <FaTimes size={16} />

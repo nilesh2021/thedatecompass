@@ -72,10 +72,6 @@ export default function OfferLandingPage({
 }) {
   const offer = data.offer;
 
-  // Adds TrafficStars ts_click_id as aff_sub5
-  // when the visitor originally arrived with ts_click_id.
-  
-
   function VisitCta({ placement }: { placement: string }) {
     return (
       <a

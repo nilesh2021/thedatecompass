@@ -1,6 +1,5 @@
 import MilfDatingLanding from "@/components/landing/MilfDatingLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import { milfDatingFaqs, milfDatingOffer } from "@/data/milfDatingOffers";
 
@@ -43,7 +42,6 @@ export const metadata: Metadata = {
 export default function MilfDatingPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <MilfDatingLanding />
 

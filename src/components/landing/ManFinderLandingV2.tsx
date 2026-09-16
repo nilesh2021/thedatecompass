@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
  
 import { ArrowUpRight, Check, Flame } from "lucide-react";
@@ -13,7 +12,6 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   manFinderExploreCards,
@@ -25,15 +23,7 @@ import {
 const REL = "sponsored nofollow noopener noreferrer";
 
 export default function ManFinderLandingV2() {
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(
-    manFinderOffer.url
-  );
-
-  useEffect(() => {
-    setAffiliateUrl(
-      getTrackedAffiliateUrl(manFinderOffer.url)
-    );
-  }, []);
+  const affiliateUrl = manFinderOffer.url;
 
   const handleClick = (placement: string) => {
     trackAffiliateClick(

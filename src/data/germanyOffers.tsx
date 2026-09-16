@@ -11,7 +11,7 @@ export const germanyOffers = [
     image: getOfferAdultImage("dirtydating"),
     highlighted: true,
     affiliateLink:
-      "https://t.datsk9.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit DirtyDating",
     points: [
       "Casual dating with an adult edge",
@@ -24,7 +24,7 @@ export const germanyOffers = [
     category: "Casual adult dating",
     image: getOfferAdultImage("fuckfinder"),
     affiliateLink:
-      "https://t.crdtg2.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit FuckFinder",
     points: [
       "Casual adult encounters and messaging",
@@ -37,7 +37,7 @@ export const germanyOffers = [
     category: "Adult dating & social",
     image: getOfferAdultImage("realsexclub"),
     affiliateLink:
-      "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit RealSexClub",
     points: [
       "Large adult member base",
@@ -50,7 +50,7 @@ export const germanyOffers = [
     category: "Mature dating",
     image: getOfferAdultImage("grannyhunter"),
     affiliateLink:
-      "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit Grannyhunter",
     points: [
       "Focused on mature dating preferences",
@@ -76,7 +76,7 @@ export const germanyOffers = [
     category: "Trans & inclusive dating",
     image: getOfferAdultImage("transdate"),
     affiliateLink:
-      "https://t.datsk9.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit TransDate",
     points: [
       "Inclusive dating for transgender connections",
@@ -89,7 +89,7 @@ export const germanyOffers = [
     category: "Adult social & niche interests",
     image: getOfferAdultImage("fetishpartner"),
     affiliateLink:
-      "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+      "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
     buttonText: "Visit FetishPartner",
     points: [
       "Built for specific adult interests",

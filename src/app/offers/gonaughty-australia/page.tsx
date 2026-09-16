@@ -9,7 +9,7 @@ import { trackAffiliateClick } from "@/lib/analytics";
 const HERO_BG = "https://assets.gonaughty.com/st/static/background.jpg";
 
 const AFFILIATE_URL =
-  "https://t.datsk9.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN";
+  "https://t.aslr1.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN";
 const REL = "noopener noreferrer";
 const OFFER_NAME = "GoNaughty";
 const COUNTRY = "australia";

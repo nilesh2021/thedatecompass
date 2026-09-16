@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import TransDateNorwayLanding from "@/components/landing/TransDateNorwayLanding";
 
 const PAGE_URL =
@@ -59,7 +58,6 @@ export const metadata: Metadata = {
 export default function TransDateDatingSitesPage() {
   return (
     <div className="font-sans">
-      <TrafficStarsTracker />
 
       <TransDateNorwayLanding />
 

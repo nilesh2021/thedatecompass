@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Compass, MessageCircle, Sparkles } from "lucide-react";
 
 import { getOfferTabByRoute, type DatingOffer } from "@/data/datingOffersTabs";
 import { trackAffiliateClick } from "@/lib/analytics";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 const gayTab = getOfferTabByRoute("gay-dating")!;
 const REL = "sponsored nofollow noopener noreferrer";
@@ -28,22 +27,6 @@ const offerImages: Record<string, string> = {
   transdate:
     "https://images.unsplash.com/photo-1650550740607-24aa0eff1c4a?auto=format&fit=crop&w=900&q=80",
 };
-
-function useTrackedUrls(offers: DatingOffer[]) {
-  const [urls, setUrls] = useState<Record<string, string>>(() =>
-    Object.fromEntries(offers.map((o) => [o.id, o.url]))
-  );
-
-  useEffect(() => {
-    setUrls(
-      Object.fromEntries(
-        offers.map((o) => [o.id, getTrackedAffiliateUrl(o.url)])
-      )
-    );
-  }, [offers]);
-
-  return urls;
-}
 
 function accessLabel(offer: DatingOffer) {
   return FREE_TO_JOIN_IDS.has(offer.id) ? "Free to join" : "Free to explore";
@@ -76,7 +59,6 @@ function OfferLink({
 }
 
 export default function FreeGayDatingSitesLanding() {
-  const trackedUrls = useTrackedUrls(gayTab.offers);
   const featured = gayTab.offers.find((o) => o.featured) ?? gayTab.offers[0];
 
   return (
@@ -318,7 +300,7 @@ export default function FreeGayDatingSitesLanding() {
 
                 <OfferLink
                   offer={offer}
-                  href={trackedUrls[offer.id]}
+                  href={offer.url}
                   placement={`free_gay_dating_sites_offer_${offer.id}`}
                   className="group/cta inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-accent-soft"
                 >
@@ -586,7 +568,7 @@ export default function FreeGayDatingSitesLanding() {
 
           <OfferLink
             offer={featured}
-            href={trackedUrls[featured.id]}
+            href={featured.url}
             placement="free_gay_dating_sites_footer"
             className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-accent px-7 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-accent-soft"
           >

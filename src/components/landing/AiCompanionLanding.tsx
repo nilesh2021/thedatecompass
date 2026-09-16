@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import Header from "@/components/Home/Header";
@@ -12,7 +11,6 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   aiGirlfriendFaqs,
@@ -86,11 +84,7 @@ function CompanionMedia({
 
 export default function AiCompanionLanding() {
   const offer = dreamzOffer;
-  const [affiliateUrl, setAffiliateUrl] = useState(offer.url);
-
-  useEffect(() => {
-    setAffiliateUrl(getTrackedAffiliateUrl(offer.url));
-  }, [offer.url]);
+  const affiliateUrl = offer.url;
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);

@@ -37,7 +37,7 @@ export const franceOffers: FranceOffer[] = [
     description:
       "An adult dating option focused on mature connections and age-specific preferences.",
     image: getOfferAdultImage("grannyhunter"),
-    href: "https://t.datsk9.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
     sourcedFrom: ["usa", "germany"],
@@ -61,7 +61,7 @@ export const franceOffers: FranceOffer[] = [
     description:
       "An adult social and dating option for people looking for direct connections.",
     image: getOfferAdultImage("realsexclub"),
-    href: "https://t.datsk9.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
     sourcedFrom: ["usa", "germany"],
@@ -73,7 +73,7 @@ export const franceOffers: FranceOffer[] = [
     description:
       "An adult-focused platform for exploring connections around specific interests.",
     image: getOfferAdultImage("fetishpartner"),
-    href: "https://t.datsk9.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+    href: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
     franceLinkStatus: "reused_existing",
     franceAvailabilityVerified: true,
     sourcedFrom: ["usa", "germany"],

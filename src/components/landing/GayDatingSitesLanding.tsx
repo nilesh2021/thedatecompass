@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -20,8 +19,6 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
-
 import {
   gayDatingSitesFaqs,
   gayDatingSitesOffers,
@@ -29,22 +26,6 @@ import {
 } from "@/data/gayDatingSitesOffers";
 
 const REL = "sponsored nofollow noopener noreferrer";
-
-function useTrackedUrls(offers: GayDatingSiteOffer[]) {
-  const [urls, setUrls] = useState<Record<string, string>>(() =>
-    Object.fromEntries(offers.map((o) => [o.id, o.url]))
-  );
-
-  useEffect(() => {
-    setUrls(
-      Object.fromEntries(
-        offers.map((o) => [o.id, getTrackedAffiliateUrl(o.url)])
-      )
-    );
-  }, [offers]);
-
-  return urls;
-}
 
 function AffiliateNote({ className = "" }: { className?: string }) {
   return (
@@ -218,7 +199,6 @@ function OfferCard({
 }
 
 export default function GayDatingSitesLanding() {
-  const trackedUrls = useTrackedUrls(gayDatingSitesOffers);
   const featured = gayDatingSitesOffers[0];
 
   return (
@@ -267,7 +247,7 @@ export default function GayDatingSitesLanding() {
                     View offers
                   </a>
                   <a
-                    href={trackedUrls[featured.id]}
+                    href={featured.url}
                     target="_blank"
                     rel={REL}
                     onClick={() =>
@@ -293,7 +273,7 @@ export default function GayDatingSitesLanding() {
                   return (
                     <a
                       key={offer.id}
-                      href={trackedUrls[offer.id]}
+                      href={offer.url}
                       target="_blank"
                       rel={REL}
                       onClick={() =>
@@ -373,7 +353,7 @@ export default function GayDatingSitesLanding() {
                 <OfferCard
                   key={offer.id}
                   offer={offer}
-                  href={trackedUrls[offer.id]}
+                  href={offer.url}
                 />
               ))}
             </div>
@@ -425,7 +405,7 @@ export default function GayDatingSitesLanding() {
                       <td className="px-5 py-4 text-ink/70">{offer.bestFor}</td>
                       <td className="px-5 py-4">
                         <a
-                          href={trackedUrls[offer.id]}
+                          href={offer.url}
                           target="_blank"
                           rel={REL}
                           onClick={() =>
@@ -528,7 +508,7 @@ export default function GayDatingSitesLanding() {
                 <OfferCta
                   key={offer.id}
                   offer={offer}
-                  href={trackedUrls[offer.id]}
+                  href={offer.url}
                   placement={`gay_dating_sites_footer_${offer.id}`}
                   className={`inline-flex min-h-[52px] items-stretch overflow-hidden rounded-xl border transition duration-300 hover:-translate-y-0.5 ${accentStyles(offer.accent).cta}`}
                 />

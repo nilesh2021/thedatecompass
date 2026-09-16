@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -20,7 +19,6 @@ import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection"
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   grannyHunterFaqs,
@@ -99,11 +97,7 @@ function AffiliateNote({ className = "", light = false }: { className?: string; 
 }
 
 export default function GrannyHunterLandingV2() {
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(grannyHunterOffer.url);
-
-  useEffect(() => {
-    setAffiliateUrl(getTrackedAffiliateUrl(grannyHunterOffer.url));
-  }, []);
+  const affiliateUrl = grannyHunterOffer.url;
 
   return (
     <>

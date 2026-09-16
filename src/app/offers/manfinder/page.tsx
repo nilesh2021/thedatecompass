@@ -1,6 +1,5 @@
 import ManFinderLanding from "@/components/landing/ManFinderLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
-import TrafficStarsTracker from "@/components/common/TrafficStarsTracker";
 import type { Metadata } from "next";
 import { manFinderFaqs, manFinderOffer } from "@/data/manFinderOffers";
 
@@ -42,7 +41,6 @@ export const metadata: Metadata = {
 export default function ManFinderPage() {
   return (
     <div className="pb-24 font-sans lg:pb-0">
-      <TrafficStarsTracker />
 
       <ManFinderLanding />
 

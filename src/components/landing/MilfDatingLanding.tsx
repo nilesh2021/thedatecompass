@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -25,7 +24,6 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   milfDatingExploreCards,
@@ -138,13 +136,7 @@ function WarmGlow({
 }
 
 export default function MilfDatingLanding() {
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(
-    milfDatingOffer.url
-  );
-
-  useEffect(() => {
-    setAffiliateUrl(getTrackedAffiliateUrl(milfDatingOffer.url));
-  }, []);
+  const affiliateUrl = milfDatingOffer.url;
 
   return (
     <>

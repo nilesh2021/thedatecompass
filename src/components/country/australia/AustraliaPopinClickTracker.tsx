@@ -20,11 +20,7 @@ export default function AustraliaPopinClickTracker() {
       const href =
         typeof url === "string" ? url : url instanceof URL ? url.href : "";
 
-      // Pop-in URL uniquely includes aff_sub4=AT_0019 (offer cards do not).
-      if (
-        href.includes("/358917/8570/") &&
-        href.includes("aff_sub4=AT_0019")
-      ) {
+      if (href.includes("/358917/8570/")) {
         trackAffiliateClick("GoNaughty", "crak_popin_overlay", "australia");
       }
 

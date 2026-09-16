@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -26,7 +25,6 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
-import { getTrackedAffiliateUrl } from "@/lib/trafficstars";
 
 import {
   CASUAL_DATING_BANNER_URL,
@@ -139,13 +137,7 @@ function CrimsonGlow({
 }
 
 export default function CasualDatingLanding() {
-  const [affiliateUrl, setAffiliateUrl] = useState<string>(
-    casualDatingOffer.url
-  );
-
-  useEffect(() => {
-    setAffiliateUrl(getTrackedAffiliateUrl(casualDatingOffer.url));
-  }, []);
+  const affiliateUrl = casualDatingOffer.url;
 
   return (
     <>
