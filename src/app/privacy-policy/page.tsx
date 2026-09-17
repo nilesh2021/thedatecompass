@@ -7,6 +7,9 @@ import { ArrowLeft } from "lucide-react";
 export const metadata = {
   title: "Privacy Policy | TheDateCompass",
   description: "Read TheDateCompass Privacy Policy.",
+  alternates: {
+    canonical: "https://www.thedatedcompass.com/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

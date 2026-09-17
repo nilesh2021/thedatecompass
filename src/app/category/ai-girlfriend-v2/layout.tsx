@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "AI chat",
   ],
   alternates: {
-    canonical: "https://www.thedatecompass.com/category/ai-girlfriend-v2",
+    canonical: "https://www.thedatedcompass.com/category/ai-girlfriend-v2",
   },
   openGraph: {
     title: "AI Companion Platform Draft | TheDateCompass",
     description:
       "Draft AI companion landing. See the main AI girlfriend category for current listings.",
-    url: "https://www.thedatecompass.com/category/ai-girlfriend-v2",
+    url: "https://www.thedatedcompass.com/category/ai-girlfriend-v2",
   },
   robots: {
     index: false,

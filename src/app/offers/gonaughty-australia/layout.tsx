@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const PAGE_URL = "https://www.thedatecompass.com/offers/gonaughty-australia";
+const PAGE_URL = "https://www.thedatedcompass.com/offers/gonaughty-australia";
 
 export const metadata: Metadata = {
   title: {

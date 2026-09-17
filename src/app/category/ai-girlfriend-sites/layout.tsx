@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Draft AI girlfriend landing page. Prefer the main AI companion category and Dreamz.ai offer pages for current comparisons.",
   alternates: {
-    canonical: "https://www.thedatecompass.com/category/ai-girlfriend-sites",
+    canonical: "https://www.thedatedcompass.com/category/ai-girlfriend-sites",
   },
   robots: {
     index: false,

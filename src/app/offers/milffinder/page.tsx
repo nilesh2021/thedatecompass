@@ -9,6 +9,9 @@ const data = getOfferPageData(SLUG);
 export const metadata: Metadata = {
   title: "MilfFinder | TheDateCompass",
   description: "Placeholder page for MilfFinder.",
+  alternates: {
+    canonical: "https://www.thedatedcompass.com/offers/milffinder",
+  },
 };
 
 export default function MilfFinderPage() {

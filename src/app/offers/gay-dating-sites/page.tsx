@@ -7,7 +7,7 @@ import {
 } from "@/data/gayDatingSitesOffers";
 
 const PAGE_URL =
-  "https://www.thedatecompass.com/offers/gay-dating-sites";
+  "https://www.thedatedcompass.com/offers/gay-dating-sites";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80";
@@ -87,13 +87,13 @@ export default function GayDatingSitesPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatecompass.com",
+                item: "https://www.thedatedcompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Gay Dating",
-                item: "https://www.thedatecompass.com/category/gay-dating",
+                item: "https://www.thedatedcompass.com/category/gay-dating",
               },
               {
                 "@type": "ListItem",

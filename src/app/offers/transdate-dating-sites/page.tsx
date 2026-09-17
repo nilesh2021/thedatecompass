@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TransDateNorwayLanding from "@/components/landing/TransDateNorwayLanding";
 
 const PAGE_URL =
-  "https://www.thedatecompass.com/offers/transdate-dating-sites";
+  "https://www.thedatedcompass.com/offers/transdate-dating-sites";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80";
@@ -72,13 +72,13 @@ export default function TransDateDatingSitesPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatecompass.com",
+                item: "https://www.thedatedcompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Offers",
-                item: "https://www.thedatecompass.com/top-offers",
+                item: "https://www.thedatedcompass.com/top-offers",
               },
               {
                 "@type": "ListItem",

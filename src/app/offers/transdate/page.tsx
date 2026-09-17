@@ -9,6 +9,9 @@ const data = getOfferPageData(SLUG);
 export const metadata: Metadata = {
   title: "TransDate | TheDateCompass",
   description: "Placeholder page for TransDate.",
+  alternates: {
+    canonical: "https://www.thedatedcompass.com/offers/transdate",
+  },
 };
 
 export default function TransDatePage() {

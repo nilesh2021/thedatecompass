@@ -3,7 +3,7 @@ import OffersCategoryLanding from "@/components/landing/OffersCategoryLanding";
 import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import { notFound } from "next/navigation";
 
-const PAGE_URL = "https://www.thedatecompass.com/top-offers";
+const PAGE_URL = "https://www.thedatedcompass.com/top-offers";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1200&q=80";
 

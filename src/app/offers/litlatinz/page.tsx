@@ -9,6 +9,9 @@ const data = getOfferPageData(SLUG);
 export const metadata: Metadata = {
   title: "LitLatinz | TheDateCompass",
   description: "Placeholder page for LitLatinz.",
+  alternates: {
+    canonical: "https://www.thedatedcompass.com/offers/litlatinz",
+  },
 };
 
 export default function LitLatinzPage() {

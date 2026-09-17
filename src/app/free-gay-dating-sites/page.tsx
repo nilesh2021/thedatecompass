@@ -3,7 +3,7 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLanding";
 
-const PAGE_URL = "https://www.thedatecompass.com/free-gay-dating-sites";
+const PAGE_URL = "https://www.thedatedcompass.com/free-gay-dating-sites";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1568590320589-8a16645ec483?auto=format&fit=crop&w=1200&q=80";
 

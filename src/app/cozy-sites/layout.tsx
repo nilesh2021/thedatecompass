@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const PAGE_URL = "https://www.thedatecompass.com/cozy-sites";
+const PAGE_URL = "https://www.thedatedcompass.com/cozy-sites";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80";
 

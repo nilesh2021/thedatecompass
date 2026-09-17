@@ -33,7 +33,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.thedatecompass.com"),
+  metadataBase: new URL("https://www.thedatedcompass.com"),
 
   title: {
     default: "TheDateCompass",

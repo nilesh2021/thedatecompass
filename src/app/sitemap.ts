@@ -7,8 +7,8 @@ type RouteMeta = {
 };
 
 /**
- * Public indexable pages (35). Excludes API, private/test routes,
- * noindex drafts, and duplicate redirects such as /top-offers/gay-dating.
+ * Public indexable pages. Excludes API, private/test routes,
+ * noindex drafts, redirected URLs, duplicate variants, and thin placeholders.
  */
 const PUBLIC_ROUTES: string[] = [
   "/",
@@ -23,22 +23,16 @@ const PUBLIC_ROUTES: string[] = [
   "/free-gay-dating-sites",
   "/gay-dating",
   "/germany",
-  "/offers/ai-companion",
   "/offers/casual-dating",
   "/offers/dreamz-ai",
   "/offers/dreamz-ai-companion",
-  "/offers/fetishpartner",
-  "/offers/gay-dating-sites",
+  "/offers/gonaughty-australia",
   "/offers/grannyhunter",
-  "/offers/grannyhunter-v2",
-  "/offers/litlatinz",
   "/offers/manfinder",
-  "/offers/manfinder-v2",
+  "/offers/manfinder-gay-dating",
   "/offers/milf-dating",
-  "/offers/milffinder",
   "/offers/realsexclub",
-  "/offers/transdate",
-  "/offers/transdate-dating",
+  "/offers/sex-emulator",
   "/offers/transdate-dating-sites",
   "/privacy-policy",
   "/terms-and-conditions",

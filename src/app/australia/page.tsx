@@ -3,7 +3,7 @@ import Script from "next/script";
 import AustraliaLandingPage from "@/components/country/australia/AustraliaLandingPage";
 import AustraliaPopinClickTracker from "@/components/country/australia/AustraliaPopinClickTracker";
 
-const SITE_URL = "https://www.thedatecompass.com";
+const SITE_URL = "https://www.thedatedcompass.com";
 const PAGE_URL = `${SITE_URL}/australia`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 

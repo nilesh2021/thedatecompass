@@ -23,6 +23,18 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/",
+        has: [{ type: "host", value: "thedatedcompass.com" }],
+        destination: "https://www.thedatedcompass.com",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "thedatedcompass.com" }],
+        destination: "https://www.thedatedcompass.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/offers/dreamz-ai-v2",
         destination: "/offers/dreamz-ai-companion",
         permanent: true,

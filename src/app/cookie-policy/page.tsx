@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Cookie Policy | TheDateCompass",
   description:
     "Learn how TheDateCompass uses cookies and similar technologies.",
+  alternates: {
+    canonical: "https://www.thedatedcompass.com/cookie-policy",
+  },
 };
 
 export default function CookiePolicyPage() {

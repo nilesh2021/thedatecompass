@@ -9,6 +9,9 @@ const data = getOfferPageData(SLUG);
 export const metadata: Metadata = {
   title: "FetishPartner | TheDateCompass",
   description: "Placeholder page for FetishPartner.",
+  alternates: {
+    canonical: "https://www.thedatedcompass.com/offers/fetishpartner",
+  },
 };
 
 export default function FetishPartnerPage() {

@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "worldwide dating",
   ],
   alternates: {
-    canonical: "https://www.thedatecompass.com/offers/transdate-dating",
+    canonical: "https://www.thedatedcompass.com/offers/transdate-dating",
   },
   openGraph: {
     title: "TransDate Dating | Worldwide Online Dating",
     description:
       "Explore TransDate — an inclusive platform for transgender dating and meaningful connections, available worldwide.",
-    url: "https://www.thedatecompass.com/offers/transdate-dating",
+    url: "https://www.thedatedcompass.com/offers/transdate-dating",
     type: "website",
   },
   twitter: {
@@ -62,19 +62,19 @@ export default function TransDateDatingPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatecompass.com",
+                item: "https://www.thedatedcompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Gay Dating",
-                item: "https://www.thedatecompass.com/gay-dating",
+                item: "https://www.thedatedcompass.com/gay-dating",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "TransDate Dating",
-                item: "https://www.thedatecompass.com/offers/transdate-dating",
+                item: "https://www.thedatedcompass.com/offers/transdate-dating",
               },
             ],
           }),

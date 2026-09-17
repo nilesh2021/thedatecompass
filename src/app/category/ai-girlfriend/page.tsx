@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     "AI roleplay",
   ],
   alternates: {
-    canonical: "https://www.thedatecompass.com/category/ai-girlfriend",
+    canonical: "https://www.thedatedcompass.com/category/ai-girlfriend",
   },
   openGraph: {
     title: "AI Girlfriend & AI Companion Sites | TheDateCompass",
     description:
       "Explore AI girlfriend and AI companion platforms listed on TheDateCompass.",
-    url: "https://www.thedatecompass.com/category/ai-girlfriend",
+    url: "https://www.thedatedcompass.com/category/ai-girlfriend",
     siteName: "TheDateCompass",
     type: "website",
   },

@@ -1,1 +1,1 @@
-export const SITE_URL = "https://www.thedatecompass.com";
+export const SITE_URL = "https://www.thedatedcompass.com";

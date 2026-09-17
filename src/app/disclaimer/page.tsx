@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     title: "Disclaimer | TheDateCompass",
     description:
         "Read the disclaimer for TheDateCompass and understand our affiliate relationships and informational content policies.",
+    alternates: {
+        canonical: "https://www.thedatedcompass.com/disclaimer",
+    },
 };
 
 export default function DisclaimerPage() {

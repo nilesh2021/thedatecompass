@@ -30,19 +30,19 @@ export const metadata: Metadata = {
     "TheDateCompass",
   ],
   alternates: {
-    canonical: "https://www.thedatecompass.com",
+    canonical: "https://www.thedatedcompass.com",
   },
   openGraph: {
     title: "Dating Sites & AI Companions by Country | TheDateCompass",
     description:
       "Compare dating platforms and AI companions by country on TheDateCompass.",
-    url: "https://www.thedatecompass.com",
+    url: "https://www.thedatedcompass.com",
     siteName: "TheDateCompass",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.thedatecompass.com/images/extra/2.jpg",
+        url: "https://www.thedatedcompass.com/images/extra/2.jpg",
         width: 1200,
         height: 630,
         alt: "TheDateCompass dating comparison",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description:
       "Compare dating platforms and AI companions by country on TheDateCompass.",
     images: [
-      "https://www.thedatecompass.com/images/extra/2.jpg",
+      "https://www.thedatedcompass.com/images/extra/2.jpg",
     ],
   },
   robots: {

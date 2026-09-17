@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     "gay singles",
   ],
   alternates: {
-    canonical: "https://www.thedatecompass.com/offers/manfinder-v2",
+    canonical: "https://www.thedatedcompass.com/offers/manfinder-v2",
   },
   openGraph: {
     title: "ManFinder | Gay Dating for Men",
     description:
       "Meet men looking for men. Explore ManFinder and discover new connections.",
-    url: "https://www.thedatecompass.com/offers/manfinder-v2",
+    url: "https://www.thedatedcompass.com/offers/manfinder-v2",
     siteName: "TheDateCompass",
     type: "website",
   },
