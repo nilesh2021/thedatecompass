@@ -3,8 +3,8 @@ import OffersCategoryLanding from "@/components/landing/OffersCategoryLanding";
 import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import { notFound } from "next/navigation";
 
-const PAGE_URL = "https://www.thedatedcompass.com/top-offers/adult";
-const OG_IMAGE = "https://www.thedatedcompass.com/images/extra/2.jpg";
+const PAGE_URL = "https://www.thedatecompass.com/top-offers/adult";
+const OG_IMAGE = "https://www.thedatecompass.com/images/extra/2.jpg";
 
 export function generateMetadata(): Metadata {
   const tab = getOfferTabByRoute("adult");

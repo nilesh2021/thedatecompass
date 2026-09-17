@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ManFinderGayDatingLanding from "@/components/landing/ManFinderGayDatingLanding";
 
 const PAGE_URL =
-  "https://www.thedatedcompass.com/offers/manfinder-gay-dating";
+  "https://www.thedatecompass.com/offers/manfinder-gay-dating";
 
 const TITLE = "Gay Dating Sites for Men | ManFinder | TheDateCompass";
 const DESCRIPTION =

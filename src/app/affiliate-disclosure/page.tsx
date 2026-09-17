@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Learn how TheDateCompass earns commissions through affiliate partnerships while remaining committed to providing independent information.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/affiliate-disclosure",
+    canonical: "https://www.thedatecompass.com/affiliate-disclosure",
   },
 };
 

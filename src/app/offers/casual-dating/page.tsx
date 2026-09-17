@@ -8,7 +8,7 @@ import {
   casualDatingOffer,
 } from "@/data/casualDatingOffers";
 
-const PAGE_URL = "https://www.thedatedcompass.com/offers/casual-dating";
+const PAGE_URL = "https://www.thedatecompass.com/offers/casual-dating";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1470225620780-d1e8cb453f3f?auto=format&fit=crop&w=1200&q=80";
@@ -93,13 +93,13 @@ ad_popup_force = false;`}
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Casual Dating",
-                item: "https://www.thedatedcompass.com/top-offers",
+                item: "https://www.thedatecompass.com/top-offers",
               },
               {
                 "@type": "ListItem",

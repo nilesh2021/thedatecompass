@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Read the Terms & Conditions governing the use of TheDateCompass.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/terms-and-conditions",
+    canonical: "https://www.thedatecompass.com/terms-and-conditions",
   },
 };
 

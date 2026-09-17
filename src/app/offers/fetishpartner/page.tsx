@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "FetishPartner | TheDateCompass",
   description: "Placeholder page for FetishPartner.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/offers/fetishpartner",
+    canonical: "https://www.thedatecompass.com/offers/fetishpartner",
   },
 };
 

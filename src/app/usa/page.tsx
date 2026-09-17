@@ -8,7 +8,7 @@ import USAOffers from "@/components/country/usa/USAOffers";
 import { usaOffers } from "@/data/usaOffers";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 
-const SITE_URL = "https://www.thedatedcompass.com";
+const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/usa`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 

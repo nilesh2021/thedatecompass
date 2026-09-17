@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "adult dating",
   ],
   alternates: {
-    canonical: "https://www.thedatedcompass.com/offers/milf-dating",
+    canonical: "https://www.thedatecompass.com/offers/milf-dating",
   },
   openGraph: {
     title: "MilfFinder Dating | Mature Dating Online",
     description:
       "Meet mature singles on MilfFinder — worldwide mature dating for adults 18+.",
-    url: "https://www.thedatedcompass.com/offers/milf-dating",
+    url: "https://www.thedatecompass.com/offers/milf-dating",
     type: "website",
   },
   twitter: {
@@ -62,19 +62,19 @@ export default function MilfDatingPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Mature Dating",
-                item: "https://www.thedatedcompass.com/top-offers/mature",
+                item: "https://www.thedatecompass.com/top-offers/mature",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "MilfFinder Dating",
-                item: "https://www.thedatedcompass.com/offers/milf-dating",
+                item: "https://www.thedatecompass.com/offers/milf-dating",
               },
             ],
           }),

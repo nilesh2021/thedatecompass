@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "LitLatinz | TheDateCompass",
   description: "Placeholder page for LitLatinz.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/offers/litlatinz",
+    canonical: "https://www.thedatecompass.com/offers/litlatinz",
   },
 };
 

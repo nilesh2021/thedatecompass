@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import OfferLandingPage from "@/components/landing/OfferLandingPage";
 import { getOfferPageData } from "@/data/offerLandingData";
 
-const PAGE_URL = "https://www.thedatedcompass.com/offers/realsexclub";
+const PAGE_URL = "https://www.thedatecompass.com/offers/realsexclub";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80";
 
@@ -78,13 +78,13 @@ export default function RealSexClubOfferPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Top Offers",
-                item: "https://www.thedatedcompass.com/top-offers",
+                item: "https://www.thedatecompass.com/top-offers",
               },
               {
                 "@type": "ListItem",

@@ -24,14 +24,14 @@ const nextConfig = {
     return [
       {
         source: "/",
-        has: [{ type: "host", value: "thedatedcompass.com" }],
-        destination: "https://www.thedatedcompass.com",
+        has: [{ type: "host", value: "thedatecompass.com" }],
+        destination: "https://www.thedatecompass.com",
         permanent: true,
       },
       {
         source: "/:path*",
-        has: [{ type: "host", value: "thedatedcompass.com" }],
-        destination: "https://www.thedatedcompass.com/:path*",
+        has: [{ type: "host", value: "thedatecompass.com" }],
+        destination: "https://www.thedatecompass.com/:path*",
         permanent: true,
       },
       {

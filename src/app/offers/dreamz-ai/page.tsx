@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "AI roleplay",
   ],
   alternates: {
-    canonical: "https://www.thedatedcompass.com/offers/dreamz-ai",
+    canonical: "https://www.thedatecompass.com/offers/dreamz-ai",
   },
   openGraph: {
     title: "Dreamz.ai AI Companion | TheDateCompass",
     description:
       "Explore Dreamz.ai and discover personalized AI companions for conversation and roleplay.",
-    url: "https://www.thedatedcompass.com/offers/dreamz-ai",
+    url: "https://www.thedatecompass.com/offers/dreamz-ai",
     type: "website",
   },
   twitter: {
@@ -61,19 +61,19 @@ export default function AIGirlfriendPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "AI Girlfriend",
-                item: "https://www.thedatedcompass.com/category/ai-girlfriend",
+                item: "https://www.thedatecompass.com/category/ai-girlfriend",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "Dreamz.ai",
-                item: "https://www.thedatedcompass.com/offers/dreamz-ai",
+                item: "https://www.thedatecompass.com/offers/dreamz-ai",
               },
             ],
           }),

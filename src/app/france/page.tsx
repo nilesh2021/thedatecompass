@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import FranceLandingPage from "@/components/country/france/FranceLandingPage";
 
-const SITE_URL = "https://www.thedatedcompass.com";
+const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/france`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 

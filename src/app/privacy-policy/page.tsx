@@ -8,7 +8,7 @@ export const metadata = {
   title: "Privacy Policy | TheDateCompass",
   description: "Read TheDateCompass Privacy Policy.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/privacy-policy",
+    canonical: "https://www.thedatecompass.com/privacy-policy",
   },
 };
 

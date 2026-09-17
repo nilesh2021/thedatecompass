@@ -23,7 +23,7 @@ export default function AIGirlfriendV2() {
       description:
         "Discover AI companion platforms and compare their features.",
       url:
-        "https://www.thedatedcompass.com/category/ai-girlfriend-v2",
+        "https://www.thedatecompass.com/category/ai-girlfriend-v2",
     }),
   }}
 />

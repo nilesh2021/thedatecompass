@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Learn how TheDateCompass uses cookies and similar technologies.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/cookie-policy",
+    canonical: "https://www.thedatecompass.com/cookie-policy",
   },
 };
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "TransDate | TheDateCompass",
   description: "Placeholder page for TransDate.",
   alternates: {
-    canonical: "https://www.thedatedcompass.com/offers/transdate",
+    canonical: "https://www.thedatecompass.com/offers/transdate",
   },
 };
 

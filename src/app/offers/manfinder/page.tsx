@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "gay casual dating",
   ],
   alternates: {
-    canonical: "https://www.thedatedcompass.com/offers/manfinder",
+    canonical: "https://www.thedatecompass.com/offers/manfinder",
   },
   openGraph: {
     title: "ManFinder | Gay Dating | TheDateCompass",
     description:
       "Explore ManFinder, a gay dating platform for men seeking casual encounters and real connections.",
-    url: "https://www.thedatedcompass.com/offers/manfinder",
+    url: "https://www.thedatecompass.com/offers/manfinder",
     type: "website",
   },
   twitter: {
@@ -62,19 +62,19 @@ export default function ManFinderPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Gay Dating",
-                item: "https://www.thedatedcompass.com/category/gay-dating",
+                item: "https://www.thedatecompass.com/category/gay-dating",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "ManFinder",
-                item: "https://www.thedatedcompass.com/offers/manfinder",
+                item: "https://www.thedatecompass.com/offers/manfinder",
               },
             ],
           }),

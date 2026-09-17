@@ -3,7 +3,7 @@ import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs, dreamzOffer } from "@/data/aiGirlfriendOffers";
 
-const PAGE_URL = "https://www.thedatedcompass.com/offers/ai-companion";
+const PAGE_URL = "https://www.thedatecompass.com/offers/ai-companion";
 
 export const metadata: Metadata = {
   title: {
@@ -62,13 +62,13 @@ export default function AiCompanionPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "AI Girlfriend",
-                item: "https://www.thedatedcompass.com/category/ai-girlfriend",
+                item: "https://www.thedatecompass.com/category/ai-girlfriend",
               },
               {
                 "@type": "ListItem",

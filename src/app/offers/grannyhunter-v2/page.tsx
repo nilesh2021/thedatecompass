@@ -6,7 +6,7 @@ import {
   grannyHunterOffer,
 } from "@/data/grannyHunterOffers";
 
-const PAGE_URL = "https://www.thedatedcompass.com/offers/grannyhunter-v2";
+const PAGE_URL = "https://www.thedatecompass.com/offers/grannyhunter-v2";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=1200&q=80";
@@ -89,13 +89,13 @@ export default function GrannyHunterV2Page() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedatedcompass.com",
+                item: "https://www.thedatecompass.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Mature Dating",
-                item: "https://www.thedatedcompass.com/top-offers/mature",
+                item: "https://www.thedatecompass.com/top-offers/mature",
               },
               {
                 "@type": "ListItem",

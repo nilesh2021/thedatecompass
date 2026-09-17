@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description:
         "Read the disclaimer for TheDateCompass and understand our affiliate relationships and informational content policies.",
     alternates: {
-        canonical: "https://www.thedatedcompass.com/disclaimer",
+        canonical: "https://www.thedatecompass.com/disclaimer",
     },
 };
 
