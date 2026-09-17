@@ -7,8 +7,15 @@ import { ArrowRight, ShieldCheck, Globe } from "lucide-react";
 import { usaOffers } from "@/data/usaOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
-const TABS = ["All", "AI", "Dating", "Gay", "Mature", "Casual", "Adult", "TransDate"] as const;
-type OfferTab = (typeof TABS)[number];
+type OfferTab =
+  | "All"
+  | "AI"
+  | "Dating"
+  | "Gay"
+  | "Mature"
+  | "Casual"
+  | "Adult"
+  | "TransDate";
 const VISIBLE_TABS: OfferTab[] = ["All", "Gay", "TransDate", "Adult"];
 
 /** One secondary internal link per clearly matched category. */
