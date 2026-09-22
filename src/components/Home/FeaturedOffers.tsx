@@ -127,16 +127,16 @@ export default function FeaturedOffers() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#d4af87]">
-            Discover platforms
+            Tonight&apos;s lineup
           </p>
 
           <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] text-cream sm:text-5xl">
-            Browse dating offers by category
+            Platforms with a pulse
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl font-serif-accent text-lg italic leading-relaxed text-cream/70 sm:mt-6 sm:text-xl">
-            Explore featured third-party dating platforms. Availability varies
-            by country.
+            Hand-picked adult dating offers. Chemistry first — availability
+            still depends on your country.
           </p>
         </div>
 
@@ -199,17 +199,18 @@ export default function FeaturedOffers() {
               return (
                 <article
                   key={`${offer.name}-${offer.href}`}
-                  className="group flex h-full flex-col overflow-hidden border border-[#d4af87]/20 bg-[#0e0a0c] transition duration-300 hover:-translate-y-1 hover:border-brand-rose/45"
+                  className="group flex h-full flex-col overflow-hidden border border-[#d4af87]/18 bg-[#0c080a] shadow-[0_18px_50px_rgba(0,0,0,0.35)] transition duration-500 hover:-translate-y-1.5 hover:border-brand-rose/50 hover:shadow-[0_24px_60px_rgba(255,61,110,0.18)]"
                 >
-                  <div className="relative h-72 overflow-hidden">
+                  <div className="relative h-80 overflow-hidden">
                     <Image
                       src={offer.image}
                       alt={`${offer.name} dating platform`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                      className="object-cover transition duration-700 group-hover:scale-105"
+                      className="object-cover object-top transition duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+                    <div className="absolute inset-0 bg-brand-rose/0 mix-blend-multiply transition duration-500 group-hover:bg-brand-rose/25" />
                     {offer.featured ? (
                       <div className="absolute left-4 top-4 bg-brand-rose px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-cream">
                         Featured

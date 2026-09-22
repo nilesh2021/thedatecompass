@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.thedatecompass.com/offers/litlatinz",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function LitLatinzPage() {

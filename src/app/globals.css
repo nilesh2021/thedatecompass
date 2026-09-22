@@ -41,7 +41,11 @@ h6 {
   }
 
   .tdc-eyebrow-mint {
-    @apply text-[0.68rem] font-bold uppercase tracking-[0.2em] text-brand-mint;
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#d4af87];
+  }
+
+  .tdc-eyebrow-gold {
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#d4af87];
   }
 
   .tdc-btn-primary {
@@ -49,7 +53,11 @@ h6 {
   }
 
   .tdc-btn-line {
-    @apply inline-flex items-center justify-center gap-2 rounded-none border border-cream/35 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-cream transition duration-300 hover:-translate-y-0.5 hover:border-brand-mint hover:text-brand-mint;
+    @apply inline-flex items-center justify-center gap-2 rounded-none border border-[#d4af87]/40 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-[#f3e6d4] transition duration-300 hover:-translate-y-0.5 hover:border-brand-rose hover:text-cream;
+  }
+
+  .tdc-btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-[#d4af87] px-7 py-4 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#e4c9a0];
   }
 
   .tdc-section-dark {
@@ -58,12 +66,19 @@ h6 {
 
   .tdc-section-pitch {
     background:
-      radial-gradient(ellipse 60% 50% at 100% 0%, rgba(255, 61, 110, 0.12), transparent 55%),
-      linear-gradient(165deg, #0a0b0d 0%, #16181c 100%);
+      radial-gradient(ellipse 70% 55% at 0% 0%, rgba(122, 28, 52, 0.42), transparent 58%),
+      radial-gradient(ellipse 50% 40% at 100% 100%, rgba(90, 18, 40, 0.28), transparent 55%),
+      linear-gradient(180deg, #070708 0%, #12080d 52%, #070708 100%);
   }
 
   .tdc-section-stone {
     @apply bg-stone text-ink;
+  }
+
+  .tdc-section-velvet {
+    background:
+      radial-gradient(ellipse 55% 45% at 80% 10%, rgba(255, 61, 110, 0.16), transparent 60%),
+      linear-gradient(180deg, #0b0709 0%, #14090e 100%);
   }
 }
 

@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.thedatecompass.com/offers/fetishpartner",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function FetishPartnerPage() {

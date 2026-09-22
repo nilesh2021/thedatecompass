@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.thedatecompass.com/offers/milffinder",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function MilfFinderPage() {

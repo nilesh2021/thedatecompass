@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.thedatecompass.com/offers/transdate",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function TransDatePage() {

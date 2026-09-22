@@ -68,7 +68,7 @@ export default function ManFinderPage() {
                 "@type": "ListItem",
                 position: 2,
                 name: "Gay Dating",
-                item: "https://www.thedatecompass.com/category/gay-dating",
+                item: "https://www.thedatecompass.com/gay-dating",
               },
               {
                 "@type": "ListItem",

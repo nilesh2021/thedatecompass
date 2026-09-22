@@ -33,21 +33,21 @@ const comingSoonCountries = countries.filter((c) => !c.isAvailable);
 
 export default function Countries() {
   return (
-    <section id="countries" className="bg-ink-soft py-16 font-display text-cream sm:py-20">
+    <section id="countries" className="bg-[#08060a] py-16 font-display text-cream sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="tdc-eyebrow-mint flex items-center justify-center gap-2">
+          <p className="tdc-eyebrow-gold flex items-center justify-center gap-2">
             <Globe2 size={14} />
-            Browse by country
+            Where you want it
           </p>
 
           <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl">
-            Dating platforms available in your country
+            Desire, mapped to your country
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-cream/65">
-            Start with a live country page to compare adult dating and AI
-            companion offers. More regions are expanding soon.
+          <p className="mx-auto mt-5 max-w-2xl font-serif-accent text-xl italic text-cream/65">
+            Live pages for adult dating and AI companions. More regions are
+            warming up.
           </p>
         </div>
 
@@ -66,25 +66,26 @@ export default function Countries() {
             return (
               <article
                 key={country.slug}
-                className="flex flex-col overflow-hidden border border-brand-rose/40 bg-brand-rose/5 transition duration-300 hover:-translate-y-1"
+                className="group flex flex-col overflow-hidden border border-[#d4af87]/20 bg-[#12080d] transition duration-500 hover:-translate-y-1 hover:border-brand-rose/50"
               >
-                <div className="relative h-40">
+                <div className="relative h-48">
                   <Image
                     src={countryImages[country.slug] ?? adultImages.neon}
                     alt={`${country.name} adult dating`}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-top"
+                    className="object-cover object-top transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12080d] via-transparent to-black/20" />
+                  <div className="absolute inset-0 bg-brand-rose/0 mix-blend-multiply transition duration-500 group-hover:bg-brand-rose/20" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center border border-cream/10 text-3xl">
+                  <div className="flex h-14 w-14 items-center justify-center border border-[#d4af87]/20 text-3xl">
                     {getFlagEmoji(country.code)}
                   </div>
 
-                  <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-brand-mint">
+                  <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#d4af87]">
                     <CheckCircle2 size={14} />
                     Live
                   </span>
@@ -98,9 +99,9 @@ export default function Countries() {
                     : country.description}
                 </p>
 
-                <div className="mt-6 flex items-center justify-between border-t border-cream/10 pt-5">
+                <div className="mt-6 flex items-center justify-between border-t border-[#d4af87]/15 pt-5">
                   <div>
-                    <p className="text-sm font-bold text-brand-mint">
+                    <p className="text-sm font-bold text-[#d4af87]">
                       {offerCount ? `${offerCount}+ offers` : "Live page"}
                     </p>
                     <p className="text-[10px] uppercase tracking-[0.16em] text-cream/40">
@@ -123,10 +124,10 @@ export default function Countries() {
         </div>
 
         {comingSoonCountries.length > 0 && (
-          <div className="mt-10 border border-cream/10 bg-ink/40 p-5 sm:p-6">
+          <div className="mt-10 border border-[#d4af87]/15 bg-black/30 p-5 sm:p-6">
             <div className="mb-4 flex flex-wrap items-center gap-2">
-              <Clock3 size={14} className="text-fog" />
-              <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-fog">
+              <Clock3 size={14} className="text-[#d4af87]" />
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#d4af87]">
                 Coming soon · {comingSoonCountries.length} regions
               </p>
             </div>

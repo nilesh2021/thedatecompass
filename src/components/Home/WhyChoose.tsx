@@ -46,15 +46,15 @@ export default function WhyChoose() {
     <section className="tdc-section-pitch py-24 font-display">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="tdc-eyebrow">Why TheDateCompass</p>
+          <p className="tdc-eyebrow-gold">Why TheDateCompass</p>
 
           <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.04em] text-cream sm:text-5xl">
-            Transparent dating comparison by country
+            Grown-up comparison, no games
           </h2>
 
-          <p className="mx-auto mt-5 text-lg text-cream/65">
-            We help visitors discover third-party dating platforms without
-            creating profiles on this site.
+          <p className="mx-auto mt-5 font-serif-accent text-xl italic text-cream/65">
+            Discover third-party dating platforms without creating a profile
+            here.
           </p>
         </div>
 
@@ -64,24 +64,24 @@ export default function WhyChoose() {
             return (
               <article
                 key={item.title}
-                className="overflow-hidden border border-cream/10 bg-cream/[0.03] transition duration-300 hover:-translate-y-1 hover:border-brand-rose/30"
+                className="group overflow-hidden border border-[#d4af87]/18 bg-black/25 transition duration-500 hover:-translate-y-1 hover:border-brand-rose/40"
               >
-                <div className="relative h-40">
+                <div className="relative h-44">
                   <Image
                     src={item.image}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-cover object-top"
+                    className="object-cover object-top transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12080d] via-black/20 to-transparent" />
                 </div>
                 <div className="p-7">
                 <div className="flex items-start justify-between">
                   <div className="flex h-14 w-14 items-center justify-center border border-brand-rose/30 bg-brand-rose/10">
                     <Icon size={26} className="text-brand-rose" />
                   </div>
-                  <CheckCircle2 size={22} className="text-brand-mint opacity-80" />
+                  <CheckCircle2 size={22} className="text-[#d4af87] opacity-80" />
                 </div>
                 <h3 className="mt-6 text-xl font-extrabold text-cream">
                   {item.title}
@@ -93,15 +93,15 @@ export default function WhyChoose() {
           })}
         </div>
 
-        <div className="mt-16 grid gap-6 border-t border-cream/10 pt-10 sm:grid-cols-3">
+        <div className="mt-16 grid gap-6 border-t border-[#d4af87]/15 pt-10 sm:grid-cols-3">
           {[
             [`${countries.length}`, "Countries listed"],
             [`${usaOffers.length}+`, "Platforms compared"],
             ["18+", "Adults only"],
           ].map(([number, label]) => (
             <div key={label} className="text-center">
-              <h3 className="text-4xl font-extrabold text-brand-rose">{number}</h3>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-fog">
+              <h3 className="font-serif-accent text-5xl italic text-brand-rose">{number}</h3>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[#d4af87]">
                 {label}
               </p>
             </div>

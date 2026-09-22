@@ -6,7 +6,7 @@ import {
   grannyHunterOffer,
 } from "@/data/grannyHunterOffers";
 
-const PAGE_URL = "https://www.thedatecompass.com/offers/grannyhunter-v2";
+const PAGE_URL = "https://www.thedatecompass.com/offers/grannyhunter";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=1200&q=80";
@@ -54,14 +54,11 @@ export const metadata: Metadata = {
     images: [OG_IMAGE],
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
     googleBot: {
-      index: true,
+      index: false,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
     },
   },
 };

@@ -5,7 +5,11 @@ export const metadata: Metadata = {
   title: "TheDateCompass",
   description: "Compare dating sites and AI girlfriend platforms worldwide.",
   alternates: {
-    canonical: "https://www.thedatecompass.com/homepage-01",
+    canonical: "https://www.thedatecompass.com",
+  },
+  robots: {
+    index: false,
+    follow: true,
   },
 };
 

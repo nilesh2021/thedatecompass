@@ -7,40 +7,61 @@ import { adultImages } from "@/data/adultOfferImages";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
 const heroVisuals = [
-  { name: "Casual dating", image: adultImages.portraitA },
-  { name: "Gay dating", image: adultImages.gay },
-  { name: "Mature dating", image: adultImages.stairs },
-  { name: "AI companion", image: adultImages.aiCompanion },
+  {
+    name: "Casual nights",
+    image: adultImages.portraitA,
+    className: "row-span-2 h-[420px] xl:h-[520px]",
+  },
+  {
+    name: "Gay dating",
+    image: adultImages.gay,
+    className: "h-[200px] xl:h-[250px]",
+  },
+  {
+    name: "Mature desire",
+    image: adultImages.stairs,
+    className: "h-[200px] xl:h-[250px]",
+  },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink font-display">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_70%_40%,rgba(255,61,110,0.18),transparent_70%)]" />
+    <section className="relative overflow-hidden bg-[#08060a] font-display">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 50% at 78% 42%, rgba(255,61,110,0.28), transparent 62%), radial-gradient(ellipse 40% 35% at 12% 80%, rgba(212,175,135,0.08), transparent 55%)",
+        }}
+      />
 
-      <div className="relative mx-auto grid min-h-[88vh] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:py-24">
+      <div className="relative mx-auto grid min-h-[90vh] max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:py-20">
         <div className="animate-fade-up">
-          <p className="tdc-eyebrow-mint mb-6 flex items-center gap-3 before:h-px before:w-8 before:bg-brand-mint before:content-['']">
-            Adults 18+ · Dating by country
+          <p className="tdc-eyebrow-gold mb-6 flex items-center gap-3">
+            <span className="h-px w-10 bg-[#d4af87]" aria-hidden />
+            After dark · Adults 18+
           </p>
 
-          <h1 className="text-5xl font-extrabold leading-[0.92] tracking-[-0.04em] text-cream md:text-6xl xl:text-7xl">
-            Find dating sites
-            <span className="block font-serif-accent text-[1.05em] italic text-brand-rose">
-              for your country
+          <h1 className="text-5xl font-extrabold leading-[0.9] tracking-[-0.045em] text-cream md:text-6xl xl:text-7xl">
+            Dating, desire
+            <span className="mt-1 block font-serif-accent text-[1.08em] font-normal italic text-brand-rose">
+              and chemistry
+            </span>
+            <span className="mt-1 block text-[0.72em] font-semibold tracking-[-0.03em] text-cream/80">
+              curated by country.
             </span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-cream/70">
-            TheDateCompass is an independent comparison directory for adults.
-            Browse third-party dating platforms and AI companions by country,
-            compare categories, then continue to the provider that fits your
-            goals.
+          <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-cream/68">
+            A grown-up directory for late-night browsing. Compare adult dating
+            platforms and AI companions where you live — then slip through to
+            the provider that matches your mood.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="#countries" className="tdc-btn-primary group">
-              Browse by country
+              Find your country
               <ArrowRight
                 size={18}
                 className="transition group-hover:translate-x-1"
@@ -48,11 +69,11 @@ export default function Hero() {
             </Link>
 
             <Link href="#featured" className="tdc-btn-line">
-              Featured platforms
+              Tonight&apos;s platforms
             </Link>
           </div>
 
-          <div className="mt-12 grid max-w-xl grid-cols-3 gap-4">
+          <div className="mt-12 grid max-w-xl grid-cols-3 gap-3">
             {[
               { number: `${countries.length}`, label: "Countries", icon: Globe2 },
               { number: `${usaOffers.length}+`, label: "Platforms", icon: Layers3 },
@@ -60,11 +81,11 @@ export default function Hero() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-cream/10 bg-cream/[0.03] p-4 transition hover:border-brand-rose/30"
+                className="border border-[#d4af87]/20 bg-black/30 p-4 backdrop-blur-sm transition hover:border-brand-rose/45"
               >
-                <item.icon size={22} className="mb-3 text-brand-rose" />
+                <item.icon size={20} className="mb-3 text-[#d4af87]" />
                 <p className="text-2xl font-extrabold text-cream">{item.number}</p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-fog">
+                <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#d4af87]/80">
                   {item.label}
                 </p>
               </div>
@@ -72,8 +93,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-5 text-xs text-cream/40">
-            {availableCountries.length} country page
-            {availableCountries.length === 1 ? "" : "s"} live · more expanding
+            {availableCountries.length} country pages live · more expanding
           </p>
         </div>
 
@@ -82,31 +102,34 @@ export default function Hero() {
             {heroVisuals.map((visual, index) => (
               <div
                 key={visual.name}
-                className="relative overflow-hidden border border-cream/10"
+                className={`group relative overflow-hidden border border-[#d4af87]/15 ${visual.className}`}
               >
                 <Image
                   src={visual.image}
                   alt={visual.name}
-                  width={420}
-                  height={520}
-                  priority={index < 2}
-                  className="h-[330px] w-full object-cover object-top transition duration-700 hover:scale-[1.03]"
+                  width={640}
+                  height={800}
+                  priority={index === 0}
+                  className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.05]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
-                <p className="absolute bottom-3 left-3 text-sm font-bold text-cream">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#08060a] via-transparent to-black/10" />
+                <div className="absolute inset-0 bg-brand-rose/0 mix-blend-multiply transition duration-500 group-hover:bg-brand-rose/20" />
+                <p className="absolute bottom-4 left-4 font-serif-accent text-lg italic text-cream">
                   {visual.name}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="absolute -bottom-6 right-6 w-72 border border-cream/10 bg-ink-soft/90 p-5 backdrop-blur-md">
-            <p className="text-sm text-fog">Popular categories</p>
+          <div className="absolute -bottom-5 left-6 right-6 border border-[#d4af87]/25 bg-[#0c090b]/90 p-4 backdrop-blur-md">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af87]">
+              Moods we compare
+            </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {["Casual", "Gay dating", "Mature", "Adult"].map((item) => (
+              {["Flirty", "Gay", "Mature", "Adult"].map((item) => (
                 <span
                   key={item}
-                  className="bg-brand-rose/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-mint"
+                  className="border border-brand-rose/30 bg-brand-rose/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-cream"
                 >
                   {item}
                 </span>
@@ -118,10 +141,10 @@ export default function Hero() {
 
       <MarqueeBand
         items={[
-          "Compare by country",
-          "Adults 18+ only",
+          "After dark only",
+          "Adults 18+",
+          "Desire by country",
           "Independent directory",
-          "AI companions",
           "Affiliate disclosure",
         ]}
       />

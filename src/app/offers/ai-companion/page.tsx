@@ -3,7 +3,7 @@ import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs, dreamzOffer } from "@/data/aiGirlfriendOffers";
 
-const PAGE_URL = "https://www.thedatecompass.com/offers/ai-companion";
+const PAGE_URL = "https://www.thedatecompass.com/offers/dreamz-ai";
 
 export const metadata: Metadata = {
   title: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       "Meet your AI companion — personalized personalities, private chat, and immersive roleplay on Dreamz.ai.",
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };

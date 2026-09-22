@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="relative bg-ink">
+      <div className="relative bg-[#08060a]">
         <NoiseOverlay />
         <Hero />
         <FeaturedOffers />
