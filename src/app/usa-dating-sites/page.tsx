@@ -88,6 +88,10 @@ export const metadata: Metadata = {
       "Explore dating sites and dating platforms available in the USA. Compare featured services and discover your next connection.",
     images: [OG_IMAGE],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function UsaDatingSitesPage() {
