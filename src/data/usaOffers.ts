@@ -42,6 +42,27 @@ export function getUsaReviewHref(offer: UsaOffer): string | null {
   return `/usa/${offer.slug}-review`;
 }
 
+/** Affiliate tracking URLs for `/go/[slug]` redirects (not exposed in page HTML). */
+export const usaGoDestinations: Record<string, string> = {
+  grannyhunter:
+    "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+  litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+  manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+  transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+  milffinder: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+  cheekycrush:
+    "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  gaybloom:
+    "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  pridepair:
+    "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+};
+
+export function getUsaGoHref(slug: string): string {
+  return `/go/${slug}`;
+}
+
 /**
  * USA inventory ordered by Offer Master priority.
  * SexyFans / WannaHookup omitted — no real affiliate URL exists in project data.
@@ -58,7 +79,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "G",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
     image: getOfferAdultImage("grannyhunter"),
-    href: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("grannyhunter"),
     tags: ["Mature", "Adults 18+", "USA"],
     rating: 4.5,
     country: "USA",
@@ -75,7 +96,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "L",
     accent: "from-[#6138A8] via-[#9C5CDB] to-[#E83E9B]",
     image: getOfferAdultImage("litlatinz"),
-    href: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("litlatinz"),
     tags: ["Adult", "Adults 18+", "USA"],
     rating: 4.7,
     country: "USA",
@@ -92,7 +113,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "M",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
     image: getOfferAdultImage("manfinder"),
-    href: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("manfinder"),
     tags: ["Gay Dating", "USA"],
     rating: 4.8,
     country: "USA",
@@ -108,7 +129,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "R",
     accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
     image: getOfferAdultImage("realsexclub"),
-    href: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("realsexclub"),
     tags: ["Adult", "Adults 18+", "USA"],
     rating: 4.6,
     country: "USA",
@@ -124,7 +145,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "T",
     accent: "from-[#9B3CE8] via-[#E83E9B] to-[#F58BC5]",
     image: getOfferAdultImage("transdate"),
-    href: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("transdate"),
     tags: ["Trans", "Adults 18+", "USA"],
     rating: 4.6,
     country: "USA",
@@ -140,7 +161,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "M",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
     image: getOfferAdultImage("milffinder"),
-    href: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("milffinder"),
     tags: ["Mature", "Adults 18+", "USA"],
     rating: 4.5,
     country: "USA",
@@ -157,7 +178,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "C",
     accent: "from-[#E83E9B] via-[#F15BAF] to-[#F58BC5]",
     image: getOfferAdultImage("cheekycrush"),
-    href: "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("cheekycrush"),
     tags: ["Casual", "USA"],
     rating: 4.9,
     country: "USA",
@@ -174,7 +195,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "G",
     accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
     image: getOfferAdultImage("gaybloom"),
-    href: "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("gaybloom"),
     tags: ["Gay Dating", "Adults 18+", "USA"],
     rating: 4.8,
     country: "USA",
@@ -191,7 +212,7 @@ export const usaOffers: UsaOffer[] = [
     mark: "P",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
     image: getOfferAdultImage("pridepair"),
-    href: "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("pridepair"),
     tags: ["Gay Dating", "USA"],
     rating: 4.8,
     country: "USA",
@@ -208,7 +229,7 @@ export const usaCategories = [
     description:
       "Low-pressure dating offers for USA users looking for fun, relaxed connections.",
     image: getOfferAdultImage("cheekycrush"),
-    href: "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("cheekycrush"),
     offerName: "CheekyCrush",
     color: "from-pink-500 to-rose-400",
   },
@@ -219,7 +240,7 @@ export const usaCategories = [
     description:
       "Gay dating offers for USA users seeking inclusive communities and real connections.",
     image: getOfferAdultImage("manfinder"),
-    href: "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("gaybloom"),
     offerName: "GayBloom",
     color: "from-violet-500 to-pink-500",
   },
@@ -230,7 +251,7 @@ export const usaCategories = [
     description:
       "Mature dating offers for experienced USA adults who want meaningful conversations.",
     image: getOfferAdultImage("grannyhunter"),
-    href: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("grannyhunter"),
     offerName: "Grannyhunter",
     color: "from-amber-400 to-orange-400",
   },
@@ -241,7 +262,7 @@ export const usaCategories = [
     description:
       "Adult dating offers for USA users who want direct, open-minded connections.",
     image: getOfferAdultImage("litlatinz"),
-    href: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("litlatinz"),
     offerName: "LitLatinz",
     color: "from-rose-600 to-pink-500",
   },
@@ -252,7 +273,7 @@ export const usaCategories = [
     description:
       "Trans dating offers for USA users seeking inclusive communities and connections.",
     image: getOfferAdultImage("transdate"),
-    href: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+    href: getUsaGoHref("transdate"),
     offerName: "TransDate",
     color: "from-teal-500 to-cyan-400",
   },
