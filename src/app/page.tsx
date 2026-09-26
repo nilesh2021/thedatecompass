@@ -73,6 +73,7 @@ export const metadata: Metadata = {
   verification: {
     other: {
       "impact-site-verification": "bbf507ac-9ef6-4fce-8439-fcd5938f83cf",
+      "msvalidate.01": "557CEBF872EEAF8421A01C88070C224C",
     },
   },
 };
