@@ -7,7 +7,11 @@ import { trackAffiliateClick } from "@/lib/analytics";
 type UsaAffiliateLinkProps = {
   href: string;
   offerName: string;
-  placement: "usa_offer_card" | "usa_comparison_table";
+  placement:
+    | "usa_offer_card"
+    | "usa_comparison_table"
+    | "usa_review_hero"
+    | "usa_review_footer";
   className?: string;
   children?: ReactNode;
   compact?: boolean;

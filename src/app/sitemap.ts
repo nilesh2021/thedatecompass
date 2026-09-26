@@ -1,5 +1,10 @@
 import type { MetadataRoute } from "next";
+import { USA_REVIEW_SLUGS } from "@/data/usaOffers";
 import { SITE_URL } from "@/lib/sitemap";
+
+const USA_REVIEW_ROUTES = USA_REVIEW_SLUGS.map(
+  (slug) => `/usa/${slug}-review`,
+);
 
 type RouteMeta = {
   changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -91,13 +96,19 @@ function getRouteMeta(route: string): RouteMeta {
     return { priority: 0.85, changeFrequency: "weekly" };
   }
 
+  if (route.startsWith("/usa/") && route.endsWith("-review")) {
+    return { priority: 0.8, changeFrequency: "weekly" };
+  }
+
   return { priority: 0.7, changeFrequency: "monthly" };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return PUBLIC_ROUTES.map((route) => {
+  const routes = [...PUBLIC_ROUTES, ...USA_REVIEW_ROUTES];
+
+  return routes.map((route) => {
     const meta = getRouteMeta(route);
 
     return {

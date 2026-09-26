@@ -49,3 +49,14 @@ export const offerAdultImages: Record<string, string> = {
 export function getOfferAdultImage(offerKey: string): string {
   return offerAdultImages[offerKey.toLowerCase()] ?? adultImages.neon;
 }
+
+export function getAbsoluteOfferImageUrl(
+  offerKey: string,
+  siteUrl: string,
+): string {
+  const path = getOfferAdultImage(offerKey);
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+  return `${siteUrl}${path}`;
+}

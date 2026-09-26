@@ -23,7 +23,17 @@ export const USA_PAGE_LAST_UPDATED = {
 };
 
 /** Add a slug here once `/usa/[slug]-review` exists to enable review links. */
-export const USA_REVIEW_SLUGS: readonly string[] = [];
+export const USA_REVIEW_SLUGS: readonly string[] = [
+  "cheekycrush",
+  "gaybloom",
+  "grannyhunter",
+  "litlatinz",
+  "manfinder",
+  "realsexclub",
+  "transdate",
+  "milffinder",
+  "pridepair",
+];
 
 export function getUsaReviewHref(offer: UsaOffer): string | null {
   if (!offer.slug || !USA_REVIEW_SLUGS.includes(offer.slug)) {
