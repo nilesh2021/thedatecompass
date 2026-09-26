@@ -52,16 +52,16 @@ export const usaOffers: UsaOffer[] = [
   {
     name: "Manfinder",
     category: "Gay Dating",
-    featured: false,
+    featured: true,
     description:
-      "A dating and social platform for men looking to meet and connect with other men.",
-    badge: "Gay dating",
+      "A well-established gay dating brand focused on connecting men seeking casual encounters and real connections.",
+    badge: "USA available",
     mark: "M",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
     image: getOfferAdultImage("manfinder"),
     href: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Gay dating", "USA"],
-    rating: 4.6,
+    tags: ["Gay Dating", "USA"],
+    rating: 4.8,
     country: "USA",
   },
   {
@@ -136,25 +136,7 @@ export const usaOffers: UsaOffer[] = [
     rating: 4.8,
     country: "USA",
   },
-
-
-
   {
-    name: "Manfinder",
-    category: "Gay Dating",
-    featured: true,
-    description:
-      "ManFinder is a well-established gay dating brand focused on connecting men seeking casual encounters and real connections. .",
-    badge: "USA available",
-    mark: "G",
-    accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
-    image: getOfferAdultImage("manfinder"),
-    href: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-    tags: ["Gay dating", "USA"],
-    rating: 4.8,
-    country: "USA",
-  },
-  {     
     name: "PridePair",
     category: "Gay Dating",
     featured: false,
