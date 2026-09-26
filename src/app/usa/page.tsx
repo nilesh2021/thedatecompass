@@ -7,6 +7,7 @@ import CountryFaqSection from "@/components/country/common/CountryFaqSection";
 import USAOffers from "@/components/country/usa/USAOffers";
 import { usaOffers } from "@/data/usaOffers";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
+import { CheckCircle2, ShieldCheck, Sparkles, Users } from "lucide-react";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/usa`;
@@ -15,7 +16,7 @@ const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 export const metadata: Metadata = {
   title: "Adult Dating Sites in the USA 2026 | Compare Offers",
   description:
-    "Compare adult dating sites in the USA for 2026. Browse casual dating, gay dating, mature dating, and AI companion platforms listed for eligible US visitors.",
+    "Compare adult dating sites in the USA for 2026. Browse casual dating, gay dating, mature dating, and companion platforms listed for eligible US visitors.",
   keywords: [
     "adult dating sites USA",
     "casual dating sites USA",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Adult Dating Sites in the USA 2026 | Compare Offers",
     description:
-      "Compare casual, gay dating, mature, and AI companion platforms listed for eligible visitors in the United States.",
+      "Compare casual, gay dating, mature, and companion platforms listed for eligible visitors in the United States.",
     url: PAGE_URL,
     siteName: "TheDateCompass",
     locale: "en_US",
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Adult Dating Sites in the USA 2026 | Compare Offers",
     description:
-      "Compare casual, gay dating, mature, and AI companion platforms listed for eligible visitors in the United States.",
+      "Compare casual, gay dating, mature, and companion platforms listed for eligible visitors in the United States.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -64,7 +65,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 const intentionHashes: Record<string, string> = {
   Casual: "offers-casual",
   "Gay Dating": "offers-gay",
@@ -75,63 +75,63 @@ const intentions = [
   {
     number: "01",
     title: "Keep it casual",
-    text: "Browse relaxed dating options for a fun, low-pressure connection.",
+    text: "Browse relaxed adult dating options for fun, low-pressure chemistry.",
     filter: "Casual",
     image: getOfferAdultImage("cheekycrush"),
   },
   {
     number: "02",
     title: "Find your community",
-    text: "Discover gay dating platforms and connections.",
+    text: "Discover verified gay dating platforms and authentic male connections.",
     filter: "Gay Dating",
     image: getOfferAdultImage("pridepair"),
   },
   {
     number: "03",
     title: "Explore mature dating",
-    text: "Browse mature dating options for experienced adults.",
+    text: "Connect with mature, experienced singles who value real conversations.",
     filter: "Mature",
     image: getOfferAdultImage("grannyhunter"),
   },
 ];
 
 const safetyNotes = [
-  "You must be 18 years or older.",
-  "Read the provider’s terms and privacy policy.",
-  "Never send money to a person you have not met.",
-  "Choose public places for early in-person dates.",
+  "You must be 18 years or older to participate.",
+  "Read each destination platform’s terms and privacy policy before joining.",
+  "Never send money, crypto, or banking details to anyone you meet online.",
+  "Keep initial chats on-platform and meet in well-lit public spaces first.",
 ];
 
 const usaFaqs = [
   {
     question: "What dating offers are listed for USA users on this page?",
     answer:
-      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current examples include Grannyhunter, LitLatinz, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, GayBloom, and PridePair.",
+      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current verified listings include Grannyhunter, LitLatinz, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, GayBloom, and PridePair.",
   },
   {
     question: "Which casual dating offers are listed for USA users?",
     answer:
-      "CheekyCrush is the casual dating offer listed for USA users on this page. Compare its category and description here before visiting a third-party provider.",
+      "CheekyCrush, LitLatinz, and RealSexClub are listed for casual and adult encounters in the USA. You can filter by the 'Casual & Adult' tab to compare them side by side.",
   },
   {
     question: "Are there gay dating offers for USA users?",
     answer:
-      "Yes. GayBloom, PridePair, and Manfinder are gay dating offers listed for USA users and eligible LGBTQ+ visitors in the United States. Compare them here, or browse our dedicated gay dating category for more options.",
+      "Yes. GayBloom, PridePair, and Manfinder are gay dating platforms listed for USA users and eligible LGBTQ+ visitors. You can select the 'Gay Dating' tab to view all 3 options.",
   },
   {
     question: "Where can I find signup and pricing details for these offers?",
     answer:
-      "Signup requirements, pricing, and any free or paid features are set by each third-party platform. Check the destination site for current terms before you register.",
+      "Signup requirements, free features, and paid memberships are established directly by each third-party provider. Check the destination platform for current pricing and terms before creating an account.",
   },
   {
-    question: "Are there mature or adult dating offers for USA users?",
+    question: "Are there mature dating offers for USA users?",
     answer:
-      "Yes. Mature dating listings on this page include Grannyhunter and MilfFinder. Adult dating listings include LitLatinz and RealSexClub. Compare categories and descriptions here before visiting a provider site.",
+      "Yes. Mature dating listings on this page include Grannyhunter and MilfFinder, both focusing on experienced adult connections and chemistry.",
   },
   {
     question: "How should USA users choose the right dating offer?",
     answer:
-      "Start with intention: casual dating, gay dating, mature dating, adult dating, or trans dating. Then compare the offers listed on this page by category and description. TheDateCompass only lists third-party dating offers and does not operate the platforms.",
+      "Start with intention: casual dating, gay dating, mature dating, adult dating, or trans dating. Use our category tabs to narrow the shortlist, review descriptions, and choose the platform that fits your expectations.",
   },
 ];
 
@@ -202,6 +202,13 @@ const faqJsonLd = {
   })),
 };
 
+const heroStats = [
+  { label: "Verified Platforms", value: "9 Active", icon: Sparkles },
+  { label: "Cost to Compare", value: "100% Free", icon: CheckCircle2 },
+  { label: "Audience", value: "Adults 18+", icon: ShieldCheck },
+  { label: "Catalog Review", value: "2026 Edition", icon: Users },
+];
+
 export default function UsaPage() {
   return (
     <>
@@ -221,80 +228,104 @@ export default function UsaPage() {
       <Header />
       <main className="min-h-screen bg-ink text-white antialiased selection:bg-brand-rose/40 selection:text-white">
         {/* -------- HERO SECTION -------- */}
-        <section className="relative isolate overflow-hidden bg-ink px-6 pb-20 pt-6 sm:px-8 lg:px-12 lg:pb-28 lg:pt-8">
-          <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_20%,rgba(255,61,110,0.28),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(255,107,143,0.12),transparent_30%),linear-gradient(145deg,#0a0b0d_0%,#16181c_55%,#0a0b0d_100%)]" />
-          <div className="absolute -left-32 top-24 -z-10 h-96 w-96 rounded-full bg-brand-rose/20 blur-3xl" />
-          <div className="absolute -right-28 bottom-0 -z-10 h-96 w-96 rounded-full bg-brand-rose-soft/10 blur-3xl" />
+        <section className="relative isolate overflow-hidden bg-ink px-6 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-24 lg:pt-12">
+          {/* Ambient Lighting Gradients */}
+          <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_20%_20%,rgba(255,61,110,0.25),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(125,255,195,0.06),transparent_40%),linear-gradient(145deg,#070709_0%,#131018_55%,#0a0b0d_100%)]" />
+          <div className="absolute -left-32 top-24 -z-10 h-[450px] w-[450px] rounded-full bg-brand-rose/15 blur-[140px]" />
+          <div className="absolute -right-28 bottom-0 -z-10 h-[450px] w-[450px] rounded-full bg-brand-rose-soft/10 blur-[140px]" />
 
-          <div className="mx-auto max-w-7xl pb-4 pt-16 text-center sm:pt-20 lg:pt-28">
-            <div className="inline-flex items-center gap-3 border border-brand-rose/30 bg-brand-rose/10 px-5 py-2 text-xs font-bold uppercase text-brand-rose-soft backdrop-blur-sm">
+          <div className="mx-auto max-w-6xl pb-4 pt-12 text-center sm:pt-16 lg:pt-20">
+            {/* Trust Pill */}
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-brand-rose/30 bg-brand-rose/10 px-5 py-2 text-xs font-bold uppercase tracking-wider text-brand-rose-soft backdrop-blur-md">
               <span className="h-2 w-2 animate-pulse rounded-full bg-brand-rose" />
-              Adults-only dating discovery · 2026
+              Adults-Only Dating Discovery · 2026 USA Guide
             </div>
 
-            <h1 className="mx-auto mt-8 max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+            {/* Headline */}
+            <h1 className="mx-auto mt-8 max-w-4xl text-5xl font-extrabold leading-[1.02] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
               Adult dating sites
               <br />
-              <span className="text-brand-rose">in the USA.</span>
+              <span className="bg-gradient-to-r from-brand-rose via-[#ff6b8f] to-amber-300 bg-clip-text text-transparent">
+                in the USA.
+              </span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
-              TheDateCompass is an independent adult dating site comparison
-              resource for visitors in the United States. We present third-party
-              platforms by availability and category. We do not operate these
-              platforms or manage registrations, profiles, messages, payments, or
-              customer support.
+            {/* Description */}
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+              Compare 9 top adult dating platforms for visitors in the United States.
+              Browse casual connections, gay dating, mature singles, and inclusive
+              communities with zero signup fees on our comparison guide.
             </p>
 
-            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            {/* Fast Action Buttons */}
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <a
                 href="#offers"
-                className="tdc-btn-primary group !rounded-none shadow-xl shadow-brand-rose/30"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-rose px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-white shadow-xl shadow-brand-rose/30 transition-all duration-300 hover:bg-brand-rose-soft hover:shadow-brand-rose/50 hover:-translate-y-0.5"
               >
-                Explore USA options
-                <span className="text-lg transition duration-300 group-hover:translate-x-1">
-                  →
+                <span>Explore USA options</span>
+                <span className="text-base transition-transform duration-300 group-hover:translate-y-0.5">
+                  ↓
                 </span>
               </a>
 
               <a
                 href="#how-it-works"
-                className="tdc-btn-line !rounded-none"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-white/90 backdrop-blur-md transition-all duration-300 hover:border-brand-rose/50 hover:bg-white/[0.08] hover:text-white hover:-translate-y-0.5"
               >
                 How it works
               </a>
             </div>
 
-            <p className="mx-auto mt-8 max-w-2xl text-xs leading-5 text-white/35">
-              18+ only. This site contains affiliate links. If you select an
-              offer, you will be redirected to an independent third-party
-              provider.
+            {/* Quick Stats Bar */}
+            <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+              {heroStats.map((stat) => {
+                const IconComponent = stat.icon;
+                return (
+                  <div
+                    key={stat.label}
+                    className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md transition-colors hover:border-white/20"
+                  >
+                    <IconComponent size={18} className="text-brand-rose-soft mb-1.5" />
+                    <span className="text-sm font-bold text-white sm:text-base">
+                      {stat.value}
+                    </span>
+                    <span className="text-[11px] font-medium tracking-wide text-white/50">
+                      {stat.label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="mx-auto mt-6 max-w-xl text-[11px] leading-5 text-white/40">
+              18+ only. TheDateCompass contains sponsored links. Selecting an offer
+              redirects you to an independent third-party provider site.
             </p>
           </div>
         </section>
 
-        {/* -------- OFFERS SECTION -------- */}
+        {/* -------- OFFERS SECTION (Unified Tabs + Modern Grid) -------- */}
         <USAOffers offers={usaOffers} />
 
-        {/* -------- INTENTIONS SECTION (kept below offers for shorter ad path) -------- */}
+        {/* -------- INTENTIONS SECTION (Dark Modern Cards) -------- */}
         <section
           id="how-it-works"
-          className="tdc-section-stone px-6 py-20 sm:px-8 lg:px-12"
+          className="relative scroll-mt-20 border-t border-white/10 bg-[linear-gradient(180deg,#0a0b0d,#131018_50%,#0a0b0d)] px-6 py-20 sm:px-8 lg:px-12"
         >
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="tdc-eyebrow">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">
                   Start with your intention
                 </p>
-                <h2 className="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-tight   sm:text-5xl">
-                  Every good connection starts with being clear about what you
-                  want.
+                <h2 className="mt-3 max-w-2xl font-serif text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                  Every good connection starts with knowing what you want.
                 </h2>
               </div>
-              <p className="max-w-sm leading-relaxed text-ink/70">
-                Choose a direction, then compare the platforms that align with
-                it.
+              <p className="max-w-sm text-sm leading-relaxed text-white/60">
+                Choose a direction to jump directly to platforms tailored for your
+                preferences.
               </p>
             </div>
 
@@ -303,34 +334,38 @@ export default function UsaPage() {
                 <a
                   key={intention.title}
                   href={`#${intentionHashes[intention.filter]}`}
-                  className="group relative overflow-hidden border border-ink/10 bg-cream/80 shadow-xl shadow-black/5 transition hover:-translate-y-2 hover:border-brand-rose/40 backdrop-blur-sm"
+                  className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-brand-rose/50 hover:bg-white/[0.06] hover:shadow-[0_20px_50px_rgba(255,61,110,0.18)]"
                 >
-                  <div className="relative h-44 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden bg-ink-soft">
                     <Image
                       src={intention.image}
                       alt={intention.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition duration-700 group-hover:scale-105"
+                      className="object-cover object-top transition duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
-                    <span className="absolute left-5 top-5 text-sm font-bold tracking-[0.2em] text-white/90">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b0d] via-black/35 to-transparent" />
+                    <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs font-bold tracking-widest text-white/90 backdrop-blur-md">
                       {intention.number}
                     </span>
                   </div>
-                  <div className="p-4 pt-4">
-                    <h3 className="font-serif text-3xl font-semibold  ">
-                      {intention.title}
-                    </h3>
-                    <p className="mt-3 leading-relaxed text-ink/70">
-                      {intention.text}
-                    </p>
-                  {/*   <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-rose-700/80 group-hover:text-rose-800">
-                      Explore options{" "}
-                      <span className="transition group-hover:translate-x-1">
+
+                  <div className="flex flex-1 flex-col justify-between p-6">
+                    <div>
+                      <h3 className="font-serif text-2xl font-bold text-white transition-colors group-hover:text-brand-rose-soft">
+                        {intention.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-white/65">
+                        {intention.text}
+                      </p>
+                    </div>
+
+                    <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-wider text-brand-rose-soft group-hover:text-white">
+                      <span>Filter matching offers</span>
+                      <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
                         →
                       </span>
-                    </span> */}
+                    </div>
                   </div>
                 </a>
               ))}
@@ -338,84 +373,86 @@ export default function UsaPage() {
           </div>
         </section>
 
-        {/* -------- SEO EDITORIAL -------- */}
+        {/* -------- SEO EDITORIAL (Frosted Dark Container) -------- */}
         <section
           id="usa-dating-guide"
-          className="tdc-section-stone px-6 py-20 sm:px-8 lg:px-12"
+          className="border-t border-white/10 bg-ink px-6 py-20 sm:px-8 lg:px-12"
         >
-          <div className="mx-auto max-w-3xl">
-            <p className="tdc-eyebrow">
-              USA dating guide
+          <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 shadow-2xl backdrop-blur-md sm:p-12">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">
+              USA Dating Guide · 2026
             </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight   sm:text-5xl">
-              How to choose adult dating sites in the USA
+            <h2 className="mt-3 font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
+              How to choose the right adult dating site in the USA
             </h2>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-ink/70">
+
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-white/70">
               <p>
                 Finding the right adult dating site in the United States starts
-                with intention. Some visitors want low-pressure{" "}
+                with being honest about your personal goals. Some visitors want low-pressure{" "}
                 <a
                   href="#offers-casual"
-                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-4 hover:underline"
                 >
-                  casual dating
+                  casual dating & adult encounters
                 </a>
-                , others prefer{" "}
+                , others prefer authentic{" "}
                 <Link
                   href="/gay-dating"
-                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-4 hover:underline"
                 >
                   gay dating platforms
                 </Link>
                 ,{" "}
                 <a
                   href="#offers-mature"
-                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-4 hover:underline"
                 >
-                  mature dating
+                  mature dating connections
                 </a>
-                , or{" "}
+                , or inclusive{" "}
                 <a
-                  href="#offers-adult"
-                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                  href="#offers-trans"
+                  className="font-semibold text-brand-rose underline-offset-4 hover:underline"
                 >
-                  adult dating
+                  trans dating
                 </a>{" "}
-                options. This page helps eligible 18+ visitors compare
-                third-party listings by category before leaving for a provider
-                site.
+                spaces. This guide provides an objective USA shortlist so 18+ adults
+                can compare options before visiting third-party providers.
               </p>
+
               <p>
-                TheDateCompass does not operate these platforms. We present
-                availability-focused shortlists so you can review category fit,
-                safety expectations, and signup flow before you register. For
-                broader adult and niche comparisons, explore our{" "}
+                TheDateCompass operates purely as an independent comparison resource.
+                We evaluate third-party platforms based on audience quality, safety
+                features, signup transparency, and member activity. For broader
+                comparisons across adjacent adult niches, explore our{" "}
                 <Link
                   href="/top-offers/adult"
-                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-4 hover:underline"
                 >
                   adult dating offers
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/cozy-sites"
-                  className="font-semibold text-brand-rose underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-rose underline-offset-4 hover:underline"
                 >
-                  cozy companion sites
+                  cozy companion platforms
                 </Link>
                 .
               </p>
+
               <p>
-                Before joining any service, read the provider’s terms and
-                privacy policy, use platform safety tools, and keep early
-                conversations on-platform. Availability, pricing, and features
-                can change, so always confirm details on the destination site.
+                Before joining any service, always inspect the destination site’s
+                privacy settings, age verification rules, and billing terms. Keep
+                early conversations on-platform and never share sensitive financial
+                or personal details.
               </p>
             </div>
           </div>
         </section>
 
-        {/* -------- FAQ -------- */}
+        {/* -------- FAQ ACCORDION -------- */}
         <CountryFaqSection
           variant="usa"
           eyebrow="FAQ · USA offers"
@@ -423,54 +460,59 @@ export default function UsaPage() {
           items={usaFaqs}
         />
 
-        {/* -------- SAFETY SECTION -------- */}
-        <section className="bg-stone px-6 py-20 text-ink sm:px-8 lg:px-12">
-          <div className="mx-auto grid max-w-7xl gap-10 rounded-3xl border border-white/60 bg-white/80 p-8 shadow-2xl shadow-black/5 backdrop-blur-sm md:grid-cols-[0.85fr_1.15fr] md:p-12">
+        {/* -------- SAFETY GUIDELINES (Modern Dark Box) -------- */}
+        <section className="border-t border-white/10 bg-[#070709] px-6 py-20 text-white sm:px-8 lg:px-12">
+          <div className="mx-auto grid max-w-7xl gap-10 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.01] p-8 shadow-2xl backdrop-blur-md md:grid-cols-[0.85fr_1.15fr] md:p-12">
             <div>
-              <p className="tdc-eyebrow">
-                A gentle reminder
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">
+                Safety & Discretion
               </p>
-              <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight  ">
+              <h2 className="mt-3 font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
                 Chemistry works better with good judgment.
               </h2>
-              <p className="mt-5 leading-relaxed text-ink/70">
-                Keep your experience enjoyable by moving thoughtfully and
-                staying in control of your information.
+              <p className="mt-5 text-sm leading-relaxed text-white/65 sm:text-base">
+                Online dating should be enjoyable and empowering. Maintain peace
+                of mind by staying aware, trusting your instincts, and safeguarding
+                your personal boundaries.
               </p>
             </div>
+
             <div className="grid gap-4 sm:grid-cols-2">
               {safetyNotes.map((item, index) => (
                 <div
                   key={item}
-                  className="flex gap-4 rounded-2xl border border-[#ddd0c9] bg-white/60 p-5 font-medium leading-relaxed shadow-sm backdrop-blur-sm"
+                  className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm font-medium leading-relaxed text-white/80 shadow-sm backdrop-blur-sm transition-colors hover:border-white/20"
                 >
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-rose-200/70 text-sm font-bold text-rose-800">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-rose/20 text-sm font-extrabold text-brand-rose-soft ring-1 ring-brand-rose/40">
                     {index + 1}
                   </span>
-                  {item}
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* -------- OTHER COUNTRIES -------- */}
         <section
           aria-labelledby="usa-other-countries"
-          className="border-t border-white/10 bg-ink px-6 py-12 sm:px-8 lg:px-12"
+          className="border-t border-white/10 bg-ink px-6 py-14 sm:px-8 lg:px-12"
         >
           <div className="mx-auto max-w-7xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-mint/80">
-              More countries
+              International Lineup
             </p>
             <h2
               id="usa-other-countries"
-              className="mt-3 font-serif text-3xl font-semibold text-white sm:text-4xl"
+              className="mt-3 font-serif text-2xl font-bold text-white sm:text-3xl"
             >
-              Explore other countries
+              Explore dating options in other countries
             </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/50">
-              Compare similar shortlists on our other active country pages.
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/50">
+              Compare curated shortlists and regional platforms on our active country
+              guides.
             </p>
+
             <ul className="mt-6 flex flex-wrap gap-3">
               {(
                 [
@@ -484,7 +526,7 @@ export default function UsaPage() {
                 <li key={country.href}>
                   <Link
                     href={country.href}
-                    className="inline-flex border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-bold tracking-wide text-white/80 transition hover:border-brand-rose/40 hover:text-brand-rose-soft"
+                    className="inline-flex rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-bold tracking-wide text-white/80 backdrop-blur-sm transition hover:border-brand-rose/50 hover:bg-brand-rose/10 hover:text-white"
                   >
                     {country.label}
                   </Link>
