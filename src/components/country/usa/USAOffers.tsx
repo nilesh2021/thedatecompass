@@ -2,28 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, ShieldCheck, Sparkles, Star } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, ShieldCheck, Sparkles } from "lucide-react";
 import CountryAffiliateDisclaimer from "@/components/country/common/CountryAffiliateDisclaimer";
 import CountrySectionHeading from "@/components/country/common/CountrySectionHeading";
-import { trackAffiliateClick } from "@/lib/analytics";
-
-export type UsaOfferItem = {
-  name: string;
-  category: string;
-  featured?: boolean;
-  description: string;
-  badge: string;
-  mark: string;
-  accent: string;
-  image: string;
-  href: string;
-  tags: string[];
-  rating?: number;
-  country?: string;
-};
+import UsaAffiliateLink from "@/components/country/usa/UsaAffiliateLink";
+import { getUsaReviewHref, type UsaOffer } from "@/data/usaOffers";
 
 type USAOffersProps = {
-  offers: UsaOfferItem[];
+  offers: UsaOffer[];
 };
 
 type TabKey = "All" | "Gay Dating" | "Casual & Adult" | "Mature" | "Trans";
@@ -32,7 +19,7 @@ interface TabDefinition {
   id: TabKey;
   label: string;
   hash: string;
-  match: (offer: UsaOfferItem) => boolean;
+  match: (offer: UsaOffer) => boolean;
 }
 
 const TABS: TabDefinition[] = [
@@ -80,6 +67,8 @@ const HASH_TO_TAB: Record<string, TabKey> = {
   "offers-trans": "Trans",
 };
 
+const TABLIST_ID = "usa-offers-tablist";
+
 export default function USAOffers({ offers }: USAOffersProps) {
   const [activeTab, setActiveTab] = useState<TabKey>("All");
 
@@ -125,6 +114,8 @@ export default function USAOffers({ offers }: USAOffersProps) {
     }
   };
 
+  const activeTabButtonId = `usa-tab-${activeTab.replace(/\s+/g, "-").toLowerCase()}`;
+
   return (
     <section
       id="offers"
@@ -159,14 +150,16 @@ export default function USAOffers({ offers }: USAOffersProps) {
           </div>
 
           <p className="max-w-md leading-relaxed text-white/60">
-            Compare verified adult dating and social platforms active for eligible
-            visitors in the United States. Filter by category to find your match.
+            Compare adult dating and social platforms listed for eligible
+            visitors in the United States. Filter by category to narrow your
+            shortlist.
           </p>
         </div>
 
         {/* Smart Category Tabs */}
         <div className="mt-10">
           <div
+            id={TABLIST_ID}
             role="tablist"
             aria-label="Filter USA dating offers by category"
             className="inline-flex max-w-full flex-wrap gap-2 rounded-2xl border border-white/10 bg-black/40 p-1.5 backdrop-blur-md"
@@ -174,16 +167,18 @@ export default function USAOffers({ offers }: USAOffersProps) {
             {TABS.map((tab) => {
               const isActive = activeTab === tab.id;
               const count = tabCounts[tab.id];
+              const tabId = `usa-tab-${tab.id.replace(/\s+/g, "-").toLowerCase()}`;
 
               return (
                 <button
                   key={tab.id}
+                  id={tabId}
                   type="button"
                   role="tab"
                   aria-selected={isActive}
                   aria-controls="usa-offers-grid"
                   onClick={() => selectTab(tab)}
-                  className={`group inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 sm:text-sm ${
+                  className={`group inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose sm:text-sm ${
                     isActive
                       ? "bg-brand-rose text-white shadow-[0_8px_24px_rgba(255,61,110,0.4)] ring-1 ring-white/30"
                       : "bg-white/[0.03] text-white/60 hover:bg-white/[0.08] hover:text-white"
@@ -204,7 +199,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
             })}
           </div>
 
-          <p className="mt-4 text-xs tracking-wide text-white/45 sm:text-sm">
+          <p className="mt-4 text-xs tracking-wide text-white/50 sm:text-sm">
             Showing{" "}
             <span className="font-semibold text-brand-rose-soft">
               {displayedOffers.length}
@@ -218,12 +213,13 @@ export default function USAOffers({ offers }: USAOffersProps) {
         <div
           id="usa-offers-grid"
           role="tabpanel"
-          aria-label={`${activeTab} offers`}
+          aria-labelledby={activeTabButtonId}
           className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {displayedOffers.map((offer) => {
             const isFeatured = Boolean(offer.featured);
-            const ratingValue = offer.rating ?? 4.7;
+            const reviewHref = getUsaReviewHref(offer);
+            const keyFocus = offer.keyFocus;
 
             return (
               <article
@@ -239,7 +235,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                   <div className="relative h-56 overflow-hidden rounded-t-3xl bg-ink-soft">
                     <Image
                       src={offer.image}
-                      alt={`${offer.name} adult dating platform`}
+                      alt={`${offer.name} — ${offer.category} platform listed for USA visitors`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-top transition duration-700 group-hover:scale-105"
@@ -256,27 +252,25 @@ export default function USAOffers({ offers }: USAOffersProps) {
 
                       {isFeatured ? (
                         <span className="inline-flex items-center gap-1 rounded-full bg-brand-rose px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-brand-rose/40">
-                          <Sparkles size={11} />
+                          <Sparkles size={11} aria-hidden />
                           Top Pick
                         </span>
                       ) : (
                         <span className="rounded-full border border-white/10 bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/70 backdrop-blur-md">
-                          USA 18+
+                          Listed for USA
                         </span>
                       )}
                     </div>
 
-                    {/* Bottom Floating Stats on Image */}
+                    {/* Bottom badge on image */}
                     <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-1 rounded-full border border-amber-400/30 bg-black/70 px-2.5 py-1 font-bold text-amber-300 backdrop-blur-sm">
-                        <Star size={12} className="fill-amber-400 text-amber-400" />
-                        <span>{ratingValue.toFixed(1)}</span>
-                        <span className="text-[10px] text-white/50">/ 5.0</span>
+                      <div className="rounded-full border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-medium text-white/80 backdrop-blur-sm">
+                        {offer.badge}
                       </div>
 
                       <div className="flex items-center gap-1 text-[11px] font-medium text-white/75">
-                        <ShieldCheck size={13} className="text-brand-mint/80" />
-                        <span>Verified</span>
+                        <ShieldCheck size={13} className="text-brand-mint/80" aria-hidden />
+                        <span>Listed for USA</span>
                       </div>
                     </div>
                   </div>
@@ -285,10 +279,10 @@ export default function USAOffers({ offers }: USAOffersProps) {
                   <div className="p-6">
                     {/* Offer Name */}
                     <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="font-serif text-2xl font-bold tracking-tight text-white group-hover:text-brand-rose-soft transition-colors">
+                      <h3 className="font-serif text-2xl font-bold tracking-tight text-white transition-colors group-hover:text-brand-rose-soft">
                         {offer.name}
                       </h3>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-white/40">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
                         {offer.country ?? "USA"}
                       </span>
                     </div>
@@ -305,35 +299,56 @@ export default function USAOffers({ offers }: USAOffersProps) {
                       ))}
                     </div>
 
+                    {keyFocus ? (
+                      <p className="mt-3 text-xs font-medium text-white/55">
+                        <span className="text-white/40">Key focus: </span>
+                        {keyFocus}
+                      </p>
+                    ) : null}
+
                     {/* Description */}
                     <p className="mt-4 text-sm leading-relaxed text-white/65 line-clamp-3">
                       {offer.description}
                     </p>
+
+                    <div className="mt-4">
+                      {reviewHref ? (
+                        <Link
+                          href={reviewHref}
+                          className="text-sm font-semibold text-brand-rose-soft underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose"
+                        >
+                          Read review
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-white/45" aria-hidden={false}>
+                          Review coming soon
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
                 {/* Card Footer & Direct Affiliate CTA */}
                 <div className="p-6 pt-0">
-                  <a
+                  <UsaAffiliateLink
                     href={offer.href}
-                    target="_blank"
-                    rel="sponsored nofollow noopener noreferrer"
-                    onClick={() =>
-                      trackAffiliateClick(offer.name, "usa_offer_card", "usa")
-                    }
-                    className={`group/btn flex min-h-[50px] w-full items-center justify-between rounded-xl px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white transition-all duration-300 ${
+                    offerName={offer.name}
+                    placement="usa_offer_card"
+                    className={`group/btn flex min-h-[50px] w-full items-center justify-between rounded-xl px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose ${
                       isFeatured
                         ? "bg-brand-rose shadow-[0_6px_20px_rgba(255,61,110,0.35)] hover:bg-brand-rose-soft hover:shadow-[0_10px_28px_rgba(255,61,110,0.5)] hover:-translate-y-0.5"
                         : "border border-white/15 bg-white/[0.08] hover:border-brand-rose/60 hover:bg-brand-rose hover:shadow-[0_6px_20px_rgba(255,61,110,0.3)] hover:-translate-y-0.5"
                     }`}
                   >
-                    <span>Visit {offer.name}</span>
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/25 text-white transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
-                      <ArrowUpRight size={16} />
+                    <span className="flex w-full items-center justify-between">
+                      <span>Visit {offer.name}</span>
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/25 text-white transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                        <ArrowUpRight size={16} aria-hidden />
+                      </span>
                     </span>
-                  </a>
+                  </UsaAffiliateLink>
 
-                  <p className="mt-2.5 text-center text-[10px] tracking-wide text-white/35">
+                  <p className="mt-2.5 text-center text-[10px] tracking-wide text-white/55">
                     18+ adults only · External third-party site
                   </p>
                 </div>

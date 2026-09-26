@@ -2,9 +2,11 @@ import { getOfferAdultImage } from "@/data/adultOfferImages";
 
 export type UsaOffer = {
   name: string;
+  slug?: string;
   category: string;
   featured?: boolean;
   description: string;
+  keyFocus?: string;
   badge: string;
   mark: string;
   accent: string;
@@ -15,6 +17,21 @@ export type UsaOffer = {
   country?: string;
 };
 
+export const USA_PAGE_LAST_UPDATED = {
+  label: "September 2026",
+  iso: "2026-09-26",
+};
+
+/** Add a slug here once `/usa/[slug]-review` exists to enable review links. */
+export const USA_REVIEW_SLUGS: readonly string[] = [];
+
+export function getUsaReviewHref(offer: UsaOffer): string | null {
+  if (!offer.slug || !USA_REVIEW_SLUGS.includes(offer.slug)) {
+    return null;
+  }
+  return `/usa/${offer.slug}-review`;
+}
+
 /**
  * USA inventory ordered by Offer Master priority.
  * SexyFans / WannaHookup omitted — no real affiliate URL exists in project data.
@@ -22,9 +39,11 @@ export type UsaOffer = {
 export const usaOffers: UsaOffer[] = [
   {
     name: "Grannyhunter",
+    slug: "grannyhunter",
     category: "Mature dating",
     description:
-      "An adult dating option focused on mature connections and age-specific preferences.",
+      "Mature dating focused on age-specific preferences and connections with experienced adults.",
+    keyFocus: "Mature connections and age-specific preferences",
     badge: "USA available",
     mark: "G",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
@@ -36,10 +55,12 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "LitLatinz",
+    slug: "litlatinz",
     category: "Adult dating",
     featured: true,
     description:
-      "An adult dating option focused on Latino community connections in the United States.",
+      "Adult dating with a focus on Latino community connections in the United States.",
+    keyFocus: "Latino community connections in the US",
     badge: "USA available",
     mark: "L",
     accent: "from-[#6138A8] via-[#9C5CDB] to-[#E83E9B]",
@@ -51,10 +72,12 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "Manfinder",
+    slug: "manfinder",
     category: "Gay Dating",
     featured: true,
     description:
       "A well-established gay dating brand focused on connecting men seeking casual encounters and real connections.",
+    keyFocus: "Gay men seeking casual or deeper connections",
     badge: "USA available",
     mark: "M",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
@@ -66,9 +89,11 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "RealSexClub",
+    slug: "realsexclub",
     category: "Adult dating",
     description:
-      "An adult social and dating option for people looking for direct connections.",
+      "Adult social and dating for people looking for direct, open-minded connections.",
+    keyFocus: "Direct adult social connections",
     badge: "USA available",
     mark: "R",
     accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
@@ -80,9 +105,11 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "TransDate",
+    slug: "transdate",
     category: "Trans dating",
     description:
-      "A dating option for people interested in transgender and inclusive connections.",
+      "Dating for people interested in transgender and inclusive connections.",
+    keyFocus: "Transgender and inclusive dating",
     badge: "USA available",
     mark: "T",
     accent: "from-[#9B3CE8] via-[#E83E9B] to-[#F58BC5]",
@@ -94,9 +121,11 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "MilfFinder",
+    slug: "milffinder",
     category: "Mature dating",
     description:
-      "An adult dating option for mature singles interested in genuine conversations and chemistry.",
+      "Mature dating for singles interested in genuine conversations and chemistry.",
+    keyFocus: "Mature singles and conversation-led dating",
     badge: "USA available",
     mark: "M",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
@@ -108,10 +137,12 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "CheekyCrush",
+    slug: "cheekycrush",
     category: "Casual dating",
     featured: true,
     description:
-      "A casual adult dating option for people looking to explore new connections.",
+      "Casual adult dating for people exploring new, low-pressure connections.",
+    keyFocus: "Casual, low-pressure adult dating",
     badge: "USA available",
     mark: "C",
     accent: "from-[#E83E9B] via-[#F15BAF] to-[#F58BC5]",
@@ -123,10 +154,12 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "GayBloom",
+    slug: "gaybloom",
     category: "Gay Dating",
     featured: true,
     description:
-      "An inclusive adult dating option for gay singles and communities in the USA.",
+      "Inclusive adult dating for gay singles and communities in the USA.",
+    keyFocus: "Inclusive gay dating in the USA",
     badge: "USA available",
     mark: "G",
     accent: "from-[#9B3CE8] via-[#D45CF1] to-[#F58BC5]",
@@ -138,10 +171,12 @@ export const usaOffers: UsaOffer[] = [
   },
   {
     name: "PridePair",
+    slug: "pridepair",
     category: "Gay Dating",
     featured: false,
     description:
-      "An inclusive gay dating platform where users can match, chat, and connect with like-minded people.",
+      "Inclusive gay dating where users can match, chat, and connect with like-minded people.",
+    keyFocus: "Match, chat, and gay community connections",
     badge: "USA available",
     mark: "P",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
