@@ -10,6 +10,7 @@ import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection"
 
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
  
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const REL = "sponsored nofollow noopener noreferrer";
@@ -74,7 +75,7 @@ export default function OfferLandingPage({
 
   function VisitCta({ placement }: { placement: string }) {
     return (
-      <a
+      <TrackedAffiliateLink
         href={offer.url}
         target="_blank"
         rel={REL}
@@ -88,7 +89,7 @@ export default function OfferLandingPage({
         <span className="flex w-12 shrink-0 items-center justify-center bg-brand-rose text-cream">
           →
         </span>
-      </a>
+      </TrackedAffiliateLink>
     );
   }
 

@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import Link from "next/link";
 import {
   Compass,
@@ -7,10 +6,7 @@ import {
   UserRound,
 } from "lucide-react";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
-import SexEmulatorPlayCta, {
-  SEX_EMULATOR_AFFILIATE_URL,
-  SEX_EMULATOR_CTA_REL,
-} from "./SexEmulatorPlayCta";
+import SexEmulatorPlayCta from "./SexEmulatorPlayCta";
 import styles from "./SexEmulatorLanding.module.css";
 const HERO_IMAGE = "https://www.sexemulator.com/images/home_img3.png";
 const GAME_IMAGE = "/images/game-img.png";
@@ -80,20 +76,7 @@ function PlayCta({
   className?: string;
 }) {
   return (
-    <Suspense
-      fallback={
-        <a
-          href={SEX_EMULATOR_AFFILIATE_URL}
-          target="_blank"
-          rel={SEX_EMULATOR_CTA_REL}
-          className={className}
-        >
-          {children}
-        </a>
-      }
-    >
-      <SexEmulatorPlayCta className={className}>{children}</SexEmulatorPlayCta>
-    </Suspense>
+    <SexEmulatorPlayCta className={className}>{children}</SexEmulatorPlayCta>
   );
 }
 

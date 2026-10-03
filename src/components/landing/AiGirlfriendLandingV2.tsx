@@ -10,6 +10,7 @@ import ExitIntentOfferModal from "@/components/landing/ExitIntentOfferModal";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
  
 
@@ -96,7 +97,7 @@ function HeartLikes({ likes }: { likes: string }) {
 
 export default function AiGirlfriendLandingV2() {
   const offer = dreamzOffer;
-  const affiliateUrl = offer.url;
+  const affiliateUrl = useTrackedAffiliateUrl(offer.url);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);

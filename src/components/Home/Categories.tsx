@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, ShieldCheck, Globe } from "lucide-react";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { usaCategories } from "@/data/usaOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
@@ -72,7 +73,7 @@ export default function Categories() {
                 </div>
 
                 <div className="mt-5 grid gap-2">
-                  <a
+                  <TrackedAffiliateLink
                     href={category.href}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
@@ -83,7 +84,7 @@ export default function Categories() {
                   >
                     Visit {category.offerName}
                     <ArrowRight size={14} />
-                  </a>
+                  </TrackedAffiliateLink>
                   <Link
                     href={
                       category.slug === "gay-dating"

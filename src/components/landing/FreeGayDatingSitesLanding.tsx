@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Compass, MessageCircle, Sparkles } from "lucide-react";
 
 import { getOfferTabByRoute, type DatingOffer } from "@/data/datingOffersTabs";
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const gayTab = getOfferTabByRoute("gay-dating")!;
@@ -45,9 +46,10 @@ function OfferLink({
   className: string;
   children: ReactNode;
 }) {
+  const trackedHref = useTrackedAffiliateUrl(href);
   return (
     <a
-      href={href}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       className={className}

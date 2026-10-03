@@ -1,5 +1,6 @@
 "use client";
 
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 type FixedOfferCtaProps = {
@@ -29,7 +30,7 @@ export default function FixedOfferCta({
             {offer.promo}
           </p>
 
-          <a
+          <TrackedAffiliateLink
             href={offer.url}
             target="_self"
             rel="sponsored nofollow noopener noreferrer"
@@ -37,7 +38,7 @@ export default function FixedOfferCta({
             className="tdc-btn-primary flex min-w-0 flex-1 flex-none sm:px-8 !rounded-none !py-3.5 !text-sm"
           >
             {ctaLabel ?? `Start chatting on ${offer.name}`}
-          </a>
+          </TrackedAffiliateLink>
         </div>
 
         <div className="h-14 w-14 shrink-0 sm:w-16" aria-hidden />

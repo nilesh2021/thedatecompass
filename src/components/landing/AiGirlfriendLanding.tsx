@@ -9,6 +9,7 @@ import DreamzLogo from "@/components/landing/DreamzLogo";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 
@@ -82,10 +83,11 @@ function CompanionCard({
   onAffiliateClick?: () => void;
 }) {
   const cardMedia = { ...companion, video: undefined };
+  const trackedHref = useTrackedAffiliateUrl(href);
 
   return (
     <a
-      href={href}
+      href={trackedHref}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
       onClick={onAffiliateClick}
@@ -128,7 +130,7 @@ function CompanionCard({
 export default function AiGirlfriendLanding() {
   const offer = dreamzOffer;
 
-  const affiliateUrl = offer.url;
+  const affiliateUrl = useTrackedAffiliateUrl(offer.url);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);

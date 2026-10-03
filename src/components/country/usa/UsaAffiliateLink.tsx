@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 type UsaAffiliateLinkProps = {
@@ -28,7 +29,7 @@ export default function UsaAffiliateLink({
   const label = children ?? (compact ? "Visit" : `Visit ${offerName}`);
 
   return (
-    <a
+    <TrackedAffiliateLink
       href={href}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
@@ -40,6 +41,6 @@ export default function UsaAffiliateLink({
       {compact ? (
         <ArrowUpRight size={14} className="inline-block shrink-0" aria-hidden />
       ) : null}
-    </a>
+    </TrackedAffiliateLink>
   );
 }

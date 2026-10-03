@@ -10,6 +10,7 @@ import Footer from "@/components/Home/Footer";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 
@@ -450,7 +451,7 @@ export default function OfferHubPage() {
 
                       {/* CTA */}
                       <div className="mt-3">
-                        <a
+                        <TrackedAffiliateLink
                           href={affiliateUrl}
                           target={
                             affiliateUrl.startsWith("http")
@@ -471,7 +472,7 @@ export default function OfferHubPage() {
                           className="text-xs font-bold uppercase tracking-[0.12em] text-brand-mint transition hover:text-cream"
                         >
                           View offer →
-                        </a>
+                        </TrackedAffiliateLink>
                       </div>
                     </div>
                   </article>

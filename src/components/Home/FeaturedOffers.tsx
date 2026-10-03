@@ -4,6 +4,7 @@ import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Globe } from "lucide-react";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { usaOffers } from "@/data/usaOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
@@ -242,7 +243,7 @@ export default function FeaturedOffers() {
                       {offer.description}
                     </p>
 
-                    <a
+                    <TrackedAffiliateLink
                       href={offer.href}
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"
@@ -257,7 +258,7 @@ export default function FeaturedOffers() {
                     >
                       Visit {offer.name}
                       <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
+                    </TrackedAffiliateLink>
 
                     {explore ? (
                       <Link

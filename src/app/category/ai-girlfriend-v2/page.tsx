@@ -4,6 +4,7 @@ import Footer from "@/components/Home/Footer";
 import Header from "@/components/Home/Header";
 import Image from "next/image";
 import Link from "next/link";
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const AFFILIATE_URL =
@@ -11,6 +12,7 @@ const AFFILIATE_URL =
 const OFFER_NAME = "Dreamz.ai";
 
 export default function AIGirlfriendV2() {
+  const trackedAffiliateUrl = useTrackedAffiliateUrl(AFFILIATE_URL);
   return (
     <>
 <script
@@ -64,7 +66,7 @@ export default function AIGirlfriendV2() {
               <div className="mt-10 flex flex-wrap gap-4">
 
               <Link
-    href={AFFILIATE_URL}
+    href={trackedAffiliateUrl}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
@@ -420,7 +422,7 @@ export default function AIGirlfriendV2() {
         {/* CTA */}
 
         <Link
-          href={AFFILIATE_URL}
+          href={trackedAffiliateUrl}
           target="_blank"
           rel="sponsored nofollow noopener noreferrer"
           onClick={() => trackAffiliateClick(OFFER_NAME, "features-cta")}
@@ -478,7 +480,7 @@ export default function AIGirlfriendV2() {
           <div className="mt-10 flex flex-wrap gap-4">
 
           <Link
-    href={AFFILIATE_URL}
+    href={trackedAffiliateUrl}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "mid-cta")}
@@ -658,7 +660,7 @@ export default function AIGirlfriendV2() {
       <div className="mt-12">
 
      <Link
-    href={AFFILIATE_URL}
+    href={trackedAffiliateUrl}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
@@ -710,7 +712,7 @@ export default function AIGirlfriendV2() {
 </section>
 <div className="fixed bottom-5 right-5 z-50">
   <Link
-    href={AFFILIATE_URL}
+    href={trackedAffiliateUrl}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "fixed-cta")}

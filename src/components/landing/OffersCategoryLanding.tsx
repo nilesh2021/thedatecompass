@@ -8,6 +8,7 @@ import {
   getCountryBrowseLinks,
   getCountryBrowseThemeForOfferTab,
 } from "@/data/countryBrowseLinks";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
@@ -27,7 +28,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
 
         <div className="grid gap-8 lg:grid-cols-2">
           {tab.offers.map((offer) => (
-            <a
+            <TrackedAffiliateLink
               key={offer.id}
               href={offer.url}
               target="_blank"
@@ -80,7 +81,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
               <span className="mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-mint group-hover:text-cream">
                 Visit {offer.name} →
               </span>
-            </a>
+            </TrackedAffiliateLink>
           ))}
         </div>
       </div>

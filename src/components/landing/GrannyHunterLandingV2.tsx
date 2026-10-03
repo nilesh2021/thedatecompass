@@ -17,6 +17,7 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
@@ -64,9 +65,10 @@ function VisitCta({
       "border border-[#b8956c]/50 text-[#f5f0eb] hover:border-[#b8956c] hover:bg-white/5",
   };
 
+  const trackedHref = useTrackedAffiliateUrl(href);
   return (
     <a
-      href={href}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       onClick={() => trackAffiliateClick(grannyHunterOffer.name, placement)}
@@ -97,7 +99,7 @@ function AffiliateNote({ className = "", light = false }: { className?: string; 
 }
 
 export default function GrannyHunterLandingV2() {
-  const affiliateUrl = grannyHunterOffer.url;
+  const affiliateUrl = useTrackedAffiliateUrl(grannyHunterOffer.url);
 
   return (
     <>

@@ -1,5 +1,5 @@
-
 import Image from "next/image";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 const PlatformCard = ({ platform }) => {
     return (
         <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#171717] via-[#111111] to-[#080808] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-pink-500/40 hover:shadow-pink-500/20">
@@ -90,14 +90,14 @@ const PlatformCard = ({ platform }) => {
 
                 {/* Buttons */}
 
-                <a
+                <TrackedAffiliateLink
                     href={platform.affiliateLink}
                     target="_blank"
                     rel="nofollow sponsored"
                     className="mt-8 flex h-12 items-center justify-center rounded-xl bg-pink-600 font-semibold text-white transition hover:bg-pink-500"
                 >
                     Visit Site →
-                </a>
+                </TrackedAffiliateLink>
 
                 {/* <button className="mt-3 w-full rounded-xl border border-white/10 py-3 text-sm font-medium text-gray-300 transition hover:border-pink-500 hover:text-white">
 

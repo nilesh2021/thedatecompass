@@ -9,6 +9,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import Header from "@/components/Home/Header";
 import { adultImages } from "@/data/adultOfferImages";
 import { usaOffers } from "@/data/usaOffers";
@@ -197,7 +198,7 @@ export default function UsaDatingSitesPage() {
                         </span>
                       ))}
                     </div>
-                    <a
+                    <TrackedAffiliateLink
                       href={offer.href}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
@@ -207,7 +208,7 @@ export default function UsaDatingSitesPage() {
                       <span className="transition duration-300 group-hover:translate-x-1">
                         →
                       </span>
-                    </a>
+                    </TrackedAffiliateLink>
                   </div>
                 </article>
               ))}
@@ -234,14 +235,14 @@ export default function UsaDatingSitesPage() {
                     {description}
                   </p>
                   {offer ? (
-                    <a
+                    <TrackedAffiliateLink
                       href={offer.href}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
                       className="mt-5 inline-flex text-xs font-bold uppercase tracking-[0.14em] text-pink-200 transition hover:text-white"
                     >
                       {offer.name} →
-                    </a>
+                    </TrackedAffiliateLink>
                   ) : null}
                 </div>
               ))}

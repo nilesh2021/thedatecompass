@@ -25,6 +25,7 @@ import { canadaOffers } from "@/data/countries/canada";
 import { ukOffers } from "@/data/countries/uk";
 import { germanyOffers } from "@/data/germanyOffers";
 import { usaOffers } from "@/data/usaOffers";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 type CountrySlug = "usa" | "canada" | "uk" | "germany" | "australia";
@@ -493,7 +494,7 @@ export default function Homepage01() {
                     </p>
                   </div>
                   <div className="flex items-center p-4 sm:pr-5">
-                    <a
+                    <TrackedAffiliateLink
                       href={platform.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -501,7 +502,7 @@ export default function Homepage01() {
                       className="inline-flex h-11 w-full items-center justify-center rounded-full bg-[#E83E9B] px-5 text-sm font-semibold sm:w-auto"
                     >
                       Visit Site
-                    </a>
+                    </TrackedAffiliateLink>
                   </div>
                 </article>
               ))}
@@ -546,7 +547,7 @@ export default function Homepage01() {
                     <td className="px-4 py-3 text-white/60">{countryMeta.name}</td>
                     <td className="px-4 py-3">{platform.rating.toFixed(1)}</td>
                     <td className="px-4 py-3">
-                      <a
+                      <TrackedAffiliateLink
                         href={platform.href}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -554,7 +555,7 @@ export default function Homepage01() {
                         className="text-xs font-semibold text-[#E83E9B] hover:underline"
                       >
                         Visit
-                      </a>
+                      </TrackedAffiliateLink>
                     </td>
                   </tr>
                 ))}
@@ -572,7 +573,7 @@ export default function Homepage01() {
                   <span className="text-sm">{platform.rating.toFixed(1)}</span>
                 </div>
                 <p className="mt-2 text-xs text-white/45">{countryMeta.name}</p>
-                <a
+                <TrackedAffiliateLink
                   href={platform.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -580,7 +581,7 @@ export default function Homepage01() {
                   className="mt-3 inline-flex text-sm font-semibold text-[#E83E9B]"
                 >
                   Visit Site
-                </a>
+                </TrackedAffiliateLink>
               </div>
             ))}
           </div>

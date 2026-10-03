@@ -4,6 +4,7 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const AFFILIATE_URL =
@@ -11,6 +12,7 @@ const AFFILIATE_URL =
 const OFFER_NAME = "Dreamz.ai";
 
 export default function AIGirlfriendLanding() {
+  const trackedAffiliateUrl = useTrackedAffiliateUrl(AFFILIATE_URL);
   return (
     <>
       <Header />
@@ -34,7 +36,7 @@ export default function AIGirlfriendLanding() {
 
             <div className="mt-8 flex justify-center gap-4">
               <Link
-                href={AFFILIATE_URL}
+                href={trackedAffiliateUrl}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
@@ -90,7 +92,7 @@ export default function AIGirlfriendLanding() {
           <div className="container mx-auto px-6 text-center">
             <p className="text-gray-400">Ready to try?</p>
             <Link
-              href={AFFILIATE_URL}
+              href={trackedAffiliateUrl}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}

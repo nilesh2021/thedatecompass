@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 
 const SESSION_KEY = "tdc-exit-intent-shown";
 const REL = "sponsored nofollow noopener noreferrer";
@@ -154,7 +155,7 @@ export default function ExitIntentOfferModal({
             18+.
           </p>
 
-          <a
+          <TrackedAffiliateLink
             href={affiliateUrl}
             target="_blank"
             rel={REL}
@@ -165,7 +166,7 @@ export default function ExitIntentOfferModal({
             className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-rose px-8 py-4 text-sm font-bold text-white shadow-[0_16px_40px_rgba(255,61,110,0.35)] transition hover:bg-brand-rose-soft"
           >
             Continue · Visit Offer →
-          </a>
+          </TrackedAffiliateLink>
 
           <button
             type="button"

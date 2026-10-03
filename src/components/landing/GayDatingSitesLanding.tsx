@@ -17,6 +17,9 @@ import ManFinderLogo from "@/components/landing/ManFinderLogo";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
+import TrackedAffiliateLink, {
+  useTrackedAffiliateUrl,
+} from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import {
@@ -53,9 +56,10 @@ function OfferCta({
   placement: string;
   className: string;
 }) {
+  const trackedHref = useTrackedAffiliateUrl(href);
   return (
     <a
-      href={href}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       className={className}
@@ -246,7 +250,7 @@ export default function GayDatingSitesLanding() {
                   >
                     View offers
                   </a>
-                  <a
+                  <TrackedAffiliateLink
                     href={featured.url}
                     target="_blank"
                     rel={REL}
@@ -260,7 +264,7 @@ export default function GayDatingSitesLanding() {
                   >
                     Try {featured.name}
                     <ArrowUpRight size={16} />
-                  </a>
+                  </TrackedAffiliateLink>
                 </div>
 
                 <AffiliateNote className="mt-5 max-w-md text-[11px] leading-5 text-ink/50" />
@@ -271,7 +275,7 @@ export default function GayDatingSitesLanding() {
                 {gayDatingSitesOffers.map((offer) => {
                   const styles = accentStyles(offer.accent);
                   return (
-                    <a
+                    <TrackedAffiliateLink
                       key={offer.id}
                       href={offer.url}
                       target="_blank"
@@ -301,7 +305,7 @@ export default function GayDatingSitesLanding() {
                         size={16}
                         className="shrink-0 text-ink/30 transition group-hover:text-brand-rose"
                       />
-                    </a>
+                    </TrackedAffiliateLink>
                   );
                 })}
               </div>
@@ -404,7 +408,7 @@ export default function GayDatingSitesLanding() {
                       </td>
                       <td className="px-5 py-4 text-ink/70">{offer.bestFor}</td>
                       <td className="px-5 py-4">
-                        <a
+                        <TrackedAffiliateLink
                           href={offer.url}
                           target="_blank"
                           rel={REL}
@@ -418,7 +422,7 @@ export default function GayDatingSitesLanding() {
                         >
                           Visit
                           <ArrowUpRight size={13} />
-                        </a>
+                        </TrackedAffiliateLink>
                       </td>
                     </tr>
                   ))}

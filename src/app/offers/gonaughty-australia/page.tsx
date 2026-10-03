@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { adultImages } from "@/data/adultOfferImages";
 import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLanding";
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const HERO_BG = "https://assets.gonaughty.com/st/static/background.jpg";
@@ -30,9 +31,10 @@ function Cta({
       "bg-[#f7f3ee] text-[#14110f] shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:bg-white",
   };
 
+  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL);
   return (
     <a
-      href={AFFILIATE_URL}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       onClick={() => trackAffiliateClick(OFFER_NAME, placement, COUNTRY)}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { adultImages } from "@/data/adultOfferImages";
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 export const TRANSDATE_NORWAY_URL =
@@ -73,9 +74,10 @@ function AffiliateLink({
   children: ReactNode;
   className?: string;
 }) {
+  const trackedHref = useTrackedAffiliateUrl(href);
   return (
     <a
-      href={href}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       className={className}

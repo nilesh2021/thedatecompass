@@ -7,6 +7,7 @@ import {
   manFinderVisuals,
 } from "@/data/manFinderOffers";
 import ManFinderLogo from "@/components/landing/ManFinderLogo";
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import FixedOfferCta from "./FixedOfferCta";
 
@@ -20,9 +21,10 @@ function ExploreCta({
   label?: string;
   placement: string;
 }) {
+  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL);
   return (
     <a
-      href={AFFILIATE_URL}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       onClick={() => trackAffiliateClick(manFinderOffer.name, placement)}

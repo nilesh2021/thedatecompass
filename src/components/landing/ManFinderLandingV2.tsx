@@ -10,6 +10,7 @@ import ManFinderLogo from "@/components/landing/ManFinderLogo";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
@@ -23,7 +24,7 @@ import {
 const REL = "sponsored nofollow noopener noreferrer";
 
 export default function ManFinderLandingV2() {
-  const affiliateUrl = manFinderOffer.url;
+  const affiliateUrl = useTrackedAffiliateUrl(manFinderOffer.url);
 
   const handleClick = (placement: string) => {
     trackAffiliateClick(

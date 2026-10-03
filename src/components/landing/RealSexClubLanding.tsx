@@ -18,6 +18,9 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import CountryFaqSection from "@/components/country/common/CountryFaqSection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+import TrackedAffiliateLink, {
+  useTrackedAffiliateUrl,
+} from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import {
   realSexClubExploreCards,
@@ -39,9 +42,10 @@ function VisitCta({
   placement: string;
   className?: string;
 }) {
+  const trackedHref = useTrackedAffiliateUrl(realSexClubOffer.url);
   return (
     <a
-      href={realSexClubOffer.url}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       className={className}
@@ -434,7 +438,7 @@ export default function RealSexClubLanding() {
         role="region"
         aria-label="Offer call to action"
       >
-        <a
+        <TrackedAffiliateLink
           href={realSexClubOffer.url}
           target="_blank"
           rel={REL}
@@ -444,7 +448,7 @@ export default function RealSexClubLanding() {
           className="tdc-btn-primary flex w-full !rounded-2xl !py-3.5 !text-sm"
         >
           {realSexClubOffer.ctaLabel}
-        </a>
+        </TrackedAffiliateLink>
       </div>
 
       <Footer />

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 export type CountryOfferCtaVariant =
@@ -43,7 +44,7 @@ export default function CountryOfferCta({
 
   if (variant === "germanyFeatured") {
     return (
-      <a
+      <TrackedAffiliateLink
         href={href}
         target="_blank"
         rel={REL}
@@ -59,13 +60,13 @@ export default function CountryOfferCta({
             className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           />
         </span>
-      </a>
+      </TrackedAffiliateLink>
     );
   }
 
   if (variant === "germanyDefault") {
     return (
-      <a
+      <TrackedAffiliateLink
         href={href}
         target="_blank"
         rel={REL}
@@ -81,13 +82,13 @@ export default function CountryOfferCta({
             className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           />
         </span>
-      </a>
+      </TrackedAffiliateLink>
     );
   }
 
   if (variant === "usaFeatured") {
     return (
-      <a
+      <TrackedAffiliateLink
         href={href}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
@@ -95,12 +96,12 @@ export default function CountryOfferCta({
         onClick={handleClick}
       >
         {label}
-      </a>
+      </TrackedAffiliateLink>
     );
   }
 
   return (
-    <a
+    <TrackedAffiliateLink
       href={href}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
@@ -108,6 +109,6 @@ export default function CountryOfferCta({
       onClick={handleClick}
     >
       {label}
-    </a>
+    </TrackedAffiliateLink>
   );
 }

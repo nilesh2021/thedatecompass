@@ -3,15 +3,19 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { captureCampaignUtms } from "@/lib/analytics";
+import { captureClickId } from "@/lib/affiliateUrl";
 
 export default function GoogleAnalyticsTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (typeof window === "undefined" || !window.gtag) return;
+    if (typeof window === "undefined") return;
 
-    // Capture landing UTMs before client navigations drop the query string.
+    // Persist click_id even when gtag has not loaded yet.
+    captureClickId();
     captureCampaignUtms();
+
+    if (!window.gtag) return;
 
     window.gtag("event", "page_view", {
       page_title: document.title,

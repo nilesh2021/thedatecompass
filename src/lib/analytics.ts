@@ -1,3 +1,5 @@
+import { captureClickId } from "@/lib/affiliateUrl";
+
 const UTM_STORAGE_KEY = "tdc_campaign_utms";
 const UTM_KEYS = [
   "utm_source",
@@ -81,6 +83,7 @@ export function trackAffiliateClick(
 
   // Prefer fresh URL UTMs if still present (e.g. click before SPA navigation).
   captureCampaignUtms();
+  captureClickId();
 
   const gtag = (
     window as Window & {

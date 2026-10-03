@@ -7,6 +7,7 @@ import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const gayTab = getOfferTabByRoute("gay-dating")!;
@@ -90,7 +91,7 @@ export default function GayDatingLanding() {
                   <ArrowUpRight size={18} />
                 </span>
               </a>
-              <a
+              <TrackedAffiliateLink
                 href={featured.url}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
@@ -100,7 +101,7 @@ export default function GayDatingLanding() {
                 }
               >
                 Try {featured.name}
-              </a>
+              </TrackedAffiliateLink>
             </div>
           </div>
 
@@ -209,7 +210,7 @@ export default function GayDatingLanding() {
                     </li>
                   ))}
                 </ul>
-                <a
+                <TrackedAffiliateLink
                   href={featured.url}
                   target="_blank"
                   rel="nofollow sponsored noopener noreferrer"
@@ -224,7 +225,7 @@ export default function GayDatingLanding() {
                   <span className="flex w-14 shrink-0 items-center justify-center bg-brand-rose text-cream">
                     <ArrowUpRight size={18} />
                   </span>
-                </a>
+                </TrackedAffiliateLink>
               </div>
             </div>
           </article>
@@ -232,7 +233,7 @@ export default function GayDatingLanding() {
           {/* Other offers with model photos */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {otherOffers.map((offer) => (
-              <a
+              <TrackedAffiliateLink
                 key={offer.id}
                 href={offer.url}
                 target="_blank"
@@ -286,7 +287,7 @@ export default function GayDatingLanding() {
                     <ArrowUpRight size={14} />
                   </span>
                 </div>
-              </a>
+              </TrackedAffiliateLink>
             ))}
           </div>
 
@@ -367,7 +368,7 @@ export default function GayDatingLanding() {
               details on the partner platform. Adults 18+.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
+              <TrackedAffiliateLink
                 href={featured.url}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
@@ -382,7 +383,7 @@ export default function GayDatingLanding() {
                 <span className="flex w-14 shrink-0 items-center justify-center bg-brand-rose text-cream">
                   <ArrowUpRight size={18} />
                 </span>
-              </a>
+              </TrackedAffiliateLink>
               <Link href="#offers" className="tdc-btn-line">
                 Compare offers
               </Link>

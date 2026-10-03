@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MessageCircle, Sparkles, Star, Users } from "lucide-react";
+import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { adultImages } from "@/data/adultOfferImages";
 import { usaOffers, type UsaOffer } from "@/data/usaOffers";
 
@@ -158,7 +159,7 @@ export default function FreeUsaDatingSitesLanding() {
                     </span>
                   ) : null}
                 </div>
-                <a
+                <TrackedAffiliateLink
                   href={offer.href}
                   target="_blank"
                   rel={REL}
@@ -166,7 +167,7 @@ export default function FreeUsaDatingSitesLanding() {
                   style={{ backgroundColor: PINK }}
                 >
                   Visit Site →
-                </a>
+                </TrackedAffiliateLink>
               </article>
             ))}
           </div>
@@ -278,7 +279,7 @@ export default function FreeUsaDatingSitesLanding() {
                       {offer.rating ? offer.rating.toFixed(1) : "—"}
                     </td>
                     <td className="px-4 py-4">
-                      <a
+                      <TrackedAffiliateLink
                         href={offer.href}
                         target="_blank"
                         rel={REL}
@@ -286,7 +287,7 @@ export default function FreeUsaDatingSitesLanding() {
                         style={{ color: PINK }}
                       >
                         Visit →
-                      </a>
+                      </TrackedAffiliateLink>
                     </td>
                   </tr>
                 ))}

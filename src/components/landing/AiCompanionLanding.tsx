@@ -9,6 +9,7 @@ import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection"
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
@@ -84,7 +85,7 @@ function CompanionMedia({
 
 export default function AiCompanionLanding() {
   const offer = dreamzOffer;
-  const affiliateUrl = offer.url;
+  const affiliateUrl = useTrackedAffiliateUrl(offer.url);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);

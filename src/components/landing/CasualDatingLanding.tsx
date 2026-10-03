@@ -23,6 +23,7 @@ import Footer from "@/components/Home/Footer";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
+import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
@@ -83,9 +84,10 @@ function VisitCta({
   className?: string;
   label?: string;
 }) {
+  const trackedHref = useTrackedAffiliateUrl(href);
   return (
     <a
-      href={href}
+      href={trackedHref}
       target="_blank"
       rel={REL}
       className={className}
@@ -137,7 +139,7 @@ function CrimsonGlow({
 }
 
 export default function CasualDatingLanding() {
-  const affiliateUrl = casualDatingOffer.url;
+  const affiliateUrl = useTrackedAffiliateUrl(casualDatingOffer.url);
 
   return (
     <>
