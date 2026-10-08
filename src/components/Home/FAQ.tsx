@@ -58,10 +58,10 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-[#08060a] py-24 font-display text-cream">
+    <section id="faq" className="bg-[#0c1230] py-24 font-display text-cream">
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center">
-          <p className="tdc-eyebrow-gold flex items-center justify-center gap-2">
+          <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87] flex items-center justify-center gap-2">
             <HelpCircle size={14} />
             Straight answers
           </p>
@@ -83,7 +83,7 @@ export default function FAQ() {
             { src: adultImages.stairs, alt: "Mature dating" },
             { src: adultImages.aiCompanion, alt: "AI companion" },
           ].map((item) => (
-            <div key={item.alt} className="relative h-32 overflow-hidden border border-[#d4af87]/15 sm:h-44">
+            <div key={item.alt} className="relative h-32 overflow-hidden rounded-2xl border border-[#ff2d87]/30 sm:h-44">
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -91,7 +91,7 @@ export default function FAQ() {
                 sizes="25vw"
                 className="object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#08060a]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0c1230]/80 to-transparent" />
             </div>
           ))}
         </div>
@@ -112,7 +112,7 @@ export default function FAQ() {
                   </span>
                   <ChevronDown
                     size={22}
-                    className={`shrink-0 text-brand-rose transition duration-300 ${
+                    className={`shrink-0 text-[#ff2d87] transition duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -135,7 +135,7 @@ export default function FAQ() {
         <div className="mt-10 text-center">
           <Link
             href="#countries"
-            className="text-sm font-bold uppercase tracking-wider text-[#d4af87] transition hover:text-brand-rose"
+            className="text-sm font-bold uppercase tracking-wider text-[#ff2d87] transition hover:text-[#ff2d87]"
           >
             Browse dating offers by country →
           </Link>

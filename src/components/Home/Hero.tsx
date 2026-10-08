@@ -26,26 +26,26 @@ const heroVisuals = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#08060a] font-display">
+    <section className="relative overflow-hidden bg-[#0c1230] font-display">
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 55% 50% at 78% 42%, rgba(255,61,110,0.28), transparent 62%), radial-gradient(ellipse 40% 35% at 12% 80%, rgba(212,175,135,0.08), transparent 55%)",
+            "radial-gradient(ellipse 55% 50% at 78% 42%, rgba(255,45,135,0.28), transparent 62%), radial-gradient(ellipse 40% 35% at 12% 80%, rgba(40,70,160,0.2), transparent 55%)",
         }}
       />
 
       <div className="relative mx-auto grid min-h-[90vh] max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:py-20">
         <div className="animate-fade-up">
-          <p className="tdc-eyebrow-gold mb-6 flex items-center gap-3">
-            <span className="h-px w-10 bg-[#d4af87]" aria-hidden />
+          <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87] mb-6 flex items-center gap-3">
+            <span className="h-px w-10 bg-[#ff2d87]" aria-hidden />
             After dark · Adults 18+
           </p>
 
           <h1 className="text-5xl font-extrabold leading-[0.9] tracking-[-0.045em] text-cream md:text-6xl xl:text-7xl">
             Dating, desire
-            <span className="mt-1 block font-serif-accent text-[1.08em] font-normal italic text-brand-rose">
+            <span className="mt-1 block font-serif-accent text-[1.08em] font-normal italic text-[#ff2d87]">
               and chemistry
             </span>
             <span className="mt-1 block text-[0.72em] font-semibold tracking-[-0.03em] text-cream/80">
@@ -60,7 +60,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="#countries" className="tdc-btn-primary group">
+            <Link href="#countries" className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-7 py-4 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition duration-300 hover:-translate-y-0.5 hover:brightness-110">
               Find your country
               <ArrowRight
                 size={18}
@@ -68,7 +68,7 @@ export default function Hero() {
               />
             </Link>
 
-            <Link href="#featured" className="tdc-btn-line">
+            <Link href="#featured" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ff2d87]/50 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff2d87]">
               Tonight&apos;s platforms
             </Link>
           </div>
@@ -81,11 +81,11 @@ export default function Hero() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-[#d4af87]/20 bg-black/30 p-4 backdrop-blur-sm transition hover:border-brand-rose/45"
+                className="rounded-2xl border border-[#ff2d87]/30 bg-[#141a3d]/80 p-4 backdrop-blur-sm transition hover:border-[#ff2d87]"
               >
-                <item.icon size={20} className="mb-3 text-[#d4af87]" />
+                <item.icon size={20} className="mb-3 text-[#ff2d87]" />
                 <p className="text-2xl font-extrabold text-cream">{item.number}</p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#d4af87]/80">
+                <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#ff2d87]/80">
                   {item.label}
                 </p>
               </div>
@@ -102,7 +102,7 @@ export default function Hero() {
             {heroVisuals.map((visual, index) => (
               <div
                 key={visual.name}
-                className={`group relative overflow-hidden border border-[#d4af87]/15 ${visual.className}`}
+                className={`group relative overflow-hidden rounded-3xl border border-[#ff2d87]/30 ${visual.className}`}
               >
                 <Image
                   src={visual.image}
@@ -112,8 +112,8 @@ export default function Hero() {
                   priority={index === 0}
                   className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.05]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#08060a] via-transparent to-black/10" />
-                <div className="absolute inset-0 bg-brand-rose/0 mix-blend-multiply transition duration-500 group-hover:bg-brand-rose/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c1230] via-transparent to-black/10" />
+                <div className="absolute inset-0 bg-[#ff2d87]/0 mix-blend-multiply transition duration-500 group-hover:bg-[#ff2d87]/20" />
                 <p className="absolute bottom-4 left-4 font-serif-accent text-lg italic text-cream">
                   {visual.name}
                 </p>
@@ -121,15 +121,15 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="absolute -bottom-5 left-6 right-6 border border-[#d4af87]/25 bg-[#0c090b]/90 p-4 backdrop-blur-md">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af87]">
+          <div className="absolute -bottom-5 left-6 right-6 rounded-2xl border border-[#ff2d87]/35 bg-[#141a3d]/95 p-4 backdrop-blur-md">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff2d87]">
               Moods we compare
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               {["Flirty", "Gay", "Mature", "Adult"].map((item) => (
                 <span
                   key={item}
-                  className="border border-brand-rose/30 bg-brand-rose/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-cream"
+                  className="rounded-full border border-[#ff2d87]/40 bg-[#ff2d87]/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white"
                 >
                   {item}
                 </span>

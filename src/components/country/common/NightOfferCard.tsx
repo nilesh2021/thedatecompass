@@ -4,25 +4,38 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
-import type { UkOffer } from "@/data/countries/uk";
 
-type UKOfferCardProps = {
-  offer: UkOffer;
+type NightOfferCardProps = {
+  name: string;
+  category: string;
+  description?: string;
+  points?: string[];
+  image: string;
+  href: string;
+  country: string;
 };
 
-export default function UKOfferCard({ offer }: UKOfferCardProps) {
+export default function NightOfferCard({
+  name,
+  category,
+  description,
+  points,
+  image,
+  href,
+  country,
+}: NightOfferCardProps) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]">
       <TrackedAffiliateLink
-        href={offer.href}
+        href={href}
         target="_blank"
         rel="nofollow sponsored noopener noreferrer"
         className="group flex flex-1 flex-col text-cream no-underline"
-        onClick={() => trackAffiliateClick(offer.name, "offer_card", "uk")}
+        onClick={() => trackAffiliateClick(name, "offer_card", country)}
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
-            src={offer.image}
+            src={image}
             alt=""
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -33,15 +46,21 @@ export default function UKOfferCard({ offer }: UKOfferCardProps) {
             18+
           </span>
         </div>
-
         <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
           <p className="text-[10px] font-bold uppercase tracking-wider text-[#ff2d87]">
-            {offer.category}
+            {category}
           </p>
-          <h3 className="mt-2 text-2xl font-extrabold tracking-tight">{offer.name}</h3>
-          <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/75">
-            {offer.description}
-          </p>
+          <h3 className="mt-2 text-2xl font-extrabold tracking-tight">{name}</h3>
+          {description ? (
+            <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/75">{description}</p>
+          ) : null}
+          {points?.length ? (
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-white/75">
+              {points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          ) : null}
           <span className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-6 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition group-hover:brightness-110">
             Open offer
             <ArrowUpRight size={16} />

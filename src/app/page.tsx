@@ -78,15 +78,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Header />
-      <div className="relative bg-[#08060a]">
+      <Header tone="home" />
+      <div className="relative bg-[#0c1230]">
         <NoiseOverlay />
         <Hero />
         <FeaturedOffers />
         <Countries />
         <FAQ />
       </div>
-      <Footer />
+      <Footer tone="home" />
     </>
   );
 }

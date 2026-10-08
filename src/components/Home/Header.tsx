@@ -17,7 +17,8 @@ const moreNav = [
   { href: "/category/ai-girlfriend", label: "AI Girlfriend" },
 ];
 
-export default function Header() {
+export default function Header({ tone = "default" }: { tone?: "default" | "home" }) {
+  const home = tone === "home";
   const [mobileMenu, setMobileMenu] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 font-display">
       {/* Ambient gradient layer */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(22,24,28,0.97)_0%,rgba(10,11,13,0.92)_100%)]"
+        className={home ? "pointer-events-none absolute inset-0 bg-[#0c1230]/95" : "pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(22,24,28,0.97)_0%,rgba(10,11,13,0.92)_100%)]"}
         aria-hidden
       />
       <div
@@ -76,7 +77,7 @@ export default function Header() {
             >
               {link.label}
               <span
-                className="absolute inset-x-3.5 -bottom-px h-px bg-gradient-to-r from-brand-rose/0 via-brand-rose/70 to-brand-rose/0 opacity-0 transition-opacity group-hover:opacity-100"
+                className={`absolute inset-x-3.5 -bottom-px h-px bg-gradient-to-r opacity-0 transition-opacity group-hover:opacity-100 ${home ? "from-[#ff2d87]/0 via-[#ff2d87]/80 to-[#ff2d87]/0" : "from-brand-rose/0 via-brand-rose/70 to-brand-rose/0"}`}
                 aria-hidden
               />
             </Link>
@@ -128,7 +129,7 @@ export default function Header() {
             className="group relative ml-3 inline-flex items-center gap-2 overflow-hidden px-5 py-2.5 text-[0.75rem] font-semibold tracking-[0.06em] text-cream transition-all duration-300 hover:shadow-[0_4px_24px_rgba(255,61,110,0.28)]"
           >
             <span
-              className="absolute inset-0 bg-gradient-to-r from-brand-rose via-[#ff4d7a] to-brand-rose-soft"
+              className={home ? "absolute inset-0 bg-[#ff2d87]" : "absolute inset-0 bg-gradient-to-r from-brand-rose via-[#ff4d7a] to-brand-rose-soft"}
               aria-hidden
             />
             <span
@@ -170,7 +171,7 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"
-            className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-cream/8 bg-[linear-gradient(165deg,#16181c_0%,#0a0b0d_100%)] shadow-[-8px_0_40px_rgba(0,0,0,0.5)]"
+            className={`absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-cream/8 shadow-[-8px_0_40px_rgba(0,0,0,0.5)] ${home ? "bg-[#0c1230]" : "bg-[linear-gradient(165deg,#16181c_0%,#0a0b0d_100%)]"}`}
           >
             <div
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_100%_0%,rgba(255,61,110,0.1),transparent_60%)]"
@@ -237,7 +238,7 @@ export default function Header() {
                 className="group relative flex items-center justify-center gap-2 overflow-hidden py-3.5 text-[0.78rem] font-semibold tracking-[0.06em] text-cream transition-all duration-300"
               >
                 <span
-                  className="absolute inset-0 bg-gradient-to-r from-brand-rose via-[#ff4d7a] to-brand-rose-soft"
+                  className={home ? "absolute inset-0 bg-[#ff2d87]" : "absolute inset-0 bg-gradient-to-r from-brand-rose via-[#ff4d7a] to-brand-rose-soft"}
                   aria-hidden
                 />
                 <span className="relative">Browse countries</span>

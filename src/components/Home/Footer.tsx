@@ -10,9 +10,10 @@ const legalLinks = [
   { href: "/disclaimer", label: "Disclaimer" },
 ];
 
-export default function Footer() {
+export default function Footer({ tone = "default" }: { tone?: "default" | "home" }) {
+  const home = tone === "home";
   return (
-    <footer className="border-t border-white/10 bg-[#050505] text-white">
+    <footer className={`border-t border-white/10 text-white ${home ? "bg-[#0c1230]" : "bg-[#050505]"}`}>
       <div className="mx-auto max-w-7xl px-5 py-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-3">

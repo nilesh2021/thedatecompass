@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Home/Footer";
 import Header from "@/components/Home/Header";
+import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import Image from "next/image";
 import CountryFaqSection from "@/components/country/common/CountryFaqSection";
 import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
@@ -285,8 +286,10 @@ export default function UsaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <Header />
-      <main className="min-h-screen bg-ink text-white antialiased selection:bg-brand-rose/40 selection:text-white">
+      <Header tone="home" />
+      <div className="relative bg-[#0c1230]">
+      <NoiseOverlay />
+      <main className="relative min-h-screen bg-[#0c1230] font-display text-cream antialiased">
         {/* -------- HERO SECTION -------- */}
         <section className="relative isolate overflow-hidden bg-ink px-6 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-24 lg:pt-12">
           {/* Ambient Lighting Gradients */}
@@ -336,7 +339,7 @@ export default function UsaPage() {
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <a
                 href="#offers"
-                className={`group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-rose px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-white shadow-xl shadow-brand-rose/30 transition-all duration-300 hover:bg-brand-rose-soft hover:shadow-brand-rose/50 hover:-translate-y-0.5 ${linkFocus}`}
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition hover:-translate-y-0.5 hover:brightness-110"
               >
                 <span>Explore USA options</span>
                 <span className="text-base transition-transform duration-300 group-hover:translate-y-0.5">
@@ -344,12 +347,6 @@ export default function UsaPage() {
                 </span>
               </a>
 
-              <a
-                href="#how-we-compare"
-                className={`inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-white/90 backdrop-blur-md transition-all duration-300 hover:border-brand-rose/50 hover:bg-white/[0.08] hover:text-white hover:-translate-y-0.5 ${linkFocus}`}
-              >
-                How we compare
-              </a>
             </div>
 
             {/* Quick Stats Bar */}
@@ -388,6 +385,13 @@ export default function UsaPage() {
         <USAOffers offers={usaOffers} />
 
         <USAComparisonTable offers={usaOffers} />
+
+        <CountryFaqSection
+          variant="usa"
+          eyebrow="FAQ · USA offers"
+          title="Dating offers for USA users — common questions"
+          items={usaFaqs}
+        />
 
         {/* -------- HOW WE COMPARE -------- */}
         <section
@@ -577,14 +581,6 @@ export default function UsaPage() {
           </div>
         </section>
 
-        {/* -------- FAQ ACCORDION -------- */}
-        <CountryFaqSection
-          variant="usa"
-          eyebrow="FAQ · USA offers"
-          title="Dating offers for USA users — common questions"
-          items={usaFaqs}
-        />
-
         {/* -------- SAFETY GUIDELINES (Modern Dark Box) -------- */}
         <section
           id="safety"
@@ -658,7 +654,7 @@ export default function UsaPage() {
                 <li key={country.href}>
                   <Link
                     href={country.href}
-                    className="inline-flex rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-bold tracking-wide text-white/80 backdrop-blur-sm transition hover:border-brand-rose/50 hover:bg-brand-rose/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose"
+                    className="inline-flex rounded-full border border-[#ff2d87]/35 bg-[#141a3d] px-4 py-2.5 text-sm font-bold tracking-wide text-cream transition hover:bg-[#ff2d87] hover:text-white"
                   >
                     {country.label}
                   </Link>
@@ -668,8 +664,9 @@ export default function UsaPage() {
           </div>
         </section>
 
-        <Footer />
       </main>
+      </div>
+      <Footer tone="home" />
     </>
   );
 }

@@ -30,18 +30,18 @@ export const adultImages = {
 } as const;
 
 export const offerAdultImages: Record<string, string> = {
-  gonaughty: adultImages.portraitA,
-  realsexclub: adultImages.portraitD,
-  transdate: adultImages.portraitE,
-  dirtydating: adultImages.neon,
+  gonaughty: adultImages.aiCompanion,
+  realsexclub: adultImages.portraitA,
+  transdate: adultImages.neon,
+  dirtydating: adultImages.manfinderPortrait,
   milffinder: adultImages.stairs,
-  grannyhunter: adultImages.stairs,
+  grannyhunter: adultImages.portraitE,
   fetishpartner: adultImages.alt,
-  fuckfinder: adultImages.portraitA,
+  fuckfinder: adultImages.portraitC,
   litlatinz: adultImages.portraitD,
-  manfinder: adultImages.manfinderPortrait,
-  cheekycrush: adultImages.portraitA,
-  naughtycharm: adultImages.portraitD,
+  manfinder: adultImages.gay,
+  cheekycrush: adultImages.portraitB,
+  naughtycharm: adultImages.portraitG,
   gaybloom: adultImages.gaybloom,
   pridepair: adultImages.pridepair,
 };

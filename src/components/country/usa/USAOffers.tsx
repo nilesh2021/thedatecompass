@@ -334,14 +334,10 @@ export default function USAOffers({ offers }: USAOffersProps) {
                     href={offer.href}
                     offerName={offer.name}
                     placement="usa_offer_card"
-                    className={`group/btn flex min-h-[50px] w-full items-center justify-between rounded-xl px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose ${
-                      isFeatured
-                        ? "bg-brand-rose shadow-[0_6px_20px_rgba(255,61,110,0.35)] hover:bg-brand-rose-soft hover:shadow-[0_10px_28px_rgba(255,61,110,0.5)] hover:-translate-y-0.5"
-                        : "border border-white/15 bg-white/[0.08] hover:border-brand-rose/60 hover:bg-brand-rose hover:shadow-[0_6px_20px_rgba(255,61,110,0.3)] hover:-translate-y-0.5"
-                    }`}
+                    className="group/btn flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87]"
                   >
-                    <span className="flex w-full items-center justify-between">
-                      <span>Visit {offer.name}</span>
+                    <span className="flex w-full items-center justify-center gap-2">
+                      <span>Open offer</span>
                       <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/25 text-white transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
                         <ArrowUpRight size={16} aria-hidden />
                       </span>

@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Globe } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { usaOffers } from "@/data/usaOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
@@ -87,7 +87,10 @@ export default function FeaturedOffers() {
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   const visibleOffers = useMemo(
-    () => discoveryOffers.filter((offer) => matchesTab(offer, activeTab)),
+    () =>
+      discoveryOffers
+        .filter((offer) => matchesTab(offer, activeTab))
+        .slice(0, 6),
     [activeTab]
   );
 
@@ -122,12 +125,12 @@ export default function FeaturedOffers() {
       className="relative overflow-x-clip py-16 font-display text-cream sm:py-24"
       style={{
         background:
-          "radial-gradient(ellipse 70% 55% at 8% 0%, rgba(122, 28, 52, 0.38), transparent 58%), radial-gradient(ellipse 50% 40% at 100% 80%, rgba(90, 18, 40, 0.28), transparent 55%), linear-gradient(180deg, #070708 0%, #12080d 48%, #070708 100%)",
+          "radial-gradient(ellipse 70% 55% at 8% 0%, rgba(255, 45, 135, 0.22), transparent 58%), radial-gradient(ellipse 50% 40% at 100% 80%, rgba(40, 60, 140, 0.35), transparent 55%), linear-gradient(180deg, #0c1230 0%, #141a3d 48%, #0c1230 100%)",
       }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#d4af87]">
+          <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
             Tonight&apos;s lineup
           </p>
 
@@ -141,9 +144,9 @@ export default function FeaturedOffers() {
           </p>
         </div>
 
-        <div className="sticky top-[3.625rem] z-30 -mx-4 mt-8 bg-[#12080d]/90 px-4 py-3 backdrop-blur-md sm:static sm:mx-0 sm:mt-12 sm:bg-transparent sm:px-0 sm:py-0 sm:backdrop-blur-none">
+        <div className="mt-8 sm:mt-12">
           <div
-            className="mx-auto grid w-full max-w-2xl grid-cols-2 gap-2 rounded-2xl border border-[#d4af87]/30 bg-black/45 p-2 sm:flex sm:gap-1 sm:rounded-full sm:p-1.5"
+            className="mx-auto flex w-full max-w-xl gap-2 overflow-x-auto rounded-full border border-[#ff2d87]/30 bg-[#0c1230]/80 p-1.5"
             role="tablist"
             aria-label="Filter dating offers by category"
           >
@@ -165,10 +168,10 @@ export default function FeaturedOffers() {
                   tabIndex={isActive ? 0 : -1}
                   onClick={() => selectTab(tab, index)}
                   onKeyDown={onTabKeyDown}
-                  className={`min-h-11 rounded-xl px-3 text-[0.72rem] font-bold uppercase tracking-[0.12em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af87] sm:min-h-12 sm:flex-1 sm:rounded-full sm:px-6 sm:tracking-[0.16em] ${
+                  className={`min-h-11 flex-1 whitespace-nowrap rounded-full px-4 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87] ${
                     isActive
-                      ? "bg-gradient-to-r from-brand-rose to-[#d4af87] text-ink shadow-[0_8px_24px_rgba(255,61,110,0.28)]"
-                      : "text-cream/80 hover:bg-cream/[0.08] hover:text-cream"
+                      ? "bg-[#ff2d87] text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)]"
+                      : "text-white/75 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {tab}
@@ -192,7 +195,7 @@ export default function FeaturedOffers() {
             id="featured-offers-panel"
             role="tabpanel"
             aria-labelledby={`featured-tab-${activeTab.toLowerCase()}`}
-            className="mt-8 grid gap-6 sm:mt-12 sm:gap-8 md:grid-cols-2 xl:grid-cols-4"
+            className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-2 xl:grid-cols-3"
           >
             {visibleOffers.map((offer) => {
               const explore = getExploreLink(offer.category);
@@ -200,75 +203,67 @@ export default function FeaturedOffers() {
               return (
                 <article
                   key={`${offer.name}-${offer.href}`}
-                  className="group flex h-full flex-col overflow-hidden border border-[#d4af87]/18 bg-[#0c080a] shadow-[0_18px_50px_rgba(0,0,0,0.35)] transition duration-500 hover:-translate-y-1.5 hover:border-brand-rose/50 hover:shadow-[0_24px_60px_rgba(255,61,110,0.18)]"
+                  className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]"
                 >
-                  <div className="relative h-80 overflow-hidden">
-                    <Image
-                      src={offer.image}
-                      alt={`${offer.name} dating platform`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                      className="object-cover object-top transition duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
-                    <div className="absolute inset-0 bg-brand-rose/0 mix-blend-multiply transition duration-500 group-hover:bg-brand-rose/25" />
-                    {offer.featured ? (
-                      <div className="absolute left-4 top-4 bg-brand-rose px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-cream">
-                        Featured
-                      </div>
-                    ) : null}
-                    <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold text-cream">
-                      <Globe size={14} className="text-[#d4af87]" />
-                      {offer.country ?? "Multi-region"}
+                  <TrackedAffiliateLink
+                    href={offer.href}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                    className="group flex flex-1 flex-col text-cream no-underline"
+                    onClick={() =>
+                      trackAffiliateClick(
+                        offer.name,
+                        "featured_offer",
+                        offer.country?.trim().toLowerCase() || undefined
+                      )
+                    }
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={offer.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        className="object-cover object-top transition duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#141a3d] via-transparent to-transparent" />
+                      <span className="absolute left-3 top-3 rounded-full bg-[#0c1230]/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                        18+
+                      </span>
+                      {offer.featured ? (
+                        <span className="absolute right-3 top-3 rounded-full bg-[#ff2d87] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                          Featured
+                        </span>
+                      ) : null}
                     </div>
-                  </div>
 
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#d4af87]">
+                    <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#ff2d87]">
                         {offer.category}
+                        {offer.country ? ` · ${offer.country}` : ""}
+                      </p>
+                      <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
+                        {offer.name}
+                      </h3>
+                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/75">
+                        {offer.description}
+                      </p>
+                      <span className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-6 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition group-hover:brightness-110">
+                        Open offer
+                        <ArrowUpRight size={16} />
+                        <span className="sr-only"> (opens in a new tab)</span>
                       </span>
                     </div>
+                  </TrackedAffiliateLink>
 
-                    <h3 className="mt-5 text-2xl font-extrabold tracking-tight text-cream">
-                      {offer.name}
-                    </h3>
-
-                    <p className="mt-3 flex items-center gap-2 text-sm text-cream/75">
-                      <ShieldCheck size={16} className="text-brand-rose" />
-                      Adults 18+ only
-                    </p>
-
-                    <p className="mt-3 flex-1 leading-relaxed text-cream/80">
-                      {offer.description}
-                    </p>
-
-                    <TrackedAffiliateLink
-                      href={offer.href}
-                      target="_blank"
-                      rel="sponsored nofollow noopener noreferrer"
-                      className="tdc-btn-primary mt-8 min-h-12 w-full"
-                      onClick={() =>
-                        trackAffiliateClick(
-                          offer.name,
-                          "featured_offer",
-                          offer.country?.trim().toLowerCase() || undefined
-                        )
-                      }
+                  {explore ? (
+                    <Link
+                      href={explore.href}
+                      className="px-5 pb-4 text-center text-sm font-semibold text-white/70 underline-offset-4 hover:text-[#ff2d87] hover:underline"
                     >
-                      Visit {offer.name}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </TrackedAffiliateLink>
-
-                    {explore ? (
-                      <Link
-                        href={explore.href}
-                        className="mt-2 inline-flex min-h-11 w-full items-center justify-center text-center text-sm font-semibold text-cream/80 underline-offset-4 transition hover:text-brand-rose hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af87]"
-                      >
-                        {explore.label}
-                      </Link>
-                    ) : null}
-                  </div>
+                      {explore.label}
+                    </Link>
+                  ) : null}
                 </article>
               );
             })}
@@ -278,7 +273,7 @@ export default function FeaturedOffers() {
         <div className="mt-16 text-center">
           <Link
             href="#countries"
-            className="tdc-btn-line min-h-12 w-full border-[#d4af87]/40 text-[#f3e6d4] hover:border-brand-rose hover:text-brand-rose sm:w-auto"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[#ff2d87]/50 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff2d87] sm:w-auto"
           >
             Browse offers by country
             <ArrowRight size={18} />
