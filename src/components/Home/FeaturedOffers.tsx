@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
+import { useCountriesOpen } from "@/components/Home/CountriesOpen";
 import { usaOffers } from "@/data/usaOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
@@ -83,6 +84,7 @@ const discoveryOffers = usaOffers.filter(
 );
 
 export default function FeaturedOffers() {
+  const { toggle } = useCountriesOpen();
   const [activeTab, setActiveTab] = useState<OfferTab>("All");
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -271,13 +273,14 @@ export default function FeaturedOffers() {
         )}
 
         <div className="mt-16 text-center">
-          <Link
-            href="#countries"
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[#ff2d87]/50 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff2d87] sm:w-auto"
+          <button
+            type="button"
+            onClick={toggle}
+            className="inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#ff2d87]/50 bg-transparent px-6 py-3.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff2d87] sm:w-auto"
           >
             Browse offers by country
             <ArrowRight size={18} />
-          </Link>
+          </button>
         </div>
       </div>
     </section>

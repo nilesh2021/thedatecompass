@@ -4,7 +4,8 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Home/Hero";
 import FeaturedOffers from "@/components/Home/FeaturedOffers";
-import Countries from "@/components/Home/Countries";
+import CountriesGate from "@/components/Home/CountriesGate";
+import { CountriesOpenProvider } from "@/components/Home/CountriesOpen";
 import FAQ from "@/components/Home/FAQ";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
@@ -82,8 +83,10 @@ export default function Home() {
       <div className="relative bg-[#0c1230]">
         <NoiseOverlay />
         <Hero />
-        <FeaturedOffers />
-        <Countries />
+        <CountriesOpenProvider>
+          <FeaturedOffers />
+          <CountriesGate />
+        </CountriesOpenProvider>
         <FAQ />
       </div>
       <Footer tone="home" />
