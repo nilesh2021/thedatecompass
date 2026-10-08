@@ -3,7 +3,7 @@
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 
 export const SEX_EMULATOR_AFFILIATE_URL =
-  "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_0060G000004lmDN";
+  "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_006OG000004lmDN";
 
 export const SEX_EMULATOR_CTA_REL = "nofollow sponsored noopener";
 
