@@ -8,7 +8,6 @@ import BrandLogo from "@/components/Home/BrandLogo";
 
 const primaryNav = [
   { href: "/#featured", label: "Offers" },
-  { href: "/#categories", label: "Categories" },
   { href: "/#countries", label: "Countries" },
   { href: "/#faq", label: "FAQ" },
 ];
