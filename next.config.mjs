@@ -35,7 +35,22 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/top-offers/gay-dating",
+        destination: "/gay-dating",
+        permanent: true,
+      },
+      {
+        source: "/top-offers/gay-dating/",
+        destination: "/gay-dating",
+        permanent: true,
+      },
+      {
         source: "/offers/dreamz-ai-v2",
+        destination: "/offers/dreamz-ai-companion",
+        permanent: true,
+      },
+      {
+        source: "/offers/dreamz-ai-v2/",
         destination: "/offers/dreamz-ai-companion",
         permanent: true,
       },
@@ -45,7 +60,17 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/category/manfinder/",
+        destination: "/offers/manfinder",
+        permanent: true,
+      },
+      {
         source: "/category/top-offers",
+        destination: "/top-offers",
+        permanent: true,
+      },
+      {
+        source: "/category/top-offers/",
         destination: "/top-offers",
         permanent: true,
       },
@@ -55,13 +80,28 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/gonaughty-australia/",
+        destination: "/offers/gonaughty-australia",
+        permanent: true,
+      },
+      {
         source: "/offers",
         destination: "/top-offers",
         permanent: true,
       },
       {
+        source: "/offers/",
+        destination: "/top-offers",
+        permanent: true,
+      },
+      {
         source: "/offers/ManFinderLandingV2",
-        destination: "/offers/manfinder-v2",
+        destination: "/offers/manfinder",
+        permanent: true,
+      },
+      {
+        source: "/offers/ManFinderLandingV2/",
+        destination: "/offers/manfinder",
         permanent: true,
       },
     ];

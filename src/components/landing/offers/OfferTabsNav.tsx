@@ -8,8 +8,10 @@ export default function OfferTabsNav() {
   const pathname = usePathname();
 
   const activeRoute =
-    datingOfferTabs.find((tab) => pathname?.endsWith(`/${tab.route}`))?.route ??
-    (pathname === "/top-offers" ? "casual" : null);
+    pathname === "/gay-dating"
+      ? "gay-dating"
+      : datingOfferTabs.find((tab) => pathname?.endsWith(`/${tab.route}`))
+          ?.route ?? (pathname === "/top-offers" ? "casual" : null);
 
   return (
     <nav
@@ -22,7 +24,9 @@ export default function OfferTabsNav() {
             const href =
               tab.route === "casual"
                 ? "/top-offers"
-                : `/top-offers/${tab.route}`;
+                : tab.route === "gay-dating"
+                  ? "/gay-dating"
+                  : `/top-offers/${tab.route}`;
             const isActive = activeRoute === tab.route;
 
             return (
