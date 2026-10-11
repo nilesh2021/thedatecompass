@@ -130,6 +130,10 @@ const relatedGuides = [
   { href: "/gay-dating", label: "Gay dating sites and apps" },
   { href: "/free-gay-dating-sites", label: "Free gay dating sites" },
   { href: "/free-usa-dating-sites", label: "Free USA dating sites" },
+  {
+    href: "/free-online-dating-usa-singles",
+    label: "Free online dating USA singles",
+  },
   { href: "/usa-dating-sites", label: "USA dating sites by intention" },
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating offers" },
