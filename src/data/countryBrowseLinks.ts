@@ -15,6 +15,7 @@ const activeCountries = [
   { href: "/canada", name: "Canada", inPhrase: "Canada" },
   { href: "/australia", name: "Australia", inPhrase: "Australia" },
   { href: "/uk", name: "UK", inPhrase: "the UK" },
+  { href: "/denmark", name: "Denmark", inPhrase: "Denmark" },
 ] as const;
 
 export type CountryBrowseTheme =

@@ -15,6 +15,7 @@ const otherCountries = [
   { href: "/france", label: "France", flag: "🇫🇷" },
   { href: "/australia", label: "Australia", flag: "🇦🇺" },
   { href: "/uk", label: "United Kingdom", flag: "🇬🇧" },
+  { href: "/denmark", label: "Denmark", flag: "🇩🇰" },
 ] as const;
 
 const canadaFaqs = [

@@ -653,6 +653,7 @@ export default function UsaPage() {
                   { href: "/canada", label: "🇨🇦 Canada" },
                   { href: "/australia", label: "🇦🇺 Australia" },
                   { href: "/uk", label: "🇬🇧 United Kingdom" },
+                  { href: "/denmark", label: "🇩🇰 Denmark" },
                 ] as const
               ).map((country) => (
                 <li key={country.href}>

@@ -4,6 +4,7 @@ import { ArrowRight, Globe2, CheckCircle2, Clock3 } from "lucide-react";
 import { availableCountries, countries } from "@/data/countries";
 import { usaOffers } from "@/data/usaOffers";
 import { germanyOffers } from "@/data/germanyOffers";
+import { denmarkOffers } from "@/data/countries/denmark";
 import { adultImages } from "@/data/adultOfferImages";
 
 const countryImages: Record<string, string> = {
@@ -13,6 +14,7 @@ const countryImages: Record<string, string> = {
   uk: adultImages.neon,
   canada: adultImages.gay,
   france: adultImages.portraitE,
+  denmark: adultImages.portraitA,
 };
 
 function getFlagEmoji(countryCode: string) {
@@ -26,6 +28,7 @@ function getFlagEmoji(countryCode: string) {
 function getOfferCount(slug: string) {
   if (slug === "usa") return usaOffers.length;
   if (slug === "germany") return germanyOffers.length;
+  if (slug === "denmark") return denmarkOffers.length;
   return null;
 }
 

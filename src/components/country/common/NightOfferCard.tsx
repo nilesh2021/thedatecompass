@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
@@ -13,6 +14,8 @@ type NightOfferCardProps = {
   image: string;
   href: string;
   country: string;
+  detailHref?: string;
+  detailLabel?: string;
 };
 
 export default function NightOfferCard({
@@ -23,6 +26,8 @@ export default function NightOfferCard({
   image,
   href,
   country,
+  detailHref,
+  detailLabel,
 }: NightOfferCardProps) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]">
@@ -68,6 +73,16 @@ export default function NightOfferCard({
           </span>
         </div>
       </TrackedAffiliateLink>
+      {detailHref && detailLabel ? (
+        <div className="border-t border-[#ff2d87]/20 px-5 py-3">
+          <Link
+            href={detailHref}
+            className="text-xs font-bold uppercase tracking-[0.12em] text-[#ff8aa8] underline decoration-[#ff2d87]/40 underline-offset-4 transition hover:text-white"
+          >
+            {detailLabel}
+          </Link>
+        </div>
+      ) : null}
     </article>
   );
 }

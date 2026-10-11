@@ -16,11 +16,12 @@ const ukCategories = [
 ] as const;
 
 const otherCountries = [
-  { href: "/usa", label: "United States", flag: "ðŸ‡ºðŸ‡¸" },
-  { href: "/germany", label: "Germany", flag: "ðŸ‡©ðŸ‡ª" },
-  { href: "/france", label: "France", flag: "ðŸ‡«ðŸ‡·" },
-  { href: "/canada", label: "Canada", flag: "ðŸ‡¨ðŸ‡¦" },
-  { href: "/australia", label: "Australia", flag: "ðŸ‡¦ðŸ‡º" },
+  { href: "/usa", label: "United States", flag: "🇺🇸" },
+  { href: "/germany", label: "Germany", flag: "🇩🇪" },
+  { href: "/france", label: "France", flag: "🇫🇷" },
+  { href: "/canada", label: "Canada", flag: "🇨🇦" },
+  { href: "/australia", label: "Australia", flag: "🇦🇺" },
+  { href: "/denmark", label: "Denmark", flag: "🇩🇰" },
 ] as const;
 
 const ukFaqs = [

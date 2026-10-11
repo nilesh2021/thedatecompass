@@ -76,6 +76,19 @@ export const countries: Country[] = [
     isAvailable: true,
   },
   {
+    name: "Denmark",
+    slug: "denmark",
+    code: "DK",
+    flag: "🇩🇰",
+    title: "Adult Dating Sites in Denmark",
+    description:
+      "Compare adult dating platforms available in Denmark.",
+    heroTitle: "Find Adult Dating Platforms Available in Denmark",
+    heroDescription:
+      "Browse trusted third-party dating platforms available for adults in Denmark.",
+    isAvailable: true,
+  },
+  {
     name: "Netherlands",
     slug: "netherlands",
     code: "NL",

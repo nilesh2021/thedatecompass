@@ -99,7 +99,7 @@ export const realSexClubFaqs = [
   {
     question: "Where else is RealSexClub listed on this site?",
     answer:
-      "RealSexClub currently appears on TheDateCompass country pages for the USA, Germany, France, Canada, Australia, and the UK, and on Top Offers. A listing on this site does not guarantee the destination service is available in every location.",
+      "RealSexClub currently appears on TheDateCompass country pages for the USA, Germany, France, Canada, Australia, the UK, and Denmark, and on Top Offers. A listing on this site does not guarantee the destination service is available in every location.",
   },
   {
     question: "How much does RealSexClub cost?",
