@@ -54,6 +54,7 @@ const PUBLIC_ROUTES: string[] = [
   "/top-offers/mature",
   "/uk",
   "/usa",
+  "/usa/gaybloom",
   "/usa-dating-sites",
 ];
 
@@ -72,6 +73,7 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/usa-dating-sites": { priority: 0.85, changeFrequency: "weekly" },
   "/cozy-sites": { priority: 0.8, changeFrequency: "weekly" },
   "/usa": { priority: 0.85, changeFrequency: "weekly" },
+  "/usa/gaybloom": { priority: 0.85, changeFrequency: "weekly" },
   "/germany": { priority: 0.85, changeFrequency: "weekly" },
   "/france": { priority: 0.85, changeFrequency: "weekly" },
   "/canada": { priority: 0.85, changeFrequency: "weekly" },

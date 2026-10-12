@@ -138,6 +138,7 @@ const relatedGuides = [
   { href: "/top-offers/adult", label: "Adult dating offers" },
   { href: "/top-offers/mature", label: "Mature dating offers" },
   { href: "/cozy-sites", label: "Cozy companion platforms" },
+  { href: "/usa/gaybloom", label: "GayBloom gay dating in the USA" },
   { href: "/offers/gay-dating-usa", label: "Gay dating in the USA (ManFinder)" },
   { href: "/offers/grannyhunter", label: "Grannyhunter mature dating" },
   { href: "/offers/manfinder", label: "ManFinder gay dating" },
