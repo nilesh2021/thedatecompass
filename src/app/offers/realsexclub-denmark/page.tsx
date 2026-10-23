@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: PAGE_TITLE,
+    title: PAGE_TITLE, 
     description: META_DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
