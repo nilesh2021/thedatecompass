@@ -36,6 +36,7 @@ export default function CountryNightPage({
   methodology,
   disclaimer,
   checklistTitle = "What to consider when choosing a platform",
+  checklistHeading = "h3",
   checklist,
   faqEyebrow,
   faqTitle,
@@ -72,6 +73,8 @@ export default function CountryNightPage({
   methodology?: ReactNode;
   disclaimer: string;
   checklistTitle?: string;
+  /** Defaults to h3 so existing country pages keep their heading outline. */
+  checklistHeading?: "h2" | "h3";
   checklist?: ReactNode;
   faqEyebrow: string;
   faqTitle: string;
@@ -176,9 +179,15 @@ export default function CountryNightPage({
               {afterOffers}
               {checklist ? (
                 <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d] p-6 text-left sm:p-8">
-                  <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">
-                    {checklistTitle}
-                  </h3>
+                  {checklistHeading === "h2" ? (
+                    <h2 className="text-xl font-extrabold tracking-tight sm:text-2xl">
+                      {checklistTitle}
+                    </h2>
+                  ) : (
+                    <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">
+                      {checklistTitle}
+                    </h3>
+                  )}
                   <ul className="mt-5 space-y-3 text-sm leading-relaxed text-cream/70 sm:text-base">
                     {checklist}
                   </ul>

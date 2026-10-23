@@ -15,8 +15,11 @@ type UsaAffiliateLinkProps = {
     | "usa_review_footer"
     | "germany_comparison_table"
     | "germany_review_hero"
-    | "germany_review_footer";
-  country?: "usa" | "germany";
+    | "germany_review_footer"
+    | "france_comparison_table"
+    | "france_review_hero"
+    | "france_review_footer";
+  country?: "usa" | "germany" | "france";
   className?: string;
   children?: ReactNode;
   compact?: boolean;

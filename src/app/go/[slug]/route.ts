@@ -1,3 +1,4 @@
+import { franceGoDestinations } from "@/data/countries/france";
 import { germanyGoDestinations } from "@/data/germanyOffers";
 import { usaGoDestinations } from "@/data/usaOffers";
 import {
@@ -13,7 +14,8 @@ type RouteContext = {
 export async function GET(request: Request, context: RouteContext) {
   const { slug } = await context.params;
   const key = slug.toLowerCase();
-  const destination = usaGoDestinations[key] ?? germanyGoDestinations[key];
+  const destination =
+    usaGoDestinations[key] ?? germanyGoDestinations[key] ?? franceGoDestinations[key];
 
   if (!destination) {
     notFound();

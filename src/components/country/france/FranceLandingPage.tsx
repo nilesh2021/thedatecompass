@@ -1,6 +1,12 @@
+import Link from "next/link";
 import CountryNightPage from "@/components/country/common/CountryNightPage";
 import FranceOfferCard from "@/components/country/france/FranceOfferCard";
-import { franceOffers } from "@/data/countries/france";
+import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
+import {
+  FRANCE_PAGE_LAST_UPDATED,
+  franceFaqs,
+  franceOffers,
+} from "@/data/countries/france";
 
 const franceCategories = [
   { href: "/gay-dating", label: "Gay dating" },
@@ -18,31 +24,30 @@ const otherCountries = [
   { href: "/denmark", label: "Denmark", flag: "🇩🇰" },
 ] as const;
 
-const franceFaqs = [
+const howWeRankItems = [
   {
-    question: "What is this France dating comparison page for?",
-    answer:
-      "This page helps visitors who want a France-focused place to compare third-party adult dating and social platforms. You can review categories and short descriptions for the four offers listed here, then open a provider site if an option looks relevant. TheDateCompass does not operate those platforms.",
+    title: "Availability in France",
+    text: "Whether each platform is listed for visitors comparing options with a France focus.",
   },
   {
-    question: "Which types of platforms are listed on this France page?",
-    answer:
-      "The shortlist covers mature dating, gay dating, adult dating, and adult social / niche interests. Use the category labels on each card—and the related category links on this page—to narrow by intention before you leave for a third-party site.",
+    title: "Category",
+    text: "Mature, gay dating, adult dating, and niche adult social listings shown in our inventory.",
   },
   {
-    question: "Does TheDateCompass operate these dating platforms?",
-    answer:
-      "No. TheDateCompass is an independent comparison site. We do not host member profiles, process registrations or payments, or provide customer support for the listed services. Each button opens an external provider site.",
+    title: "Public features",
+    text: "Information providers share publicly about matching, chat, and signup.",
   },
   {
-    question: "How should visitors in France use the offer links?",
-    answer:
-      "Treat each offer as a starting point for comparison. Read the category and description on this page, then check the destination site for current signup rules, privacy settings, and terms. Links may be affiliate links, and all listed services are intended for adults 18+ only.",
+    title: "Privacy information",
+    text: "We point you to each provider’s own privacy policy and data practices. We do not invent privacy scores.",
   },
   {
-    question: "What should I check before creating an account?",
-    answer:
-      "Confirm that you meet the provider’s age and eligibility requirements, review the privacy policy and community rules, and understand how messaging and profiles work on that site. Terms and features can change, so always verify details on the destination page rather than relying only on this summary.",
+    title: "Pricing (where available)",
+    text: "Free and paid options are set by the provider; we do not quote prices here.",
+  },
+  {
+    title: "Usability",
+    text: "How clearly a platform presents its purpose and next steps before you join.",
   },
 ];
 
@@ -53,10 +58,14 @@ export default function FranceLandingPage() {
   return (
     <CountryNightPage
       eyebrow="France · Adults 18+"
-      title={
+      title="Adult Dating Sites in France (2026)"
+      subtitle="Dating offers for France visitors."
+      lastUpdated={
         <>
-          Dating offers for{" "}
-          <span className="font-serif-accent italic text-[#ff2d87]">France</span> visitors.
+          Last updated:{" "}
+          <time dateTime={FRANCE_PAGE_LAST_UPDATED.iso}>
+            {FRANCE_PAGE_LAST_UPDATED.label}
+          </time>
         </>
       }
       lede="Browse mature dating, gay dating, adult dating, and niche adult social listings in a France-focused layout. TheDateCompass compares third-party options — we do not run these platforms."
@@ -68,9 +77,61 @@ export default function FranceLandingPage() {
       offerTitle="Four platforms to compare"
       offerDescription="A France-focused shortlist spanning mature dating, gay dating, adult dating, and niche adult social. Open any card to visit the third-party site."
       offers={franceOffers.map((offer) => (
-        <FranceOfferCard key={offer.id} offer={offer} />
+        <FranceOfferCard key={offer.slug} offer={offer} />
       ))}
+      afterOffers={
+        <>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
+            18+ only. TheDateCompass contains sponsored links. Selecting an
+            offer redirects you to an independent third-party provider site.
+          </p>
+          <USAComparisonTable variant="france" franceOffers={franceOffers} />
+        </>
+      }
+      methodology={
+        <section
+          id="how-we-rank"
+          className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20"
+        >
+          <div className="mx-auto max-w-7xl px-6">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+              Our approach
+            </p>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+              How we rank these sites
+            </h2>
+            <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+              We organise publicly listed information so you can compare France-focused
+              options in one place. We do not operate the dating services ourselves.
+            </p>
+            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {howWeRankItems.map((item) => (
+                <li
+                  key={item.title}
+                  className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6"
+                >
+                  <h3 className="text-xl font-extrabold tracking-tight text-cream">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-cream/55">
+              For how we work with outbound links, see our{" "}
+              <Link
+                href="/affiliate-disclosure"
+                className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
+              >
+                affiliate disclosure
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      }
       disclaimer={disclaimer}
+      checklistHeading="h2"
       checklist={
         <>
           <li>
