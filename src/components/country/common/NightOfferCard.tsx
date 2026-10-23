@@ -17,6 +17,8 @@ type NightOfferCardProps = {
   country: string;
   detailHref?: string;
   detailLabel?: string;
+  secondaryDetailHref?: string;
+  secondaryDetailLabel?: string;
 };
 
 export default function NightOfferCard({
@@ -30,6 +32,8 @@ export default function NightOfferCard({
   country,
   detailHref,
   detailLabel,
+  secondaryDetailHref,
+  secondaryDetailLabel,
 }: NightOfferCardProps) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]">
@@ -81,13 +85,21 @@ export default function NightOfferCard({
         </div>
       </TrackedAffiliateLink>
       {detailHref && detailLabel ? (
-        <div className="border-t border-[#ff2d87]/20 px-5 py-3">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-[#ff2d87]/20 px-5 py-3">
           <Link
             href={detailHref}
             className="text-xs font-bold uppercase tracking-[0.12em] text-[#ff8aa8] underline decoration-[#ff2d87]/40 underline-offset-4 transition hover:text-white"
           >
             {detailLabel}
           </Link>
+          {secondaryDetailHref && secondaryDetailLabel ? (
+            <Link
+              href={secondaryDetailHref}
+              className="text-xs font-bold uppercase tracking-[0.12em] text-[#ff8aa8] underline decoration-[#ff2d87]/40 underline-offset-4 transition hover:text-white"
+            >
+              {secondaryDetailLabel}
+            </Link>
+          ) : null}
         </div>
       ) : null}
     </article>

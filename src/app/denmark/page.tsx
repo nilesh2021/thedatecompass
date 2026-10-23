@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import DenmarkLandingPage, {
+import DenmarkLandingPage from "@/components/country/denmark/DenmarkLandingPage";
+import {
+  DENMARK_PAGE_LAST_UPDATED,
   denmarkFaqs,
-} from "@/components/country/denmark/DenmarkLandingPage";
+  denmarkOffers,
+  getDenmarkReviewHref,
+} from "@/data/countries/denmark";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/denmark`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 const PAGE_TITLE = "Adult Dating Sites in Denmark 2026 | Compare Offers";
 const META_DESCRIPTION =
-  "Compare adult dating sites in Denmark. Browse RealSexClub and other casual, gay, mature, and niche listings for Copenhagen and across Denmark. Adults 18+.";
+  "Compare adult dating sites and platforms in Denmark by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.";
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +31,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: PAGE_URL,
+    // TODO: Add hreflang only if a Danish-language version of this page ships.
   },
   openGraph: {
     title: PAGE_TITLE,
@@ -63,9 +68,30 @@ export const metadata: Metadata = {
   },
 };
 
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Adult Dating Sites in Denmark (2026)",
+  description: META_DESCRIPTION,
+  url: PAGE_URL,
+  dateModified: DENMARK_PAGE_LAST_UPDATED.iso,
+  isPartOf: { "@type": "WebSite", name: "TheDateCompass", url: SITE_URL },
+  audience: { "@type": "PeopleAudience", suggestedMinAge: 18 },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: denmarkOffers.map((offer, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: offer.name,
+      url: `${SITE_URL}${getDenmarkReviewHref(offer) ?? "/denmark"}`,
+    })),
+  },
+};
+
 export default function DenmarkPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
       <DenmarkLandingPage />
 
       <script

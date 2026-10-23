@@ -18,8 +18,20 @@ type UsaAffiliateLinkProps = {
     | "germany_review_footer"
     | "france_comparison_table"
     | "france_review_hero"
-    | "france_review_footer";
-  country?: "usa" | "germany" | "france";
+    | "france_review_footer"
+    | "canada_comparison_table"
+    | "canada_review_hero"
+    | "canada_review_footer"
+    | "australia_comparison_table"
+    | "australia_review_hero"
+    | "australia_review_footer"
+    | "uk_comparison_table"
+    | "uk_review_hero"
+    | "uk_review_footer"
+    | "denmark_comparison_table"
+    | "denmark_review_hero"
+    | "denmark_review_footer";
+  country?: "usa" | "germany" | "france" | "canada" | "australia" | "uk" | "denmark";
   className?: string;
   children?: ReactNode;
   compact?: boolean;

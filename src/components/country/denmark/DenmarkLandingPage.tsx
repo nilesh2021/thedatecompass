@@ -1,7 +1,13 @@
 import Link from "next/link";
 import CountryNightPage from "@/components/country/common/CountryNightPage";
 import NightOfferCard from "@/components/country/common/NightOfferCard";
-import { denmarkOffers } from "@/data/countries/denmark";
+import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
+import {
+  DENMARK_PAGE_LAST_UPDATED,
+  denmarkFaqs,
+  denmarkOffers,
+  getDenmarkReviewHref,
+} from "@/data/countries/denmark";
 
 const relatedCategories = [
   { href: "/gay-dating", label: "Gay dating" },
@@ -19,37 +25,13 @@ const otherCountries = [
   { href: "/uk", label: "United Kingdom", flag: "🇬🇧" },
 ] as const;
 
-export const denmarkFaqs = [
-  {
-    question: "What dating sites are compared for Denmark?",
-    answer:
-      "This Denmark page compares third-party dating and adult dating offers by audience, dating focus, and listed features. RealSexClub is featured first, alongside casual, gay, mature, trans, and niche adult social listings. Choose an option based on the category and description that fit what you are looking for.",
-  },
-  {
-    question: "Is RealSexClub available for Denmark visitors?",
-    answer:
-      "RealSexClub is listed here as an adult dating and social option for Denmark visitors comparing platforms. A listing on TheDateCompass does not guarantee the destination service is open in every city. Confirm eligibility and current terms on RealSexClub, or read our dedicated RealSexClub Denmark guide first.",
-  },
-  {
-    question: "Which offers on this page focus on casual dating?",
-    answer:
-      "If you are looking for casual dating, look for platforms that describe casual encounters or adult dating — including DirtyDating and FuckFinder. Compare the category labels and bullet points on each offer before visiting a provider.",
-  },
-  {
-    question: "Are there adult dating sites for different interests in Denmark?",
-    answer:
-      "Yes. Adult dating platforms can focus on different types of connections. Some offers are designed for casual dating, while others focus on gay dating, mature audiences, trans dating, or niche adult social spaces. Check each platform's description to find an option that matches what you are looking for.",
-  },
-  {
-    question: "How do I choose a dating site in Denmark?",
-    answer:
-      "Consider the type of connection you want, the platform's target audience, available features, privacy options, and whether the service fits visitors in Copenhagen, Aarhus, Odense, Aalborg, or elsewhere in Denmark. Comparing several dating platforms before choosing one can help you find an option that suits your preferences.",
-  },
-  {
-    question: "Are these dating platforms safe to use?",
-    answer:
-      "Online dating services have different privacy and safety features. Before using a platform, review its terms, privacy policy, community guidelines, and available safety controls. Avoid sharing sensitive personal or financial information with people you have not met or do not trust.",
-  },
+const howWeRankItems = [
+  { title: "Availability in Denmark", text: "Whether each platform is listed for visitors comparing options with a Denmark focus." },
+  { title: "Category", text: "Casual, gay, mature, trans, adult social, and niche listings shown in our inventory." },
+  { title: "Public features", text: "Information providers share publicly about matching, chat, and signup." },
+  { title: "Privacy information", text: "We point you to each provider’s own privacy policy and data practices. We do not invent privacy scores." },
+  { title: "Pricing (where available)", text: "Free and paid options are set by the provider; we do not quote prices here." },
+  { title: "Usability", text: "How clearly a platform presents its purpose and next steps before you join." },
 ];
 
 const heroImage =
@@ -59,11 +41,12 @@ export default function DenmarkLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Denmark · Adults 18+"
-      title={
+      title="Adult Dating Sites in Denmark (2026)"
+      subtitle="Dating offers for Denmark visitors."
+      lastUpdated={
         <>
-          Find the{" "}
-          <span className="font-serif-accent italic text-[#ff2d87]">spark</span>{" "}
-          you want in Denmark.
+          Last updated:{" "}
+          <time dateTime={DENMARK_PAGE_LAST_UPDATED.iso}>{DENMARK_PAGE_LAST_UPDATED.label}</time>
         </>
       }
       lede="Casual dating, adult social spaces, gay dating, and mature matches — compared for Denmark visitors so you can skip the guesswork and click what fits."
@@ -78,7 +61,7 @@ export default function DenmarkLandingPage() {
         <div className="mx-auto mt-8 grid max-w-xl grid-cols-3 gap-3">
           {[
             { label: "Platforms compared", value: `${denmarkOffers.length}` },
-            { label: "Guide updated", value: "2026" },
+            { label: "Guide updated", value: DENMARK_PAGE_LAST_UPDATED.label },
             { label: "Audience", value: "Adults 18+" },
           ].map((stat) => (
             <div
@@ -93,20 +76,58 @@ export default function DenmarkLandingPage() {
           ))}
         </div>
       }
-      offers={denmarkOffers.map((offer) => (
-        <NightOfferCard
-          key={offer.name}
-          name={offer.name.trim()}
-          category={offer.category}
-          points={offer.points}
-          image={offer.image}
-          href={offer.affiliateLink}
-          country="denmark"
-          detailHref={offer.guideHref}
-          detailLabel={offer.guideLabel}
-        />
-      ))}
+      offers={denmarkOffers.map((offer) => {
+        const reviewHref = getDenmarkReviewHref(offer);
+        return (
+          <NightOfferCard
+            key={offer.slug}
+            name={offer.name.trim()}
+            category={offer.category}
+            points={offer.points}
+            image={offer.image}
+            imageAlt={offer.imageAlt}
+            href={offer.href}
+            country="denmark"
+            detailHref={reviewHref ?? undefined}
+            detailLabel={reviewHref ? "Read review" : undefined}
+            secondaryDetailHref={offer.guideHref}
+            secondaryDetailLabel={offer.guideLabel}
+          />
+        );
+      })}
+      afterOffers={
+        <>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
+            18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site.
+          </p>
+          <USAComparisonTable variant="denmark" denmarkOffers={denmarkOffers} />
+        </>
+      }
+      methodology={
+        <section id="how-we-rank" className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">Our approach</p>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">How we rank these sites</h2>
+            <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+              We organise publicly listed information so you can compare Denmark-focused options in one place. We do not operate the dating services ourselves.
+            </p>
+            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {howWeRankItems.map((item) => (
+                <li key={item.title} className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6">
+                  <h3 className="text-xl font-extrabold tracking-tight text-cream">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-cream/55">
+              For how we work with outbound links, see our{" "}
+              <Link href="/affiliate-disclosure" className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline">affiliate disclosure</Link>.
+            </p>
+          </div>
+        </section>
+      }
       disclaimer="TheDateCompass is an independent comparison site. We may earn a commission when you visit a platform through our links. All listed services are third-party providers for adults 18+. Always confirm current terms and eligibility on the destination site."
+      checklistHeading="h2"
       checklist={
         <>
           <li>

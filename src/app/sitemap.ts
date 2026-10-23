@@ -1,8 +1,21 @@
 import type { MetadataRoute } from "next";
 import {
+  AUSTRALIA_PAGE_LAST_UPDATED,
+  australiaOffers,
+} from "@/data/countries/australia";
+import {
+  CANADA_PAGE_LAST_UPDATED,
+  canadaOffers,
+} from "@/data/countries/canada";
+import {
+  DENMARK_PAGE_LAST_UPDATED,
+  denmarkOffers,
+} from "@/data/countries/denmark";
+import {
   FRANCE_PAGE_LAST_UPDATED,
   franceOffers,
 } from "@/data/countries/france";
+import { UK_PAGE_LAST_UPDATED, ukOffers } from "@/data/countries/uk";
 import {
   GERMANY_PAGE_LAST_UPDATED,
   germanyOffers,
@@ -25,6 +38,22 @@ const GERMANY_REVIEW_ROUTES = germanyOffers
 const FRANCE_REVIEW_ROUTES = franceOffers
   .filter((offer) => offer.reviewReady)
   .map((offer) => `/france/${offer.slug}-review`);
+
+const CANADA_REVIEW_ROUTES = canadaOffers
+  .filter((offer) => offer.reviewReady)
+  .map((offer) => `/canada/${offer.slug}-review`);
+
+const AUSTRALIA_REVIEW_ROUTES = australiaOffers
+  .filter((offer) => offer.reviewReady)
+  .map((offer) => `/australia/${offer.slug}-review`);
+
+const UK_REVIEW_ROUTES = ukOffers
+  .filter((offer) => offer.reviewReady)
+  .map((offer) => `/uk/${offer.slug}-review`);
+
+const DENMARK_REVIEW_ROUTES = denmarkOffers
+  .filter((offer) => offer.reviewReady)
+  .map((offer) => `/denmark/${offer.slug}-review`);
 
 type RouteMeta = {
   changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -136,6 +165,16 @@ function getRouteMeta(route: string): RouteMeta {
     return { priority: 0.8, changeFrequency: "weekly" };
   }
 
+  if (
+    (route.startsWith("/canada/") ||
+      route.startsWith("/australia/") ||
+      route.startsWith("/uk/") ||
+      route.startsWith("/denmark/")) &&
+    route.endsWith("-review")
+  ) {
+    return { priority: 0.8, changeFrequency: "weekly" };
+  }
+
   return { priority: 0.7, changeFrequency: "monthly" };
 }
 
@@ -158,6 +197,22 @@ function getRouteLastModified(route: string): Date {
     return new Date(FRANCE_PAGE_LAST_UPDATED.iso);
   }
 
+  if (route === "/canada" || (route.startsWith("/canada/") && route.endsWith("-review"))) {
+    return new Date(CANADA_PAGE_LAST_UPDATED.iso);
+  }
+
+  if (route === "/australia" || (route.startsWith("/australia/") && route.endsWith("-review"))) {
+    return new Date(AUSTRALIA_PAGE_LAST_UPDATED.iso);
+  }
+
+  if (route === "/uk" || (route.startsWith("/uk/") && route.endsWith("-review"))) {
+    return new Date(UK_PAGE_LAST_UPDATED.iso);
+  }
+
+  if (route === "/denmark" || (route.startsWith("/denmark/") && route.endsWith("-review"))) {
+    return new Date(DENMARK_PAGE_LAST_UPDATED.iso);
+  }
+
   const gitIso = getGitLastModifiedIso(routeToAppFile(route));
   return new Date(gitIso ?? SITEMAP_FALLBACK_LASTMOD);
 }
@@ -168,6 +223,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...USA_REVIEW_ROUTES,
     ...GERMANY_REVIEW_ROUTES,
     ...FRANCE_REVIEW_ROUTES,
+    ...CANADA_REVIEW_ROUTES,
+    ...AUSTRALIA_REVIEW_ROUTES,
+    ...UK_REVIEW_ROUTES,
+    ...DENMARK_REVIEW_ROUTES,
   ];
 
   return routes.map((route) => {

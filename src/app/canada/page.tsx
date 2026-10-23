@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import CanadaLandingPage from "@/components/country/canada/CanadaLandingPage";
+import {
+  CANADA_PAGE_LAST_UPDATED,
+  canadaFaqs,
+  canadaOffers,
+  getCanadaReviewHref,
+} from "@/data/countries/canada";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/canada`;
@@ -11,9 +17,10 @@ const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
 export const metadata: Metadata = {
   title: "Adult Dating Platforms in Canada | Compare Offers",
   description:
-    "Compare third-party adult dating and companion platforms for Canada visitors. Browse casual, gay dating, mature, niche, and AI listings with a practical shortlist guide.",
+    "Compare adult dating sites and platforms in Canada by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.",
   alternates: {
     canonical: PAGE_URL,
+    // TODO: Add hreflang only if a Canadian-language version of this page ships.
   },
   openGraph: {
     title: "Adult Dating Platforms in Canada | Compare Offers",
@@ -52,6 +59,55 @@ export const metadata: Metadata = {
   },
 };
 
+const META_DESCRIPTION =
+  "Compare adult dating sites and platforms in Canada by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.";
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Adult Dating Sites in Canada (2026)",
+  description: META_DESCRIPTION,
+  url: PAGE_URL,
+  dateModified: CANADA_PAGE_LAST_UPDATED.iso,
+  isPartOf: { "@type": "WebSite", name: "TheDateCompass", url: SITE_URL },
+  audience: { "@type": "PeopleAudience", suggestedMinAge: 18 },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: canadaOffers.map((offer, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: offer.name,
+      url: `${SITE_URL}${getCanadaReviewHref(offer) ?? "/canada"}`,
+    })),
+  },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Canada", item: PAGE_URL },
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: canadaFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
 export default function CanadaPage() {
-  return <CanadaLandingPage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <CanadaLandingPage />
+    </>
+  );
 }

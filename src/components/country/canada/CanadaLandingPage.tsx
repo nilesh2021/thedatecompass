@@ -1,6 +1,12 @@
+import Link from "next/link";
 import CountryNightPage from "@/components/country/common/CountryNightPage";
 import CanadaOfferCard from "@/components/country/canada/CanadaOfferCard";
-import { canadaOffers } from "@/data/countries/canada";
+import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
+import {
+  CANADA_PAGE_LAST_UPDATED,
+  canadaFaqs,
+  canadaOffers,
+} from "@/data/countries/canada";
 
 const canadaCategories = [
   { href: "/gay-dating", label: "Gay dating" },
@@ -18,32 +24,13 @@ const otherCountries = [
   { href: "/denmark", label: "Denmark", flag: "🇩🇰" },
 ] as const;
 
-const canadaFaqs = [
-  {
-    question: "What does this Canada dating page help me do?",
-    answer:
-      "It gives visitors a Canada-focused shortlist of third-party adult dating platforms. You can compare category labels and brief descriptions for the nine offers here, then open a provider site if something looks relevant. TheDateCompass does not operate those platforms.",
-  },
-  {
-    question: "What kinds of offers appear on the Canada shortlist?",
-    answer:
-      "The listings cover casual dating, gay dating, adult dating, mature dating, trans dating, and niche adult social. Use the category tags on each card—and the related category links on this page—to filter by intention before you click through.",
-  },
-  {
-    question: "Is TheDateCompass a Canadian dating service?",
-    answer:
-      "No. TheDateCompass is an independent comparison site. We do not host profiles, process registrations or payments, or provide support for the listed services. Offer buttons open external third-party websites.",
-  },
-  {
-    question: "How should someone browsing from Canada use these links?",
-    answer:
-      "Use this page to shortlist by category and description first. On the destination site, confirm signup rules, language or region settings if shown, privacy options, and current terms. Links may be affiliate links, and every listed service is intended for adults 18+ only.",
-  },
-  {
-    question: "What should I verify before registering on a platform?",
-    answer:
-      "Check age and eligibility requirements, read the privacy policy and community guidelines, and understand how messaging works on that site. Features and policies can change, so rely on the provider’s live pages—not only this summary—before you create an account.",
-  },
+const howWeRankItems = [
+  { title: "Availability in Canada", text: "Whether each platform is listed for visitors comparing options with a Canada focus." },
+  { title: "Category", text: "Casual, gay, mature, trans, adult social, and niche listings shown in our inventory." },
+  { title: "Public features", text: "Information providers share publicly about matching, chat, and signup." },
+  { title: "Privacy information", text: "We point you to each provider’s own privacy policy and data practices. We do not invent privacy scores." },
+  { title: "Pricing (where available)", text: "Free and paid options are set by the provider; we do not quote prices here." },
+  { title: "Usability", text: "How clearly a platform presents its purpose and next steps before you join." },
 ];
 
 const disclaimer =
@@ -57,10 +44,12 @@ export default function CanadaLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Canada · Adults 18+"
-      title={
+      title="Adult Dating Sites in Canada (2026)"
+      subtitle="Dating offers for Canada visitors."
+      lastUpdated={
         <>
-          Dating offers for{" "}
-          <span className="font-serif-accent italic text-[#ff2d87]">Canada</span> visitors.
+          Last updated:{" "}
+          <time dateTime={CANADA_PAGE_LAST_UPDATED.iso}>{CANADA_PAGE_LAST_UPDATED.label}</time>
         </>
       }
       lede="A Canada-focused shortlist of third-party dating listings from our catalog. TheDateCompass compares options — we do not operate these platforms."
@@ -72,9 +61,41 @@ export default function CanadaLandingPage() {
       offerTitle="Nine platforms to compare"
       offerDescription="A Canada-focused shortlist spanning casual dating, gay dating, adult and mature dating, trans dating, and niche adult social. Open any card to visit the third-party site."
       offers={canadaOffers.map((offer) => (
-        <CanadaOfferCard key={offer.id} offer={offer} />
+        <CanadaOfferCard key={offer.slug} offer={offer} />
       ))}
+      afterOffers={
+        <>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
+            18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site.
+          </p>
+          <USAComparisonTable variant="canada" canadaOffers={canadaOffers} />
+        </>
+      }
+      methodology={
+        <section id="how-we-rank" className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">Our approach</p>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">How we rank these sites</h2>
+            <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+              We organise publicly listed information so you can compare Canada-focused options in one place. We do not operate the dating services ourselves.
+            </p>
+            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {howWeRankItems.map((item) => (
+                <li key={item.title} className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6">
+                  <h3 className="text-xl font-extrabold tracking-tight text-cream">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-cream/55">
+              For how we work with outbound links, see our{" "}
+              <Link href="/affiliate-disclosure" className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline">affiliate disclosure</Link>.
+            </p>
+          </div>
+        </section>
+      }
       disclaimer={disclaimer}
+      checklistHeading="h2"
       checklist={
         <>
           <li>

@@ -6,7 +6,8 @@ import Footer from "@/components/Home/Footer";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import UKOfferCard from "@/components/country/uk/UKOfferCard";
 import UKFaq from "@/components/country/uk/UKFaq";
-import { ukOffers } from "@/data/countries/uk";
+import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
+import { UK_PAGE_LAST_UPDATED, ukFaqs, ukOffers } from "@/data/countries/uk";
 
 const ukCategories = [
   { href: "/gay-dating", label: "Gay dating" },
@@ -24,32 +25,13 @@ const otherCountries = [
   { href: "/denmark", label: "Denmark", flag: "🇩🇰" },
 ] as const;
 
-const ukFaqs = [
-  {
-    question: "What is this UK dating comparison page designed for?",
-    answer:
-      "It gives United Kingdom visitors a focused place to compare five third-party adult dating listings. Review categories and short descriptions here, then open a provider site if an option looks relevant. TheDateCompass does not operate those platforms.",
-  },
-  {
-    question: "What categories appear on the UK shortlist?",
-    answer:
-      "Mature dating, adult dating, and trans dating. Use the labels on each cardâ€”and the related category links on this pageâ€”to narrow by what kind of experience you want.",
-  },
-  {
-    question: "Is TheDateCompass a UK dating operator?",
-    answer:
-      "No. TheDateCompass is an independent comparison website. We do not host member profiles, handle registrations or payments, or provide customer support for the listed services. Offer buttons open external third-party sites.",
-  },
-  {
-    question: "How should UK visitors treat the outbound offer buttons?",
-    answer:
-      "As a next step for research, not as a finished decision. Read the card on this page first, then check the destination site for current signup rules, privacy settings, and terms. Links may be affiliate links. All listed services are intended for adults 18+ only.",
-  },
-  {
-    question: "What is worth checking before I create a profile?",
-    answer:
-      "Age and eligibility requirements, the privacy policy and community rules, and how messaging works on that platform today. Features and policies can change, so confirm details on the providerâ€™s live pages before you register.",
-  },
+const howWeRankItems = [
+  { title: "Availability in the UK", text: "Whether each platform is listed for visitors comparing options with a UK focus." },
+  { title: "Category", text: "Mature, adult dating, and trans dating listings shown in our inventory." },
+  { title: "Public features", text: "Information providers share publicly about matching, chat, and signup." },
+  { title: "Privacy information", text: "We point you to each provider’s own privacy policy and data practices. We do not invent privacy scores." },
+  { title: "Pricing (where available)", text: "Free and paid options are set by the provider; we do not quote prices here." },
+  { title: "Usability", text: "How clearly a platform presents its purpose and next steps before you join." },
 ];
 
 const pillLinkClass =
@@ -79,10 +61,15 @@ export default function UKLandingPage() {
                 </p>
 
                 <h1 className="text-5xl font-extrabold leading-[0.9] tracking-[-0.045em] md:text-6xl">
-                  Dating offers for{" "}
-                  <span className="font-serif-accent italic text-[#ff2d87]">UK</span>{" "}
-                  visitors.
+                  Adult Dating Sites in the UK (2026)
                 </h1>
+                <p className="mt-5 max-w-xl font-serif-accent text-2xl italic leading-snug text-[#ff2d87] sm:text-3xl">
+                  Dating offers for UK visitors.
+                </p>
+                <p className="mt-4 text-sm text-cream/55">
+                  Last updated:{" "}
+                  <time dateTime={UK_PAGE_LAST_UPDATED.iso}>{UK_PAGE_LAST_UPDATED.label}</time>
+                </p>
 
                 <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-cream/68">
                   A United Kingdomâ€“focused shortlist of third-party dating listings
@@ -148,7 +135,7 @@ export default function UKLandingPage() {
 
               <div className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-2 xl:grid-cols-3">
                 {ukOffers.map((offer) => (
-                  <UKOfferCard key={offer.id} offer={offer} />
+                  <UKOfferCard key={offer.slug} offer={offer} />
                 ))}
               </div>
 
@@ -160,9 +147,9 @@ export default function UKLandingPage() {
               </p>
 
               <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d] p-6 sm:p-8">
-                <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">
+                <h2 className="text-xl font-extrabold tracking-tight sm:text-2xl">
                   What to consider when choosing a platform
-                </h3>
+                </h2>
                 <ul className="mt-5 space-y-3 text-sm leading-relaxed text-cream/70 sm:text-base">
                   <li>
                     <span className="font-semibold text-cream">Categories â€”</span>{" "}
@@ -200,6 +187,33 @@ export default function UKLandingPage() {
             </div>
           </section>
 
+          <p className="mx-auto max-w-3xl px-6 pb-4 text-center text-[11px] leading-5 text-cream/55">
+            18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site.
+          </p>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <USAComparisonTable variant="uk" ukOffers={ukOffers} />
+          </div>
+          <section id="how-we-rank" className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20">
+            <div className="mx-auto max-w-7xl px-6">
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">Our approach</p>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">How we rank these sites</h2>
+              <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+                We organise publicly listed information so you can compare UK-focused options in one place. We do not operate the dating services ourselves.
+              </p>
+              <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {howWeRankItems.map((item) => (
+                  <li key={item.title} className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6">
+                    <h3 className="text-xl font-extrabold tracking-tight text-cream">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 text-sm text-cream/55">
+                For how we work with outbound links, see our{" "}
+                <Link href="/affiliate-disclosure" className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline">affiliate disclosure</Link>.
+              </p>
+            </div>
+          </section>
           <UKFaq items={ukFaqs} />
 
           <section

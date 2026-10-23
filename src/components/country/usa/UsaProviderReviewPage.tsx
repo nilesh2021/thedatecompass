@@ -32,7 +32,7 @@ export type ProviderReviewOffer = Pick<
 >;
 
 export type ProviderReviewCountry = {
-  slug: "usa" | "germany" | "france";
+  slug: "usa" | "germany" | "france" | "canada" | "australia" | "uk" | "denmark";
   label: string;
   lastUpdated: { label: string; iso: string };
   inventoryLabel: string;
@@ -42,8 +42,22 @@ export type ProviderReviewCountry = {
   compareOtherLabel: string;
   safetyHref: string;
   safetyLabel: string;
-  heroPlacement: "usa_review_hero" | "germany_review_hero" | "france_review_hero";
-  footerPlacement: "usa_review_footer" | "germany_review_footer" | "france_review_footer";
+  heroPlacement:
+    | "usa_review_hero"
+    | "germany_review_hero"
+    | "france_review_hero"
+    | "canada_review_hero"
+    | "australia_review_hero"
+    | "uk_review_hero"
+    | "denmark_review_hero";
+  footerPlacement:
+    | "usa_review_footer"
+    | "germany_review_footer"
+    | "france_review_footer"
+    | "canada_review_footer"
+    | "australia_review_footer"
+    | "uk_review_footer"
+    | "denmark_review_footer";
 };
 
 export const USA_REVIEW_COUNTRY: ProviderReviewCountry = {
