@@ -12,7 +12,11 @@ type UsaAffiliateLinkProps = {
     | "usa_offer_card"
     | "usa_comparison_table"
     | "usa_review_hero"
-    | "usa_review_footer";
+    | "usa_review_footer"
+    | "germany_comparison_table"
+    | "germany_review_hero"
+    | "germany_review_footer";
+  country?: "usa" | "germany";
   className?: string;
   children?: ReactNode;
   compact?: boolean;
@@ -22,6 +26,7 @@ export default function UsaAffiliateLink({
   href,
   offerName,
   placement,
+  country = "usa",
   className,
   children,
   compact = false,
@@ -33,7 +38,7 @@ export default function UsaAffiliateLink({
       href={href}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
-      onClick={() => trackAffiliateClick(offerName, placement, "usa")}
+      onClick={() => trackAffiliateClick(offerName, placement, country)}
       aria-label={`Visit ${offerName} on external site (opens in new tab)`}
       className={className}
     >

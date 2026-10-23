@@ -1,6 +1,13 @@
+import Link from "next/link";
 import CountryNightPage from "@/components/country/common/CountryNightPage";
 import NightOfferCard from "@/components/country/common/NightOfferCard";
-import { germanyOffers } from "@/data/germanyOffers";
+import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
+import {
+  GERMANY_PAGE_LAST_UPDATED,
+  germanyFaqs,
+  germanyOffers,
+  getGermanyReviewHref,
+} from "@/data/germanyOffers";
 
 const relatedCategories = [
   { href: "/gay-dating", label: "Gay dating" },
@@ -18,36 +25,30 @@ const otherCountries = [
   { href: "/denmark", label: "Denmark", flag: "🇩🇰" },
 ] as const;
 
-const germanyFaqs = [
+const howWeRankItems = [
   {
-    question: "What dating sites are compared for Germany?",
-    answer:
-      "This Germany page compares third-party dating and adult dating offers by audience, dating focus, and listed features. Choose an option based on the category and description that fit what you are looking for.",
+    title: "Availability in Germany",
+    text: "Whether each platform is listed for visitors comparing options with a Germany focus.",
   },
   {
-    question: "Which dating sites are listed for Germany visitors?",
-    answer:
-      "The offers on this page are third-party dating and adult dating platforms presented for visitors comparing options with a Germany focus. Always confirm eligibility and terms on the destination site.",
+    title: "Category",
+    text: "Casual, gay, mature, adult social, trans-inclusive, and niche listings shown in our inventory.",
   },
   {
-    question: "Which offers on this page focus on casual dating?",
-    answer:
-      "If you are looking for casual dating, look for platforms on this page that describe casual encounters or adult dating. Compare the category labels and bullet points on each offer before visiting a provider.",
+    title: "Public features",
+    text: "Information providers share publicly about matching, chat, and signup.",
   },
   {
-    question: "Are there adult dating sites for different interests in Germany?",
-    answer:
-      "Yes. Adult dating platforms can focus on different types of connections and interests. Some offers are designed for casual dating, while others focus on specific communities, preferences, or alternative dating experiences. Check each platform's description to find an option that matches what you are looking for.",
+    title: "Privacy information",
+    text: "We point you to each provider’s own privacy policy and data practices. We do not invent privacy scores.",
   },
   {
-    question: "How do I choose a dating site in Germany?",
-    answer:
-      "Consider the type of connection you want, the platform's target audience, available features, pricing, privacy options, and whether the service is available in Germany. Comparing several dating platforms before choosing one can help you find an option that suits your preferences.",
+    title: "Pricing (where available)",
+    text: "Free and paid options are set by the provider; we do not quote prices here.",
   },
   {
-    question: "Are these dating platforms safe to use?",
-    answer:
-      "Online dating services have different privacy and safety features. Before using a platform, review its terms, privacy policy, community guidelines, and available safety controls. Avoid sharing sensitive personal or financial information with people you have not met or do not trust.",
+    title: "Usability",
+    text: "How clearly a platform presents its purpose and next steps before you join.",
   },
 ];
 
@@ -58,24 +59,29 @@ export default function GermanyLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Germany · Adults 18+"
-      title={
+      title="Adult Dating Sites in Germany (2026)"
+      subtitle="Find the spark you want in Germany."
+      lastUpdated={
         <>
-          Find the <span className="font-serif-accent italic text-[#ff2d87]">spark</span> you
-          want in Germany.
+          Last updated:{" "}
+          <time dateTime={GERMANY_PAGE_LAST_UPDATED.iso}>
+            {GERMANY_PAGE_LAST_UPDATED.label}
+          </time>
         </>
       }
       lede="Casual dating, niche communities, mature matches, and adult social spaces — compared side by side so you can skip the guesswork and click what fits."
+      note="18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site."
       ctaLabel="Compare now"
       image={heroImage}
       imageAlt="Couple enjoying a date in Germany"
       offerEyebrow="Germany offers"
       offerTitle="Adult dating platforms compared"
-      offerDescription="From DirtyDating and RealSexClub to niche picks like FetishPartner, Grannyhunter, and Manfinder — each offer below matches our live affiliate lineup."
+      offerDescription="We compare each site on pricing, privacy, member base in Germany and ease of use."
       offerBanner={
         <div className="mx-auto mt-8 grid max-w-xl grid-cols-3 gap-3">
           {[
             { label: "Platforms compared", value: `${germanyOffers.length}` },
-            { label: "Guide updated", value: "2026" },
+            { label: "Guide updated", value: GERMANY_PAGE_LAST_UPDATED.label },
             { label: "Audience", value: "Adults 18+" },
           ].map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-[#ff2d87]/30 bg-[#0c1230]/70 p-4 text-center">
@@ -87,17 +93,74 @@ export default function GermanyLandingPage() {
           ))}
         </div>
       }
-      offers={germanyOffers.map((offer) => (
-        <NightOfferCard
-          key={offer.name}
-          name={offer.name.trim()}
-          category={offer.category}
-          points={offer.points}
-          image={offer.image}
-          href={offer.affiliateLink}
-          country="germany"
-        />
-      ))}
+      offers={germanyOffers.map((offer) => {
+        const reviewHref = getGermanyReviewHref(offer);
+        return (
+          <NightOfferCard
+            key={offer.name}
+            name={offer.name.trim()}
+            category={offer.category}
+            points={offer.points}
+            image={offer.image}
+            imageAlt={offer.imageAlt}
+            href={offer.href}
+            country="germany"
+            detailHref={reviewHref ?? undefined}
+            detailLabel={reviewHref ? "Read review" : undefined}
+          />
+        );
+      })}
+      afterOffers={
+        <>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
+            18+ only. TheDateCompass contains sponsored links. Selecting an
+            offer redirects you to an independent third-party provider site.
+          </p>
+          <USAComparisonTable variant="germany" germanyOffers={germanyOffers} />
+        </>
+      }
+      methodology={
+        <section
+          id="how-we-rank"
+          className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20"
+        >
+          <div className="mx-auto max-w-7xl px-6">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+              Our approach
+            </p>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+              How we rank these sites
+            </h2>
+            <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+              We organise publicly listed information so you can compare Germany-focused
+              options in one place. We do not operate the dating services ourselves.
+            </p>
+            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {howWeRankItems.map((item) => (
+                <li
+                  key={item.title}
+                  className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6"
+                >
+                  <h3 className="text-xl font-extrabold tracking-tight text-cream">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-cream/55">
+              For how we work with outbound links, see our{" "}
+              <Link
+                href="/affiliate-disclosure"
+                className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
+              >
+                affiliate disclosure
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      }
       disclaimer="TheDateCompass is an independent comparison site. We may earn a commission when you visit a platform through our links. All listed services are third-party providers for adults 18+. Always confirm current terms and eligibility on the destination site."
       checklist={
         <>
@@ -141,9 +204,13 @@ export default function GermanyLandingPage() {
           <p>
             Start with intention. If you want low-pressure chats, focus on casual or adult dating
             cards. If you are looking for gay dating communities, mature connections, or
-            fetish-oriented adult social spaces, use those category labels to narrow the list.
+            niche adult social spaces, use those category labels to narrow the list.
             Matching intention to category first usually makes the remaining cards easier to
-            evaluate.
+            evaluate. You can also compare the same brands on our{" "}
+            <Link href="/usa" className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline">
+              USA dating page
+            </Link>{" "}
+            and other country shortlists linked below.
           </p>
           <p>
             After you shortlist, click through only when a listing’s framing fits what you want.
@@ -155,9 +222,10 @@ export default function GermanyLandingPage() {
           <p>
             Treat this page as a comparison aid. The offers above are not ranked as winners, and
             this guide does not claim which option is most popular, cheapest, or right for every
-            visitor. Use the cards and related category links to orient yourself, then verify live
-            details on each destination site. Country links below open our other active regional
-            shortlists if you want to compare how similar pages are organised elsewhere.
+            visitor. Use the cards, comparison table, and related category links to orient
+            yourself, then verify live details on each destination site. Country links below open
+            our other active regional shortlists if you want to compare how similar pages are
+            organised elsewhere.
           </p>
         </>
       }

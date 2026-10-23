@@ -1,10 +1,22 @@
 import type { MetadataRoute } from "next";
-import { USA_REVIEW_SLUGS } from "@/data/usaOffers";
-import { SITE_URL } from "@/lib/sitemap";
+import {
+  GERMANY_PAGE_LAST_UPDATED,
+  germanyOffers,
+} from "@/data/germanyOffers";
+import { USA_PAGE_LAST_UPDATED, USA_REVIEW_SLUGS } from "@/data/usaOffers";
+import { SITE_URL, SITEMAP_FALLBACK_LASTMOD } from "@/lib/sitemap";
+import {
+  getGitLastModifiedIso,
+  routeToAppFile,
+} from "@/lib/sitemapLastModified";
 
 const USA_REVIEW_ROUTES = USA_REVIEW_SLUGS.map(
   (slug) => `/usa/${slug}-review`,
 );
+
+const GERMANY_REVIEW_ROUTES = germanyOffers
+  .filter((offer) => offer.reviewReady)
+  .map((offer) => `/germany/${offer.slug}-review`);
 
 type RouteMeta = {
   changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -108,20 +120,38 @@ function getRouteMeta(route: string): RouteMeta {
     return { priority: 0.8, changeFrequency: "weekly" };
   }
 
+  if (route.startsWith("/germany/") && route.endsWith("-review")) {
+    return { priority: 0.8, changeFrequency: "weekly" };
+  }
+
   return { priority: 0.7, changeFrequency: "monthly" };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+function getRouteLastModified(route: string): Date {
+  if (route === "/usa" || (route.startsWith("/usa/") && route.endsWith("-review"))) {
+    return new Date(USA_PAGE_LAST_UPDATED.iso);
+  }
 
-  const routes = [...PUBLIC_ROUTES, ...USA_REVIEW_ROUTES];
+  if (
+    route === "/germany" ||
+    (route.startsWith("/germany/") && route.endsWith("-review"))
+  ) {
+    return new Date(GERMANY_PAGE_LAST_UPDATED.iso);
+  }
+
+  const gitIso = getGitLastModifiedIso(routeToAppFile(route));
+  return new Date(gitIso ?? SITEMAP_FALLBACK_LASTMOD);
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const routes = [...PUBLIC_ROUTES, ...USA_REVIEW_ROUTES, ...GERMANY_REVIEW_ROUTES];
 
   return routes.map((route) => {
     const meta = getRouteMeta(route);
 
     return {
       url: route === "/" ? SITE_URL : `${SITE_URL}${route}`,
-      lastModified,
+      lastModified: getRouteLastModified(route),
       changeFrequency: meta.changeFrequency ?? "monthly",
       priority: meta.priority ?? 0.7,
     };

@@ -12,6 +12,7 @@ type NightOfferCardProps = {
   description?: string;
   points?: string[];
   image: string;
+  imageAlt?: string;
   href: string;
   country: string;
   detailHref?: string;
@@ -24,6 +25,7 @@ export default function NightOfferCard({
   description,
   points,
   image,
+  imageAlt = "",
   href,
   country,
   detailHref,
@@ -34,19 +36,24 @@ export default function NightOfferCard({
       <TrackedAffiliateLink
         href={href}
         target="_blank"
-        rel="nofollow sponsored noopener noreferrer"
+        rel="sponsored nofollow noopener noreferrer"
         className="group flex flex-1 flex-col text-cream no-underline"
         onClick={() => trackAffiliateClick(name, "offer_card", country)}
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src={image}
-            alt=""
-            fill
+            alt={imageAlt}
+            width={640}
+            height={400}
+            loading="lazy"
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            className="object-cover object-top transition duration-700 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141a3d] via-transparent to-transparent" />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-[#141a3d] via-transparent to-transparent"
+            aria-hidden="true"
+          />
           <span className="absolute left-3 top-3 rounded-full bg-[#0c1230]/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
             18+
           </span>

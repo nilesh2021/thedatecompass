@@ -16,16 +16,63 @@ export type UsaProviderReviewExtras = {
   listedHighlights?: string[];
 };
 
+export type ProviderReviewOffer = Pick<
+  UsaOffer,
+  | "name"
+  | "slug"
+  | "category"
+  | "featured"
+  | "description"
+  | "keyFocus"
+  | "badge"
+  | "accent"
+  | "image"
+  | "href"
+  | "country"
+>;
+
+export type ProviderReviewCountry = {
+  slug: "usa" | "germany";
+  label: string;
+  lastUpdated: { label: string; iso: string };
+  inventoryLabel: string;
+  audiencePhrase: string;
+  backHref: string;
+  backLabel: string;
+  compareOtherLabel: string;
+  safetyHref: string;
+  safetyLabel: string;
+  heroPlacement: "usa_review_hero" | "germany_review_hero";
+  footerPlacement: "usa_review_footer" | "germany_review_footer";
+};
+
+export const USA_REVIEW_COUNTRY: ProviderReviewCountry = {
+  slug: "usa",
+  label: "USA",
+  lastUpdated: USA_PAGE_LAST_UPDATED,
+  inventoryLabel: "USA inventory",
+  audiencePhrase: "adults in the United States",
+  backHref: "/usa",
+  backLabel: "Back to USA comparison",
+  compareOtherLabel: "Compare other adult dating sites in the USA",
+  safetyHref: "/usa#safety",
+  safetyLabel: "safety section on the USA comparison page",
+  heroPlacement: "usa_review_hero",
+  footerPlacement: "usa_review_footer",
+};
+
 type UsaProviderReviewPageProps = {
-  offer: UsaOffer;
+  offer: ProviderReviewOffer;
   extras?: UsaProviderReviewExtras;
   faqs: CountryFaqItem[];
+  country?: ProviderReviewCountry;
 };
 
 export default function UsaProviderReviewPage({
   offer,
   extras,
   faqs,
+  country = USA_REVIEW_COUNTRY,
 }: UsaProviderReviewPageProps) {
   const availability =
     offer.badge?.trim() ||
@@ -36,13 +83,13 @@ export default function UsaProviderReviewPage({
 
   const pros = [
     offer.country || offer.badge
-      ? `Listed on TheDateCompass for ${offer.country ?? "USA"} visitors (${offer.badge ?? "USA available"}).`
+      ? `Listed on TheDateCompass for ${offer.country ?? country.label} visitors (${offer.badge ?? `${country.label} available`}).`
       : null,
     offer.keyFocus
-      ? `Clear focus in our USA inventory: ${offer.keyFocus}.`
+      ? `Clear focus in our ${country.inventoryLabel}: ${offer.keyFocus}.`
       : null,
     offer.featured
-      ? "Featured in the USA comparison lineup for easier side-by-side browsing."
+      ? `Featured in the ${country.label} comparison lineup for easier side-by-side browsing.`
       : null,
     hasListedHighlights
       ? `Casual dating comparison data mentions: ${listedHighlights.join(", ").toLowerCase()}.`
@@ -77,8 +124,8 @@ export default function UsaProviderReviewPage({
           </li>
           <li aria-hidden className="text-white/30">/</li>
           <li>
-            <Link href="/usa" className={`text-white/80 ${linkFocus}`}>
-              USA
+            <Link href={country.backHref} className={`text-white/80 ${linkFocus}`}>
+              {country.label}
             </Link>
           </li>
           <li aria-hidden className="text-white/30">/</li>
@@ -95,20 +142,20 @@ export default function UsaProviderReviewPage({
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose-soft">
-              {offer.category} · USA guide
+              {offer.category} · {country.label} guide
             </p>
             <h1 className="mt-4 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
               {offer.name} Review 2026
             </h1>
             <p className="mt-3 text-sm text-white/55">
               Last updated:{" "}
-              <time dateTime={USA_PAGE_LAST_UPDATED.iso}>
-                {USA_PAGE_LAST_UPDATED.label}
+              <time dateTime={country.lastUpdated.iso}>
+                {country.lastUpdated.label}
               </time>
             </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
               {offer.description} This page summarizes how {offer.name} appears
-              in TheDateCompass USA listings—category, focus, and availability—so
+              in TheDateCompass {country.label} listings—category, focus, and availability—so
               you can decide whether to visit the provider&apos;s own site for
               full details.
             </p>
@@ -126,16 +173,17 @@ export default function UsaProviderReviewPage({
               <UsaAffiliateLink
                 href={offer.href}
                 offerName={offer.name}
-                placement="usa_review_hero"
+                placement={country.heroPlacement}
+                country={country.slug}
                 className={`inline-flex items-center justify-center rounded-xl bg-brand-rose px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-brand-rose/25 transition hover:bg-brand-rose-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose`}
               >
                 Visit {offer.name}
               </UsaAffiliateLink>
               <Link
-                href="/usa"
+                href={country.backHref}
                 className={`inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-white/90 transition hover:border-brand-rose/50 hover:bg-white/[0.08] ${linkFocus}`}
               >
-                Back to USA comparison
+                {country.backLabel}
               </Link>
             </div>
           </div>
@@ -203,7 +251,7 @@ export default function UsaProviderReviewPage({
               What is {offer.name}?
             </h2>
             <p className="mt-4">
-              Based on TheDateCompass USA inventory, {offer.name} is listed under{" "}
+              Based on TheDateCompass {country.inventoryLabel}, {offer.name} is listed under{" "}
               <strong className="font-semibold text-white/90">
                 {offer.category.toLowerCase()}
               </strong>
@@ -223,7 +271,7 @@ export default function UsaProviderReviewPage({
               Who might consider it?
             </h2>
             <p className="mt-4">
-              This listing may suit adults in the United States who are browsing{" "}
+              This listing may suit {country.audiencePhrase} who are browsing{" "}
               {offer.category.toLowerCase()} options and prefer a{" "}
               {offer.keyFocus?.toLowerCase() ?? "casual"} experience rather than
               a long-form compatibility questionnaire.
@@ -335,9 +383,9 @@ export default function UsaProviderReviewPage({
             provider offers after you create an account.
           </p>
           <p className="mt-4">
-            For broader USA listing safety tips, see our{" "}
-            <Link href="/usa#safety" className={linkFocus}>
-              safety section on the USA comparison page
+            For broader {country.label} listing safety tips, see our{" "}
+            <Link href={country.safetyHref} className={linkFocus}>
+              {country.safetyLabel}
             </Link>
             . Read our{" "}
             <Link href="/privacy-policy" className={linkFocus}>
@@ -356,11 +404,11 @@ export default function UsaProviderReviewPage({
           </h2>
           <p className="mt-4">
             TheDateCompass compares publicly available listing information used
-            across our USA guide—category, availability badges, short
-            descriptions, stated focus areas, and casual-dating comparison
-            highlights where we publish them. We do not claim hands-on product
-            testing unless a page explicitly says so. Details can change on the
-            provider site without notice.
+            across our {country.label} guide—category, availability badges, short
+            descriptions, stated focus areas, and comparison highlights where we
+            publish them. We do not claim hands-on product testing unless a page
+            explicitly says so. Details can change on the provider site without
+            notice.
           </p>
           <p className="mt-4 text-sm text-white/55">
             See also our{" "}
@@ -407,16 +455,17 @@ export default function UsaProviderReviewPage({
             <UsaAffiliateLink
               href={offer.href}
               offerName={offer.name}
-              placement="usa_review_footer"
+              placement={country.footerPlacement}
+              country={country.slug}
               className={`inline-flex items-center justify-center rounded-xl bg-brand-rose px-8 py-4 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-brand-rose/25 transition hover:bg-brand-rose-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose`}
             >
               Visit {offer.name}
             </UsaAffiliateLink>
             <Link
-              href="/usa"
+              href={country.backHref}
               className={`inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/[0.04] px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-white/90 transition hover:border-brand-rose/50 ${linkFocus}`}
             >
-              Compare other adult dating sites in the USA
+              {country.compareOtherLabel}
             </Link>
           </div>
         </div>

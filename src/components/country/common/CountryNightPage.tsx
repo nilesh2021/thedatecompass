@@ -20,6 +20,8 @@ const offerBandStyle = {
 export default function CountryNightPage({
   eyebrow,
   title,
+  subtitle,
+  lastUpdated,
   lede,
   note,
   ctaLabel,
@@ -30,6 +32,8 @@ export default function CountryNightPage({
   offerDescription,
   offerBanner,
   offers,
+  afterOffers,
+  methodology,
   disclaimer,
   checklistTitle = "What to consider when choosing a platform",
   checklist,
@@ -52,6 +56,8 @@ export default function CountryNightPage({
 }: {
   eyebrow: string;
   title: ReactNode;
+  subtitle?: ReactNode;
+  lastUpdated?: ReactNode;
   lede: string;
   note?: string;
   ctaLabel: string;
@@ -62,6 +68,8 @@ export default function CountryNightPage({
   offerDescription: string;
   offerBanner?: ReactNode;
   offers: ReactNode;
+  afterOffers?: ReactNode;
+  methodology?: ReactNode;
   disclaimer: string;
   checklistTitle?: string;
   checklist?: ReactNode;
@@ -106,6 +114,14 @@ export default function CountryNightPage({
                 <h1 className="text-5xl font-extrabold leading-[0.95] tracking-[-0.045em] md:text-6xl">
                   {title}
                 </h1>
+                {subtitle ? (
+                  <p className="mt-5 max-w-xl font-serif-accent text-2xl italic leading-snug text-[#ff2d87] sm:text-3xl">
+                    {subtitle}
+                  </p>
+                ) : null}
+                {lastUpdated ? (
+                  <p className="mt-4 text-sm text-cream/55">{lastUpdated}</p>
+                ) : null}
                 <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-cream/68">
                   {lede}
                 </p>
@@ -157,6 +173,7 @@ export default function CountryNightPage({
               <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-6 text-cream/45">
                 {disclaimer}
               </p>
+              {afterOffers}
               {checklist ? (
                 <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d] p-6 text-left sm:p-8">
                   <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">
@@ -169,6 +186,8 @@ export default function CountryNightPage({
               ) : null}
             </div>
           </section>
+
+          {methodology}
 
           <UKFaq items={faqs} eyebrow={faqEyebrow} title={faqTitle} subtitle={faqSubtitle} />
 

@@ -1,3 +1,4 @@
+import { germanyGoDestinations } from "@/data/germanyOffers";
 import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
@@ -11,7 +12,8 @@ type RouteContext = {
 
 export async function GET(request: Request, context: RouteContext) {
   const { slug } = await context.params;
-  const destination = usaGoDestinations[slug.toLowerCase()];
+  const key = slug.toLowerCase();
+  const destination = usaGoDestinations[key] ?? germanyGoDestinations[key];
 
   if (!destination) {
     notFound();
