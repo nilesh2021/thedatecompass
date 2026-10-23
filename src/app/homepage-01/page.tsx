@@ -162,7 +162,7 @@ const INVENTORY: Record<CountrySlug, Platform[]> = {
     germanyOffers.map((offer) => ({
       ...offer,
       description: offer.points[0],
-      href: offer.affiliateLink,
+      href: offer.href,
     }))
   ),
   australia: normalizeList(australiaOffers),
