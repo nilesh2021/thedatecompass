@@ -19,6 +19,8 @@ type NightOfferCardProps = {
   detailLabel?: string;
   secondaryDetailHref?: string;
   secondaryDetailLabel?: string;
+  /** Disclosure line such as "Anzeige / Sponsored". Omit on editorial listings. */
+  kicker?: string;
 };
 
 export default function NightOfferCard({
@@ -34,6 +36,7 @@ export default function NightOfferCard({
   detailLabel,
   secondaryDetailHref,
   secondaryDetailLabel,
+  kicker,
 }: NightOfferCardProps) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]">
@@ -63,6 +66,11 @@ export default function NightOfferCard({
           </span>
         </div>
         <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
+          {kicker ? (
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-cream/75">
+              {kicker}
+            </p>
+          ) : null}
           <p className="text-[10px] font-bold uppercase tracking-wider text-[#ff2d87]">
             {category}
           </p>

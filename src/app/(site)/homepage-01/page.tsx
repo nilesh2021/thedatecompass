@@ -159,11 +159,13 @@ const INVENTORY: Record<CountrySlug, Platform[]> = {
   canada: normalizeList(canadaOffers),
   uk: normalizeList(ukOffers),
   germany: normalizeList(
-    germanyOffers.map((offer) => ({
-      ...offer,
-      description: offer.points[0],
-      href: offer.href,
-    }))
+    germanyOffers
+      .filter((offer) => !offer.sponsored)
+      .map((offer) => ({
+        ...offer,
+        description: offer.points[0],
+        href: offer.href,
+      }))
   ),
   australia: normalizeList(australiaOffers),
 };

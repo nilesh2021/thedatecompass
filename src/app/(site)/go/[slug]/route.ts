@@ -6,10 +6,10 @@ import { ukGoDestinations } from "@/data/countries/uk";
 import { germanyGoDestinations } from "@/data/germanyOffers";
 import { usaGoDestinations } from "@/data/usaOffers";
 import {
-  appendPlacementAsAffSub4,
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
-  readPlacementFromSearch,
+  readPlacementFromRequest,
+  withAffiliatePlacement,
 } from "@/lib/affiliateUrl";
 import { notFound, redirect } from "next/navigation";
 
@@ -33,10 +33,12 @@ export async function GET(request: Request, context: RouteContext) {
     notFound();
   }
 
-  const tracked = buildTrackedAffiliateUrl(
-    destination,
-    readClickIdFromRequest(request)
-  );
-  const placement = readPlacementFromSearch(new URL(request.url).search);
-  redirect(appendPlacementAsAffSub4(tracked, placement));
+  // Fremdgehen69 reports the on-page control in aff_sub4 (card, table, cta).
+  // aff_sub is only attached later, and only when a paid click_id is present.
+  const located =
+    key === "fremdgehen69"
+      ? withAffiliatePlacement(destination, readPlacementFromRequest(request))
+      : destination;
+
+  redirect(buildTrackedAffiliateUrl(located, readClickIdFromRequest(request)));
 }

@@ -2,9 +2,8 @@ const CLICK_ID_STORAGE_KEY = "tdc_click_id";
 export const CLICK_ID_COOKIE = "tdc_click_id";
 const CLICK_ID_COOKIE_MAX_AGE = 60 * 60 * 24 * 30;
 const GO_URL_ORIGIN = "https://www.thedatecompass.com";
-
-/** Landing-page CTA placements forwarded as aff_sub4. Anything else is dropped. */
-const AFF_SUB4_PLACEMENTS = new Set(["lp_hero", "lp_mid", "lp_end"]);
+/** Safe token for aff_sub4. aff_sub stays reserved for paid click IDs. */
+const PLACEMENT_PATTERN = /^[a-z0-9_-]{1,32}$/;
 
 function trimClickId(clickId?: string | null): string | null {
   const trimmed = clickId?.trim();
@@ -50,32 +49,27 @@ export function readClickIdFromRequest(request: Request): string | null {
   return readClickIdFromCookieHeader(request.headers.get("cookie"));
 }
 
-export function readPlacementFromSearch(search: string): string | null {
-  const value = new URLSearchParams(search).get("placement")?.trim();
-  if (!value || !AFF_SUB4_PLACEMENTS.has(value)) return null;
-  return value;
+export function readPlacementFromRequest(request: Request): string | null {
+  const value = new URL(request.url).searchParams.get("placement")?.trim().toLowerCase() ?? "";
+  return PLACEMENT_PATTERN.test(value) ? value : null;
 }
 
 /**
- * Copy an allowlisted placement onto an affiliate destination as aff_sub4.
- * Does not set aff_sub and does not replace po, aff_sub5, or an existing aff_sub4.
+ * Record which on-page control was clicked.
+ * Writes aff_sub4 only. Does not set aff_sub (reserved for paid click IDs).
  */
-export function appendPlacementAsAffSub4(
-  baseUrl: string,
-  placement?: string | null
+export function withAffiliatePlacement(
+  destination: string,
+  placement: string | null,
 ): string {
-  if (!placement || !AFF_SUB4_PLACEMENTS.has(placement) || !baseUrl || baseUrl === "#") {
-    return baseUrl;
-  }
+  if (!placement || !PLACEMENT_PATTERN.test(placement)) return destination;
 
   try {
-    const url = new URL(baseUrl);
-    if (!url.searchParams.has("aff_sub4")) {
-      url.searchParams.set("aff_sub4", placement);
-    }
+    const url = new URL(destination);
+    url.searchParams.set("aff_sub4", placement);
     return url.toString();
   } catch {
-    return baseUrl;
+    return destination;
   }
 }
 
@@ -122,7 +116,6 @@ export function buildTrackedAffiliateUrl(
     if (!url.searchParams.has("click_id")) {
       url.searchParams.set("click_id", trimmed);
     }
-    // Keep placement (and any other query) so /go can map it to aff_sub4.
     return `${url.pathname}${url.search}`;
   }
 
