@@ -97,7 +97,7 @@ export const germanyGoDestinations: Record<string, string> = {
     "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
   // CrakRevenue SOI. Placement is added as aff_sub4 on redirect. Do not set aff_sub here.
   fremdgehen69:
-    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN&aff_sub2=thedatecompass&aff_sub3=germany",
+    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 };
 
 const PRICE_NOTE = "See provider site";
