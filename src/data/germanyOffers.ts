@@ -30,6 +30,9 @@ export type GermanyOffer = {
   privacyNote: string;
   /** Leave null until a verified rating exists. */
   rating: number | null;
+  /** Optional on-site guide. Used instead of the English review link. */
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 export const GERMANY_PAGE_LAST_UPDATED = {
@@ -77,6 +80,8 @@ export const germanyGoDestinations: Record<string, string> = {
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
   fetishpartner:
     "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  fremdgehen69:
+    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 };
 
 const PRICE_NOTE = "See provider site";
@@ -84,7 +89,7 @@ const PRIVACY_NOTE = "See provider privacy policy";
 
 /**
  * Germany inventory ordered by Offer Master priority.
- * Fremdgehen69 omitted — no affiliate URL exists in project data.
+ * Fremdgehen69 is a DE/AT casual-dating offer with a German guide at /de/fremdgehen69.
  */
 export const germanyOffers: GermanyOffer[] = [
   {
@@ -285,6 +290,35 @@ export const germanyOffers: GermanyOffer[] = [
     privacyNote: PRIVACY_NOTE,
     // TODO: Add a verified FetishPartner rating when available. Do not invent scores.
     rating: null,
+  },
+  {
+    name: "Fremdgehen69",
+    slug: "fremdgehen69",
+    category: "Casual discreet dating",
+    description:
+      "Casual, discreet dating for adults in Germany and Austria. Free signup; paid features and current prices are on the provider site.",
+    keyFocus: "Discreet casual dating in Germany and Austria",
+    badge: "Listed for Germany",
+    mark: "F",
+    accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
+    image: getOfferAdultImage("fremdgehen69"),
+    imageAlt: "Fremdgehen69 – diskretes Casual-Dating für Erwachsene",
+    href: getGermanyGoHref("fremdgehen69"),
+    affiliateLink: germanyGoDestinations.fremdgehen69,
+    reviewReady: false,
+    tags: ["Casual", "Adults 18+", "Germany", "Austria"],
+    buttonText: "Visit Fremdgehen69",
+    points: [
+      "Casual dating aimed at adults in Germany and Austria",
+      "Signup is free; paid features are billed by the provider",
+      "German-language overview on TheDateCompass",
+    ],
+    country: "Germany",
+    priceNote: PRICE_NOTE,
+    privacyNote: PRIVACY_NOTE,
+    rating: null,
+    guideHref: "/de/fremdgehen69",
+    guideLabel: "Mehr erfahren",
   },
 ];
 

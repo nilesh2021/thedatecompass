@@ -6,8 +6,10 @@ import { ukGoDestinations } from "@/data/countries/uk";
 import { germanyGoDestinations } from "@/data/germanyOffers";
 import { usaGoDestinations } from "@/data/usaOffers";
 import {
+  appendPlacementAsAffSub4,
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
+  readPlacementFromSearch,
 } from "@/lib/affiliateUrl";
 import { notFound, redirect } from "next/navigation";
 
@@ -31,5 +33,10 @@ export async function GET(request: Request, context: RouteContext) {
     notFound();
   }
 
-  redirect(buildTrackedAffiliateUrl(destination, readClickIdFromRequest(request)));
+  const tracked = buildTrackedAffiliateUrl(
+    destination,
+    readClickIdFromRequest(request)
+  );
+  const placement = readPlacementFromSearch(new URL(request.url).search);
+  redirect(appendPlacementAsAffSub4(tracked, placement));
 }

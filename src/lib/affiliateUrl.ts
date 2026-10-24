@@ -3,6 +3,9 @@ export const CLICK_ID_COOKIE = "tdc_click_id";
 const CLICK_ID_COOKIE_MAX_AGE = 60 * 60 * 24 * 30;
 const GO_URL_ORIGIN = "https://www.thedatecompass.com";
 
+/** Landing-page CTA placements forwarded as aff_sub4. Anything else is dropped. */
+const AFF_SUB4_PLACEMENTS = new Set(["lp_hero", "lp_mid", "lp_end"]);
+
 function trimClickId(clickId?: string | null): string | null {
   const trimmed = clickId?.trim();
   return trimmed ? trimmed : null;
@@ -45,6 +48,35 @@ export function readClickIdFromRequest(request: Request): string | null {
   const fromQuery = readClickIdFromSearch(new URL(request.url).search);
   if (fromQuery) return fromQuery;
   return readClickIdFromCookieHeader(request.headers.get("cookie"));
+}
+
+export function readPlacementFromSearch(search: string): string | null {
+  const value = new URLSearchParams(search).get("placement")?.trim();
+  if (!value || !AFF_SUB4_PLACEMENTS.has(value)) return null;
+  return value;
+}
+
+/**
+ * Copy an allowlisted placement onto an affiliate destination as aff_sub4.
+ * Does not set aff_sub and does not replace po, aff_sub5, or an existing aff_sub4.
+ */
+export function appendPlacementAsAffSub4(
+  baseUrl: string,
+  placement?: string | null
+): string {
+  if (!placement || !AFF_SUB4_PLACEMENTS.has(placement) || !baseUrl || baseUrl === "#") {
+    return baseUrl;
+  }
+
+  try {
+    const url = new URL(baseUrl);
+    if (!url.searchParams.has("aff_sub4")) {
+      url.searchParams.set("aff_sub4", placement);
+    }
+    return url.toString();
+  } catch {
+    return baseUrl;
+  }
 }
 
 export function captureClickId(): void {
@@ -90,6 +122,7 @@ export function buildTrackedAffiliateUrl(
     if (!url.searchParams.has("click_id")) {
       url.searchParams.set("click_id", trimmed);
     }
+    // Keep placement (and any other query) so /go can map it to aff_sub4.
     return `${url.pathname}${url.search}`;
   }
 

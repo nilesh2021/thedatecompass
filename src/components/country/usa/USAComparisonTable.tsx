@@ -436,7 +436,10 @@ export default function USAComparisonTable({
             </thead>
             <tbody>
               {germanyOffers.map((offer) => {
-                const reviewHref = getGermanyReviewHref(offer);
+                const reviewHref = offer.guideHref ?? getGermanyReviewHref(offer);
+                const reviewLabel = offer.guideHref
+                  ? offer.guideLabel ?? "Mehr erfahren"
+                  : "Read review";
                 return (
                   <tr
                     key={offer.name}
@@ -446,7 +449,7 @@ export default function USAComparisonTable({
                       <span className="block">{offer.name}</span>
                       {reviewHref ? (
                         <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-1 inline-block text-xs`}>
-                          Read review
+                          {reviewLabel}
                         </Link>
                       ) : null}
                     </th>
@@ -477,7 +480,10 @@ export default function USAComparisonTable({
 
         <ul className="mt-10 space-y-4 md:hidden">
           {germanyOffers.map((offer) => {
-            const reviewHref = getGermanyReviewHref(offer);
+            const reviewHref = offer.guideHref ?? getGermanyReviewHref(offer);
+            const reviewLabel = offer.guideHref
+              ? offer.guideLabel ?? "Mehr erfahren"
+              : "Read review";
             return (
               <li
                 key={offer.name}
@@ -486,7 +492,7 @@ export default function USAComparisonTable({
                 <h3 className="text-xl font-extrabold text-cream">{offer.name}</h3>
                 {reviewHref ? (
                   <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-2 inline-block text-sm`}>
-                    Read review
+                    {reviewLabel}
                   </Link>
                 ) : null}
                 <dl className="mt-4 space-y-3 text-sm">
