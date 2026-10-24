@@ -5,10 +5,20 @@ import path from "node:path";
 const gitDateCache = new Map<string, string | null>();
 
 export function routeToAppFile(route: string): string {
-  if (route === "/") {
-    return "src/app/page.tsx";
+  const page = route === "/" ? "/page.tsx" : `${route}/page.tsx`;
+  const candidates = [
+    `src/app${page}`,
+    `src/app/(site)${page}`,
+    `src/app/(de)${page}`,
+  ];
+
+  for (const candidate of candidates) {
+    if (existsSync(path.join(process.cwd(), candidate))) {
+      return candidate;
+    }
   }
-  return `src/app${route}/page.tsx`;
+
+  return candidates[1];
 }
 
 export function getGitLastModifiedIso(relativeFilePath: string): string | null {

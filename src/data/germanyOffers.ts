@@ -32,6 +32,9 @@ export type GermanyOffer = {
   privacyNote: string;
   /** Leave null until a verified rating exists. */
   rating: number | null;
+  /** Optional on-site guide. Used instead of the English review link. */
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 export const GERMANY_PAGE_LAST_UPDATED = {
@@ -94,7 +97,7 @@ export const germanyGoDestinations: Record<string, string> = {
     "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
   // CrakRevenue SOI. Placement is added as aff_sub4 on redirect. Do not set aff_sub here.
   fremdgehen69:
-    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN&aff_sub2=thedatecompass&aff_sub3=germany",
+    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN",
 };
 
 const PRICE_NOTE = "See provider site";
@@ -103,6 +106,7 @@ const PRIVACY_NOTE = "See provider privacy policy";
 /**
  * Germany inventory ordered by Offer Master priority.
  * Fremdgehen69 is appended as a paid placement (sponsored: true), not a ranked pick.
+ * Its German guide lives at /de/fremdgehen69 (guideHref).
  */
 export const germanyOffers: GermanyOffer[] = [
   {
@@ -339,6 +343,8 @@ export const germanyOffers: GermanyOffer[] = [
     priceNote: "Signup is free; see provider site",
     privacyNote: PRIVACY_NOTE,
     rating: null,
+    guideHref: "/de/fremdgehen69",
+    guideLabel: "Mehr erfahren",
   },
 ];
 

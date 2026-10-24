@@ -97,6 +97,12 @@ export default function GermanyLandingPage() {
       }
       offers={germanyOffers.map((offer) => {
         const reviewHref = getGermanyReviewHref(offer);
+        const detailHref = offer.guideHref ?? reviewHref ?? undefined;
+        const detailLabel = offer.guideHref
+          ? offer.guideLabel ?? "Mehr erfahren"
+          : reviewHref
+            ? "Read review"
+            : undefined;
         return (
           <NightOfferCard
             key={offer.name}
@@ -108,8 +114,8 @@ export default function GermanyLandingPage() {
             href={getGermanyTrackedHref(offer, "card")}
             kicker={offer.sponsored ? GERMANY_SPONSORED_LABEL : undefined}
             country="germany"
-            detailHref={reviewHref ?? undefined}
-            detailLabel={reviewHref ? "Read review" : undefined}
+            detailHref={detailHref}
+            detailLabel={detailLabel}
           />
         );
       })}
