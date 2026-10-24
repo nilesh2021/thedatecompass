@@ -2,6 +2,8 @@ const CLICK_ID_STORAGE_KEY = "tdc_click_id";
 export const CLICK_ID_COOKIE = "tdc_click_id";
 const CLICK_ID_COOKIE_MAX_AGE = 60 * 60 * 24 * 30;
 const GO_URL_ORIGIN = "https://www.thedatecompass.com";
+/** Safe token for aff_sub4. aff_sub stays reserved for paid click IDs. */
+const PLACEMENT_PATTERN = /^[a-z0-9_-]{1,32}$/;
 
 function trimClickId(clickId?: string | null): string | null {
   const trimmed = clickId?.trim();
@@ -45,6 +47,30 @@ export function readClickIdFromRequest(request: Request): string | null {
   const fromQuery = readClickIdFromSearch(new URL(request.url).search);
   if (fromQuery) return fromQuery;
   return readClickIdFromCookieHeader(request.headers.get("cookie"));
+}
+
+export function readPlacementFromRequest(request: Request): string | null {
+  const value = new URL(request.url).searchParams.get("placement")?.trim().toLowerCase() ?? "";
+  return PLACEMENT_PATTERN.test(value) ? value : null;
+}
+
+/**
+ * Record which on-page control was clicked.
+ * Writes aff_sub4 only. Does not set aff_sub (reserved for paid click IDs).
+ */
+export function withAffiliatePlacement(
+  destination: string,
+  placement: string | null,
+): string {
+  if (!placement || !PLACEMENT_PATTERN.test(placement)) return destination;
+
+  try {
+    const url = new URL(destination);
+    url.searchParams.set("aff_sub4", placement);
+    return url.toString();
+  } catch {
+    return destination;
+  }
 }
 
 export function captureClickId(): void {

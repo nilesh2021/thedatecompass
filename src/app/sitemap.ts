@@ -31,6 +31,8 @@ const USA_REVIEW_ROUTES = USA_REVIEW_SLUGS.map(
   (slug) => `/usa/${slug}-review`,
 );
 
+// Every published Germany review route. reviewReady false (no review page,
+// or a noindex draft) stays out. Fremdgehen69 is sponsored and has no review URL.
 const GERMANY_REVIEW_ROUTES = germanyOffers
   .filter((offer) => offer.reviewReady)
   .map((offer) => `/germany/${offer.slug}-review`);
