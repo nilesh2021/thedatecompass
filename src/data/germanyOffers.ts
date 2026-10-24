@@ -24,6 +24,8 @@ export type GermanyOffer = {
   affiliateLink: string;
   /** When false, the review page is noindex,follow and omitted from the sitemap. */
   reviewReady: boolean;
+  /** Paid placement. Render as Anzeige / Sponsored, never as an editorial top pick. */
+  sponsored?: boolean;
   /** Placeholder until a verified price is available. Do not invent figures. */
   priceNote: string;
   /** Placeholder until verified privacy features are documented. */
@@ -33,9 +35,13 @@ export type GermanyOffer = {
 };
 
 export const GERMANY_PAGE_LAST_UPDATED = {
-  label: "October 2026",
-  iso: "2026-10-23",
+  label: "24 October 2026",
+  iso: "2026-10-24",
 };
+
+export const GERMANY_SPONSORED_LABEL = "Anzeige / Sponsored";
+
+export type GermanyClickPlacement = "card" | "table" | "cta";
 
 export const GERMANY_REVIEW_SLUGS: readonly string[] = [
   "dirtydating",
@@ -49,6 +55,15 @@ export const GERMANY_REVIEW_SLUGS: readonly string[] = [
 
 export function getGermanyGoHref(slug: string): string {
   return `/go/${slug}`;
+}
+
+/** Sponsored offers append ?placement= so /go/ can set aff_sub4. Others keep href. */
+export function getGermanyTrackedHref(
+  offer: Pick<GermanyOffer, "slug" | "href" | "sponsored">,
+  placement: GermanyClickPlacement,
+): string {
+  if (!offer.sponsored) return offer.href;
+  return `${getGermanyGoHref(offer.slug)}?placement=${placement}`;
 }
 
 export function getGermanyReviewHref(offer: Pick<GermanyOffer, "slug">): string | null {
@@ -77,6 +92,9 @@ export const germanyGoDestinations: Record<string, string> = {
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
   fetishpartner:
     "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  // CrakRevenue SOI. Placement is added as aff_sub4 on redirect. Do not set aff_sub here.
+  fremdgehen69:
+    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN&aff_sub2=thedatecompass&aff_sub3=germany",
 };
 
 const PRICE_NOTE = "See provider site";
@@ -84,7 +102,7 @@ const PRIVACY_NOTE = "See provider privacy policy";
 
 /**
  * Germany inventory ordered by Offer Master priority.
- * Fremdgehen69 omitted — no affiliate URL exists in project data.
+ * Fremdgehen69 is appended as a paid placement (sponsored: true), not a ranked pick.
  */
 export const germanyOffers: GermanyOffer[] = [
   {
@@ -99,10 +117,11 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "D",
     accent: "from-[#E83E9B] via-[#F15BAF] to-[#F58BC5]",
     image: getOfferAdultImage("dirtydating"),
-    imageAlt: "DirtyDating logo – adult dating site in Germany",
+    imageAlt:
+      "Bearded man in a dark flat cap looking at the camera, used as the DirtyDating listing image",
     href: getGermanyGoHref("dirtydating"),
     affiliateLink: germanyGoDestinations.dirtydating,
-    reviewReady: false,
+    reviewReady: true,
     tags: ["Casual", "Adults 18+", "Germany"],
     buttonText: "Visit DirtyDating",
     points: [
@@ -129,10 +148,11 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "F",
     accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
     image: getOfferAdultImage("fuckfinder"),
-    imageAlt: "FuckFinder logo – adult dating site in Germany",
+    imageAlt:
+      "Woman with long dark hair in a black top against a pink background, used as the FuckFinder listing image",
     href: getGermanyGoHref("fuckfinder"),
     affiliateLink: germanyGoDestinations.fuckfinder,
-    reviewReady: false,
+    reviewReady: true,
     tags: ["Casual", "Adults 18+", "Germany"],
     buttonText: "Visit FuckFinder",
     points: [
@@ -159,7 +179,8 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "R",
     accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
     image: getOfferAdultImage("realsexclub"),
-    imageAlt: "RealSexClub logo – adult dating site in Germany",
+    imageAlt:
+      "Woman with long dark hair in a black top against a pink background, used as the RealSexClub listing image",
     href: getGermanyGoHref("realsexclub"),
     affiliateLink: germanyGoDestinations.realsexclub,
     reviewReady: true,
@@ -186,7 +207,8 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "G",
     accent: "from-[#A34B68] via-[#E83E9B] to-[#F58BC5]",
     image: getOfferAdultImage("grannyhunter"),
-    imageAlt: "Grannyhunter logo – mature dating site in Germany",
+    imageAlt:
+      "Older woman with short white hair in a black lace top, used as the Grannyhunter listing image",
     href: getGermanyGoHref("grannyhunter"),
     affiliateLink: germanyGoDestinations.grannyhunter,
     reviewReady: true,
@@ -213,7 +235,8 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "M",
     accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
     image: getOfferAdultImage("manfinder"),
-    imageAlt: "Manfinder logo – gay dating site in Germany",
+    imageAlt:
+      "Two men in black t-shirts holding hands outdoors, used as the Manfinder listing image",
     href: getGermanyGoHref("manfinder"),
     affiliateLink: germanyGoDestinations.manfinder,
     reviewReady: true,
@@ -240,7 +263,8 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "T",
     accent: "from-[#9B3CE8] via-[#E83E9B] to-[#F58BC5]",
     image: getOfferAdultImage("transdate"),
-    imageAlt: "TransDate logo – inclusive dating site in Germany",
+    imageAlt:
+      "Woman wearing sunglasses in a car, used as the TransDate listing image",
     href: getGermanyGoHref("transdate"),
     affiliateLink: germanyGoDestinations.transdate,
     reviewReady: true,
@@ -267,10 +291,11 @@ export const germanyOffers: GermanyOffer[] = [
     mark: "F",
     accent: "from-[#6138A8] via-[#9C5CDB] to-[#E83E9B]",
     image: getOfferAdultImage("fetishpartner"),
-    imageAlt: "FetishPartner logo – adult dating site in Germany",
+    imageAlt:
+      "Woman posing under neon pink light, used as the FetishPartner listing image",
     href: getGermanyGoHref("fetishpartner"),
     affiliateLink: germanyGoDestinations.fetishpartner,
-    reviewReady: false,
+    reviewReady: true,
     tags: ["Niche", "Adults 18+", "Germany"],
     buttonText: "Visit FetishPartner",
     points: [
@@ -284,6 +309,35 @@ export const germanyOffers: GermanyOffer[] = [
     // TODO: Replace with verified FetishPartner privacy features when available.
     privacyNote: PRIVACY_NOTE,
     // TODO: Add a verified FetishPartner rating when available. Do not invent scores.
+    rating: null,
+  },
+  {
+    name: "Fremdgehen69",
+    slug: "fremdgehen69",
+    category: "Casual dating",
+    sponsored: true,
+    description:
+      "Casual dating platform focused on Germany and Austria; signup is free, see provider site for pricing. Some profiles may be moderated; details are in the provider’s terms.",
+    keyFocus: "Casual dating in Germany and Austria",
+    badge: GERMANY_SPONSORED_LABEL,
+    mark: "69",
+    accent: "from-[#E83E9B] via-[#C8326D] to-[#8C1D4D]",
+    image: getOfferAdultImage("fremdgehen69"),
+    imageAlt:
+      "Woman in black lingerie reclining on white bedding, used as the Fremdgehen69 listing image",
+    href: getGermanyGoHref("fremdgehen69"),
+    affiliateLink: germanyGoDestinations.fremdgehen69,
+    reviewReady: false,
+    tags: ["Casual", "Adults 18+", "Germany", "Austria"],
+    buttonText: "Visit Fremdgehen69",
+    points: [
+      "Casual dating platform focused on Germany and Austria",
+      "Signup is free; see the provider site for pricing",
+      "Some profiles may be moderated; see the provider’s terms",
+    ],
+    country: "Germany",
+    priceNote: "Signup is free; see provider site",
+    privacyNote: PRIVACY_NOTE,
     rating: null,
   },
 ];
@@ -307,7 +361,7 @@ export const germanyFaqs = [
   {
     question: "Which site is best for casual dating?",
     answer:
-      "DirtyDating and FuckFinder are listed in the casual adult dating category on this page. Compare their descriptions, then visit the provider site to confirm whether it matches what you want.",
+      "DirtyDating and FuckFinder are listed in the casual adult dating category on this page. Fremdgehen69 is shown in that category as a paid placement labelled Anzeige / Sponsored, for Germany and Austria. This page does not name a winner. Compare the descriptions, then visit the provider site to confirm whether it matches what you want.",
   },
   {
     question: "How do I protect my privacy?",
@@ -317,6 +371,6 @@ export const germanyFaqs = [
   {
     question: "How does TheDateCompass choose which sites to list?",
     answer:
-      "We list third-party platforms with a Germany focus by category, publicly described features, and ease of comparison. We may earn a commission from some links. That does not mean every site is right for every visitor.",
+      "We list third-party platforms with a Germany focus by category, publicly described features, and ease of comparison. We may earn a commission from some links. Paid placements are labelled Anzeige / Sponsored. That does not mean every site is right for every visitor.",
   },
 ];

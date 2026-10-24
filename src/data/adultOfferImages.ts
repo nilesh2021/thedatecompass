@@ -41,6 +41,7 @@ export const offerAdultImages: Record<string, string> = {
   litlatinz: adultImages.portraitD,
   manfinder: adultImages.gay,
   cheekycrush: adultImages.portraitB,
+  fremdgehen69: adultImages.portraitD,
   naughtycharm: adultImages.portraitG,
   gaybloom: adultImages.gaybloom,
   pridepair: adultImages.pridepair,

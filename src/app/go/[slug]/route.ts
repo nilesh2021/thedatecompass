@@ -8,6 +8,8 @@ import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
+  readPlacementFromRequest,
+  withAffiliatePlacement,
 } from "@/lib/affiliateUrl";
 import { notFound, redirect } from "next/navigation";
 
@@ -31,5 +33,12 @@ export async function GET(request: Request, context: RouteContext) {
     notFound();
   }
 
-  redirect(buildTrackedAffiliateUrl(destination, readClickIdFromRequest(request)));
+  // Fremdgehen69 reports the on-page control in aff_sub4 (card, table, cta).
+  // aff_sub is only attached later, and only when a paid click_id is present.
+  const located =
+    key === "fremdgehen69"
+      ? withAffiliatePlacement(destination, readPlacementFromRequest(request))
+      : destination;
+
+  redirect(buildTrackedAffiliateUrl(located, readClickIdFromRequest(request)));
 }

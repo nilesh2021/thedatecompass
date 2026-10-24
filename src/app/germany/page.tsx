@@ -10,20 +10,13 @@ import {
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/germany`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
-const PAGE_TITLE = "Adult Dating Sites in Germany 2026 | Compare Offers";
+const PAGE_TITLE = "Adult Dating Germany 2026: Compare Sites | TheDateCompass";
 const META_DESCRIPTION =
-  "Compare adult dating sites in Germany by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.";
+  "Compare adult dating sites in Germany for 2026 by category, privacy notes, and ease of use. Independent guide with sponsored listings for adults 18+ only.";
 
 export const metadata: Metadata = {
-  title: PAGE_TITLE,
+  title: { absolute: PAGE_TITLE },
   description: META_DESCRIPTION,
-  keywords: [
-    "adult dating germany",
-    "adult dating sites in Germany",
-    "casual dating germany",
-    "dating sites germany",
-    "online dating germany",
-  ],
   alternates: {
     canonical: PAGE_URL,
     // TODO: Add hreflang (alternates.languages.de or de-DE) only if a German-language version of this page ships.

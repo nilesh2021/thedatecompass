@@ -4,9 +4,11 @@ import NightOfferCard from "@/components/country/common/NightOfferCard";
 import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
 import {
   GERMANY_PAGE_LAST_UPDATED,
+  GERMANY_SPONSORED_LABEL,
   germanyFaqs,
   germanyOffers,
   getGermanyReviewHref,
+  getGermanyTrackedHref,
 } from "@/data/germanyOffers";
 
 const relatedCategories = [
@@ -76,7 +78,7 @@ export default function GermanyLandingPage() {
       imageAlt="Couple enjoying a date in Germany"
       offerEyebrow="Germany offers"
       offerTitle="Adult dating platforms compared"
-      offerDescription="We compare each site on pricing, privacy, member base in Germany and ease of use."
+      offerDescription="Each card lists a category and focus. Confirm pricing, privacy, and membership details on the provider site."
       offerBanner={
         <div className="mx-auto mt-8 grid max-w-xl grid-cols-3 gap-3">
           {[
@@ -103,7 +105,8 @@ export default function GermanyLandingPage() {
             points={offer.points}
             image={offer.image}
             imageAlt={offer.imageAlt}
-            href={offer.href}
+            href={getGermanyTrackedHref(offer, "card")}
+            kicker={offer.sponsored ? GERMANY_SPONSORED_LABEL : undefined}
             country="germany"
             detailHref={reviewHref ?? undefined}
             detailLabel={reviewHref ? "Read review" : undefined}
@@ -113,8 +116,16 @@ export default function GermanyLandingPage() {
       afterOffers={
         <>
           <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
-            18+ only. TheDateCompass contains sponsored links. Selecting an
-            offer redirects you to an independent third-party provider site.
+            18+ only. TheDateCompass contains sponsored links. Listings marked{" "}
+            {GERMANY_SPONSORED_LABEL} are paid placements. Selecting an offer
+            redirects you to an independent third-party provider site.{" "}
+            <Link
+              href="/affiliate-disclosure"
+              className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
+            >
+              Affiliate disclosure
+            </Link>
+            .
           </p>
           <USAComparisonTable variant="germany" germanyOffers={germanyOffers} />
         </>

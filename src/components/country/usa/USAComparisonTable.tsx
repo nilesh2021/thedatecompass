@@ -17,7 +17,9 @@ import {
 } from "@/data/countries/france";
 import { getUkReviewHref, type UkOffer } from "@/data/countries/uk";
 import {
+  GERMANY_SPONSORED_LABEL,
   getGermanyReviewHref,
+  getGermanyTrackedHref,
   type GermanyOffer,
 } from "@/data/germanyOffers";
 import {
@@ -444,6 +446,11 @@ export default function USAComparisonTable({
                   >
                     <th scope="row" className="px-4 py-3.5 font-semibold text-cream">
                       <span className="block">{offer.name}</span>
+                      {offer.sponsored ? (
+                        <span className="mt-1 inline-flex rounded-full border border-cream/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-cream/75">
+                          {GERMANY_SPONSORED_LABEL}
+                        </span>
+                      ) : null}
                       {reviewHref ? (
                         <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-1 inline-block text-xs`}>
                           Read review
@@ -460,7 +467,7 @@ export default function USAComparisonTable({
                     ) : null}
                     <td className="px-4 py-3.5">
                       <UsaAffiliateLink
-                        href={offer.href}
+                        href={getGermanyTrackedHref(offer, "table")}
                         offerName={offer.name}
                         placement="germany_comparison_table"
                         country="germany"
@@ -484,6 +491,11 @@ export default function USAComparisonTable({
                 className="rounded-2xl border border-[#ff2d87]/25 bg-[#141a3d] p-5"
               >
                 <h3 className="text-xl font-extrabold text-cream">{offer.name}</h3>
+                {offer.sponsored ? (
+                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-cream/70">
+                    {GERMANY_SPONSORED_LABEL}
+                  </p>
+                ) : null}
                 {reviewHref ? (
                   <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-2 inline-block text-sm`}>
                     Read review
@@ -514,7 +526,7 @@ export default function USAComparisonTable({
                   ) : null}
                   <div className="border-t border-[#ff2d87]/20 pt-4">
                     <UsaAffiliateLink
-                      href={offer.href}
+                      href={getGermanyTrackedHref(offer, "table")}
                       offerName={offer.name}
                       placement="germany_comparison_table"
                       country="germany"
