@@ -47,7 +47,7 @@ export default function TransDateDatingPage() {
 
       <FixedOfferCta
         offer={transDateOffer}
-        placement="transdate_dating_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join TransDate Free →"
       />
 

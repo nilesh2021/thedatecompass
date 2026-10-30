@@ -209,7 +209,7 @@ export default function FeaturedOffers() {
                 >
                   <TrackedAffiliateLink
                     href={offer.href}
-                    placement="featured_offer"
+                    placement="card"
                     country={offer.country?.trim().toLowerCase()}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
@@ -217,7 +217,7 @@ export default function FeaturedOffers() {
                     onClick={() =>
                       trackAffiliateClick(
                         offer.name,
-                        "featured_offer",
+                        "card",
                         offer.country?.trim().toLowerCase() || undefined
                       )
                     }

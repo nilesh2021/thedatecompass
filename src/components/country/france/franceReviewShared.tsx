@@ -25,8 +25,8 @@ export const FRANCE_REVIEW_COUNTRY: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in France",
   safetyHref: "/france#france-dating-guide",
   safetyLabel: "France dating guide",
-  heroPlacement: "france_review_hero",
-  footerPlacement: "france_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 export function getFranceReviewOffer(slug: string): FranceOffer | undefined {

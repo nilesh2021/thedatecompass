@@ -144,11 +144,11 @@ export default function AiCompanionLanding() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href={goHref("hero")}
+                  href={goHref("lp_hero")}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-[0_0_30px_rgba(236,72,153,0.4)] transition hover:from-fuchsia-400 hover:to-pink-400"
-                  onClick={() => trackOfferClick("hero")}
+                  onClick={() => trackOfferClick("lp_hero")}
                 >
                   Try Dreamz.ai Free →
                 </a>
@@ -166,10 +166,10 @@ export default function AiCompanionLanding() {
             </div>
 
             <a
-              href={goHref("featured-video")}
+              href={goHref("lp_hero")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackOfferClick("featured-video")}
+              onClick={() => trackOfferClick("lp_hero")}
               className="group relative mx-auto w-full max-w-[280px] shrink-0 overflow-hidden rounded-2xl border border-fuchsia-500/30 shadow-[0_0_60px_rgba(217,70,239,0.25)] lg:mx-0 lg:max-w-none"
             >
               <div className="relative aspect-[3/4] bg-black">
@@ -267,10 +267,10 @@ export default function AiCompanionLanding() {
                 exploring conversations on Dreamz.ai.
               </p>
               <a
-                href={goHref("footer-cta")}
+                href={goHref("lp_end")}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                onClick={() => trackOfferClick("footer-cta")}
+                onClick={() => trackOfferClick("lp_end")}
                 className="mt-8 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 px-8 py-4 text-sm font-bold text-white shadow-[0_0_30px_rgba(236,72,153,0.35)] transition hover:from-fuchsia-400 hover:to-pink-400"
               >
                 Try Dreamz.ai Free →

@@ -68,10 +68,10 @@ export default function AIGirlfriendV2() {
               <div className="mt-10 flex flex-wrap gap-4">
 
               <Link
-    href={goHref("hero")}
+    href={goHref("lp_hero")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
-    onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
+    onClick={() => trackAffiliateClick(OFFER_NAME, "lp_hero")}
     className="rounded-full bg-pink-500 px-8 py-4 font-bold text-white"
   >
     ❤️ Start Chatting
@@ -424,10 +424,10 @@ export default function AIGirlfriendV2() {
         {/* CTA */}
 
         <Link
-          href={goHref("features-cta")}
+          href={goHref("lp_mid")}
           target="_blank"
           rel="sponsored nofollow noopener noreferrer"
-          onClick={() => trackAffiliateClick(OFFER_NAME, "features-cta")}
+          onClick={() => trackAffiliateClick(OFFER_NAME, "lp_mid")}
           className="mt-12 inline-flex items-center rounded-full bg-pink-500 px-8 py-4 text-lg font-semibold text-white transition hover:bg-pink-600"
         >
           Start Your AI Journey →
@@ -482,10 +482,10 @@ export default function AIGirlfriendV2() {
           <div className="mt-10 flex flex-wrap gap-4">
 
           <Link
-    href={goHref("mid-cta")}
+    href={goHref("lp_mid")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
-    onClick={() => trackAffiliateClick(OFFER_NAME, "mid-cta")}
+    onClick={() => trackAffiliateClick(OFFER_NAME, "lp_mid")}
     className="rounded-full bg-pink-500 px-8 py-4 font-bold text-white"
   >
     ❤️ Start Chatting
@@ -662,10 +662,10 @@ export default function AIGirlfriendV2() {
       <div className="mt-12">
 
      <Link
-    href={goHref("footer-cta")}
+    href={goHref("lp_end")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
-    onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
+    onClick={() => trackAffiliateClick(OFFER_NAME, "lp_end")}
     className="rounded-full bg-pink-500 px-8 py-4 font-bold text-white"
   >
     ❤️ Start Chatting
@@ -714,10 +714,10 @@ export default function AIGirlfriendV2() {
 </section>
 <div className="fixed bottom-5 right-5 z-50">
   <Link
-    href={goHref("fixed-cta")}
+    href={goHref("lp_end")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
-    onClick={() => trackAffiliateClick(OFFER_NAME, "fixed-cta")}
+    onClick={() => trackAffiliateClick(OFFER_NAME, "lp_end")}
     className="rounded-full bg-pink-500 px-6 py-4 font-bold text-white shadow-lg"
   >
     ❤️ Start Chatting

@@ -48,7 +48,7 @@ export default function AIGirlfriendV2Page() {
 
       <AiGirlfriendLandingV2 />
 
-      <FixedOfferCta offer={dreamzOffer} placement="dreamz-v2_fixed_cta" />
+      <FixedOfferCta offer={dreamzOffer} placement="lp_end" />
 
       <script
         type="application/ld+json"

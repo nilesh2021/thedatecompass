@@ -187,11 +187,11 @@ export default function AiGirlfriendLanding() {
 
               <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
                 <a
-                  href={goHref("hero")}
+                  href={goHref("lp_hero")}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-brand-rose px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-rose/30 transition hover:bg-brand-rose"
-                  onClick={() => trackOfferClick("hero")}
+                  onClick={() => trackOfferClick("lp_hero")}
                 >
                   Try Dreamz.ai Free →
                 </a>
@@ -215,10 +215,10 @@ export default function AiGirlfriendLanding() {
 
             {/* Small featured video */}
             <a
-              href={goHref("featured-video")}
+              href={goHref("lp_hero")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackOfferClick("featured-video")}
+              onClick={() => trackOfferClick("lp_hero")}
               className="group relative mx-auto w-[180px] shrink-0 overflow-hidden rounded-2xl border border-black/10 shadow-xl sm:w-[200px] lg:mx-0 lg:w-full lg:border-white/10 lg:shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
             >
               <div className="relative aspect-[3/4] bg-[#0d0d12]">
@@ -261,10 +261,10 @@ export default function AiGirlfriendLanding() {
                 </h2>
               </div>
               <a
-                href={goHref("catalog-link")}
+                href={goHref("lp_mid")}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                onClick={() => trackOfferClick("catalog-link")}
+                onClick={() => trackOfferClick("lp_mid")}
                 className="text-sm font-semibold text-brand-rose transition hover:text-brand-rose-soft lg:text-brand-mint"
               >
                 Open full catalog on Dreamz →
@@ -316,10 +316,10 @@ export default function AiGirlfriendLanding() {
                     </div>
                   </div>
                   <a
-                    href={goHref("sidebar")}
+                    href={goHref("lp_mid")}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
-                    onClick={() => trackOfferClick("sidebar")}
+                    onClick={() => trackOfferClick("lp_mid")}
                     className="mt-4 block rounded-xl bg-brand-rose py-3 text-center text-sm font-bold text-white transition hover:bg-brand-rose"
                   >
                     Explore on Dreamz.ai →
@@ -333,7 +333,7 @@ export default function AiGirlfriendLanding() {
                     key={companion.name}
                     companion={companion}
                     href={affiliateUrl}
-                    placement={`companion-${companion.name.toLowerCase()}`}
+                    placement="card"
                     priority={index < 2}
                     onAffiliateClick={() =>
                       trackOfferClick(`companion-${companion.name.toLowerCase()}`)
@@ -400,10 +400,10 @@ export default function AiGirlfriendLanding() {
               conversations on Dreamz.ai.
             </p>
             <a
-              href={goHref("footer-cta")}
+              href={goHref("lp_end")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackOfferClick("footer-cta")}
+              onClick={() => trackOfferClick("lp_end")}
               className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
             >
               Try Dreamz.ai Free →

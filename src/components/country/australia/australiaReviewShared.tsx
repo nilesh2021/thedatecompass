@@ -13,8 +13,8 @@ const country: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in Australia",
   safetyHref: "/australia#australia-dating-guide",
   safetyLabel: "Australia dating guide",
-  heroPlacement: "australia_review_hero",
-  footerPlacement: "australia_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 export const {

@@ -75,13 +75,13 @@ export default function Categories() {
                 <div className="mt-5 grid gap-2">
                   <TrackedAffiliateLink
                     href={category.href}
-                    placement="category"
+                    placement="card"
                     country="usa"
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     className="tdc-btn-primary w-full py-3 text-xs"
                     onClick={() =>
-                      trackAffiliateClick(category.offerName, "category")
+                      trackAffiliateClick(category.offerName, "card")
                     }
                   >
                     Visit {category.offerName}

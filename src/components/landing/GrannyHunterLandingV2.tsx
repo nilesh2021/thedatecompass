@@ -100,6 +100,7 @@ function AffiliateNote({ className = "", light = false }: { className?: string; 
 
 export default function GrannyHunterLandingV2() {
   const affiliateUrl = useTrackedAffiliateUrl(grannyHunterOffer.url);
+  const galleryHref = useTrackedAffiliateUrl(grannyHunterOffer.url, "lp_mid");
 
   return (
     <>
@@ -140,7 +141,7 @@ export default function GrannyHunterLandingV2() {
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <VisitCta href={affiliateUrl} placement="v2-hero" />
+                <VisitCta href={affiliateUrl} placement="lp_hero" />
                 <a
                   href="#how-it-works"
                   className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full border border-[#c4b8a8] px-7 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#4a4540] transition hover:border-[#6d3b4e] hover:text-[#6d3b4e]"
@@ -225,7 +226,7 @@ export default function GrannyHunterLandingV2() {
             </div>
             <VisitCta
               href={affiliateUrl}
-              placement="v2-cta-bar"
+              placement="lp_mid"
               variant="light"
               label="Join GrannyHunter Free →"
             />
@@ -283,7 +284,7 @@ export default function GrannyHunterLandingV2() {
                   <div className="mt-8">
                     <VisitCta
                       href={affiliateUrl}
-                      placement="v2-offer-card"
+                      placement="card"
                       variant="light"
                       className="w-full justify-center sm:w-auto"
                     />
@@ -369,7 +370,7 @@ export default function GrannyHunterLandingV2() {
             </div>
 
             <div className="mt-12 flex justify-center lg:justify-start lg:pl-20">
-              <VisitCta href={affiliateUrl} placement="v2-how-it-works" />
+              <VisitCta href={affiliateUrl} placement="lp_mid" />
             </div>
           </div>
         </section>
@@ -457,7 +458,7 @@ export default function GrannyHunterLandingV2() {
             </div>
 
             <div className="mt-10 flex justify-center">
-              <VisitCta href={affiliateUrl} placement="v2-features" />
+              <VisitCta href={affiliateUrl} placement="lp_mid" />
             </div>
           </div>
         </section>
@@ -492,10 +493,10 @@ export default function GrannyHunterLandingV2() {
               ].map(({ src, alt, caption }) => (
                 <a
                   key={caption}
-                  href={affiliateUrl}
+                  href={galleryHref}
                   target="_blank"
                   rel={REL}
-                  onClick={() => trackAffiliateClick(grannyHunterOffer.name, "v2-gallery")}
+                  onClick={() => trackAffiliateClick(grannyHunterOffer.name, "lp_mid")}
                   className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
                 >
                   <Image
@@ -533,7 +534,7 @@ export default function GrannyHunterLandingV2() {
               in your country.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <VisitCta href={affiliateUrl} placement="v2-mid-cta" />
+              <VisitCta href={affiliateUrl} placement="lp_mid" />
               <a
                 href="#faq"
                 className="inline-flex min-h-[54px] items-center justify-center rounded-full border border-[#c4b8a8] px-7 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#4a4540] transition hover:border-[#6d3b4e] hover:text-[#6d3b4e]"
@@ -594,7 +595,7 @@ export default function GrannyHunterLandingV2() {
             <div className="mt-9 flex justify-center">
               <VisitCta
                 href={affiliateUrl}
-                placement="v2-footer-cta"
+                placement="lp_end"
                 label="Visit GrannyHunter"
                 variant="light"
               />

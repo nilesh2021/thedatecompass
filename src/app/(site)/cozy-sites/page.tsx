@@ -453,13 +453,13 @@ export default function OfferHubPage() {
                       <div className="mt-3">
                         <TrackedAffiliateLink
                           href={affiliateUrl}
-                          placement={`cozy_sites_${offer.id}`}
+                          placement="card"
                           target="_blank"
                           rel="sponsored nofollow noopener noreferrer"
                           onClick={() =>
                             trackAffiliateClick(
                               offer.title,
-                              `cozy_sites_${offer.id}`
+                              "card"
                             )
                           }
                           className="text-xs font-bold uppercase tracking-[0.12em] text-brand-mint transition hover:text-cream"

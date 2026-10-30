@@ -112,7 +112,7 @@ export default function RealSexClubLanding() {
               </p>
 
               <div className="mt-8">
-                <VisitCta placement="realsexclub_hero" />
+                <VisitCta placement="lp_hero" />
               </div>
               <AffiliateNote className="mt-4 max-w-md text-xs leading-relaxed text-fog/80" />
             </div>
@@ -395,7 +395,7 @@ export default function RealSexClubLanding() {
                   destination site. Adults 18+ only.
                 </p>
                 <div className="mt-7">
-                  <VisitCta placement="realsexclub_mid_cta" />
+                  <VisitCta placement="lp_mid" />
                 </div>
                 <AffiliateNote className="mt-4 text-xs leading-relaxed text-fog/80" />
               </div>
@@ -420,7 +420,7 @@ export default function RealSexClubLanding() {
               messaging, and current terms for yourself.
             </p>
             <div className="mt-8 flex justify-center">
-              <VisitCta placement="realsexclub_final_cta" />
+              <VisitCta placement="lp_end" />
             </div>
             <AffiliateNote className="mx-auto mt-4 max-w-md text-xs text-fog/70" />
           </div>
@@ -440,11 +440,11 @@ export default function RealSexClubLanding() {
       >
         <TrackedAffiliateLink
           href={realSexClubOffer.url}
-          placement="realsexclub_fixed_cta"
+          placement="lp_end"
           target="_blank"
           rel={REL}
           onClick={() =>
-            trackAffiliateClick(realSexClubOffer.name, "realsexclub_fixed_cta")
+            trackAffiliateClick(realSexClubOffer.name, "lp_end")
           }
           className="tdc-btn-primary flex w-full !rounded-2xl !py-3.5 !text-sm"
         >

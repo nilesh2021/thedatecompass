@@ -13,8 +13,8 @@ const country: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in Canada",
   safetyHref: "/canada#canada-dating-guide",
   safetyLabel: "Canada dating guide",
-  heroPlacement: "canada_review_hero",
-  footerPlacement: "canada_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 export const {

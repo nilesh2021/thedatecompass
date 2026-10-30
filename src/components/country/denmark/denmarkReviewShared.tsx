@@ -13,8 +13,8 @@ const country: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in Denmark",
   safetyHref: "/denmark#denmark-dating-guide",
   safetyLabel: "Denmark dating guide",
-  heroPlacement: "denmark_review_hero",
-  footerPlacement: "denmark_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 export const {

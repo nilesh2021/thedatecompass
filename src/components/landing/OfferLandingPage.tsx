@@ -137,7 +137,7 @@ export default function OfferLandingPage({
 
                 <div className="mt-8 flex items-center gap-4">
                   <VisitCta
-                    placement={`${data.slug}_hero`}
+                    placement="lp_hero"
                   />
 
                   <Link
@@ -385,7 +385,7 @@ export default function OfferLandingPage({
 
             <div className="mt-8 flex justify-center">
               <VisitCta
-                placement={`${data.slug}_final_cta`}
+                placement="lp_end"
               />
             </div>
 

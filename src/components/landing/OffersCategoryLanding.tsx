@@ -31,11 +31,11 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
             <TrackedAffiliateLink
               key={offer.id}
               href={offer.url}
-              placement="top_offers_card"
+              placement="card"
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() =>
-                trackAffiliateClick(offer.name, "top_offers_card")
+                trackAffiliateClick(offer.name, "card")
               }
               className={`group flex flex-col border border-cream/10 bg-ink-soft p-8 transition hover:-translate-y-0.5 hover:border-brand-rose/30 ${
                 offer.featured ? "ring-1 ring-brand-rose/25" : ""

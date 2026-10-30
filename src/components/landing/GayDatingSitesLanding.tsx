@@ -192,7 +192,7 @@ function OfferCard({
             <OfferCta
               offer={offer}
               href={href}
-              placement={`gay_dating_sites_offer_${offer.id}`}
+              placement="card"
               className={`inline-flex min-h-[52px] w-full items-stretch overflow-hidden rounded-xl border transition duration-300 hover:-translate-y-0.5 sm:w-auto ${styles.cta}`}
             />
           </div>
@@ -252,13 +252,13 @@ export default function GayDatingSitesLanding() {
                   </a>
                   <TrackedAffiliateLink
                     href={featured.url}
-                    placement="gay_dating_sites_hero"
+                    placement="lp_hero"
                     target="_blank"
                     rel={REL}
                     onClick={() =>
                       trackAffiliateClick(
                         featured.name,
-                        "gay_dating_sites_hero"
+                        "lp_hero"
                       )
                     }
                     className="inline-flex min-h-[52px] items-center gap-2 rounded-xl border-2 border-ink/15 px-7 text-sm font-extrabold uppercase tracking-[0.1em] text-ink transition hover:-translate-y-0.5 hover:border-brand-rose hover:text-brand-rose"
@@ -279,13 +279,13 @@ export default function GayDatingSitesLanding() {
                     <TrackedAffiliateLink
                       key={offer.id}
                       href={offer.url}
-                      placement={`gds_hero_${offer.id}`}
+                      placement="lp_hero"
                       target="_blank"
                       rel={REL}
                       onClick={() =>
                         trackAffiliateClick(
                           offer.name,
-                          `gay_dating_sites_hero_card_${offer.id}`
+                          "lp_hero"
                         )
                       }
                       className="group flex items-center gap-4 rounded-xl border border-ink/10 bg-cream p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-md"
@@ -412,13 +412,13 @@ export default function GayDatingSitesLanding() {
                       <td className="px-5 py-4">
                         <TrackedAffiliateLink
                           href={offer.url}
-                          placement={`gds_table_${offer.id}`}
+                          placement="table"
                           target="_blank"
                           rel={REL}
                           onClick={() =>
                             trackAffiliateClick(
                               offer.name,
-                              `gay_dating_sites_table_${offer.id}`
+                              "table"
                             )
                           }
                           className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.1em] text-brand-rose transition hover:text-ink"
@@ -516,7 +516,7 @@ export default function GayDatingSitesLanding() {
                   key={offer.id}
                   offer={offer}
                   href={offer.url}
-                  placement={`gay_dating_sites_footer_${offer.id}`}
+                  placement="lp_end"
                   className={`inline-flex min-h-[52px] items-stretch overflow-hidden rounded-xl border transition duration-300 hover:-translate-y-0.5 ${accentStyles(offer.accent).cta}`}
                 />
               ))}

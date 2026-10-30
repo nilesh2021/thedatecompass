@@ -68,7 +68,7 @@ export default function CasualDatingPage() {
 
       <FixedOfferCta
         offer={casualDatingOffer}
-        placement="casual_dating_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join FuckFinder Free →"
       />
 

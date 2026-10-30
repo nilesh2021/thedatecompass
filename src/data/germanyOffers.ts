@@ -47,7 +47,7 @@ export const GERMANY_SPONSORED_LABEL = "Anzeige / Sponsored";
 export const GERMANY_GEO_NOTE =
   "Listed for adults in Germany and Austria. Outside those countries the provider may show a different page.";
 
-export type GermanyClickPlacement = "card" | "table" | "cta" | "homepage";
+export type GermanyClickPlacement = "card" | "table";
 
 export const GERMANY_REVIEW_SLUGS: readonly string[] = [
   "dirtydating",

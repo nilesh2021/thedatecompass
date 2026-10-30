@@ -27,7 +27,7 @@ export default function AustraliaPopinConfig() {
     captureClickId();
     const goHref = appendGoParams("/go/gonaughty", {
       country: "australia",
-      placement: "australia_popin",
+      placement: "lp_mid",
     });
     window.crakPopInParamsOverlay = {
       url: `${window.location.origin}${buildTrackedAffiliateUrl(goHref, getClickId())}`,

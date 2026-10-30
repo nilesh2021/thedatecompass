@@ -64,7 +64,7 @@ const signals = [
 ];
 
 export default function ManFinderGayDatingLanding() {
-  const headerHref = useTrackedAffiliateUrl(AFFILIATE_URL, "header");
+  const headerHref = useTrackedAffiliateUrl(AFFILIATE_URL, "lp_hero");
   return (
     <main className="min-h-screen overflow-hidden bg-[#0a0709] font-sans text-[#f6f1ee]">
       {/* Top bar */}
@@ -76,7 +76,7 @@ export default function ManFinderGayDatingLanding() {
             target="_blank"
             rel={REL}
             onClick={() =>
-              trackAffiliateClick(manFinderOffer.name, "header")
+              trackAffiliateClick(manFinderOffer.name, "lp_hero")
             }
             className="hidden text-[10px] font-bold uppercase tracking-[0.22em] text-white/55 transition hover:text-[#ff6b93] sm:inline"
           >
@@ -118,7 +118,7 @@ export default function ManFinderGayDatingLanding() {
             </div>
 
             <div className="mt-10">
-              <ExploreCta label="Explore ManFinder" placement="hero" />
+              <ExploreCta label="Explore ManFinder" placement="lp_hero" />
             </div>
 
             <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-white/30">
@@ -255,7 +255,7 @@ export default function ManFinderGayDatingLanding() {
                 and mixed-audience dating sites.
               </p>
               <div className="mt-9">
-                <ExploreCta label="Discover ManFinder" placement="mid-cta" />
+                <ExploreCta label="Discover ManFinder" placement="lp_mid" />
               </div>
             </div>
           </div>
@@ -323,7 +323,7 @@ export default function ManFinderGayDatingLanding() {
                 interested in gay dating and new connections.
               </p>
               <div className="mt-9">
-                <ExploreCta label="Explore ManFinder" placement="footer-cta" />
+                <ExploreCta label="Explore ManFinder" placement="lp_end" />
               </div>
             </div>
           </div>
@@ -341,7 +341,7 @@ export default function ManFinderGayDatingLanding() {
 
       <FixedOfferCta
         offer={manFinderOffer}
-        placement="manfinder_fixed_cta"
+        placement="lp_end"
         ctaLabel="Explore ManFinder →"
       />
     </main>

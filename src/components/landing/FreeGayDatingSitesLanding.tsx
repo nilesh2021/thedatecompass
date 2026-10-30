@@ -303,7 +303,7 @@ export default function FreeGayDatingSitesLanding() {
                 <OfferLink
                   offer={offer}
                   href={offer.url}
-                  placement={`free_gay_dating_sites_offer_${offer.id}`}
+                  placement="card"
                   className="group/cta inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-accent-soft"
                 >
                   Explore {offer.name}
@@ -571,7 +571,7 @@ export default function FreeGayDatingSitesLanding() {
           <OfferLink
             offer={featured}
             href={featured.url}
-            placement="free_gay_dating_sites_footer"
+            placement="lp_end"
             className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-accent px-7 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-accent-soft"
           >
             Explore {featured.name}

@@ -13,8 +13,8 @@ const country: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in the UK",
   safetyHref: "/uk#uk-dating-guide",
   safetyLabel: "UK dating guide",
-  heroPlacement: "uk_review_hero",
-  footerPlacement: "uk_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 export const {

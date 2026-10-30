@@ -46,7 +46,7 @@ export default function ManFinderPage() {
 
       <FixedOfferCta
         offer={manFinderOffer}
-        placement="manfinder_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join ManFinder Free →"
       />
 

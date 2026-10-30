@@ -148,7 +148,7 @@ export default function FreeOnlineDatingUsaSinglesLanding() {
                 </div>
                 <TrackedAffiliateLink
                   href={offer.href}
-                  placement="usa_singles_card"
+                  placement="card"
                   country="usa"
                   target="_blank"
                   rel={REL}
@@ -237,7 +237,7 @@ export default function FreeOnlineDatingUsaSinglesLanding() {
                     <td className="px-4 py-3">
                       <TrackedAffiliateLink
                         href={offer.href}
-                        placement="usa_singles_table"
+                        placement="table"
                         country="usa"
                         target="_blank"
                         rel={REL}

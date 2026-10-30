@@ -205,7 +205,7 @@ export default function CasualDatingLanding() {
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <VisitCta href={affiliateUrl} placement="hero" />
+                <VisitCta href={affiliateUrl} placement="lp_hero" />
                 <a href="#how-it-works" className={secondaryButton}>
                   How it works
                 </a>
@@ -229,11 +229,11 @@ export default function CasualDatingLanding() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-red-600/40 via-rose-900/30 to-red-700/20 opacity-55 blur-2xl" />
 
               <a
-                href={appendGoPlacement(affiliateUrl, "hero-portrait")}
+                href={appendGoPlacement(affiliateUrl, "lp_hero")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>
-                  trackAffiliateClick(casualDatingOffer.name, "hero-portrait")
+                  trackAffiliateClick(casualDatingOffer.name, "lp_hero")
                 }
                 className="group relative block overflow-hidden rounded-[1.7rem] border border-red-500/25 bg-black/30 shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
               >
@@ -371,7 +371,7 @@ export default function CasualDatingLanding() {
             </div>
 
             <div className="mt-10 flex justify-center">
-              <VisitCta href={affiliateUrl} placement="how-it-works" />
+              <VisitCta href={affiliateUrl} placement="lp_mid" />
             </div>
           </div>
         </section>
@@ -393,18 +393,18 @@ export default function CasualDatingLanding() {
               <div className="mt-6 hidden lg:block">
                 <VisitCta
                   href={affiliateUrl}
-                  placement="banner-section"
+                  placement="lp_mid"
                   label="Visit FuckFinder →"
                 />
               </div>
             </div>
 
             <a
-              href={appendGoPlacement(affiliateUrl, "affiliate-banner")}
+              href={appendGoPlacement(affiliateUrl, "lp_mid")}
               target="_blank"
               rel={REL}
               onClick={() =>
-                trackAffiliateClick(casualDatingOffer.name, "affiliate-banner")
+                trackAffiliateClick(casualDatingOffer.name, "lp_mid")
               }
               className="group shrink-0 overflow-hidden rounded-xl border border-red-500/20 shadow-[0_20px_60px_rgba(220,38,38,0.15)] transition duration-300 hover:-translate-y-1 hover:border-red-500/40 hover:shadow-[0_25px_70px_rgba(220,38,38,0.25)]"
             >
@@ -421,7 +421,7 @@ export default function CasualDatingLanding() {
             <div className="lg:hidden">
               <VisitCta
                 href={affiliateUrl}
-                placement="banner-section-mobile"
+                placement="lp_mid"
                 label="Visit FuckFinder →"
               />
             </div>
@@ -545,7 +545,7 @@ export default function CasualDatingLanding() {
               </div>
 
               <div className="mt-8">
-                <VisitCta href={affiliateUrl} placement="features" />
+                <VisitCta href={affiliateUrl} placement="lp_mid" />
               </div>
             </div>
           </div>
@@ -582,7 +582,7 @@ export default function CasualDatingLanding() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <VisitCta href={affiliateUrl} placement="mid-cta" />
+                  <VisitCta href={affiliateUrl} placement="lp_mid" />
                   <a href="#faq" className={secondaryButton}>
                     Read FAQ
                   </a>
@@ -636,7 +636,7 @@ export default function CasualDatingLanding() {
               <div className="mt-8 flex justify-center">
                 <VisitCta
                   href={affiliateUrl}
-                  placement="footer-cta"
+                  placement="lp_end"
                   label="Join FuckFinder Free →"
                 />
               </div>

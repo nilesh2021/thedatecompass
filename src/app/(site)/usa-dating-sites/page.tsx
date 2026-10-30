@@ -200,7 +200,7 @@ export default function UsaDatingSitesPage() {
                     </div>
                     <TrackedAffiliateLink
                       href={offer.href}
-                      placement="usa_sites_card"
+                      placement="card"
                       country="usa"
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"
@@ -239,7 +239,7 @@ export default function UsaDatingSitesPage() {
                   {offer ? (
                     <TrackedAffiliateLink
                       href={offer.href}
-                      placement="usa_sites_category"
+                      placement="card"
                       country="usa"
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"

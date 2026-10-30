@@ -204,7 +204,7 @@ export default function TransDateNorwayLanding() {
             </p>
 
             <div className="mt-8">
-              <VisitTransDate href={href} placement="transdate_hero_cta">
+              <VisitTransDate href={href} placement="lp_hero">
                 Join TransDate Free
               </VisitTransDate>
             </div>
@@ -320,7 +320,7 @@ export default function TransDateNorwayLanding() {
               <li key={src + index}>
                 <AffiliateLink
                   href={href}
-                  placement={`transdate_profile_${index + 1}`}
+                  placement="lp_mid"
                   className="group relative block overflow-hidden rounded-2xl border border-cream/10 bg-ink transition duration-300 hover:-translate-y-1 hover:border-brand-rose/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
                 >
                   <span className="relative block aspect-[3/4] w-full">
@@ -355,7 +355,7 @@ export default function TransDateNorwayLanding() {
           </ul>
 
           <div className="mt-8 flex justify-center">
-            <VisitTransDate href={href} placement="transdate_profiles_cta">
+            <VisitTransDate href={href} placement="lp_mid">
               See who&apos;s on TransDate
             </VisitTransDate>
           </div>
@@ -385,7 +385,7 @@ export default function TransDateNorwayLanding() {
               immediate scene.
             </p>
             <div className="mt-8">
-              <VisitTransDate href={href} placement="transdate_norway_cta">
+              <VisitTransDate href={href} placement="lp_mid">
                 Explore TransDate
               </VisitTransDate>
             </div>
@@ -473,7 +473,7 @@ export default function TransDateNorwayLanding() {
             Jump into TransDate and decide for yourself if the vibe fits.
           </p>
           <div className="mt-9 flex justify-center">
-            <VisitTransDate href={href} placement="transdate_final_cta">
+            <VisitTransDate href={href} placement="lp_end">
               Visit TransDate
             </VisitTransDate>
           </div>

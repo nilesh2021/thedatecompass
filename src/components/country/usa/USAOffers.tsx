@@ -333,7 +333,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                   <UsaAffiliateLink
                     href={offer.href}
                     offerName={offer.name}
-                    placement="usa_offer_card"
+                    placement="card"
                     className="group/btn flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87]"
                   >
                     <span className="flex w-full items-center justify-center gap-2">

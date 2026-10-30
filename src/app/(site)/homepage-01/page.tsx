@@ -174,7 +174,7 @@ const INVENTORY: Record<CountrySlug, Platform[]> = {
       category: offer.category,
       description: offer.description,
       image: offer.image,
-      href: getGermanyTrackedHref(offer, "homepage"),
+      href: getGermanyTrackedHref(offer, "card"),
       rating: offer.sponsored ? null : DEFAULT_RATING,
       features: chipsFromCategory(offer.category, offer.points?.slice(0, 2)),
       sponsored: offer.sponsored,
@@ -267,8 +267,8 @@ export default function Homepage01() {
     setMenuOpen(false);
   };
 
-  const onVisit = (name: string) => {
-    trackAffiliateClick(name, "homepage-01", countryMeta.name);
+  const onVisit = (name: string, placement: "card" | "table") => {
+    trackAffiliateClick(name, placement, countryMeta.name);
   };
 
   return (
@@ -533,10 +533,10 @@ export default function Homepage01() {
                   <div className="flex items-center p-4 sm:pr-5">
                     <TrackedAffiliateLink
                       href={platform.href}
-                      placement="homepage_card"
+                      placement="card"
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"
-                      onClick={() => onVisit(platform.name)}
+                      onClick={() => onVisit(platform.name, "card")}
                       className="inline-flex h-11 w-full items-center justify-center rounded-full bg-[#E83E9B] px-5 text-sm font-semibold sm:w-auto"
                     >
                       Visit Site
@@ -604,10 +604,10 @@ export default function Homepage01() {
                     <td className="px-4 py-3">
                       <TrackedAffiliateLink
                         href={platform.href}
-                        placement="homepage_table"
+                        placement="table"
                         target="_blank"
                         rel="sponsored nofollow noopener noreferrer"
-                        onClick={() => onVisit(platform.name)}
+                        onClick={() => onVisit(platform.name, "table")}
                         className="text-xs font-semibold text-[#E83E9B] hover:underline"
                       >
                         Visit
@@ -649,10 +649,10 @@ export default function Homepage01() {
                 ) : null}
                 <TrackedAffiliateLink
                   href={platform.href}
-                  placement="homepage_mobile"
+                  placement="card"
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
-                  onClick={() => onVisit(platform.name)}
+                  onClick={() => onVisit(platform.name, "card")}
                   className="mt-3 inline-flex text-sm font-semibold text-[#E83E9B]"
                 >
                   Visit Site

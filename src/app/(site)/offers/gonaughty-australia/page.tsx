@@ -124,7 +124,7 @@ export default function GoNaughtyAustraliaPage() {
               terms.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Cta label="Join GoNaughty Free" placement="hero" />
+              <Cta label="Join GoNaughty Free" placement="lp_hero" />
               <p className="text-[11px] leading-5 text-[#14110f]/40">
                 External destination · Affiliate disclosure
               </p>
@@ -251,7 +251,7 @@ export default function GoNaughtyAustraliaPage() {
               </p>
             </div>
             <div className="mt-8">
-              <Cta label="Browse GoNaughty" variant="rose" placement="mid-cta" />
+              <Cta label="Browse GoNaughty" variant="rose" placement="lp_mid" />
             </div>
           </div>
         </div>
@@ -310,7 +310,7 @@ export default function GoNaughtyAustraliaPage() {
                 dating Australia and Australian dating sites.
               </p>
               <div className="mt-8">
-                <Cta label="Start on GoNaughty" variant="cream" placement="footer-cta" />
+                <Cta label="Start on GoNaughty" variant="cream" placement="lp_end" />
               </div>
             </div>
           </div>

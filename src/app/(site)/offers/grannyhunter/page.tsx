@@ -74,7 +74,7 @@ export default function GrannyHunterPage() {
 
       <FixedOfferCta
         offer={grannyHunterOffer}
-        placement="grannyhunter_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join GrannyHunter Free →"
       />
 

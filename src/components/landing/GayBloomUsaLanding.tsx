@@ -84,7 +84,7 @@ export default function GayBloomUsaLanding() {
             <div className="mt-10">
               <ExploreCta
                 label="Join GayBloom"
-                placement="gaybloom_usa_hero"
+                placement="lp_hero"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function GayBloomUsaLanding() {
               <div className="mt-9">
                 <ExploreCta
                   label="Visit GayBloom"
-                  placement="gaybloom_usa_footer"
+                  placement="lp_end"
                 />
               </div>
             </div>
@@ -166,7 +166,7 @@ export default function GayBloomUsaLanding() {
 
       <FixedOfferCta
         offer={gayBloomUsaOffer}
-        placement="gaybloom_usa_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join GayBloom →"
       />
     </main>

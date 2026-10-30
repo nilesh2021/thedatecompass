@@ -47,7 +47,7 @@ export default function AIGirlfriendPage() {
 
       <AiGirlfriendLanding />
 
-      <FixedOfferCta offer={dreamzOffer} placement="dreamz_fixed_cta" />
+      <FixedOfferCta offer={dreamzOffer} placement="lp_end" />
 
       {/* Breadcrumb Schema */}
       <script

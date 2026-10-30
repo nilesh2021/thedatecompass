@@ -18,7 +18,7 @@ type CountryOfferCtaProps = {
   offerName: string;
   /** Country slug/code from the calling page (e.g. usa, germany, france) */
   country: string;
-  /** Click placement label; defaults to offer_card */
+  /** Click placement label; defaults to card */
   placement?: string;
 };
 
@@ -36,7 +36,7 @@ export default function CountryOfferCta({
   variant,
   offerName,
   country,
-  placement = "offer_card",
+  placement = "card",
 }: CountryOfferCtaProps) {
   const handleClick = () => {
     trackAffiliateClick(offerName, placement, country);

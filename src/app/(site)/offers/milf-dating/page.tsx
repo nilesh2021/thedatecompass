@@ -47,7 +47,7 @@ export default function MilfDatingPage() {
 
       <FixedOfferCta
         offer={milfDatingOffer}
-        placement="milf_dating_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join MilfFinder Free →"
       />
 

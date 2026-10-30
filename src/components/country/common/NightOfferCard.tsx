@@ -42,12 +42,12 @@ export default function NightOfferCard({
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]">
       <TrackedAffiliateLink
         href={href}
-        placement="offer_card"
+        placement="card"
         country={country}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
         className="group flex flex-1 flex-col text-cream no-underline"
-        onClick={() => trackAffiliateClick(name, "offer_card", country)}
+        onClick={() => trackAffiliateClick(name, "card", country)}
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image

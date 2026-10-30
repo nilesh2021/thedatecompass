@@ -17,7 +17,7 @@ export default function SexEmulatorPlayCta({
   return (
     <TrackedAffiliateLink
       href={SEX_EMULATOR_AFFILIATE_URL}
-      placement="play_cta"
+      placement="lp_hero"
       target="_blank"
       rel={SEX_EMULATOR_CTA_REL}
       className={className}

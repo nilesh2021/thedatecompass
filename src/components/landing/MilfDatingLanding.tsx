@@ -205,7 +205,7 @@ export default function MilfDatingLanding() {
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <VisitCta href={affiliateUrl} placement="hero" />
+                <VisitCta href={affiliateUrl} placement="lp_hero" />
 
                 <a href="#benefits" className={secondaryButton}>
                   See Benefits
@@ -230,11 +230,11 @@ export default function MilfDatingLanding() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-amber-500/40 via-rose-900/30 to-amber-600/20 opacity-50 blur-2xl" />
 
               <a
-                href={appendGoPlacement(affiliateUrl, "hero-portrait")}
+                href={appendGoPlacement(affiliateUrl, "lp_hero")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>
-                  trackAffiliateClick(milfDatingOffer.name, "hero-portrait")
+                  trackAffiliateClick(milfDatingOffer.name, "lp_hero")
                 }
                 className="group relative block overflow-hidden rounded-[1.7rem] border border-amber-400/20 bg-black/30 shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
               >
@@ -486,7 +486,7 @@ export default function MilfDatingLanding() {
               </div>
 
               <div className="mt-8">
-                <VisitCta href={affiliateUrl} placement="features" />
+                <VisitCta href={affiliateUrl} placement="lp_mid" />
               </div>
             </div>
           </div>
@@ -566,7 +566,7 @@ export default function MilfDatingLanding() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <VisitCta href={affiliateUrl} placement="mid-cta" />
+                  <VisitCta href={affiliateUrl} placement="lp_mid" />
                   <a href="#faq" className={secondaryButton}>
                     Read FAQ
                   </a>
@@ -629,7 +629,7 @@ export default function MilfDatingLanding() {
               <div className="mt-8 flex justify-center">
                 <VisitCta
                   href={affiliateUrl}
-                  placement="footer-cta"
+                  placement="lp_end"
                   label="Visit MilfFinder"
                 />
               </div>

@@ -21,7 +21,7 @@ export default function AustraliaPopinClickTracker() {
         typeof url === "string" ? url : url instanceof URL ? url.href : "";
 
       if (href.includes("/358917/8570/")) {
-        trackAffiliateClick("GoNaughty", "crak_popin_overlay", "australia");
+        trackAffiliateClick("GoNaughty", "lp_mid", "australia");
       }
 
       return originalOpen(url, target, features);

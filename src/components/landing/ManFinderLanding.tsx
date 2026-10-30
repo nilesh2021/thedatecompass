@@ -102,7 +102,7 @@ export default function ManFinderGayDatingLanding() {
             </p>
 
             <div className="mt-9">
-              <ExploreCta label="Explore ManFinder →" placement="hero" />
+              <ExploreCta label="Explore ManFinder →" placement="lp_hero" />
             </div>
 
             <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-white/35">
@@ -237,7 +237,7 @@ export default function ManFinderGayDatingLanding() {
               </p>
 
               <div className="mt-9">
-                <ExploreCta label="Discover ManFinder →" placement="mid-cta" />
+                <ExploreCta label="Discover ManFinder →" placement="lp_mid" />
               </div>
 
             </div>
@@ -320,7 +320,7 @@ export default function ManFinderGayDatingLanding() {
               </p>
 
               <div className="mt-9">
-                <ExploreCta label="Explore ManFinder →" placement="footer-cta" />
+                <ExploreCta label="Explore ManFinder →" placement="lp_end" />
               </div>
 
             </div>
@@ -342,7 +342,7 @@ export default function ManFinderGayDatingLanding() {
       {/* EXISTING FIXED CTA */}
       <FixedOfferCta
         offer={manFinderOffer}
-        placement="manfinder_fixed_cta"
+        placement="lp_end"
         ctaLabel="Explore ManFinder →"
       />
 

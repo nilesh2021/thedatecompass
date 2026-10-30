@@ -169,7 +169,7 @@ export default function TransDateDatingLanding() {
             </div>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <VisitCta href={affiliateUrl} placement="hero" />
+              <VisitCta href={affiliateUrl} placement="lp_hero" />
               <a
                 href="#how-it-works"
                 className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/15 px-8 text-sm font-bold uppercase tracking-[0.1em] text-fog transition hover:border-brand-mint/40 hover:text-cream"
@@ -254,7 +254,7 @@ export default function TransDateDatingLanding() {
                   <div className="mt-8">
                     <VisitCta
                       href={affiliateUrl}
-                      placement="spotlight"
+                      placement="lp_mid"
                       label="Visit TransDate →"
                     />
                   </div>
@@ -358,7 +358,7 @@ export default function TransDateDatingLanding() {
             <div className="mt-10 flex justify-center">
               <VisitCta
                 href={affiliateUrl}
-                placement="features"
+                placement="lp_mid"
                 variant="outline"
               />
             </div>
@@ -480,7 +480,7 @@ export default function TransDateDatingLanding() {
             <div className="mt-8 flex justify-center">
               <VisitCta
                 href={affiliateUrl}
-                placement="footer-cta"
+                placement="lp_end"
                 label="Join TransDate Free →"
               />
             </div>

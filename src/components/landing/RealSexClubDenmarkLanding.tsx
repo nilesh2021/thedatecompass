@@ -143,7 +143,7 @@ export default function RealSexClubDenmarkLanding() {
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <VisitCta placement="hero" />
+                <VisitCta placement="lp_hero" />
                 <Link
                   href="/denmark"
                   className="text-xs font-bold uppercase tracking-[0.16em] text-fog underline decoration-cream/25 underline-offset-4 hover:text-cream"
@@ -182,7 +182,7 @@ export default function RealSexClubDenmarkLanding() {
                 </p>
               </div>
               <div className="mt-8">
-                <VisitCta placement="why_cta" />
+                <VisitCta placement="lp_mid" />
               </div>
             </div>
 
@@ -396,7 +396,7 @@ export default function RealSexClubDenmarkLanding() {
                   destination site. Adults 18+ only.
                 </p>
                 <div className="mt-7">
-                  <VisitCta placement="mid_cta" />
+                  <VisitCta placement="lp_mid" />
                 </div>
                 <AffiliateNote className="mt-4 text-xs leading-relaxed text-fog/80" />
               </div>
@@ -443,7 +443,7 @@ export default function RealSexClubDenmarkLanding() {
               .
             </p>
             <div className="mt-8 flex justify-center">
-              <VisitCta placement="final_cta" />
+              <VisitCta placement="lp_end" />
             </div>
             <AffiliateNote className="mx-auto mt-4 max-w-md text-xs text-fog/70" />
           </div>
@@ -463,14 +463,14 @@ export default function RealSexClubDenmarkLanding() {
       >
         <TrackedAffiliateLink
           href={realSexClubDenmarkOffer.url}
-          placement="fixed_cta"
+          placement="lp_end"
           country={COUNTRY}
           target="_blank"
           rel={REL}
           onClick={() =>
             trackAffiliateClick(
               realSexClubDenmarkOffer.name,
-              "fixed_cta",
+              "lp_end",
               COUNTRY
             )
           }

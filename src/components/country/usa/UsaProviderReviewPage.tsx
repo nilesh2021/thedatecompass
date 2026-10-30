@@ -42,22 +42,8 @@ export type ProviderReviewCountry = {
   compareOtherLabel: string;
   safetyHref: string;
   safetyLabel: string;
-  heroPlacement:
-    | "usa_review_hero"
-    | "germany_review_hero"
-    | "france_review_hero"
-    | "canada_review_hero"
-    | "australia_review_hero"
-    | "uk_review_hero"
-    | "denmark_review_hero";
-  footerPlacement:
-    | "usa_review_footer"
-    | "germany_review_footer"
-    | "france_review_footer"
-    | "canada_review_footer"
-    | "australia_review_footer"
-    | "uk_review_footer"
-    | "denmark_review_footer";
+  heroPlacement: "lp_hero";
+  footerPlacement: "lp_end";
 };
 
 export const USA_REVIEW_COUNTRY: ProviderReviewCountry = {
@@ -71,8 +57,8 @@ export const USA_REVIEW_COUNTRY: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in the USA",
   safetyHref: "/usa#safety",
   safetyLabel: "safety section on the USA comparison page",
-  heroPlacement: "usa_review_hero",
-  footerPlacement: "usa_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 type UsaProviderReviewPageProps = {

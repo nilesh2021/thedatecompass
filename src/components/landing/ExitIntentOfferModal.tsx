@@ -157,11 +157,11 @@ export default function ExitIntentOfferModal({
 
           <TrackedAffiliateLink
             href={affiliateUrl}
-            placement="exit-intent"
+            placement="lp_end"
             target="_blank"
             rel={REL}
             onClick={() => {
-              onTrackClick("exit-intent");
+              onTrackClick("lp_end");
               close();
             }}
             className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-rose px-8 py-4 text-sm font-bold text-white shadow-[0_16px_40px_rgba(255,61,110,0.35)] transition hover:bg-brand-rose-soft"

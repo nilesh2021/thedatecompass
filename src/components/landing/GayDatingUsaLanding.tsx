@@ -82,7 +82,7 @@ export default function GayDatingUsaLanding() {
             </p>
 
             <div className="mt-10">
-              <ExploreCta label="Join ManFinder" placement="gay_dating_usa_hero" />
+              <ExploreCta label="Join ManFinder" placement="lp_hero" />
             </div>
           </div>
 
@@ -144,7 +144,7 @@ export default function GayDatingUsaLanding() {
               <div className="mt-9">
                 <ExploreCta
                   label="Open ManFinder"
-                  placement="gay_dating_usa_footer"
+                  placement="lp_end"
                 />
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function GayDatingUsaLanding() {
 
       <FixedOfferCta
         offer={{ ...manFinderOffer, url: OFFER_PATH }}
-        placement="gay_dating_usa_fixed_cta"
+        placement="lp_end"
         ctaLabel="Join ManFinder →"
       />
     </main>

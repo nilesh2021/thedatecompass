@@ -25,8 +25,8 @@ export const GERMANY_REVIEW_COUNTRY: ProviderReviewCountry = {
   compareOtherLabel: "Compare other adult dating sites in Germany",
   safetyHref: "/germany#germany-dating-guide",
   safetyLabel: "Germany dating guide",
-  heroPlacement: "germany_review_hero",
-  footerPlacement: "germany_review_footer",
+  heroPlacement: "lp_hero",
+  footerPlacement: "lp_end",
 };
 
 export function getGermanyReviewOffer(slug: string): GermanyOffer | undefined {

@@ -38,10 +38,10 @@ export default function AIGirlfriendLanding() {
 
             <div className="mt-8 flex justify-center gap-4">
               <Link
-                href={goHref("hero")}
+                href={goHref("lp_hero")}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-                onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
+                onClick={() => trackAffiliateClick(OFFER_NAME, "lp_hero")}
                 className="rounded-full bg-pink-500 px-6 py-3 font-semibold text-white"
               >
                 Start Chatting
@@ -94,10 +94,10 @@ export default function AIGirlfriendLanding() {
           <div className="container mx-auto px-6 text-center">
             <p className="text-gray-400">Ready to try?</p>
             <Link
-              href={goHref("footer-cta")}
+              href={goHref("lp_end")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
-              onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
+              onClick={() => trackAffiliateClick(OFFER_NAME, "lp_end")}
               className="mt-4 inline-block rounded-full bg-pink-500 px-8 py-3 font-semibold text-white"
             >
               Start Chatting Now

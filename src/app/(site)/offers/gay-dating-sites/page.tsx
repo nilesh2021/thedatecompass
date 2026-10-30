@@ -71,7 +71,7 @@ export default function GayDatingSitesPage() {
 
       <FixedOfferCta
         offer={gayDatingSitesFeatured}
-        placement="gay_dating_sites_fixed_cta"
+        placement="lp_end"
         ctaLabel={`Visit ${gayDatingSitesFeatured.name} →`}
       />
 

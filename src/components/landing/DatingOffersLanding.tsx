@@ -138,7 +138,7 @@ export default function DatingOffersLanding() {
           </ul>
 
           <a
-            href={goHref("nav")}
+            href={goHref("lp_hero")}
             target="_blank"
             rel={REL}
             className="hidden rounded-full bg-[#1a1515] px-6 py-2.5 text-sm text-white transition hover:bg-[#333] lg:inline-block"
@@ -163,7 +163,7 @@ export default function DatingOffersLanding() {
               ))}
             </ul>
             <a
-              href={goHref("nav")}
+              href={goHref("lp_hero")}
               target="_blank"
               rel={REL}
               className="mt-4 block rounded-full bg-[#1a1515] px-6 py-3 text-center text-sm text-white"
@@ -189,7 +189,7 @@ export default function DatingOffersLanding() {
             </p>
             <div className="mb-6 flex flex-wrap items-center gap-4">
               <a
-                href={goHref("hero")}
+                href={goHref("lp_hero")}
                 target="_blank"
                 rel={REL}
                 className="rounded-full bg-[#f85c50] px-7 py-3 font-medium text-white transition hover:bg-[#e54a3e]"
@@ -271,7 +271,7 @@ export default function DatingOffersLanding() {
             {deals.map((deal) => (
               <a
                 key={`${deal.title}-${deal.badge ?? "default"}`}
-                href={goHref("deals")}
+                href={goHref("lp_mid")}
                 target="_blank"
                 rel={REL}
                 className="deal-card"
@@ -386,7 +386,7 @@ export default function DatingOffersLanding() {
                   className="email-group"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    window.open(goHref("signup"), "_blank", "noopener,noreferrer");
+                    window.open(goHref("lp_mid"), "_blank", "noopener,noreferrer");
                   }}
                 >
                   <input

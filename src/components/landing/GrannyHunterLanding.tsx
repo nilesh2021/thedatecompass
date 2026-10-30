@@ -203,7 +203,7 @@ export default function GrannyHunterLanding() {
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <VisitCta href={affiliateUrl} placement="hero" />
+                <VisitCta href={affiliateUrl} placement="lp_hero" />
 
                 <a href="#how-it-works" className={secondaryButton}>
                   How It Works
@@ -228,11 +228,11 @@ export default function GrannyHunterLanding() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#8b4d63]/40 via-[#c9a87c]/20 to-[#6b3a4a]/30 opacity-55 blur-2xl" />
 
               <a
-                href={appendGoPlacement(affiliateUrl, "hero-portrait")}
+                href={appendGoPlacement(affiliateUrl, "lp_hero")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>
-                  trackAffiliateClick(grannyHunterOffer.name, "hero-portrait")
+                  trackAffiliateClick(grannyHunterOffer.name, "lp_hero")
                 }
                 className="group relative block overflow-hidden rounded-[1.75rem] border border-[#c9a87c]/20 bg-black/30 shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
               >
@@ -352,7 +352,7 @@ export default function GrannyHunterLanding() {
             </div>
 
             <div className="mt-10 flex justify-center">
-              <VisitCta href={affiliateUrl} placement="how-it-works" />
+              <VisitCta href={affiliateUrl} placement="lp_mid" />
             </div>
           </div>
         </section>
@@ -474,7 +474,7 @@ export default function GrannyHunterLanding() {
               </div>
 
               <div className="mt-8">
-                <VisitCta href={affiliateUrl} placement="features" />
+                <VisitCta href={affiliateUrl} placement="lp_mid" />
               </div>
             </div>
           </div>
@@ -511,7 +511,7 @@ export default function GrannyHunterLanding() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <VisitCta href={affiliateUrl} placement="mid-cta" />
+                  <VisitCta href={affiliateUrl} placement="lp_mid" />
                   <a href="#faq" className={secondaryButton}>
                     Read FAQ
                   </a>
@@ -577,7 +577,7 @@ export default function GrannyHunterLanding() {
               <div className="mt-8 flex justify-center">
                 <VisitCta
                   href={affiliateUrl}
-                  placement="footer-cta"
+                  placement="lp_end"
                   label="Visit GrannyHunter"
                 />
               </div>

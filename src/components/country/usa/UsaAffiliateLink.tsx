@@ -8,29 +8,7 @@ import { trackAffiliateClick } from "@/lib/analytics";
 type UsaAffiliateLinkProps = {
   href: string;
   offerName: string;
-  placement:
-    | "usa_offer_card"
-    | "usa_comparison_table"
-    | "usa_review_hero"
-    | "usa_review_footer"
-    | "germany_comparison_table"
-    | "germany_review_hero"
-    | "germany_review_footer"
-    | "france_comparison_table"
-    | "france_review_hero"
-    | "france_review_footer"
-    | "canada_comparison_table"
-    | "canada_review_hero"
-    | "canada_review_footer"
-    | "australia_comparison_table"
-    | "australia_review_hero"
-    | "australia_review_footer"
-    | "uk_comparison_table"
-    | "uk_review_hero"
-    | "uk_review_footer"
-    | "denmark_comparison_table"
-    | "denmark_review_hero"
-    | "denmark_review_footer";
+  placement: "card" | "table" | "lp_hero" | "lp_end";
   country?: "usa" | "germany" | "france" | "canada" | "australia" | "uk" | "denmark";
   className?: string;
   children?: ReactNode;

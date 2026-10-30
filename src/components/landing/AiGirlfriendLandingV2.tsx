@@ -121,10 +121,10 @@ export default function AiGirlfriendLandingV2() {
 
           <div className="relative mx-auto grid max-w-[1400px] lg:min-h-[760px] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
             <a
-              href={goHref("featured-video")}
+              href={goHref("lp_hero")}
               target="_blank"
               rel={REL}
-              onClick={() => trackOfferClick("featured-video")}
+              onClick={() => trackOfferClick("lp_hero")}
               className="group relative block min-h-[420px] overflow-hidden lg:min-h-full"
             >
               <CompanionMedia companion={featured} priority />
@@ -173,10 +173,10 @@ export default function AiGirlfriendLandingV2() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
-                  href={goHref("hero")}
+                  href={goHref("lp_hero")}
                   target="_blank"
                   rel={REL}
-                  onClick={() => trackOfferClick("hero")}
+                  onClick={() => trackOfferClick("lp_hero")}
                   className="inline-flex items-center justify-center rounded-full bg-brand-rose px-8 py-4 text-sm font-bold text-white shadow-[0_16px_40px_rgba(255,61,110,0.35)] transition hover:bg-brand-rose-soft"
                 >
                   Try Dreamz.ai Free →
@@ -232,10 +232,10 @@ export default function AiGirlfriendLandingV2() {
                 </h2>
               </div>
               <a
-                href={goHref("catalog-link")}
+                href={goHref("lp_mid")}
                 target="_blank"
                 rel={REL}
-                onClick={() => trackOfferClick("catalog-link")}
+                onClick={() => trackOfferClick("lp_mid")}
                 className="text-sm font-semibold text-brand-rose transition hover:text-brand-rose-soft"
               >
                 Open full catalog on Dreamz →
@@ -244,7 +244,7 @@ export default function AiGirlfriendLandingV2() {
 
             <div className="grid gap-4 md:grid-cols-12 md:gap-5">
               <a
-                href={goHref(`companion-${featured.name.toLowerCase()}`)}
+                href={goHref("card")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>
@@ -280,7 +280,7 @@ export default function AiGirlfriendLandingV2() {
                 {restCompanions.map((companion, index) => (
                   <a
                     key={companion.name}
-                    href={goHref(`companion-${companion.name.toLowerCase()}`)}
+                    href={goHref("card")}
                     target="_blank"
                     rel={REL}
                     onClick={() =>
@@ -328,10 +328,10 @@ export default function AiGirlfriendLandingV2() {
                 </p>
               </div>
               <a
-                href={goHref("sidebar")}
+                href={goHref("lp_mid")}
                 target="_blank"
                 rel={REL}
-                onClick={() => trackOfferClick("sidebar")}
+                onClick={() => trackOfferClick("lp_mid")}
                 className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-rose px-8 py-3.5 text-sm font-bold text-white transition hover:bg-brand-rose-soft lg:mt-0 lg:w-auto"
               >
                 Explore on Dreamz.ai →
@@ -402,10 +402,10 @@ export default function AiGirlfriendLandingV2() {
                   exploring conversations on Dreamz.ai.
                 </p>
                 <a
-                  href={goHref("footer-cta")}
+                  href={goHref("lp_end")}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
-                  onClick={() => trackOfferClick("footer-cta")}
+                  onClick={() => trackOfferClick("lp_end")}
                   className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
                 >
                   Try Dreamz.ai Free →

@@ -93,12 +93,12 @@ export default function GayDatingLanding() {
               </a>
               <TrackedAffiliateLink
                 href={featured.url}
-                placement="gay_dating_offer"
+                placement="card"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 className="tdc-btn-line"
                 onClick={() =>
-                  trackAffiliateClick(featured.name, "gay_dating_offer")
+                  trackAffiliateClick(featured.name, "card")
                 }
               >
                 Try {featured.name}
@@ -213,12 +213,12 @@ export default function GayDatingLanding() {
                 </ul>
                 <TrackedAffiliateLink
                   href={featured.url}
-                  placement="gay_dating_offer"
+                  placement="card"
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className={`${ctaClass} mt-8 w-full sm:w-fit`}
                   onClick={() =>
-                    trackAffiliateClick(featured.name, "gay_dating_offer")
+                    trackAffiliateClick(featured.name, "card")
                   }
                 >
                   <span className="flex flex-1 items-center justify-center px-6 text-sm font-extrabold uppercase tracking-[0.12em]">
@@ -238,11 +238,11 @@ export default function GayDatingLanding() {
               <TrackedAffiliateLink
                 key={offer.id}
                 href={offer.url}
-                placement="gay_dating_offer"
+                placement="card"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() =>
-                  trackAffiliateClick(offer.name, "gay_dating_offer")
+                  trackAffiliateClick(offer.name, "card")
                 }
                 className="group flex flex-col overflow-hidden border border-cream/10 bg-ink-soft no-underline transition duration-300 hover:-translate-y-1 hover:border-brand-rose/40"
               >
@@ -373,12 +373,12 @@ export default function GayDatingLanding() {
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedAffiliateLink
                 href={featured.url}
-                placement="gay_dating_offer"
+                placement="card"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 className={ctaClass}
                 onClick={() =>
-                  trackAffiliateClick(featured.name, "gay_dating_offer")
+                  trackAffiliateClick(featured.name, "card")
                 }
               >
                 <span className="flex flex-1 items-center justify-center px-7 text-sm font-extrabold uppercase tracking-[0.12em]">

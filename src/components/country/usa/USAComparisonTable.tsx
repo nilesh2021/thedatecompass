@@ -56,12 +56,12 @@ type NightCompareVariant = "canada" | "australia" | "uk" | "denmark";
 
 const nightCompareCopy: Record<
   NightCompareVariant,
-  { id: string; countryLabel: string; placement: "canada_comparison_table" | "australia_comparison_table" | "uk_comparison_table" | "denmark_comparison_table"; country: NightCompareVariant }
+  { id: string; countryLabel: string; placement: "table"; country: NightCompareVariant }
 > = {
-  canada: { id: "canada", countryLabel: "Canada", placement: "canada_comparison_table", country: "canada" },
-  australia: { id: "australia", countryLabel: "Australia", placement: "australia_comparison_table", country: "australia" },
-  uk: { id: "uk", countryLabel: "the UK", placement: "uk_comparison_table", country: "uk" },
-  denmark: { id: "denmark", countryLabel: "Denmark", placement: "denmark_comparison_table", country: "denmark" },
+  canada: { id: "canada", countryLabel: "Canada", placement: "table", country: "canada" },
+  australia: { id: "australia", countryLabel: "Australia", placement: "table", country: "australia" },
+  uk: { id: "uk", countryLabel: "the UK", placement: "table", country: "uk" },
+  denmark: { id: "denmark", countryLabel: "Denmark", placement: "table", country: "denmark" },
 };
 
 function renderNightComparison(
@@ -308,7 +308,7 @@ export default function USAComparisonTable({
                       <UsaAffiliateLink
                         href={offer.href}
                         offerName={offer.name}
-                        placement="france_comparison_table"
+                        placement="table"
                         country="france"
                         compact
                         className="inline-flex items-center gap-1 rounded-lg border border-[#ff2d87]/40 bg-[#ff2d87]/15 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-cream transition hover:border-[#ff2d87] hover:bg-[#ff2d87]/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87]"
@@ -362,7 +362,7 @@ export default function USAComparisonTable({
                     <UsaAffiliateLink
                       href={offer.href}
                       offerName={offer.name}
-                      placement="france_comparison_table"
+                      placement="table"
                       country="france"
                       className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-[#ff2d87] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87]"
                     />
@@ -472,7 +472,7 @@ export default function USAComparisonTable({
                       <UsaAffiliateLink
                         href={getGermanyTrackedHref(offer, "table")}
                         offerName={offer.name}
-                        placement="germany_comparison_table"
+                        placement="table"
                         country="germany"
                         compact
                         className="inline-flex items-center gap-1 rounded-lg border border-[#ff2d87]/40 bg-[#ff2d87]/15 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-cream transition hover:border-[#ff2d87] hover:bg-[#ff2d87]/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87]"
@@ -534,7 +534,7 @@ export default function USAComparisonTable({
                     <UsaAffiliateLink
                       href={getGermanyTrackedHref(offer, "table")}
                       offerName={offer.name}
-                      placement="germany_comparison_table"
+                      placement="table"
                       country="germany"
                       className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-[#ff2d87] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff2d87]"
                     />
@@ -639,7 +639,7 @@ export default function USAComparisonTable({
                       <UsaAffiliateLink
                         href={offer.href}
                         offerName={offer.name}
-                        placement="usa_comparison_table"
+                        placement="table"
                         compact
                         className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white transition hover:border-brand-rose/50 hover:bg-brand-rose/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose"
                       />
@@ -698,7 +698,7 @@ export default function USAComparisonTable({
                     <UsaAffiliateLink
                       href={offer.href}
                       offerName={offer.name}
-                      placement="usa_comparison_table"
+                      placement="table"
                       className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand-rose px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose"
                     />
                   </div>

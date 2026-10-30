@@ -99,10 +99,10 @@ export default function ManFinderLandingV2() {
 
               <div className="mt-8">
                 <a
-                  href={goHref("v2-hero")}
+                  href={goHref("lp_hero")}
                   target="_blank"
                   rel={REL}
-                  onClick={() => handleClick("v2-hero")}
+                  onClick={() => handleClick("lp_hero")}
                   className="group inline-flex min-h-[56px] items-center overflow-hidden rounded-lg bg-[#941940] shadow-[0_15px_45px_rgba(148,25,64,.35)] transition hover:-translate-y-1 hover:bg-[#ad1f4d]"
                 >
                   <span className="px-7 text-sm font-bold uppercase tracking-[0.14em]">
@@ -261,10 +261,10 @@ export default function ManFinderLandingV2() {
               </div>
 
               <a
-                href={goHref("v2-features")}
+                href={goHref("lp_mid")}
                 target="_blank"
                 rel={REL}
-                onClick={() => handleClick("v2-features")}
+                onClick={() => handleClick("lp_mid")}
                 className="mt-8 inline-flex items-center gap-3 border border-[#a91d4b] bg-[#941940] px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] transition hover:bg-[#ad1f4d]"
               >
                 Visit ManFinder
@@ -307,10 +307,10 @@ export default function ManFinderLandingV2() {
                 </p>
 
                 <a
-                  href={goHref("v2-final")}
+                  href={goHref("lp_end")}
                   target="_blank"
                   rel={REL}
-                  onClick={() => handleClick("v2-final")}
+                  onClick={() => handleClick("lp_end")}
                   className="mt-7 inline-flex items-center gap-4 bg-[#941940] px-7 py-4 text-xs font-bold uppercase transition hover:bg-[#ad1f4d]"
                 >
                   Visit ManFinder
