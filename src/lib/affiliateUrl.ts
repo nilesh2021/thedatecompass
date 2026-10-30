@@ -63,22 +63,29 @@ export function readCountryFromRequest(request: Request): string | null {
   return sanitizeToken(new URL(request.url).searchParams.get("country"));
 }
 
-/** Append country/placement on an internal /go/ href. Leaves existing keys and external URLs unchanged. */
+const DEFAULT_GO_COUNTRY = "global";
+
+/** Append country/placement on an internal /go/ href. Leaves existing keys and external URLs unchanged. Defaults a missing country to global. */
 export function appendGoParams(
   href: string,
   params?: { country?: string | null; placement?: string | null }
 ): string {
   if (!href.startsWith("/go/")) return href;
 
-  const country = sanitizeToken(params?.country);
-  const placement = sanitizeToken(params?.placement);
-  if (!country && !placement) return href;
-
   const url = new URL(href, GO_URL_ORIGIN);
-  if (country && !url.searchParams.has("country")) {
-    url.searchParams.set("country", country);
+  const hasCountry = url.searchParams.has("country");
+  const placement = sanitizeToken(params?.placement);
+  const needsPlacement = Boolean(placement) && !url.searchParams.has("placement");
+
+  if (hasCountry && !needsPlacement) return href;
+
+  if (!hasCountry) {
+    url.searchParams.set(
+      "country",
+      sanitizeToken(params?.country) ?? DEFAULT_GO_COUNTRY
+    );
   }
-  if (placement && !url.searchParams.has("placement")) {
+  if (needsPlacement && placement) {
     url.searchParams.set("placement", placement);
   }
   return `${url.pathname}${url.search}`;
