@@ -263,6 +263,9 @@ export default function Fremdgehen69Page() {
                   <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-cream/80">
                     Nur 18+
                   </span>
+                  <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-cream/80">
+                    Nur DE & AT
+                  </span>
                 </div>
                 <nav aria-label="Brotkrumen" className="mt-4 text-sm text-cream/55">
                   <ol className="flex flex-wrap gap-x-2 gap-y-1">
@@ -292,10 +295,12 @@ export default function Fremdgehen69Page() {
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
                   <Cta href={`${GO_BASE}?placement=lp_hero`}>Kostenlos zur Anbieterseite</Cta>
                   <p className="text-sm font-semibold text-cream/60">
-                    Anmeldung kostenlos. Preise siehe Anbieterseite.
+                    Anmeldung kostenlos. Preise siehe Anbieterseite. Nur DE & AT.
                   </p>
                 </div>
                 <p className="mt-6 max-w-xl text-xs leading-5 text-cream/50">
+                  Dieses Angebot richtet sich an Erwachsene in Deutschland und Österreich.
+                  Außerhalb dieser Länder kann die Anbieterseite eine andere Seite anzeigen.
                   Werbehinweis: Diese Seite enthält einen gesponserten Link. TheDateCompass
                   kann eine Provision erhalten, wenn Sie über den Button zur Anbieterseite
                   wechseln.{" "}

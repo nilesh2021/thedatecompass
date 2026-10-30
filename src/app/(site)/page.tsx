@@ -8,6 +8,7 @@ import CountriesGate from "@/components/Home/CountriesGate";
 import { CountriesOpenProvider } from "@/components/Home/CountriesOpen";
 import FAQ from "@/components/Home/FAQ";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
+import GermanySponsoredStrip from "@/components/country/germany/GermanySponsoredStrip";
 
 export const metadata: Metadata = {
   title: {
@@ -85,6 +86,7 @@ export default function Home() {
         <Hero />
         <CountriesOpenProvider>
           <FeaturedOffers />
+          <GermanySponsoredStrip />
           <CountriesGate />
         </CountriesOpenProvider>
         <FAQ />

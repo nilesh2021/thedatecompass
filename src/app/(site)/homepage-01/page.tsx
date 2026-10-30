@@ -23,7 +23,12 @@ import { dreamzOffer } from "@/data/aiGirlfriendOffers";
 import { australiaOffers } from "@/data/countries/australia";
 import { canadaOffers } from "@/data/countries/canada";
 import { ukOffers } from "@/data/countries/uk";
-import { germanyOffers } from "@/data/germanyOffers";
+import {
+  GERMANY_GEO_NOTE,
+  GERMANY_SPONSORED_LABEL,
+  germanyOffers,
+  getGermanyTrackedHref,
+} from "@/data/germanyOffers";
 import { usaOffers } from "@/data/usaOffers";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
@@ -43,8 +48,13 @@ type Platform = {
   description: string;
   image: string;
   href: string;
-  rating: number;
+  rating: number | null;
   features: string[];
+  sponsored?: boolean;
+  kicker?: string;
+  detailHref?: string;
+  detailLabel?: string;
+  geoNote?: string;
 };
 
 const COUNTRIES: { slug: CountrySlug; name: string; flag: string }[] = [
@@ -158,14 +168,21 @@ const INVENTORY: Record<CountrySlug, Platform[]> = {
   usa: normalizeUsa(),
   canada: normalizeList(canadaOffers),
   uk: normalizeList(ukOffers),
-  germany: normalizeList(
-    germanyOffers
-      .filter((offer) => !offer.sponsored)
-      .map((offer) => ({
-        ...offer,
-        description: offer.points[0],
-        href: offer.href,
-      }))
+  germany: uniqueByName(
+    germanyOffers.map((offer) => ({
+      name: offer.name,
+      category: offer.category,
+      description: offer.description,
+      image: offer.image,
+      href: getGermanyTrackedHref(offer, "homepage"),
+      rating: offer.sponsored ? null : DEFAULT_RATING,
+      features: chipsFromCategory(offer.category, offer.points?.slice(0, 2)),
+      sponsored: offer.sponsored,
+      kicker: offer.sponsored ? `${GERMANY_SPONSORED_LABEL} · DE & AT` : undefined,
+      detailHref: offer.guideHref,
+      detailLabel: offer.guideLabel,
+      geoNote: offer.sponsored ? GERMANY_GEO_NOTE : undefined,
+    }))
   ),
   australia: normalizeList(australiaOffers),
 };
@@ -485,21 +502,43 @@ export default function Homepage01() {
                     />
                   </div>
                   <div className="p-4 sm:p-5">
+                    {platform.kicker ? (
+                      <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white/55">
+                        {platform.kicker}
+                      </p>
+                    ) : null}
                     <p className="text-[11px] font-semibold uppercase tracking-wider text-[#E83E9B]">
                       {platform.category}
                     </p>
                     <h3 className="mt-1 text-lg font-bold">{platform.name}</h3>
                     <p className="mt-1 line-clamp-2 text-sm text-white/55">{platform.description}</p>
-                    <p className="mt-2 inline-flex items-center gap-1 text-sm text-white/80">
-                      <Star size={14} className="fill-[#E83E9B] text-[#E83E9B]" />
-                      {platform.rating.toFixed(1)}
-                    </p>
+                    {platform.geoNote ? (
+                      <p className="mt-2 text-xs leading-5 text-white/45">{platform.geoNote}</p>
+                    ) : null}
+                    {platform.rating != null ? (
+                      <p className="mt-2 inline-flex items-center gap-1 text-sm text-white/80">
+                        <Star size={14} className="fill-[#E83E9B] text-[#E83E9B]" />
+                        {platform.rating.toFixed(1)}
+                      </p>
+                    ) : null}
+                    {platform.detailHref && platform.detailLabel ? (
+                      <Link
+                        href={platform.detailHref}
+                        className="mt-2 inline-block text-xs font-semibold text-[#E83E9B] underline-offset-4 hover:underline"
+                      >
+                        {platform.detailLabel}
+                      </Link>
+                    ) : null}
                   </div>
                   <div className="flex items-center p-4 sm:pr-5">
                     <TrackedAffiliateLink
                       href={platform.href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel={
+                        platform.sponsored
+                          ? "sponsored nofollow noopener noreferrer"
+                          : "noopener noreferrer"
+                      }
                       onClick={() => onVisit(platform.name)}
                       className="inline-flex h-11 w-full items-center justify-center rounded-full bg-[#E83E9B] px-5 text-sm font-semibold sm:w-auto"
                     >
@@ -532,7 +571,22 @@ export default function Homepage01() {
               <tbody>
                 {platforms.map((platform) => (
                   <tr key={platform.name} className="border-t border-white/8">
-                    <td className="px-4 py-3 font-semibold">{platform.name}</td>
+                    <td className="px-4 py-3 font-semibold">
+                      <span className="block">{platform.name}</span>
+                      {platform.kicker ? (
+                        <span className="mt-1 block text-[10px] uppercase tracking-wider text-white/45">
+                          {platform.kicker}
+                        </span>
+                      ) : null}
+                      {platform.detailHref && platform.detailLabel ? (
+                        <Link
+                          href={platform.detailHref}
+                          className="mt-1 inline-block text-xs font-semibold text-[#E83E9B] hover:underline"
+                        >
+                          {platform.detailLabel}
+                        </Link>
+                      ) : null}
+                    </td>
                     <td className="px-4 py-3 text-white/60">{platform.category}</td>
                     <td className="px-4 py-3">
                       <div className="flex flex-wrap gap-1">
@@ -547,12 +601,18 @@ export default function Homepage01() {
                       </div>
                     </td>
                     <td className="px-4 py-3 text-white/60">{countryMeta.name}</td>
-                    <td className="px-4 py-3">{platform.rating.toFixed(1)}</td>
+                    <td className="px-4 py-3">
+                      {platform.rating != null ? platform.rating.toFixed(1) : "—"}
+                    </td>
                     <td className="px-4 py-3">
                       <TrackedAffiliateLink
                         href={platform.href}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel={
+                          platform.sponsored
+                            ? "sponsored nofollow noopener noreferrer"
+                            : "noopener noreferrer"
+                        }
                         onClick={() => onVisit(platform.name)}
                         className="text-xs font-semibold text-[#E83E9B] hover:underline"
                       >
@@ -569,16 +629,38 @@ export default function Homepage01() {
               <div key={platform.name} className="rounded-2xl border border-white/10 p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div>
+                    {platform.kicker ? (
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">
+                        {platform.kicker}
+                      </p>
+                    ) : null}
                     <p className="font-semibold">{platform.name}</p>
                     <p className="text-xs text-white/50">{platform.category}</p>
                   </div>
-                  <span className="text-sm">{platform.rating.toFixed(1)}</span>
+                  <span className="text-sm">
+                    {platform.rating != null ? platform.rating.toFixed(1) : "—"}
+                  </span>
                 </div>
                 <p className="mt-2 text-xs text-white/45">{countryMeta.name}</p>
+                {platform.geoNote ? (
+                  <p className="mt-1 text-xs leading-5 text-white/40">{platform.geoNote}</p>
+                ) : null}
+                {platform.detailHref && platform.detailLabel ? (
+                  <Link
+                    href={platform.detailHref}
+                    className="mt-2 inline-block text-xs font-semibold text-[#E83E9B] hover:underline"
+                  >
+                    {platform.detailLabel}
+                  </Link>
+                ) : null}
                 <TrackedAffiliateLink
                   href={platform.href}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel={
+                    platform.sponsored
+                      ? "sponsored nofollow noopener noreferrer"
+                      : "noopener noreferrer"
+                  }
                   onClick={() => onVisit(platform.name)}
                   className="mt-3 inline-flex text-sm font-semibold text-[#E83E9B]"
                 >

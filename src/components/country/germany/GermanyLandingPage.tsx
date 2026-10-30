@@ -72,7 +72,7 @@ export default function GermanyLandingPage() {
         </>
       }
       lede="Casual dating, niche communities, mature matches, and adult social spaces — compared side by side so you can skip the guesswork and click what fits."
-      note="18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site."
+      note="18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site. Fremdgehen69 is listed for Germany and Austria only; outside those countries the provider may show a different page."
       ctaLabel="Compare now"
       image={heroImage}
       imageAlt="Couple enjoying a date in Germany"
@@ -112,7 +112,11 @@ export default function GermanyLandingPage() {
             image={offer.image}
             imageAlt={offer.imageAlt}
             href={getGermanyTrackedHref(offer, "card")}
-            kicker={offer.sponsored ? GERMANY_SPONSORED_LABEL : undefined}
+            kicker={
+              offer.sponsored
+                ? `${GERMANY_SPONSORED_LABEL} · DE & AT`
+                : undefined
+            }
             country="germany"
             detailHref={detailHref}
             detailLabel={detailLabel}
@@ -124,7 +128,9 @@ export default function GermanyLandingPage() {
           <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
             18+ only. TheDateCompass contains sponsored links. Listings marked{" "}
             {GERMANY_SPONSORED_LABEL} are paid placements. Selecting an offer
-            redirects you to an independent third-party provider site.{" "}
+            redirects you to an independent third-party provider site.
+            Fremdgehen69 is listed for Germany and Austria only; outside those
+            countries the provider may show a different page.{" "}
             <Link
               href="/affiliate-disclosure"
               className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"

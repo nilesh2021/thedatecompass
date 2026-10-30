@@ -451,7 +451,7 @@ export default function USAComparisonTable({
                       <span className="block">{offer.name}</span>
                       {offer.sponsored ? (
                         <span className="mt-1 inline-flex rounded-full border border-cream/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-cream/75">
-                          {GERMANY_SPONSORED_LABEL}
+                          {GERMANY_SPONSORED_LABEL} · DE & AT
                         </span>
                       ) : null}
                       {reviewHref ? (
@@ -499,7 +499,7 @@ export default function USAComparisonTable({
                 <h3 className="text-xl font-extrabold text-cream">{offer.name}</h3>
                 {offer.sponsored ? (
                   <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-cream/70">
-                    {GERMANY_SPONSORED_LABEL}
+                    {GERMANY_SPONSORED_LABEL} · DE & AT
                   </p>
                 ) : null}
                 {reviewHref ? (
