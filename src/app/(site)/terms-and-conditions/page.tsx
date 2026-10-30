@@ -4,11 +4,16 @@ import { ArrowLeft } from "lucide-react";
 
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Terms and Conditions | TheDateCompass",
+  "Read the Terms and Conditions on TheDateCompass. They describe how this independent comparison site expects visitors to use the listings.",
+);
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | TheDateCompass",
-  description:
-    "Read the Terms & Conditions governing the use of TheDateCompass.",
+  title: { absolute: seo.title },
+  description: seo.description,
   alternates: {
     canonical: "https://www.thedatecompass.com/terms-and-conditions",
   },

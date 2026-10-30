@@ -270,6 +270,7 @@ export default function OfferLandingPage({
                     src={data.visuals.portrait}
                     alt={`${offer.name} about`}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover object-center"
                   />
                 </div>

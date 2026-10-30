@@ -53,7 +53,8 @@ export function getUkGoHref(slug: string): string {
 }
 
 export function getUkReviewHref(offer: Pick<UkOffer, "slug">): string | null {
-  if (!UK_REVIEW_SLUGS.includes(offer.slug)) return null;
+  const entry = ukOffers.find((item) => item.slug === offer.slug);
+  if (!entry?.reviewReady) return null;
   return `/uk/${offer.slug}-review`;
 }
 

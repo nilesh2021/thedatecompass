@@ -2,13 +2,15 @@ import MilfDatingLanding from "@/components/landing/MilfDatingLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { milfDatingFaqs, milfDatingOffer } from "@/data/milfDatingOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/milf-dating")!;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "MilfFinder Dating | Mature Dating Online",
+    absolute: seo.title,
   },
-  description:
-    "Meet mature singles on MilfFinder — a worldwide mature dating platform for adults 18+. Browse profiles, message privately, and connect on your terms.",
+  description: seo.description,
   keywords: [
     "MilfFinder",
     "MilfFinder dating",
@@ -21,17 +23,16 @@ export const metadata: Metadata = {
     canonical: "https://www.thedatecompass.com/offers/milf-dating",
   },
   openGraph: {
-    title: "MilfFinder Dating | Mature Dating Online",
-    description:
-      "Meet mature singles on MilfFinder — worldwide mature dating for adults 18+.",
+    title: seo.title,
+    description: seo.description,
     url: "https://www.thedatecompass.com/offers/milf-dating",
+    locale: seo.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MilfFinder Dating | Mature Dating Online",
-    description:
-      "Meet mature singles on MilfFinder — worldwide mature dating for adults 18+.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,

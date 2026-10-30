@@ -2,13 +2,15 @@ import ManFinderLanding from "@/components/landing/ManFinderLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { manFinderFaqs, manFinderOffer } from "@/data/manFinderOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/manfinder")!;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "ManFinder | Gay Dating | TheDateCompass",
+    absolute: seo.title,
   },
-  description:
-    "Explore ManFinder, a gay dating platform for men seeking casual encounters and real connections. Adults 18+.",
+  description: seo.description,
   keywords: [
     "ManFinder",
     "ManFinder dating",
@@ -21,16 +23,16 @@ export const metadata: Metadata = {
     canonical: "https://www.thedatecompass.com/offers/manfinder",
   },
   openGraph: {
-    title: "ManFinder | Gay Dating | TheDateCompass",
-    description:
-      "Explore ManFinder, a gay dating platform for men seeking casual encounters and real connections.",
+    title: seo.title,
+    description: seo.description,
     url: "https://www.thedatecompass.com/offers/manfinder",
+    locale: seo.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ManFinder | Gay Dating | TheDateCompass",
-    description: "Explore ManFinder and discover connections with other men.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,

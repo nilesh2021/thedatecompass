@@ -2,13 +2,15 @@ import TransDateDatingLanding from "@/components/landing/TransDateDatingLanding"
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { transDateFaqs, transDateOffer } from "@/data/transDateDatingOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/transdate-dating")!;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "TransDate Dating | Worldwide Online Dating",
+    absolute: seo.title,
   },
-  description:
-    "Explore TransDate, an inclusive online dating platform for transgender dating and meaningful connections. Available worldwide. Adults 18+.",
+  description: seo.description,
   keywords: [
     "TransDate",
     "TransDate dating",
@@ -21,17 +23,16 @@ export const metadata: Metadata = {
     canonical: "https://www.thedatecompass.com/offers/transdate-dating",
   },
   openGraph: {
-    title: "TransDate Dating | Worldwide Online Dating",
-    description:
-      "Explore TransDate — an inclusive platform for transgender dating and meaningful connections, available worldwide.",
+    title: seo.title,
+    description: seo.description,
     url: "https://www.thedatecompass.com/offers/transdate-dating",
+    locale: seo.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TransDate Dating | Worldwide Online Dating",
-    description:
-      "Explore TransDate and discover inclusive connections worldwide.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,

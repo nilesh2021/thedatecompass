@@ -194,7 +194,7 @@ export default function GoNaughtyAustraliaPage() {
                 <div className="relative h-56 overflow-hidden">
                   <Image
                     src={item.image}
-                    alt=""
+                    alt="GoNaughty"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-top transition duration-500 group-hover:scale-105"
@@ -292,7 +292,7 @@ export default function GoNaughtyAustraliaPage() {
           <div className="relative min-h-[420px]">
             <Image
               src={adultImages.portraitD}
-              alt=""
+              alt="GoNaughty"
               fill
               sizes="100vw"
               className="object-cover object-top"
@@ -331,7 +331,7 @@ export default function GoNaughtyAustraliaPage() {
         </p>
       </footer>
 
-      <FreeGayDatingSitesLanding />
+      <FreeGayDatingSitesLanding headingLevel="h2" />
     </main>
   );
 }

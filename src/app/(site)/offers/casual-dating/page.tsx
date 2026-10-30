@@ -7,6 +7,9 @@ import {
   casualDatingFaqs,
   casualDatingOffer,
 } from "@/data/casualDatingOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/casual-dating")!;
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/casual-dating";
 
@@ -15,10 +18,9 @@ const OG_IMAGE =
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Casual Dating Online | Find Local Connections",
+    absolute: seo.title,
   },
-  description:
-    "Meet people looking for casual connections on FuckFinder — browse local profiles, message privately, and connect on your terms. Worldwide. Adults 18+.",
+  description: seo.description,
   keywords: [
     "casual dating",
     "casual dating online",
@@ -32,9 +34,9 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Casual Dating Online | Find Local Connections",
-    description:
-      "Meet people looking for casual connections on FuckFinder — browse profiles, message privately, and connect worldwide.",
+    title: seo.title,
+    description: seo.description,
+    locale: seo.locale,
     url: PAGE_URL,
     siteName: "TheDateCompass",
     type: "website",
@@ -49,9 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Casual Dating Online | Find Local Connections",
-    description:
-      "Meet people looking for casual connections on FuckFinder — browse profiles and connect worldwide.",
+    title: seo.title,
+    description: seo.description,
     images: [OG_IMAGE],
   },
   robots: {

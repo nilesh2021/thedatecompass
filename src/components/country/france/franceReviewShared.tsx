@@ -6,6 +6,7 @@ import UsaProviderReviewPage, {
   type ProviderReviewCountry,
 } from "@/components/country/usa/UsaProviderReviewPage";
 import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
+import { getBrandSeo, SITE_NAME } from "@/lib/pageSeo";
 import {
   FRANCE_PAGE_LAST_UPDATED,
   franceOffers,
@@ -68,8 +69,9 @@ export function buildFranceReviewFaqs(offer: FranceOffer): CountryFaqItem[] {
 
 export function franceReviewMetadata(slug: string, displayName: string): Metadata {
   const pageUrl = franceReviewPageUrl(slug);
-  const title = `${displayName} Review 2026 | TheDateCompass`;
-  const description = `Independent ${displayName} overview for France visitors: category, listed focus areas, and what TheDateCompass does and does not cover before you visit the provider site.`;
+  const seo = getBrandSeo(`/france/${slug}-review`);
+  const title = seo?.title ?? `${displayName} Review – France | ${SITE_NAME}`;
+  const description = seo?.description ?? `Read the ${displayName} review for visitors in France. See what this listing covers before you visit the provider site. Offers are third-party listings.`;
   const reviewReady =
     franceOffers.find((entry) => entry.slug === slug)?.reviewReady ?? false;
 
@@ -84,7 +86,7 @@ export function franceReviewMetadata(slug: string, displayName: string): Metadat
       description,
       url: pageUrl,
       siteName: "TheDateCompass",
-      locale: "en_FR",
+      locale: seo?.locale ?? "en_US",
       type: "article",
       publishedTime: FRANCE_PAGE_LAST_UPDATED.iso,
       modifiedTime: FRANCE_PAGE_LAST_UPDATED.iso,
@@ -153,8 +155,8 @@ export function FranceReviewDocument({
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${offer.name} Review 2026`,
-    description: `Independent ${offer.name} overview for France visitors.`,
+    headline: getBrandSeo(`/france/${offer.slug}-review`)?.headline ?? `${offer.name} Review – France`,
+    description: getBrandSeo(`/france/${offer.slug}-review`)?.description ?? `Read the ${offer.name} review for visitors in France.`,
     url: pageUrl,
     dateModified: FRANCE_PAGE_LAST_UPDATED.iso,
     datePublished: FRANCE_PAGE_LAST_UPDATED.iso,

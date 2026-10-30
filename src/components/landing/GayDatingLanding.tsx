@@ -140,7 +140,7 @@ export default function GayDatingLanding() {
             <div key={src} className="relative aspect-[4/3] overflow-hidden bg-ink">
               <Image
                 src={src}
-                alt=""
+                alt="Gay dating"
                 fill
                 sizes="33vw"
                 className="object-cover object-top transition duration-700 hover:scale-105"
@@ -351,7 +351,7 @@ export default function GayDatingLanding() {
       <section className="relative overflow-hidden py-20 sm:py-24">
         <Image
           src={MODEL.cta}
-          alt=""
+          alt="Gay dating"
           fill
           sizes="100vw"
           className="object-cover object-top opacity-35"

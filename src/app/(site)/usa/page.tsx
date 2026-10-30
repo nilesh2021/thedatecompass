@@ -8,15 +8,16 @@ import CountryFaqSection from "@/components/country/common/CountryFaqSection";
 import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
 import USAOffers from "@/components/country/usa/USAOffers";
 import { USA_PAGE_LAST_UPDATED, usaOffers } from "@/data/usaOffers";
+import { getHubSeo } from "@/lib/pageSeo";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 import { CheckCircle2, ShieldCheck, Sparkles, Users } from "lucide-react";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/usa`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
-const PAGE_TITLE = "Adult Dating Sites in the USA (2026) | TheDateCompass";
-const META_DESCRIPTION =
-  "Compare adult dating sites in the USA by category and focus. Browse casual, gay, mature, adult, and trans platforms listed for eligible US visitors—then visit providers on their own sites.";
+const hub = getHubSeo("usa")!;
+const PAGE_TITLE = hub.title;
+const META_DESCRIPTION = hub.description;
 
 const linkFocus =
   "font-semibold text-brand-rose underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose";
@@ -139,7 +140,6 @@ const relatedGuides = [
   { href: "/top-offers/mature", label: "Mature dating offers" },
   { href: "/cozy-sites", label: "Cozy companion platforms" },
   { href: "/usa/gaybloom", label: "GayBloom gay dating in the USA" },
-  { href: "/offers/gay-dating-usa", label: "Gay dating in the USA (ManFinder)" },
   { href: "/offers/grannyhunter", label: "Grannyhunter mature dating" },
   { href: "/offers/manfinder", label: "ManFinder gay dating" },
   { href: "/offers/realsexclub", label: "RealSexClub adult listing" },
@@ -211,7 +211,7 @@ const usaFaqs = [
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Adult Dating Sites in the USA (2026)",
+  name: hub.headline,
   description:
     "A comparison and discovery page for third-party adult dating, gay dating, mature dating, and related dating platforms listed for visitors in the United States.",
   url: PAGE_URL,

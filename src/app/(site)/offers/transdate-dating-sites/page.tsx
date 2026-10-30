@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import TransDateNorwayLanding from "@/components/landing/TransDateNorwayLanding";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/transdate-dating-sites")!;
 
 const PAGE_URL =
   "https://www.thedatecompass.com/offers/transdate-dating-sites";
@@ -7,10 +10,9 @@ const PAGE_URL =
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80";
 
-const TITLE = "TransDate Dating Sites for Norway | TheDateCompass";
+const TITLE = seo.title;
 
-const DESCRIPTION =
-  "Explore TransDate, an inclusive platform for transgender dating in Norway. Learn how TransDate works, then visit the site to create a profile. Adults 18+.";
+const DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {
@@ -33,6 +35,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
+    locale: seo.locale,
     type: "website",
     images: [
       {

@@ -61,7 +61,7 @@ export default function GermanyLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Germany · Adults 18+"
-      title="Adult Dating Sites in Germany (2026)"
+      title="Adult Dating Sites in Germany"
       subtitle="Find the spark you want in Germany."
       lastUpdated={
         <>

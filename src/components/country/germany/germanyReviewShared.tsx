@@ -6,6 +6,7 @@ import UsaProviderReviewPage, {
   type ProviderReviewCountry,
 } from "@/components/country/usa/UsaProviderReviewPage";
 import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
+import { getBrandSeo, SITE_NAME } from "@/lib/pageSeo";
 import {
   GERMANY_PAGE_LAST_UPDATED,
   germanyOffers,
@@ -68,8 +69,9 @@ export function buildGermanyReviewFaqs(offer: GermanyOffer): CountryFaqItem[] {
 
 export function germanyReviewMetadata(slug: string, displayName: string): Metadata {
   const pageUrl = germanyReviewPageUrl(slug);
-  const title = `${displayName} Review 2026 | TheDateCompass`;
-  const description = `Independent ${displayName} overview for Germany visitors: category, listed focus areas, and what TheDateCompass does and does not cover before you visit the provider site.`;
+  const seo = getBrandSeo(`/germany/${slug}-review`);
+  const title = seo?.title ?? `${displayName} Review – Germany | ${SITE_NAME}`;
+  const description = seo?.description ?? `Read the ${displayName} review for visitors in Germany. See what this listing covers before you visit the provider site. Offers are third-party listings.`;
   const reviewReady =
     germanyOffers.find((entry) => entry.slug === slug)?.reviewReady ?? false;
 
@@ -84,7 +86,7 @@ export function germanyReviewMetadata(slug: string, displayName: string): Metada
       description,
       url: pageUrl,
       siteName: "TheDateCompass",
-      locale: "en_DE",
+      locale: seo?.locale ?? "en_US",
       type: "article",
       publishedTime: GERMANY_PAGE_LAST_UPDATED.iso,
       modifiedTime: GERMANY_PAGE_LAST_UPDATED.iso,
@@ -153,8 +155,8 @@ export function GermanyReviewDocument({
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${offer.name} Review 2026`,
-    description: `Independent ${offer.name} overview for Germany visitors.`,
+    headline: getBrandSeo(`/germany/${offer.slug}-review`)?.headline ?? `${offer.name} Review – Germany`,
+    description: getBrandSeo(`/germany/${offer.slug}-review`)?.description ?? `Read the ${offer.name} review for visitors in Germany.`,
     url: pageUrl,
     dateModified: GERMANY_PAGE_LAST_UPDATED.iso,
     datePublished: GERMANY_PAGE_LAST_UPDATED.iso,

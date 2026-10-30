@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import OfferLandingPage from "@/components/landing/OfferLandingPage";
 import { getOfferPageData } from "@/data/offerLandingData";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/realsexclub";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80";
 
-const TITLE = "RealSexClub Adult Dating Listing | TheDateCompass";
-const DESCRIPTION =
-  "Read a neutral RealSexClub overview for adult dating and social connections. Adults 18+. Affiliate listing with current terms on the destination site.";
+const seo = getBrandSeo("/offers/realsexclub")!;
+const TITLE = seo.title;
+const DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
+    locale: seo.locale,
     type: "website",
     images: [
       {

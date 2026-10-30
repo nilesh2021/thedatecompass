@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import RealSexClubDenmarkLanding from "@/components/landing/RealSexClubDenmarkLanding";
 import { realSexClubDenmarkFaqs } from "@/data/realSexClubDenmark";
 import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/offers/realsexclub-denmark`;
 const OG_IMAGE = getAbsoluteOfferImageUrl("realsexclub", SITE_URL);
-const PAGE_TITLE = "RealSexClub Denmark 2026 | Adult Dating in Denmark";
-const META_DESCRIPTION =
-  "Compare RealSexClub for adult dating in Denmark. A discreet listing for Copenhagen and Danish visitors looking for direct connections. Adults 18+.";
+const seo = getBrandSeo("/offers/realsexclub-denmark")!;
+const PAGE_TITLE = seo.title;
+const META_DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     description: META_DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
-    locale: "en_DK",
+    locale: seo.locale,
     type: "website",
     images: [
       {

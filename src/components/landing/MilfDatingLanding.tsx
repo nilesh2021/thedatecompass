@@ -398,7 +398,7 @@ export default function MilfDatingLanding() {
                   >
                     <Image
                       src={card.image}
-                      alt=""
+                      alt="MilfFinder"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition duration-700 group-hover:scale-105"
@@ -540,7 +540,7 @@ export default function MilfDatingLanding() {
           <div className="relative min-h-[500px]">
             <Image
               src={milfDatingVisuals.wide}
-              alt=""
+              alt="MilfFinder"
               fill
               sizes="100vw"
               className="object-cover object-[center_25%]"

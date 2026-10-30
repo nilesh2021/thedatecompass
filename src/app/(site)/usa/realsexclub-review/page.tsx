@@ -7,13 +7,14 @@ import type { CountryFaqItem } from "@/components/country/common/CountryFaqSecti
 import { datingOfferTabs } from "@/data/datingOffersTabs";
 import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
 import { USA_PAGE_LAST_UPDATED, usaOffers } from "@/data/usaOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const SLUG = "realsexclub";
 const PAGE_URL = `${SITE_URL}/usa/${SLUG}-review`;
-const PAGE_TITLE = "RealSexClub Review 2026 | TheDateCompass";
-const META_DESCRIPTION =
-  "Independent RealSexClub overview for USA visitors: adult dating category, availability, listed focus areas, and what TheDateCompass does and does not cover before you visit the provider site.";
+const seo = getBrandSeo(`/usa/${SLUG}-review`)!;
+const PAGE_TITLE = seo.title;
+const META_DESCRIPTION = seo.description;
 
 const offer = usaOffers.find((entry) => entry.slug === SLUG);
 
@@ -131,7 +132,7 @@ const breadcrumbJsonLd = {
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "RealSexClub Review 2026",
+  headline: seo.headline,
   description: META_DESCRIPTION,
   url: PAGE_URL,
   dateModified: USA_PAGE_LAST_UPDATED.iso,

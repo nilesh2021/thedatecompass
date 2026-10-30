@@ -57,7 +57,8 @@ export function getDenmarkGoHref(slug: string): string {
 }
 
 export function getDenmarkReviewHref(offer: Pick<DenmarkOffer, "slug">): string | null {
-  if (!DENMARK_REVIEW_SLUGS.includes(offer.slug)) return null;
+  const entry = denmarkOffers.find((item) => item.slug === offer.slug);
+  if (!entry?.reviewReady) return null;
   return `/denmark/${offer.slug}-review`;
 }
 

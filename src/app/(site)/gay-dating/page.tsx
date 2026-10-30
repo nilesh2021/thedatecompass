@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import GayDatingLanding from "@/components/landing/GayDatingLanding";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Gay Dating Sites & Apps | TheDateCompass",
+  "Compare gay dating and LGBTQ dating listings on TheDateCompass, including GayBloom, PridePair, Manfinder, and TransDate.",
+);
 
 const PAGE_URL = "https://www.thedatecompass.com/gay-dating";
 const OG_IMAGE =
@@ -9,10 +15,10 @@ const OG_IMAGE =
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Gay Dating Sites & Apps 2026 | TheDateCompass",
+    absolute: seo.title,
   },
   description:
-    "Compare gay dating and LGBTQ+ dating app listings on TheDateCompass. Browse GayBloom, PridePair, Manfinder, and TransDate offers for adults 18+.",
+    seo.description,
   keywords: [
     "gay dating sites",
     "gay dating apps",
@@ -27,7 +33,7 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Gay Dating Sites & Apps 2026 | TheDateCompass",
+    title: seo.title,
     description:
       "Compare gay dating and LGBTQ+ dating listings, including GayBloom, PridePair, Manfinder, and TransDate.",
     url: PAGE_URL,
@@ -37,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gay Dating Sites & Apps 2026 | TheDateCompass",
+    title: seo.title,
     description:
       "Compare gay dating and LGBTQ+ dating listings, including GayBloom, PridePair, Manfinder, and TransDate.",
     images: [OG_IMAGE],

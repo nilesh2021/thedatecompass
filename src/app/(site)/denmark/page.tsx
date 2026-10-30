@@ -6,13 +6,14 @@ import {
   denmarkOffers,
   getDenmarkReviewHref,
 } from "@/data/countries/denmark";
+import { getHubSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/denmark`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
-const PAGE_TITLE = "Adult Dating Sites in Denmark 2026 | Compare Offers";
-const META_DESCRIPTION =
-  "Compare adult dating sites and platforms in Denmark by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.";
+const hub = getHubSeo("denmark")!;
+const PAGE_TITLE = hub.title;
+const META_DESCRIPTION = hub.description;
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     description: META_DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
-    locale: "en_DK",
+    locale: hub.locale,
     type: "website",
     images: [
       {
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Adult Dating Sites in Denmark (2026)",
+  name: hub.headline,
   description: META_DESCRIPTION,
   url: PAGE_URL,
   dateModified: DENMARK_PAGE_LAST_UPDATED.iso,

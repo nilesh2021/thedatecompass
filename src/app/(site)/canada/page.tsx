@@ -6,29 +6,29 @@ import {
   canadaOffers,
   getCanadaReviewHref,
 } from "@/data/countries/canada";
+import { getHubSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/canada`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
+const hub = getHubSeo("canada")!;
 
 /**
  * Canada route metadata.
  */
 export const metadata: Metadata = {
-  title: "Adult Dating Platforms in Canada | Compare Offers",
-  description:
-    "Compare adult dating sites and platforms in Canada by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.",
+  title: { absolute: hub.title },
+  description: hub.description,
   alternates: {
     canonical: PAGE_URL,
     // TODO: Add hreflang only if a Canadian-language version of this page ships.
   },
   openGraph: {
-    title: "Adult Dating Platforms in Canada | Compare Offers",
-    description:
-      "A Canada-focused shortlist of third-party adult dating and companion options, with category links and guidance for comparing before you sign up.",
+    title: hub.title,
+    description: hub.description,
     url: PAGE_URL,
     siteName: "TheDateCompass",
-    locale: "en_CA",
+    locale: hub.locale,
     type: "website",
     images: [
       {
@@ -41,9 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adult Dating Platforms in Canada | Compare Offers",
-    description:
-      "A Canada-focused shortlist of third-party adult dating and companion options, with category links and guidance for comparing before you sign up.",
+    title: hub.title,
+    description: hub.description,
     images: [OG_IMAGE],
   },
   robots: {
@@ -59,13 +58,12 @@ export const metadata: Metadata = {
   },
 };
 
-const META_DESCRIPTION =
-  "Compare adult dating sites and platforms in Canada by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.";
+const META_DESCRIPTION = hub.description;
 
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Adult Dating Sites in Canada (2026)",
+  name: hub.headline,
   description: META_DESCRIPTION,
   url: PAGE_URL,
   dateModified: CANADA_PAGE_LAST_UPDATED.iso,

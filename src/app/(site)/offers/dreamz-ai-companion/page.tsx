@@ -37,8 +37,9 @@ export const metadata: Metadata = {
       "Explore Dreamz.ai and discover personalized AI companions for conversation and roleplay.",
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
+    googleBot: { index: false, follow: true },
   },
 };
 

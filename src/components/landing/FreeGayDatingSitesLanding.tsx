@@ -60,7 +60,12 @@ function OfferLink({
   );
 }
 
-export default function FreeGayDatingSitesLanding() {
+export default function FreeGayDatingSitesLanding({
+  headingLevel = "h1",
+}: {
+  headingLevel?: "h1" | "h2";
+}) {
+  const Heading = headingLevel;
   const featured = gayTab.offers.find((o) => o.featured) ?? gayTab.offers[0];
 
   return (
@@ -92,12 +97,12 @@ export default function FreeGayDatingSitesLanding() {
         Online dating for gay singles
       </p>
 
-      <h1 className="mt-4 max-w-2xl font-serif-accent text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+      <Heading className="mt-4 max-w-2xl font-serif-accent text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
         Explore Free
         <span className="block text-accent">
           Gay Dating Sites
         </span>
-      </h1>
+      </Heading>
 
       <p className="mt-6 max-w-xl text-sm leading-7 text-fog sm:text-base">
         Discover free-to-explore dating platforms for gay singles and

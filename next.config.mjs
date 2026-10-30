@@ -46,12 +46,32 @@ const nextConfig = {
       },
       {
         source: "/offers/dreamz-ai-v2",
-        destination: "/offers/dreamz-ai-companion",
+        destination: "/offers/dreamz-ai",
         permanent: true,
       },
       {
         source: "/offers/dreamz-ai-v2/",
-        destination: "/offers/dreamz-ai-companion",
+        destination: "/offers/dreamz-ai",
+        permanent: true,
+      },
+      {
+        source: "/offers/dreamz-ai-companion",
+        destination: "/offers/dreamz-ai",
+        permanent: true,
+      },
+      {
+        source: "/offers/dreamz-ai-companion/",
+        destination: "/offers/dreamz-ai",
+        permanent: true,
+      },
+      {
+        source: "/offers/manfinder-gay-dating",
+        destination: "/offers/manfinder",
+        permanent: true,
+      },
+      {
+        source: "/offers/manfinder-gay-dating/",
+        destination: "/offers/manfinder",
         permanent: true,
       },
       {

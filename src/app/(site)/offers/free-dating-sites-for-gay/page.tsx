@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import FreeDatingSitesForGayLanding from "@/components/landing/FreeDatingSitesForGayLanding";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/free-dating-sites-for-gay")!;
 
 const PAGE_URL =
   "https://www.thedatecompass.com/offers/free-dating-sites-for-gay";
-const TITLE = "Free Dating Sites for Gay | ManFinder | TheDateCompass";
-const DESCRIPTION =
-  "ManFinder is a well-established gay dating brand focused on connecting men seeking casual encounters and real connections. Free dating sites for gay men. Adults 18+.";
+const TITLE = seo.title;
+const DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {
@@ -35,8 +37,12 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
   },
 };
 

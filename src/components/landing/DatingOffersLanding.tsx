@@ -209,7 +209,7 @@ export default function DatingOffersLanding() {
                   <Image
                     key={src}
                     src={src}
-                    alt=""
+                    alt="TheDateCompass"
                     width={36}
                     height={36}
                     className="rounded-full border-2 border-[#fff9f8] object-cover"

@@ -5,12 +5,17 @@ import Footer from "@/components/Home/Footer";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import { aiGirlfriendOffers } from "@/data/aiGirlfriendOffers";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "AI Girlfriend & AI Companion Sites | TheDateCompass",
+  "Explore AI girlfriend and AI companion platforms listed on TheDateCompass. Compare options and see what each listing covers.",
+);
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Girlfriend & AI Companion Sites | TheDateCompass",
+    absolute: seo.title,
   },
-  description:
-    "Explore AI girlfriend and AI companion platforms listed on TheDateCompass. Compare options and discover AI chat experiences for adults 18+.",
+  description: seo.description,
   keywords: [
     "AI girlfriend",
     "AI companion",
@@ -118,6 +123,7 @@ export default function AIGirlfriendCategoryPage() {
                       src="https://storage.googleapis.com/dreamz-assets/i/cf44b76e-707d-4dc2-8044-17896772477c.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=dreamz-ai-run%40delta-carving-424713-r0.iam.gserviceaccount.com%2F20260809%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260809T162217Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=38c74a7fbde06da29f10434a2dcb1cdda2c3200cb2caf6096bec9771ec5538dbf4adbc12aa1aa0df9eca896d4483c8f759eb24f0a65ad1cf5bbd45376835cd85a245556ee08c3979c578e8802523decb4af5b136b282f729e91f6e4a8cb32699eeeef7d24978c8bcd68c0e166dc184ddcba1d1a2f54782489ba71b6ca827f8e38977db8e68343ddc48fceab037374c687723a0b58415242c03599175d405e0238b29f8247d66855311cf351cb5f7f01a0fe48ba9fc46fb1b706c8818c01ce2205e1e0d21a6f2134ca9e4e8f3313fe91681f58c306c89b11409a158cc8509a794ea0e80a131483f8ce71ab2d234e598e936e00ace61a3fff6f860fb5a6293d1af"
                       alt="Dreamz.ai AI companion"
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
 

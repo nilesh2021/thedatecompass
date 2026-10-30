@@ -55,9 +55,8 @@ export function getFranceGoHref(slug: string): string {
 }
 
 export function getFranceReviewHref(offer: Pick<FranceOffer, "slug">): string | null {
-  if (!FRANCE_REVIEW_SLUGS.includes(offer.slug)) {
-    return null;
-  }
+  const entry = franceOffers.find((item) => item.slug === offer.slug);
+  if (!entry?.reviewReady) return null;
   return `/france/${offer.slug}-review`;
 }
 

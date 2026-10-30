@@ -1,12 +1,16 @@
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import type { Metadata } from "next";
+import { topicSeo } from "@/lib/pageSeo";
 
+const seo = topicSeo(
+  "Disclaimer | TheDateCompass",
+  "Read the Disclaimer on TheDateCompass. It explains the limits of this independent comparison site and its third-party dating listings.",
+);
 
 export const metadata: Metadata = {
-    title: "Disclaimer | TheDateCompass",
-    description:
-        "Read the disclaimer for TheDateCompass and understand our affiliate relationships and informational content policies.",
+    title: { absolute: seo.title },
+    description: seo.description,
     alternates: {
         canonical: "https://www.thedatecompass.com/disclaimer",
     },

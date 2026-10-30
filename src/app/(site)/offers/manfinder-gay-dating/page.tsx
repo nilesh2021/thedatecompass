@@ -40,8 +40,9 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
+    googleBot: { index: false, follow: true },
   },
 };
 

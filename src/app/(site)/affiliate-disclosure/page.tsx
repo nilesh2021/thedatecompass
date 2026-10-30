@@ -4,11 +4,16 @@ import { ArrowLeft } from "lucide-react";
 
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Affiliate Disclosure | TheDateCompass",
+  "Read the Affiliate Disclosure on TheDateCompass. It explains that some listings are sponsored links to third-party dating providers.",
+);
 
 export const metadata: Metadata = {
-  title: "Affiliate Disclosure | TheDateCompass",
-  description:
-    "Learn how TheDateCompass earns commissions through affiliate partnerships while remaining committed to providing independent information.",
+  title: { absolute: seo.title },
+  description: seo.description,
   alternates: {
     canonical: "https://www.thedatecompass.com/affiliate-disclosure",
   },

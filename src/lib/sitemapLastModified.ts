@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import path from "node:path";
 
 const gitDateCache = new Map<string, string | null>();
@@ -19,6 +19,15 @@ export function routeToAppFile(route: string): string {
   }
 
   return candidates[1];
+}
+
+export function getFileLastModifiedIso(relativeFilePath: string): string | null {
+  const gitIso = getGitLastModifiedIso(relativeFilePath);
+  if (gitIso) return gitIso;
+
+  const absolutePath = path.join(process.cwd(), relativeFilePath.replace(/\\/g, "/"));
+  if (!existsSync(absolutePath)) return null;
+  return statSync(absolutePath).mtime.toISOString();
 }
 
 export function getGitLastModifiedIso(relativeFilePath: string): string | null {

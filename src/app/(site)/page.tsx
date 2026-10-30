@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Home/Hero";
@@ -9,14 +8,18 @@ import { CountriesOpenProvider } from "@/components/Home/CountriesOpen";
 import FAQ from "@/components/Home/FAQ";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import GermanySponsoredStrip from "@/components/country/germany/GermanySponsoredStrip";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Dating Sites & AI Companion Platforms by Country | TheDateCompass",
+  "Compare dating websites, adult dating platforms, and AI companion services by country on this independent directory.",
+);
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Dating Sites & AI Companion Platforms by Country | TheDateCompass",
+    absolute: seo.title,
   },
-  description:
-    "Compare dating websites, adult dating platforms, and AI companion services by country. Independent directory with affiliate links to third-party providers for eligible adults.",
+  description: seo.description,
   keywords: [
     "dating sites",
     "adult dating sites",
@@ -32,9 +35,8 @@ export const metadata: Metadata = {
     canonical: "https://www.thedatecompass.com",
   },
   openGraph: {
-    title: "Dating Sites & AI Companions by Country | TheDateCompass",
-    description:
-      "Compare dating platforms and AI companions by country on TheDateCompass.",
+    title: seo.title,
+    description: seo.description,
     url: "https://www.thedatecompass.com",
     siteName: "TheDateCompass",
     locale: "en_US",
@@ -50,9 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dating Sites & AI Companions by Country | TheDateCompass",
-    description:
-      "Compare dating platforms and AI companions by country on TheDateCompass.",
+    title: seo.title,
+    description: seo.description,
     images: [
       "https://www.thedatecompass.com/images/extra/2.jpg",
     ],
@@ -77,9 +78,30 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "TheDateCompass",
+      url: "https://www.thedatecompass.com",
+      logo: "https://www.thedatecompass.com/icon.svg",
+    },
+    {
+      "@type": "WebSite",
+      name: "TheDateCompass",
+      url: "https://www.thedatecompass.com",
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <Header tone="home" />
       <div className="relative bg-[#0c1230]">
         <NoiseOverlay />

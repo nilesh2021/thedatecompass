@@ -41,7 +41,7 @@ export default function DenmarkLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Denmark · Adults 18+"
-      title="Adult Dating Sites in Denmark (2026)"
+      title="Adult Dating Sites in Denmark"
       subtitle="Dating offers for Denmark visitors."
       lastUpdated={
         <>

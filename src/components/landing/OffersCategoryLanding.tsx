@@ -46,7 +46,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
                   <div className="flex h-14 w-14 items-center justify-center overflow-hidden border border-cream/10 bg-ink">
                     <Image
                       src={offer.logo}
-                      alt=""
+                      alt={offer.name}
                       width={56}
                       height={56}
                       className="h-full w-full object-cover"

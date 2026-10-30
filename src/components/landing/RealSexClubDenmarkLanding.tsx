@@ -230,7 +230,7 @@ export default function RealSexClubDenmarkLanding() {
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={feature.image}
-                      alt=""
+                      alt="RealSexClub"
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover object-top transition duration-700 group-hover:scale-105"
@@ -379,7 +379,7 @@ export default function RealSexClubDenmarkLanding() {
           <div className="relative min-h-[560px] sm:min-h-[640px]">
             <Image
               src={realSexClubDenmarkVisuals.mid}
-              alt=""
+              alt="RealSexClub"
               fill
               sizes="100vw"
               className="object-cover object-[center_22%]"

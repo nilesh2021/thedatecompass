@@ -131,7 +131,7 @@ export default function FreeDatingSitesForGayLanding() {
           <div className="relative min-h-[440px]">
             <Image
               src={manFinderVisuals.wide}
-              alt=""
+              alt="ManFinder"
               fill
               sizes="100vw"
               className="object-cover object-center"

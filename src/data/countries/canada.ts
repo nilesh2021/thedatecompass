@@ -57,7 +57,8 @@ export function getCanadaGoHref(slug: string): string {
 }
 
 export function getCanadaReviewHref(offer: Pick<CanadaOffer, "slug">): string | null {
-  if (!CANADA_REVIEW_SLUGS.includes(offer.slug)) return null;
+  const entry = canadaOffers.find((item) => item.slug === offer.slug);
+  if (!entry?.reviewReady) return null;
   return `/canada/${offer.slug}-review`;
 }
 

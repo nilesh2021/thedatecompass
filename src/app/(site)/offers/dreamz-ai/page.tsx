@@ -2,13 +2,15 @@ import AiGirlfriendLanding from "@/components/landing/AiGirlfriendLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { aiGirlfriendFaqs, dreamzOffer } from "@/data/aiGirlfriendOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
+
+const seo = getBrandSeo("/offers/dreamz-ai")!;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Dreamz.ai AI Companion | TheDateCompass",
+    absolute: seo.title,
   },
-  description:
-    "Explore Dreamz.ai, an AI companion platform with personalized personalities, private conversations, and roleplay experiences. Adults 18+.",
+  description: seo.description,
   keywords: [
     "Dreamz.ai",
     "Dreamz AI",
@@ -22,17 +24,16 @@ export const metadata: Metadata = {
     canonical: "https://www.thedatecompass.com/offers/dreamz-ai",
   },
   openGraph: {
-    title: "Dreamz.ai AI Companion | TheDateCompass",
-    description:
-      "Explore Dreamz.ai and discover personalized AI companions for conversation and roleplay.",
+    title: seo.title,
+    description: seo.description,
     url: "https://www.thedatecompass.com/offers/dreamz-ai",
+    locale: seo.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dreamz.ai AI Companion | TheDateCompass",
-    description:
-      "Explore Dreamz.ai and discover personalized AI companions for conversation and roleplay.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,

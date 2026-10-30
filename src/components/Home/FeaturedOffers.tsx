@@ -225,7 +225,7 @@ export default function FeaturedOffers() {
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
                         src={offer.image}
-                        alt=""
+                        alt={offer.name}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         className="object-cover object-top transition duration-700 group-hover:scale-105"

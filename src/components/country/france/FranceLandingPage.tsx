@@ -58,7 +58,7 @@ export default function FranceLandingPage() {
   return (
     <CountryNightPage
       eyebrow="France · Adults 18+"
-      title="Adult Dating Sites in France (2026)"
+      title="Adult Dating Sites in France"
       subtitle="Dating offers for France visitors."
       lastUpdated={
         <>

@@ -431,10 +431,10 @@ export default function Homepage01() {
                 />
               </div>
               <div className="absolute bottom-0 left-0 h-48 w-40 overflow-hidden rounded-2xl border border-white/15 shadow-2xl">
-                <Image src={adultImages.portraitD} alt="" fill className="object-cover" sizes="160px" />
+                <Image src={adultImages.portraitD} alt="TheDateCompass" fill className="object-cover" sizes="160px" />
               </div>
               <div className="absolute right-0 top-0 h-36 w-32 overflow-hidden rounded-2xl border border-white/15">
-                <Image src={adultImages.aiCompanion} alt="" fill className="object-cover" sizes="128px" />
+                <Image src={adultImages.aiCompanion} alt="TheDateCompass" fill className="object-cover" sizes="128px" />
               </div>
             </div>
           </div>
@@ -495,7 +495,7 @@ export default function Homepage01() {
                   <div className="relative h-36 sm:h-auto">
                     <Image
                       src={platform.image}
-                      alt=""
+                      alt={platform.name}
                       fill
                       className="object-cover"
                       sizes="140px"

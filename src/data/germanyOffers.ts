@@ -72,7 +72,8 @@ export function getGermanyTrackedHref(
 }
 
 export function getGermanyReviewHref(offer: Pick<GermanyOffer, "slug">): string | null {
-  if (!GERMANY_REVIEW_SLUGS.includes(offer.slug)) {
+  const entry = germanyOffers.find((item) => item.slug === offer.slug);
+  if (!entry?.reviewReady || !GERMANY_REVIEW_SLUGS.includes(offer.slug)) {
     return null;
   }
   return `/germany/${offer.slug}-review`;

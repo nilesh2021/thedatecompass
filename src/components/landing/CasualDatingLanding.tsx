@@ -556,7 +556,7 @@ export default function CasualDatingLanding() {
           <div className="relative min-h-[480px]">
             <Image
               src={casualDatingVisuals.wide}
-              alt=""
+              alt="FuckFinder"
               fill
               sizes="100vw"
               className="object-cover object-center"

@@ -121,7 +121,7 @@ export default function RealSexClubLanding() {
               <div className="relative aspect-[3/4]">
                 <Image
                   src={realSexClubVisuals.portrait}
-                  alt=""
+                  alt="RealSexClub"
                   fill
                   sizes="320px"
                   className="object-cover object-[center_20%] transition duration-700 hover:scale-105"
@@ -165,7 +165,7 @@ export default function RealSexClubLanding() {
                   <div className="relative aspect-[3/4] overflow-hidden sm:aspect-[4/5]">
                     <Image
                       src={card.image}
-                      alt=""
+                      alt="RealSexClub"
                       fill
                       sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition duration-700 group-hover:scale-105"
@@ -376,7 +376,7 @@ export default function RealSexClubLanding() {
           <div className="relative min-h-[70vh] sm:min-h-[640px]">
             <Image
               src={realSexClubVisuals.wide}
-              alt=""
+              alt="RealSexClub"
               fill
               sizes="100vw"
               className="object-cover object-[center_30%]"

@@ -5,15 +5,16 @@ import {
   grannyHunterFaqs,
   grannyHunterOffer,
 } from "@/data/grannyHunterOffers";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/grannyhunter";
 
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=1200&q=80";
 
-const TITLE = "GrannyHunter | Mature Dating for Experienced Singles";
-const DESCRIPTION =
-  "Meet experienced singles on GrannyHunter — a worldwide mature dating platform for adults 18+. Browse profiles, message privately, and connect on your terms.";
+const seo = getBrandSeo("/offers/grannyhunter")!;
+const TITLE = seo.title;
+const DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
+    locale: seo.locale,
     type: "website",
     images: [
       {

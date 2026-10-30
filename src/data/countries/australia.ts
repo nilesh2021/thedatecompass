@@ -59,7 +59,8 @@ export function getAustraliaGoHref(slug: string): string {
 }
 
 export function getAustraliaReviewHref(offer: Pick<AustraliaOffer, "slug">): string | null {
-  if (!AUSTRALIA_REVIEW_SLUGS.includes(offer.slug)) return null;
+  const entry = australiaOffers.find((item) => item.slug === offer.slug);
+  if (!entry?.reviewReady) return null;
   return `/australia/${offer.slug}-review`;
 }
 

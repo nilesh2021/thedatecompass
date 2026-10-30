@@ -3,12 +3,13 @@ import GayBloomUsaLanding from "@/components/landing/GayBloomUsaLanding";
 import { gayBloomUsaFaqs } from "@/data/gayBloomUsa";
 import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
 import { SITE_URL } from "@/lib/sitemap";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = `${SITE_URL}/usa/gaybloom`;
 const OG_IMAGE = getAbsoluteOfferImageUrl("gaybloom", SITE_URL);
-const TITLE = "GayBloom USA 2026 | Gay Dating in the USA";
-const DESCRIPTION =
-  "GayBloom is inclusive adult dating for gay singles and communities in the USA. One offer for men who want to meet, chat, and explore new connections. Adults 18+.";
+const seo = getBrandSeo("/usa/gaybloom")!;
+const TITLE = seo.title;
+const DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {

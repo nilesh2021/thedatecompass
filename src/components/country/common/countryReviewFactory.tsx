@@ -7,6 +7,7 @@ import UsaProviderReviewPage, {
   type ProviderReviewOffer,
 } from "@/components/country/usa/UsaProviderReviewPage";
 import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
+import { getBrandSeo, ogLocaleForCountry, SITE_NAME } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 
@@ -19,7 +20,7 @@ type ReviewOffer = ProviderReviewOffer & {
 
 export function createCountryReviewKit<T extends ReviewOffer>(config: {
   country: ProviderReviewCountry;
-  locale: "en_CA" | "en_AU" | "en_GB" | "en_DK";
+  locale: "en_CA" | "en_AU" | "en_GB" | "en_US";
   inLanguage: "en-CA" | "en-AU" | "en-GB" | "en-DK";
   offers: T[];
   hubPath: string;
@@ -63,8 +64,9 @@ export function createCountryReviewKit<T extends ReviewOffer>(config: {
 
   function metadata(slug: string, displayName: string): Metadata {
     const url = pageUrl(slug);
-    const title = `${displayName} Review 2026 | TheDateCompass`;
-    const description = `Independent ${displayName} overview for ${config.country.label} visitors: category, listed focus areas, and what TheDateCompass does and does not cover before you visit the provider site.`;
+    const seo = getBrandSeo(`${config.hubPath}/${slug}-review`);
+    const title = seo?.title ?? `${displayName} Review – ${config.country.label} | ${SITE_NAME}`;
+    const description = seo?.description ?? `Read the ${displayName} review for visitors in ${config.country.label}. See what this listing covers before you visit the provider site. Offers are third-party listings.`;
     const reviewReady = getOffer(slug)?.reviewReady ?? false;
 
     return {
@@ -76,7 +78,7 @@ export function createCountryReviewKit<T extends ReviewOffer>(config: {
         description,
         url,
         siteName: "TheDateCompass",
-        locale: config.locale,
+        locale: ogLocaleForCountry(config.country.slug),
         type: "article",
         publishedTime: config.country.lastUpdated.iso,
         modifiedTime: config.country.lastUpdated.iso,
@@ -123,8 +125,8 @@ export function createCountryReviewKit<T extends ReviewOffer>(config: {
     const articleJsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: `${offer.name} Review 2026`,
-      description: `Independent ${offer.name} overview for ${config.country.label} visitors.`,
+      headline: getBrandSeo(`${config.hubPath}/${offer.slug}-review`)?.headline ?? `${offer.name} Review – ${config.country.label}`,
+      description: getBrandSeo(`${config.hubPath}/${offer.slug}-review`)?.description ?? `Read the ${offer.name} review for visitors in ${config.country.label}.`,
       url,
       dateModified: config.country.lastUpdated.iso,
       datePublished: config.country.lastUpdated.iso,

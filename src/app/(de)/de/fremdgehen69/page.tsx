@@ -15,13 +15,14 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import { adultImages } from "@/data/adultOfferImages";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_PATH = "/de/fremdgehen69";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-const PAGE_TITLE = "Fremdgehen69 Erfahrungen 2026: Kosten, Ablauf & Fazit";
-const META_DESCRIPTION =
-  "Fremdgehen69: sachlicher Überblick für Erwachsene in Deutschland und Österreich. Anmeldung, Kosten, moderierte Profile, Diskretion und FAQ. Anzeige, 18+.";
+const seo = getBrandSeo(PAGE_PATH)!;
+const PAGE_TITLE = seo.title;
+const META_DESCRIPTION = seo.description;
 const OG_IMAGE = `${SITE_URL}${adultImages.neon}`;
 const GO_BASE = "/go/fremdgehen69?country=germany";
 

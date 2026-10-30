@@ -8,7 +8,32 @@ export const rootMetadata: Metadata = {
     template: "%s | TheDateCompass",
   },
 
-  description: "Compare dating sites and AI girlfriend platforms worldwide.",
+  description:
+    "Compare dating websites, adult dating platforms, and AI companion services by country on this independent directory. Offers are third-party listings.",
+
+  openGraph: {
+    siteName: "TheDateCompass",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/images/extra/2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TheDateCompass",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/extra/2.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 
   icons: {
     icon: [

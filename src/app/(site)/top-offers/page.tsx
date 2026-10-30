@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import OffersCategoryLanding from "@/components/landing/OffersCategoryLanding";
 import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import { notFound } from "next/navigation";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Casual Dating Sites for Adults | TheDateCompass",
+  "Compare casual dating platforms for adults. Review signup flow, messaging, and listed features before visiting a third-party provider.",
+);
 
 const PAGE_URL = "https://www.thedatecompass.com/top-offers";
 const OG_IMAGE =
@@ -9,10 +15,10 @@ const OG_IMAGE =
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Casual Dating Sites for Adults 2026 | TheDateCompass",
+    absolute: seo.title,
   },
   description:
-    "Compare casual dating platforms for adults. Review signup flow, messaging, and listed features before visiting a third-party provider. Adults 18+.",
+    seo.description,
   keywords: [
     "casual dating",
     "casual dating sites",
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Casual Dating Sites for Adults 2026 | TheDateCompass",
+    title: seo.title,
     description:
       "Compare casual dating platforms for adults on TheDateCompass.",
     url: PAGE_URL,
@@ -33,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Casual Dating Sites for Adults 2026 | TheDateCompass",
+    title: seo.title,
     description:
       "Compare casual dating platforms for adults on TheDateCompass.",
     images: [OG_IMAGE],

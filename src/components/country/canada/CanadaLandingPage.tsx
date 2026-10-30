@@ -44,7 +44,7 @@ export default function CanadaLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Canada · Adults 18+"
-      title="Adult Dating Sites in Canada (2026)"
+      title="Adult Dating Sites in Canada"
       subtitle="Dating offers for Canada visitors."
       lastUpdated={
         <>

@@ -2,11 +2,16 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
- 
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Privacy Policy | TheDateCompass",
+  "Read the Privacy Policy on TheDateCompass. It explains how this independent comparison site describes its handling of visitor information.",
+);
 
 export const metadata = {
-  title: "Privacy Policy | TheDateCompass",
-  description: "Read TheDateCompass Privacy Policy.",
+  title: { absolute: seo.title },
+  description: seo.description,
   alternates: {
     canonical: "https://www.thedatecompass.com/privacy-policy",
   },

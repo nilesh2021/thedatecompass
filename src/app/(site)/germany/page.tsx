@@ -6,13 +6,14 @@ import {
   germanyOffers,
   getGermanyReviewHref,
 } from "@/data/germanyOffers";
+import { getHubSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/germany`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
-const PAGE_TITLE = "Adult Dating Germany 2026: Compare Sites | TheDateCompass";
-const META_DESCRIPTION =
-  "Compare adult dating sites in Germany for 2026 by category, privacy notes, and ease of use. Independent guide with sponsored listings for adults 18+ only.";
+const hub = getHubSeo("germany")!;
+const PAGE_TITLE = hub.title;
+const META_DESCRIPTION = hub.description;
 
 export const metadata: Metadata = {
   title: { absolute: PAGE_TITLE },
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     description: META_DESCRIPTION,
     url: PAGE_URL,
     siteName: "TheDateCompass",
-    locale: "en_DE",
+    locale: hub.locale,
     type: "website",
     images: [
       {
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Adult Dating Sites in Germany (2026)",
+  name: hub.headline,
   description: META_DESCRIPTION,
   url: PAGE_URL,
   dateModified: GERMANY_PAGE_LAST_UPDATED.iso,

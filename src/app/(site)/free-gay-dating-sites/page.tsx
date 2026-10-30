@@ -2,17 +2,21 @@ import type { Metadata } from "next";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLanding";
+import { topicSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/free-gay-dating-sites";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1568590320589-8a16645ec483?auto=format&fit=crop&w=1200&q=80";
+const seo = topicSeo(
+  "Free Gay Dating Sites | TheDateCompass",
+  "Explore free gay dating sites and free-to-join options for gay singles. Compare listed platforms before you visit a provider.",
+);
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Free Gay Dating Sites | Explore Free Gay Dating",
+    absolute: seo.title,
   },
-  description:
-    "Explore free gay dating sites and free-to-join options for gay singles. Compare online gay dating platforms for men, then visit a listed partner to connect.",
+  description: seo.description,
   keywords: [
     "free gay dating sites",
     "free gay dating",
@@ -27,9 +31,8 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Free Gay Dating Sites | Explore Free Gay Dating",
-    description:
-      "Discover gay dating platforms with free-to-join and free-to-explore options. Compare listings for gay singles, then visit a partner site.",
+    title: seo.title,
+    description: seo.description,
     url: PAGE_URL,
     siteName: "TheDateCompass",
     type: "website",
@@ -44,9 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Gay Dating Sites | Explore Free Gay Dating",
-    description:
-      "Discover gay dating platforms with free-to-join and free-to-explore options for gay singles.",
+    title: seo.title,
+    description: seo.description,
     images: [OG_IMAGE],
   },
   robots: {

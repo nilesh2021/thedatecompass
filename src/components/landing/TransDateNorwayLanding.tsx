@@ -326,7 +326,7 @@ export default function TransDateNorwayLanding() {
                   <span className="relative block aspect-[3/4] w-full">
                     <Image
                       src={src}
-                      alt=""
+                      alt="TransDate"
                       fill
                       sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition duration-700 group-hover:scale-105"

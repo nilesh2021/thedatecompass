@@ -24,7 +24,7 @@ export const {
   Document: DenmarkReviewDocument,
 } = createCountryReviewKit({
   country,
-  locale: "en_DK",
+  locale: "en_US",
   inLanguage: "en-DK",
   offers: denmarkOffers,
   hubPath: "/denmark",

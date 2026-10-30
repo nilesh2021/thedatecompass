@@ -123,7 +123,7 @@ export default function GayDatingUsaLanding() {
         <div className="relative min-h-[480px]">
           <Image
             src={manFinderVisuals.wide}
-            alt=""
+            alt="ManFinder"
             fill
             sizes="100vw"
             className="object-cover object-center"

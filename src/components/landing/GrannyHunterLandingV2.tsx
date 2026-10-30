@@ -548,7 +548,7 @@ export default function GrannyHunterLandingV2() {
           <div className="relative min-h-[400px]">
             <Image
               src={grannyHunterVisuals.wide}
-              alt=""
+              alt="GrannyHunter"
               fill
               sizes="50vw"
               className="object-cover object-[center_25%]"

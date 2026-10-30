@@ -4,11 +4,16 @@ import { ArrowLeft } from "lucide-react";
 
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Cookie Policy | TheDateCompass",
+  "Read the Cookie Policy on TheDateCompass. It explains how this comparison site describes cookies and similar tools used while you browse.",
+);
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | TheDateCompass",
-  description:
-    "Learn how TheDateCompass uses cookies and similar technologies.",
+  title: { absolute: seo.title },
+  description: seo.description,
   alternates: {
     canonical: "https://www.thedatecompass.com/cookie-policy",
   },

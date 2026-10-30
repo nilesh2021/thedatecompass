@@ -126,7 +126,7 @@ export default function GayBloomUsaLanding() {
         <div className="relative min-h-[480px]">
           <Image
             src={gayBloomUsaVisuals.wide}
-            alt=""
+            alt="GayBloom"
             fill
             sizes="100vw"
             className="object-cover object-center"

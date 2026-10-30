@@ -280,7 +280,7 @@ export default function OfferHubPage() {
           <div className="absolute inset-0">
             <Image
               src={IMG.hero}
-              alt=""
+              alt="Cozy dating"
               fill
               priority
               className="object-cover object-[center_18%] opacity-40"

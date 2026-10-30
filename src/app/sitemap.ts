@@ -1,29 +1,14 @@
 import type { MetadataRoute } from "next";
+import { australiaOffers } from "@/data/countries/australia";
+import { canadaOffers } from "@/data/countries/canada";
+import { denmarkOffers } from "@/data/countries/denmark";
+import { franceOffers } from "@/data/countries/france";
+import { ukOffers } from "@/data/countries/uk";
+import { germanyOffers } from "@/data/germanyOffers";
+import { USA_REVIEW_SLUGS } from "@/data/usaOffers";
+import { SITE_URL } from "@/lib/sitemap";
 import {
-  AUSTRALIA_PAGE_LAST_UPDATED,
-  australiaOffers,
-} from "@/data/countries/australia";
-import {
-  CANADA_PAGE_LAST_UPDATED,
-  canadaOffers,
-} from "@/data/countries/canada";
-import {
-  DENMARK_PAGE_LAST_UPDATED,
-  denmarkOffers,
-} from "@/data/countries/denmark";
-import {
-  FRANCE_PAGE_LAST_UPDATED,
-  franceOffers,
-} from "@/data/countries/france";
-import { UK_PAGE_LAST_UPDATED, ukOffers } from "@/data/countries/uk";
-import {
-  GERMANY_PAGE_LAST_UPDATED,
-  germanyOffers,
-} from "@/data/germanyOffers";
-import { USA_PAGE_LAST_UPDATED, USA_REVIEW_SLUGS } from "@/data/usaOffers";
-import { SITE_URL, SITEMAP_FALLBACK_LASTMOD } from "@/lib/sitemap";
-import {
-  getGitLastModifiedIso,
+  getFileLastModifiedIso,
   routeToAppFile,
 } from "@/lib/sitemapLastModified";
 
@@ -85,14 +70,10 @@ const PUBLIC_ROUTES: string[] = [
   "/de/fremdgehen69",
   "/offers/casual-dating",
   "/offers/dreamz-ai",
-  "/offers/dreamz-ai-companion",
   "/offers/gonaughty-australia",
   "/offers/gay-dating-sites",
-  "/offers/free-dating-sites-for-gay",
-  "/offers/gay-dating-usa",
   "/offers/grannyhunter",
   "/offers/manfinder",
-  "/offers/manfinder-gay-dating",
   "/offers/milf-dating",
   "/offers/realsexclub",
   "/offers/realsexclub-denmark",
@@ -117,8 +98,6 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/offers/realsexclub": { priority: 0.9, changeFrequency: "weekly" },
   "/offers/realsexclub-denmark": { priority: 0.9, changeFrequency: "weekly" },
   "/gay-dating": { priority: 0.85, changeFrequency: "weekly" },
-  "/offers/gay-dating-usa": { priority: 0.85, changeFrequency: "weekly" },
-  "/offers/free-dating-sites-for-gay": { priority: 0.85, changeFrequency: "weekly" },
   "/free-gay-dating-sites": { priority: 0.85, changeFrequency: "weekly" },
   "/free-online-dating-usa-singles": { priority: 0.85, changeFrequency: "weekly" },
   "/free-usa-dating-sites": { priority: 0.85, changeFrequency: "weekly" },
@@ -182,43 +161,9 @@ function getRouteMeta(route: string): RouteMeta {
   return { priority: 0.7, changeFrequency: "monthly" };
 }
 
-function getRouteLastModified(route: string): Date {
-  if (route === "/usa" || (route.startsWith("/usa/") && route.endsWith("-review"))) {
-    return new Date(USA_PAGE_LAST_UPDATED.iso);
-  }
-
-  if (
-    route === "/germany" ||
-    (route.startsWith("/germany/") && route.endsWith("-review"))
-  ) {
-    return new Date(GERMANY_PAGE_LAST_UPDATED.iso);
-  }
-
-  if (
-    route === "/france" ||
-    (route.startsWith("/france/") && route.endsWith("-review"))
-  ) {
-    return new Date(FRANCE_PAGE_LAST_UPDATED.iso);
-  }
-
-  if (route === "/canada" || (route.startsWith("/canada/") && route.endsWith("-review"))) {
-    return new Date(CANADA_PAGE_LAST_UPDATED.iso);
-  }
-
-  if (route === "/australia" || (route.startsWith("/australia/") && route.endsWith("-review"))) {
-    return new Date(AUSTRALIA_PAGE_LAST_UPDATED.iso);
-  }
-
-  if (route === "/uk" || (route.startsWith("/uk/") && route.endsWith("-review"))) {
-    return new Date(UK_PAGE_LAST_UPDATED.iso);
-  }
-
-  if (route === "/denmark" || (route.startsWith("/denmark/") && route.endsWith("-review"))) {
-    return new Date(DENMARK_PAGE_LAST_UPDATED.iso);
-  }
-
-  const gitIso = getGitLastModifiedIso(routeToAppFile(route));
-  return new Date(gitIso ?? SITEMAP_FALLBACK_LASTMOD);
+function getRouteLastModified(route: string): Date | undefined {
+  const iso = getFileLastModifiedIso(routeToAppFile(route));
+  return iso ? new Date(iso) : undefined;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

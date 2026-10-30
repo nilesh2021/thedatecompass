@@ -40,7 +40,7 @@ export default function AustraliaLandingPage() {
   return (
     <CountryNightPage
       eyebrow="Australia · Adults 18+"
-      title="Adult Dating Sites in Australia (2026)"
+      title="Adult Dating Sites in Australia"
       subtitle="Dating offers for Australia visitors."
       lastUpdated={
         <>

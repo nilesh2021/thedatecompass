@@ -4,6 +4,7 @@ import CountryFaqSection from "@/components/country/common/CountryFaqSection";
 import type { CountryFaqItem } from "@/components/country/common/CountryFaqSection";
 import CountrySectionHeading from "@/components/country/common/CountrySectionHeading";
 import UsaAffiliateLink from "@/components/country/usa/UsaAffiliateLink";
+import RelatedOffers from "@/components/seo/RelatedOffers";
 import { USA_PAGE_LAST_UPDATED, type UsaOffer } from "@/data/usaOffers";
 
 const linkFocus =
@@ -145,7 +146,7 @@ export default function UsaProviderReviewPage({
               {offer.category} · {country.label} guide
             </p>
             <h1 className="mt-4 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              {offer.name} Review 2026
+              {offer.name} Review
             </h1>
             <p className="mt-3 text-sm text-white/55">
               Last updated:{" "}
@@ -470,6 +471,7 @@ export default function UsaProviderReviewPage({
           </div>
         </div>
       </section>
+      <RelatedOffers />
     </>
   );
 }

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { getBrandSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/gonaughty-australia";
+const seo = getBrandSeo("/offers/gonaughty-australia")!;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "GoNaughty Australia | Online & Casual Dating",
+    absolute: seo.title,
   },
-  description:
-    "GoNaughty is an adult dating option for online dating Australia. Compare Australian dating sites, casual dating Australia, and meet singles in Australia. Adults 18+.",
+  description: seo.description,
   keywords: [
     "dating sites Australia",
     "Australian dating sites",
@@ -21,17 +22,16 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "GoNaughty Australia | Online & Casual Dating",
-    description:
-      "Meet singles in Australia with GoNaughty — online dating and casual dating for Australian adults 18+.",
+    title: seo.title,
+    description: seo.description,
     url: PAGE_URL,
+    locale: seo.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GoNaughty Australia | Online & Casual Dating",
-    description:
-      "Adult dating Australia with GoNaughty. Explore casual dating and Australian dating sites. Adults 18+.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,

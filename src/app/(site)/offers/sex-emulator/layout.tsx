@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { topicSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/sex-emulator";
+const seo = topicSeo(
+  "Virtual Experience | TheDateCompass",
+  "Explore an interactive virtual world where you create, customize, and discover an adult gaming experience listed on TheDateCompass.",
+);
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Virtual Experience | Interactive Adult Gaming",
+    absolute: seo.title,
   },
-  description:
-    "Explore an interactive virtual world — create, customize, and discover a premium adult gaming experience. Adults 18+ only.",
+  description: seo.description,
   keywords: [
     "virtual experience",
     "adult gaming",
@@ -19,17 +23,16 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Explore a New Virtual Experience",
-    description:
-      "Create, customize and explore an interactive virtual world. Adults 18+ only.",
+    title: seo.title,
+    description: seo.description,
+    locale: seo.locale,
     url: PAGE_URL,
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Explore a New Virtual Experience",
-    description:
-      "Create, customize and explore an interactive virtual world. Adults 18+ only.",
+    title: seo.title,
+    description: seo.description,
   },
   robots: {
     index: true,

@@ -69,7 +69,7 @@ export default function WhyChoose() {
                 <div className="relative h-44">
                   <Image
                     src={item.image}
-                    alt=""
+                    alt="TheDateCompass"
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
                     className="object-cover object-top transition duration-700 group-hover:scale-105"

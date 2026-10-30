@@ -105,9 +105,10 @@ export default function AiCompanionLanding() {
           <div className="absolute inset-0">
             <Image
               src={featured.image}
-              alt=""
+              alt="Dreamz.ai"
               fill
               priority
+              sizes="100vw"
               className="object-cover object-top opacity-30 blur-sm"
               aria-hidden
             />

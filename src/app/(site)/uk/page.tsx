@@ -6,29 +6,29 @@ import {
   ukOffers,
   getUkReviewHref,
 } from "@/data/countries/uk";
+import { getHubSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/uk`;
 const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
+const hub = getHubSeo("uk")!;
 
 /**
  * UK route metadata.
  */
 export const metadata: Metadata = {
-  title: "Adult Dating Platforms in the UK | Compare Listings",
-  description:
-    "Compare adult dating sites and platforms in the UK by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.",
+  title: { absolute: hub.title },
+  description: hub.description,
   alternates: {
     canonical: PAGE_URL,
     // TODO: Add hreflang only if a UK-language version of this page ships.
   },
   openGraph: {
-    title: "Adult Dating Platforms in the UK | Compare Listings",
-    description:
-      "A UK-focused comparison of third-party adult dating and companion listings, with category links and practical guidance before you sign up.",
+    title: hub.title,
+    description: hub.description,
     url: PAGE_URL,
     siteName: "TheDateCompass",
-    locale: "en_GB",
+    locale: hub.locale,
     type: "website",
     images: [
       {
@@ -41,9 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adult Dating Platforms in the UK | Compare Listings",
-    description:
-      "A UK-focused comparison of third-party adult dating and companion listings, with category links and practical guidance before you sign up.",
+    title: hub.title,
+    description: hub.description,
     images: [OG_IMAGE],
   },
   robots: {
@@ -59,13 +58,12 @@ export const metadata: Metadata = {
   },
 };
 
-const META_DESCRIPTION =
-  "Compare adult dating sites and platforms in the UK by pricing, privacy, member base and ease of use. Independent 2026 guide for adults 18+.";
+const META_DESCRIPTION = hub.description;
 
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Adult Dating Sites in the UK (2026)",
+  name: hub.headline,
   description: META_DESCRIPTION,
   url: PAGE_URL,
   dateModified: UK_PAGE_LAST_UPDATED.iso,

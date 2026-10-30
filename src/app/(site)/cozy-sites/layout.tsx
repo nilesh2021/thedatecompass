@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
+import { topicSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/cozy-sites";
 const OG_IMAGE =
   "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80";
+const seo = topicSeo(
+  "Cozy & Niche Dating Sites | TheDateCompass",
+  "Browse cozy and niche adult dating listings, including alternative and adult social platforms, on this independent directory.",
+);
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Cozy & Niche Dating Sites | TheDateCompass",
+    absolute: seo.title,
   },
-  description:
-    "Browse cozy and niche adult dating listings on TheDateCompass, including alternative and adult social platforms. Adults 18+. Affiliate links may apply.",
+  description: seo.description,
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Cozy & Niche Dating Sites | TheDateCompass",
-    description:
-      "Compare cozy and niche adult dating listings, including alternative and adult social platforms.",
+    title: seo.title,
+    description: seo.description,
     url: PAGE_URL,
     siteName: "TheDateCompass",
     type: "website",
@@ -24,9 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cozy & Niche Dating Sites | TheDateCompass",
-    description:
-      "Compare cozy and niche adult dating listings, including alternative and adult social platforms.",
+    title: seo.title,
+    description: seo.description,
     images: [OG_IMAGE],
   },
   robots: { index: true, follow: true },

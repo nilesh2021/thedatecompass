@@ -5,14 +5,17 @@ import FreeOnlineDatingUsaSinglesLanding, {
   freeOnlineDatingUsaSinglesFaqs,
 } from "@/components/landing/FreeOnlineDatingUsaSinglesLanding";
 import { adultImages } from "@/data/adultOfferImages";
+import { topicSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/free-online-dating-usa-singles`;
 const OG_IMAGE = `${SITE_URL}${adultImages.alt}`;
-const PAGE_TITLE =
-  "Free Online Dating in the USA for Singles (2026) | TheDateCompass";
-const META_DESCRIPTION =
-  "Compare all dating sites in US free options for singles. Browse free-to-join and free-to-explore USA dating platforms for casual, gay, and mature connections—then visit a partner site.";
+const seo = topicSeo(
+  "Free Online Dating in the USA for Singles | TheDateCompass",
+  "Compare free-to-join and free-to-explore USA dating platforms for casual, gay, and mature connections, then visit a partner site.",
+);
+const PAGE_TITLE = seo.title;
+const META_DESCRIPTION = seo.description;
 
 export const metadata: Metadata = {
   title: {

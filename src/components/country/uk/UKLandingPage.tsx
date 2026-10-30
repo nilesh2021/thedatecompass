@@ -61,7 +61,7 @@ export default function UKLandingPage() {
                 </p>
 
                 <h1 className="text-5xl font-extrabold leading-[0.9] tracking-[-0.045em] md:text-6xl">
-                  Adult Dating Sites in the UK (2026)
+                  Adult Dating Sites in the UK
                 </h1>
                 <p className="mt-5 max-w-xl font-serif-accent text-2xl italic leading-snug text-[#ff2d87] sm:text-3xl">
                   Dating offers for UK visitors.

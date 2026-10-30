@@ -324,7 +324,7 @@ export default function FreeUsaDatingSitesLanding() {
           <div className="relative hidden h-[22rem] overflow-hidden rounded-[1.75rem] lg:block">
             <Image
               src={adultImages.alt}
-              alt=""
+              alt="USA dating"
               fill
               sizes="420px"
               className="object-cover"

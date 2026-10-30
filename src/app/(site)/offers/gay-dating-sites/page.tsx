@@ -5,6 +5,12 @@ import {
   gayDatingSitesFaqs,
   gayDatingSitesFeatured,
 } from "@/data/gayDatingSitesOffers";
+import { topicSeo } from "@/lib/pageSeo";
+
+const seo = topicSeo(
+  "Gay Dating Sites Compared | TheDateCompass",
+  "Compare GayBloom and ManFinder gay dating listings. See how each offer is categorized before you visit the provider site.",
+);
 
 const PAGE_URL =
   "https://www.thedatecompass.com/offers/gay-dating-sites";
@@ -14,11 +20,9 @@ const OG_IMAGE =
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Gay Dating Sites Compared | GayBloom & ManFinder | TheDateCompass",
+    absolute: seo.title,
   },
-  description:
-    "Compare top gay dating sites GayBloom and ManFinder. Review country availability, features, and signup options for men seeking men. Adults 18+.",
+  description: seo.description,
   keywords: [
     "gay dating sites",
     "best gay dating sites",
@@ -33,10 +37,9 @@ export const metadata: Metadata = {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title:
-      "Gay Dating Sites Compared | GayBloom & ManFinder | TheDateCompass",
-    description:
-      "Compare GayBloom and ManFinder gay dating offers — country coverage, features, and signup details for adults 18+.",
+    title: seo.title,
+    description: seo.description,
+    locale: seo.locale,
     url: PAGE_URL,
     siteName: "TheDateCompass",
     type: "website",
