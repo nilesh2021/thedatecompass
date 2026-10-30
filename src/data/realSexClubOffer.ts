@@ -3,8 +3,7 @@
  * Affiliate URL and product facts are taken from existing project listings only.
  */
 
-export const REALSEXCLUB_AFFILIATE_URL =
-  "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN";
+export const REALSEXCLUB_AFFILIATE_URL = "/go/realsexclub";
 
 const RSC_PHOTO =
   "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2";

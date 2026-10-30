@@ -63,7 +63,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Casual dating",
       description:
         "Fast signup for flirty adult dating with active members looking for chemistry — not endless swiping.",
-      url: "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "/go/cheekycrush",
       featured: true,
       image: IMG.portraitA,
       highlights: [
@@ -78,7 +78,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Adult dating",
       description:
         "Direct adult dating for people who know what they want — straightforward profiles and messaging.",
-      url: "https://t.aslr1.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "/go/naughtycharm",
       image: IMG.portraitD,
       highlights: [
         "No-games connections",
@@ -92,7 +92,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Latino dating",
       description:
         "Focused on Latino community connections with adult-friendly profiles and chat.",
-      url: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/litlatinz",
       image: IMG.portraitE,
       highlights: [
         "Community vibe",
@@ -106,7 +106,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Casual adult",
       description:
         "Casual dating with an adult edge — browse, message, and meet without the pressure.",
-      url: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/dirtydating",
       image: IMG.neon,
       highlights: [
         "Fast signup",
@@ -120,7 +120,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Niche dating",
       description:
         "Niche matching for alternative interests beyond mainstream dating apps.",
-      url: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/fetishpartner",
       image: IMG.portraitB,
       highlights: [
         "Niche filters",
@@ -137,7 +137,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "AI companion",
       description:
         "Create your own personalized AI companion with immersive conversations and customizable personalities.",
-      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/dreamz",
       featured: true,
       image: IMG.companion1,
       highlights: [
@@ -154,7 +154,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "AI companion",
       description:
         "Confident, flirty companion energy for immersive stories and late-night chats.",
-      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/dreamz",
       image: IMG.companion2,
       highlights: [
         "Flirty tone",
@@ -168,7 +168,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "AI companion",
       description:
         "Warm and thoughtful AI companionship when you want deeper emotional conversations.",
-      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/dreamz",
       image: IMG.companion3,
       highlights: [
         "Emotional depth",
@@ -182,7 +182,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "AI companion",
       description:
         "Creative muse energy — chat, flirt, or build a fantasy world together.",
-      url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/dreamz",
       image: IMG.companion4,
       highlights: [
         "Creative roleplay",
@@ -199,7 +199,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Gay dating",
       description:
         "Inclusive space for gay singles who want real conversations, easy matching, and private messaging.",
-      url: "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "/go/gaybloom",
       featured: true,
       image: getOfferAdultImage("gaybloom"),
       highlights: [
@@ -214,7 +214,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Gay dating community",
       description:
         "Match and chat with like-minded gay singles in a community-first dating experience.",
-      url: "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+      url: "/go/pridepair",
       image: getOfferAdultImage("pridepair"),
       highlights: [
         "Inclusive matching",
@@ -228,7 +228,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Gay dating for men",
       description:
         "Men looking to meet other men — dating and social features in one place to start chatting fast.",
-      url: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/manfinder",
       image: getOfferAdultImage("manfinder"),
       highlights: [
         "Men seeking men",
@@ -245,7 +245,7 @@ const DATA: Record<string, OfferItem[]> = {
       categoryLabel: "Trans dating",
       description:
         "Inclusive dating for trans connections with clear preferences and respectful private messaging.",
-      url: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+      url: "/go/transdate",
       featured: true,
       image: IMG.companion5,
       highlights: [
@@ -453,16 +453,9 @@ export default function OfferHubPage() {
                       <div className="mt-3">
                         <TrackedAffiliateLink
                           href={affiliateUrl}
-                          target={
-                            affiliateUrl.startsWith("http")
-                              ? "_blank"
-                              : undefined
-                          }
-                          rel={
-                            affiliateUrl.startsWith("http")
-                              ? "nofollow sponsored noopener noreferrer"
-                              : undefined
-                          }
+                          placement={`cozy_sites_${offer.id}`}
+                          target="_blank"
+                          rel="sponsored nofollow noopener noreferrer"
                           onClick={() =>
                             trackAffiliateClick(
                               offer.title,

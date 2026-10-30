@@ -2,13 +2,11 @@
 
 import { useEffect } from "react";
 import {
+  appendGoPlacement,
   buildTrackedAffiliateUrl,
   captureClickId,
   getClickId,
 } from "@/lib/affiliateUrl";
-
-const GONAUGHTY_AU_URL =
-  "https://t.aslr1.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN";
 
 const SCRIPT_SRC = "https://crxcra.com/popin/latest/affstitial-min.js";
 
@@ -27,8 +25,9 @@ declare global {
 export default function AustraliaPopinConfig() {
   useEffect(() => {
     captureClickId();
+    const goHref = appendGoPlacement("/go/gonaughty", "australia_popin");
     window.crakPopInParamsOverlay = {
-      url: buildTrackedAffiliateUrl(GONAUGHTY_AU_URL, getClickId()),
+      url: `${window.location.origin}${buildTrackedAffiliateUrl(goHref, getClickId())}`,
       decryptUrl: false,
       contentType: "overlay",
       coverOverlay: true,

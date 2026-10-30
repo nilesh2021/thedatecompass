@@ -11,6 +11,7 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
 import {
@@ -86,6 +87,7 @@ function CompanionMedia({
 export default function AiCompanionLanding() {
   const offer = dreamzOffer;
   const affiliateUrl = useTrackedAffiliateUrl(offer.url);
+  const goHref = (placement: string) => appendGoPlacement(affiliateUrl, placement);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);
@@ -142,7 +144,7 @@ export default function AiCompanionLanding() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href={affiliateUrl}
+                  href={goHref("hero")}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-[0_0_30px_rgba(236,72,153,0.4)] transition hover:from-fuchsia-400 hover:to-pink-400"
@@ -164,7 +166,7 @@ export default function AiCompanionLanding() {
             </div>
 
             <a
-              href={affiliateUrl}
+              href={goHref("featured-video")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() => trackOfferClick("featured-video")}
@@ -265,9 +267,9 @@ export default function AiCompanionLanding() {
                 exploring conversations on Dreamz.ai.
               </p>
               <a
-                href={affiliateUrl}
+                href={goHref("footer-cta")}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
+                rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackOfferClick("footer-cta")}
                 className="mt-8 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 px-8 py-4 text-sm font-bold text-white shadow-[0_0_30px_rgba(236,72,153,0.35)] transition hover:from-fuchsia-400 hover:to-pink-400"
               >

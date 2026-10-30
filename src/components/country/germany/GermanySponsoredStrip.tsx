@@ -40,6 +40,7 @@ export default function GermanySponsoredStrip() {
         <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
           <TrackedAffiliateLink
             href={getGermanyTrackedHref(offer, "homepage")}
+            placement="homepage"
             rel="sponsored nofollow noopener noreferrer"
             target="_blank"
             onClick={() => trackAffiliateClick(offer.name, "homepage", "germany")}

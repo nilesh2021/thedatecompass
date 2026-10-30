@@ -92,8 +92,9 @@ const PlatformCard = ({ platform }) => {
 
                 <TrackedAffiliateLink
                     href={platform.affiliateLink}
+                    placement="featured_platform"
                     target="_blank"
-                    rel="nofollow sponsored"
+                    rel="sponsored nofollow noopener noreferrer"
                     className="mt-8 flex h-12 items-center justify-center rounded-xl bg-pink-600 font-semibold text-white transition hover:bg-pink-500"
                 >
                     Visit Site →

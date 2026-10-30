@@ -4,10 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 import "@/app/top-offers/sparq.css";
 
-const AFFILIATE_LINK =
-  "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN";
+const AFFILIATE_LINK = "/go/dreamz";
 
 const navLinks = [
   { label: "Pricing", href: "#offers" },
@@ -101,6 +101,8 @@ export default function DatingOffersLanding() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [email, setEmail] = useState("");
   const affiliateLink = useTrackedAffiliateUrl(AFFILIATE_LINK);
+  const goHref = (placement: string) => appendGoPlacement(affiliateLink, placement);
+  const REL = "sponsored nofollow noopener noreferrer";
 
   return (
     <div className="sparq-page min-h-screen">
@@ -136,9 +138,9 @@ export default function DatingOffersLanding() {
           </ul>
 
           <a
-            href={affiliateLink}
+            href={goHref("nav")}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={REL}
             className="hidden rounded-full bg-[#1a1515] px-6 py-2.5 text-sm text-white transition hover:bg-[#333] lg:inline-block"
           >
             Join the community
@@ -161,9 +163,9 @@ export default function DatingOffersLanding() {
               ))}
             </ul>
             <a
-              href={affiliateLink}
+              href={goHref("nav")}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={REL}
               className="mt-4 block rounded-full bg-[#1a1515] px-6 py-3 text-center text-sm text-white"
             >
               Join the community
@@ -187,9 +189,9 @@ export default function DatingOffersLanding() {
             </p>
             <div className="mb-6 flex flex-wrap items-center gap-4">
               <a
-                href={affiliateLink}
+                href={goHref("hero")}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={REL}
                 className="rounded-full bg-[#f85c50] px-7 py-3 font-medium text-white transition hover:bg-[#e54a3e]"
               >
                 Create a free profile
@@ -269,9 +271,9 @@ export default function DatingOffersLanding() {
             {deals.map((deal) => (
               <a
                 key={`${deal.title}-${deal.badge ?? "default"}`}
-                href={affiliateLink}
+                href={goHref("deals")}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={REL}
                 className="deal-card"
                 style={{ backgroundImage: `url('${deal.image}')` }}
               >
@@ -384,7 +386,7 @@ export default function DatingOffersLanding() {
                   className="email-group"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    window.open(affiliateLink, "_blank", "noopener,noreferrer");
+                    window.open(goHref("signup"), "_blank", "noopener,noreferrer");
                   }}
                 >
                   <input

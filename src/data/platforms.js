@@ -30,8 +30,7 @@ const platforms = [
     "Mobile Friendly",
   ],
 
-  affiliateLink:
-    "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  affiliateLink: "/go/cheekycrush",
 },
 
  {
@@ -64,8 +63,7 @@ const platforms = [
     "Mobile Friendly",
   ],
 
-  affiliateLink:
-    "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  affiliateLink: "/go/gaybloom",
 },
 
   {
@@ -98,8 +96,7 @@ const platforms = [
     "Mobile Friendly",
   ],
 
-  affiliateLink:
-    "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
+  affiliateLink: "/go/litlatinz",
 },
 
   {
@@ -132,8 +129,7 @@ const platforms = [
     "Mobile Friendly",
   ],
 
-  affiliateLink:
-    "https://t.aslr1.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  affiliateLink: "/go/naughtycharm",
 },
   {
   id: 5,
@@ -165,8 +161,7 @@ const platforms = [
     "Mobile Friendly",
   ],
 
-  affiliateLink:
-    "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  affiliateLink: "/go/pridepair",
 },
 
   {
@@ -189,7 +184,7 @@ const platforms = [
       "Verified Members",
       "Responsive",
     ],
-    affiliateLink: "#",
+    affiliateLink: "/go/dirtydating",
   },
 
   {
@@ -212,7 +207,7 @@ const platforms = [
       "Profiles",
       "Responsive",
     ],
-    affiliateLink: "#",
+    affiliateLink: "/go/realsexclub",
   },
 
   {
@@ -235,7 +230,7 @@ const platforms = [
       "Profiles",
       "Secure",
     ],
-    affiliateLink: "#",
+    affiliateLink: "/go/milffinder",
   },
 
   {
@@ -258,7 +253,7 @@ const platforms = [
       "Messaging",
       "Safe Community",
     ],
-    affiliateLink: "#",
+    affiliateLink: "/go/transdate",
   },
 
   {

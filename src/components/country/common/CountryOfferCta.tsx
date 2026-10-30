@@ -22,7 +22,7 @@ type CountryOfferCtaProps = {
   placement?: string;
 };
 
-const REL = "nofollow sponsored noopener noreferrer";
+const REL = "sponsored nofollow noopener noreferrer";
 
 const germanyFeaturedClass =
   "group relative z-10 flex min-h-[58px] w-full cursor-pointer items-stretch overflow-hidden border-2 border-brand-rose bg-cream text-ink shadow-[6px_6px_0_0_rgba(255,61,110,0.85)] transition duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_rgba(255,61,110,0.95)] active:translate-x-0 active:translate-y-0 active:shadow-[3px_3px_0_0_rgba(255,61,110,0.7)]";
@@ -46,6 +46,7 @@ export default function CountryOfferCta({
     return (
       <TrackedAffiliateLink
         href={href}
+        placement={placement}
         target="_blank"
         rel={REL}
         className={germanyFeaturedClass}
@@ -68,6 +69,7 @@ export default function CountryOfferCta({
     return (
       <TrackedAffiliateLink
         href={href}
+        placement={placement}
         target="_blank"
         rel={REL}
         className={germanyDefaultClass}
@@ -90,6 +92,7 @@ export default function CountryOfferCta({
     return (
       <TrackedAffiliateLink
         href={href}
+        placement={placement}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
         className="mt-5 block rounded-full bg-brand-rose px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink gradient-hover"
@@ -103,6 +106,7 @@ export default function CountryOfferCta({
   return (
     <TrackedAffiliateLink
       href={href}
+      placement={placement}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
       className="mt-5 block rounded-full bg-brand-rose px-5 py-3.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink"

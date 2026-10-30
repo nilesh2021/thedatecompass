@@ -31,6 +31,7 @@ export default function OffersCategoryLanding({ tab }: { tab: OfferTab }) {
             <TrackedAffiliateLink
               key={offer.id}
               href={offer.url}
+              placement="top_offers_card"
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() =>

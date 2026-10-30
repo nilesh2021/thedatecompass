@@ -2,8 +2,7 @@
  * FuckFinder single-offer page — /offers/casual-dating
  */
 
-export const CASUAL_DATING_AFFILIATE_URL =
-  "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN";
+export const CASUAL_DATING_AFFILIATE_URL = "/go/fuckfinder";
 
 export const CASUAL_DATING_BANNER_URL =
   "https://www.imglnkx.com/9956/DAT-460_DESIGN-23859_4_300250.gif";

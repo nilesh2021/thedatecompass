@@ -24,6 +24,7 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
 import {
@@ -82,7 +83,7 @@ function VisitCta({
   className?: string;
   label?: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}
@@ -229,7 +230,7 @@ export default function MilfDatingLanding() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-amber-500/40 via-rose-900/30 to-amber-600/20 opacity-50 blur-2xl" />
 
               <a
-                href={affiliateUrl}
+                href={appendGoPlacement(affiliateUrl, "hero-portrait")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>

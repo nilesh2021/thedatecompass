@@ -56,7 +56,7 @@ function OfferCta({
   placement: string;
   className: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}
@@ -252,6 +252,7 @@ export default function GayDatingSitesLanding() {
                   </a>
                   <TrackedAffiliateLink
                     href={featured.url}
+                    placement="gay_dating_sites_hero"
                     target="_blank"
                     rel={REL}
                     onClick={() =>
@@ -278,6 +279,7 @@ export default function GayDatingSitesLanding() {
                     <TrackedAffiliateLink
                       key={offer.id}
                       href={offer.url}
+                      placement={`gds_hero_${offer.id}`}
                       target="_blank"
                       rel={REL}
                       onClick={() =>
@@ -410,6 +412,7 @@ export default function GayDatingSitesLanding() {
                       <td className="px-5 py-4">
                         <TrackedAffiliateLink
                           href={offer.url}
+                          placement={`gds_table_${offer.id}`}
                           target="_blank"
                           rel={REL}
                           onClick={() =>

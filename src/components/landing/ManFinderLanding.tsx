@@ -12,7 +12,7 @@ import { trackAffiliateClick } from "@/lib/analytics";
 import FixedOfferCta from "./FixedOfferCta";
 
 const AFFILIATE_URL = MANFINDER_AFFILIATE_URL;
-const REL = "noopener noreferrer";
+const REL = "sponsored nofollow noopener noreferrer";
 
 function ExploreCta({
   label = "Explore ManFinder",
@@ -21,7 +21,7 @@ function ExploreCta({
   label?: string;
   placement: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL);
+  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL, placement);
   return (
     <a
       href={trackedHref}

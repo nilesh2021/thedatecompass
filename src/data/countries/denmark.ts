@@ -5,7 +5,6 @@
  */
 
 import { getOfferAdultImage } from "@/data/adultOfferImages";
-import { REALSEXCLUB_AFFILIATE_URL } from "@/data/realSexClubOffer";
 
 export type DenmarkOffer = {
   name: string;
@@ -39,7 +38,7 @@ export const DENMARK_PAGE_LAST_UPDATED = {
 };
 
 const URLS = {
-  realsexclub: REALSEXCLUB_AFFILIATE_URL,
+  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   dirtydating: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
   fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
   grannyhunter: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",

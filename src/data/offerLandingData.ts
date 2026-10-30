@@ -15,18 +15,13 @@ export type OfferData = {
   availableCountries: string[];
 };
 
-/** Existing CrakRevenue basic links (with aff_sub5) from project offer data. */
+/** Public CTAs use /go/{slug}; destinations stay in country GoDestinations maps. */
 const AFFILIATE_URLS: Partial<Record<string, string>> = {
-  realsexclub:
-    "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  milffinder:
-    "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
-  litlatinz:
-    "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
-  fetishpartner:
-    "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
-  transdate:
-    "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+  realsexclub: "/go/realsexclub",
+  milffinder: "/go/milffinder",
+  litlatinz: "/go/litlatinz",
+  fetishpartner: "/go/fetishpartner",
+  transdate: "/go/transdate",
 };
 
 const makeOffer = (slug: string): OfferData => {

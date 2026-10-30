@@ -533,12 +533,9 @@ export default function Homepage01() {
                   <div className="flex items-center p-4 sm:pr-5">
                     <TrackedAffiliateLink
                       href={platform.href}
+                      placement="homepage_card"
                       target="_blank"
-                      rel={
-                        platform.sponsored
-                          ? "sponsored nofollow noopener noreferrer"
-                          : "noopener noreferrer"
-                      }
+                      rel="sponsored nofollow noopener noreferrer"
                       onClick={() => onVisit(platform.name)}
                       className="inline-flex h-11 w-full items-center justify-center rounded-full bg-[#E83E9B] px-5 text-sm font-semibold sm:w-auto"
                     >
@@ -607,12 +604,9 @@ export default function Homepage01() {
                     <td className="px-4 py-3">
                       <TrackedAffiliateLink
                         href={platform.href}
+                        placement="homepage_table"
                         target="_blank"
-                        rel={
-                          platform.sponsored
-                            ? "sponsored nofollow noopener noreferrer"
-                            : "noopener noreferrer"
-                        }
+                        rel="sponsored nofollow noopener noreferrer"
                         onClick={() => onVisit(platform.name)}
                         className="text-xs font-semibold text-[#E83E9B] hover:underline"
                       >
@@ -655,12 +649,9 @@ export default function Homepage01() {
                 ) : null}
                 <TrackedAffiliateLink
                   href={platform.href}
+                  placement="homepage_mobile"
                   target="_blank"
-                  rel={
-                    platform.sponsored
-                      ? "sponsored nofollow noopener noreferrer"
-                      : "noopener noreferrer"
-                  }
+                  rel="sponsored nofollow noopener noreferrer"
                   onClick={() => onVisit(platform.name)}
                   className="mt-3 inline-flex text-sm font-semibold text-[#E83E9B]"
                 >

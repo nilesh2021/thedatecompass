@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 
-const AFFILIATE_URL =
-  "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN";
+const AFFILIATE_URL = "/go/dreamz";
 const OFFER_NAME = "Dreamz.ai";
 
 export default function AIPlatformPage() {
   const trackedAffiliateUrl = useTrackedAffiliateUrl(AFFILIATE_URL);
+  const goHref = (placement: string) =>
+    appendGoPlacement(trackedAffiliateUrl, placement);
   const features = [
     {
       icon: "💬",
@@ -72,7 +74,7 @@ export default function AIPlatformPage() {
 
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               <Link
-                href={trackedAffiliateUrl}
+                href={goHref("hero")}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
@@ -260,7 +262,7 @@ export default function AIPlatformPage() {
 
             <div className="mt-8">
               <Link
-                href={trackedAffiliateUrl}
+                href={goHref("footer-cta")}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}

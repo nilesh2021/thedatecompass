@@ -57,6 +57,11 @@ export const usaGoDestinations: Record<string, string> = {
     "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   pridepair:
     "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  naughtycharm:
+    "https://t.aslr1.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  dreamz: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+  "sex-emulator":
+    "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_006OG000004lmDN",
 };
 
 export function getUsaGoHref(slug: string): string {

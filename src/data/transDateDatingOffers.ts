@@ -2,8 +2,7 @@
  * TransDate Dating single-offer page copy.
  */
 
-export const TRANSDATE_AFFILIATE_URL =
-  "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN";
+export const TRANSDATE_AFFILIATE_URL = "/go/transdate";
 
 const TD_PHOTO =
   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac";

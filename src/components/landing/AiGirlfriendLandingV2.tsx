@@ -12,6 +12,7 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
  
 
 import {
@@ -98,6 +99,7 @@ function HeartLikes({ likes }: { likes: string }) {
 export default function AiGirlfriendLandingV2() {
   const offer = dreamzOffer;
   const affiliateUrl = useTrackedAffiliateUrl(offer.url);
+  const goHref = (placement: string) => appendGoPlacement(affiliateUrl, placement);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);
@@ -119,7 +121,7 @@ export default function AiGirlfriendLandingV2() {
 
           <div className="relative mx-auto grid max-w-[1400px] lg:min-h-[760px] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
             <a
-              href={affiliateUrl}
+              href={goHref("featured-video")}
               target="_blank"
               rel={REL}
               onClick={() => trackOfferClick("featured-video")}
@@ -171,7 +173,7 @@ export default function AiGirlfriendLandingV2() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
-                  href={affiliateUrl}
+                  href={goHref("hero")}
                   target="_blank"
                   rel={REL}
                   onClick={() => trackOfferClick("hero")}
@@ -230,7 +232,7 @@ export default function AiGirlfriendLandingV2() {
                 </h2>
               </div>
               <a
-                href={affiliateUrl}
+                href={goHref("catalog-link")}
                 target="_blank"
                 rel={REL}
                 onClick={() => trackOfferClick("catalog-link")}
@@ -242,7 +244,7 @@ export default function AiGirlfriendLandingV2() {
 
             <div className="grid gap-4 md:grid-cols-12 md:gap-5">
               <a
-                href={affiliateUrl}
+                href={goHref(`companion-${featured.name.toLowerCase()}`)}
                 target="_blank"
                 rel={REL}
                 onClick={() =>
@@ -278,7 +280,7 @@ export default function AiGirlfriendLandingV2() {
                 {restCompanions.map((companion, index) => (
                   <a
                     key={companion.name}
-                    href={affiliateUrl}
+                    href={goHref(`companion-${companion.name.toLowerCase()}`)}
                     target="_blank"
                     rel={REL}
                     onClick={() =>
@@ -326,7 +328,7 @@ export default function AiGirlfriendLandingV2() {
                 </p>
               </div>
               <a
-                href={affiliateUrl}
+                href={goHref("sidebar")}
                 target="_blank"
                 rel={REL}
                 onClick={() => trackOfferClick("sidebar")}
@@ -400,9 +402,9 @@ export default function AiGirlfriendLandingV2() {
                   exploring conversations on Dreamz.ai.
                 </p>
                 <a
-                  href={affiliateUrl}
+                  href={goHref("footer-cta")}
                   target="_blank"
-                  rel="nofollow sponsored noopener noreferrer"
+                  rel="sponsored nofollow noopener noreferrer"
                   onClick={() => trackOfferClick("footer-cta")}
                   className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
                 >

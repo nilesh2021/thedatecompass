@@ -11,6 +11,7 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 
 
 import {
@@ -74,16 +75,18 @@ function CompanionMedia({
 function CompanionCard({
   companion,
   href,
+  placement,
   priority = false,
   onAffiliateClick,
 }: {
   companion: DreamzCompanion;
   href: string;
+  placement: string;
   priority?: boolean;
   onAffiliateClick?: () => void;
 }) {
   const cardMedia = { ...companion, video: undefined };
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
 
   return (
     <a
@@ -131,6 +134,7 @@ export default function AiGirlfriendLanding() {
   const offer = dreamzOffer;
 
   const affiliateUrl = useTrackedAffiliateUrl(offer.url);
+  const goHref = (placement: string) => appendGoPlacement(affiliateUrl, placement);
 
   const trackOfferClick = (placement: string) => {
     trackAffiliateClick(offer.name, placement);
@@ -183,7 +187,7 @@ export default function AiGirlfriendLanding() {
 
               <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">
                 <a
-                  href={affiliateUrl}
+                  href={goHref("hero")}
                   target="_blank"
                   rel="sponsored nofollow noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-brand-rose px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-rose/30 transition hover:bg-brand-rose"
@@ -211,7 +215,7 @@ export default function AiGirlfriendLanding() {
 
             {/* Small featured video */}
             <a
-              href={affiliateUrl}
+              href={goHref("featured-video")}
               target="_blank"
               rel="sponsored nofollow noopener noreferrer"
               onClick={() => trackOfferClick("featured-video")}
@@ -257,7 +261,7 @@ export default function AiGirlfriendLanding() {
                 </h2>
               </div>
               <a
-                href={affiliateUrl}
+                href={goHref("catalog-link")}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 onClick={() => trackOfferClick("catalog-link")}
@@ -312,7 +316,7 @@ export default function AiGirlfriendLanding() {
                     </div>
                   </div>
                   <a
-                    href={affiliateUrl}
+                    href={goHref("sidebar")}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     onClick={() => trackOfferClick("sidebar")}
@@ -329,6 +333,7 @@ export default function AiGirlfriendLanding() {
                     key={companion.name}
                     companion={companion}
                     href={affiliateUrl}
+                    placement={`companion-${companion.name.toLowerCase()}`}
                     priority={index < 2}
                     onAffiliateClick={() =>
                       trackOfferClick(`companion-${companion.name.toLowerCase()}`)
@@ -395,9 +400,9 @@ export default function AiGirlfriendLanding() {
               conversations on Dreamz.ai.
             </p>
             <a
-              href={affiliateUrl}
+              href={goHref("footer-cta")}
               target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
+              rel="sponsored nofollow noopener noreferrer"
               onClick={() => trackOfferClick("footer-cta")}
               className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90"
             >

@@ -157,6 +157,7 @@ export default function ExitIntentOfferModal({
 
           <TrackedAffiliateLink
             href={affiliateUrl}
+            placement="exit-intent"
             target="_blank"
             rel={REL}
             onClick={() => {

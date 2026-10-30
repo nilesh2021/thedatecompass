@@ -3,8 +3,7 @@
  * Affiliate URL and product facts are taken from existing project listings only.
  */
 
-export const MANFINDER_AFFILIATE_URL =
-  "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN";
+export const MANFINDER_AFFILIATE_URL = "/go/manfinder";
 
 const MF_PHOTO =
   "https://images.unsplash.com/photo-1579650382425-256093056bca";

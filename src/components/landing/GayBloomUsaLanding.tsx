@@ -36,7 +36,7 @@ function ExploreCta({
   label?: string;
   placement: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(GAYBLOOM_USA_OFFER_PATH);
+  const trackedHref = useTrackedAffiliateUrl(GAYBLOOM_USA_OFFER_PATH, placement);
   return (
     <a
       href={trackedHref}

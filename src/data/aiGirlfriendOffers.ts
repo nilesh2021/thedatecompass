@@ -21,7 +21,7 @@ export const dreamzOffer: AiGirlfriendOffer = {
     "Private chat",
     "Mobile friendly",
   ],
-  url: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
+  url: "/go/dreamz",
   promo: "Free to start",
 };
 export const aiGirlfriendOffers: AiGirlfriendOffer[] = [

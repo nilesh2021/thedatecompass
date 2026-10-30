@@ -8,8 +8,7 @@ import { adultImages } from "@/data/adultOfferImages";
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 
-export const TRANSDATE_NORWAY_URL =
-  "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN";
+export const TRANSDATE_NORWAY_URL = "/go/transdate";
 
 const OFFER_NAME = "TransDate";
 const COUNTRY = "Norway";
@@ -74,7 +73,7 @@ function AffiliateLink({
   children: ReactNode;
   className?: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}

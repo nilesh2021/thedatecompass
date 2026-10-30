@@ -22,6 +22,7 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
 import {
@@ -80,7 +81,7 @@ function VisitCta({
   className?: string;
   label?: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}
@@ -227,7 +228,7 @@ export default function GrannyHunterLanding() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#8b4d63]/40 via-[#c9a87c]/20 to-[#6b3a4a]/30 opacity-55 blur-2xl" />
 
               <a
-                href={affiliateUrl}
+                href={appendGoPlacement(affiliateUrl, "hero-portrait")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>

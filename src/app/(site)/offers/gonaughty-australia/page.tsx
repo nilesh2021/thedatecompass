@@ -9,9 +9,8 @@ import { trackAffiliateClick } from "@/lib/analytics";
 
 const HERO_BG = "https://assets.gonaughty.com/st/static/background.jpg";
 
-const AFFILIATE_URL =
-  "https://t.aslr1.com/358917/8570/0?po=6456&aff_sub5=SF_006OG000004lmDN";
-const REL = "noopener noreferrer";
+const AFFILIATE_URL = "/go/gonaughty";
+const REL = "sponsored nofollow noopener noreferrer";
 const OFFER_NAME = "GoNaughty";
 const COUNTRY = "australia";
 
@@ -31,7 +30,7 @@ function Cta({
       "bg-[#f7f3ee] text-[#14110f] shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:bg-white",
   };
 
-  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL);
+  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL, placement);
   return (
     <a
       href={trackedHref}

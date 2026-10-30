@@ -46,7 +46,7 @@ function OfferLink({
   className: string;
   children: ReactNode;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}

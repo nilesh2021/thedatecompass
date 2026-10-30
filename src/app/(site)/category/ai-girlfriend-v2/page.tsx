@@ -6,13 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 
-const AFFILIATE_URL =
-  "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN";
+const AFFILIATE_URL = "/go/dreamz";
 const OFFER_NAME = "Dreamz.ai";
 
 export default function AIGirlfriendV2() {
   const trackedAffiliateUrl = useTrackedAffiliateUrl(AFFILIATE_URL);
+  const goHref = (placement: string) =>
+    appendGoPlacement(trackedAffiliateUrl, placement);
   return (
     <>
 <script
@@ -66,7 +68,7 @@ export default function AIGirlfriendV2() {
               <div className="mt-10 flex flex-wrap gap-4">
 
               <Link
-    href={trackedAffiliateUrl}
+    href={goHref("hero")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "hero")}
@@ -422,7 +424,7 @@ export default function AIGirlfriendV2() {
         {/* CTA */}
 
         <Link
-          href={trackedAffiliateUrl}
+          href={goHref("features-cta")}
           target="_blank"
           rel="sponsored nofollow noopener noreferrer"
           onClick={() => trackAffiliateClick(OFFER_NAME, "features-cta")}
@@ -480,7 +482,7 @@ export default function AIGirlfriendV2() {
           <div className="mt-10 flex flex-wrap gap-4">
 
           <Link
-    href={trackedAffiliateUrl}
+    href={goHref("mid-cta")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "mid-cta")}
@@ -660,7 +662,7 @@ export default function AIGirlfriendV2() {
       <div className="mt-12">
 
      <Link
-    href={trackedAffiliateUrl}
+    href={goHref("footer-cta")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "footer-cta")}
@@ -712,7 +714,7 @@ export default function AIGirlfriendV2() {
 </section>
 <div className="fixed bottom-5 right-5 z-50">
   <Link
-    href={trackedAffiliateUrl}
+    href={goHref("fixed-cta")}
     target="_blank"
     rel="sponsored nofollow noopener noreferrer"
     onClick={() => trackAffiliateClick(OFFER_NAME, "fixed-cta")}

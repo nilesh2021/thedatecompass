@@ -79,7 +79,7 @@ function VisitCta({
       ? "group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-violet-500 px-8 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_12px_35px_rgba(139,92,246,0.35)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(139,92,246,0.45)]"
       : "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 text-sm font-bold uppercase tracking-[0.1em] text-cream backdrop-blur-md transition duration-300 hover:border-brand-mint/50 hover:bg-white/10";
 
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}

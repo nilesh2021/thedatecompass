@@ -25,6 +25,7 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
 import {
@@ -84,7 +85,7 @@ function VisitCta({
   className?: string;
   label?: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}
@@ -228,7 +229,7 @@ export default function CasualDatingLanding() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-red-600/40 via-rose-900/30 to-red-700/20 opacity-55 blur-2xl" />
 
               <a
-                href={affiliateUrl}
+                href={appendGoPlacement(affiliateUrl, "hero-portrait")}
                 target="_blank"
                 rel={REL}
                 onClick={() =>
@@ -399,7 +400,7 @@ export default function CasualDatingLanding() {
             </div>
 
             <a
-              href={affiliateUrl}
+              href={appendGoPlacement(affiliateUrl, "affiliate-banner")}
               target="_blank"
               rel={REL}
               onClick={() =>

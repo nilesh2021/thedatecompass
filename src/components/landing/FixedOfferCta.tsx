@@ -32,6 +32,7 @@ export default function FixedOfferCta({
 
           <TrackedAffiliateLink
             href={offer.url}
+            placement={placement}
             target="_self"
             rel="sponsored nofollow noopener noreferrer"
             onClick={() => trackAffiliateClick(offer.name, placement)}

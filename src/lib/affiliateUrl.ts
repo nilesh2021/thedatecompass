@@ -54,6 +54,22 @@ export function readPlacementFromRequest(request: Request): string | null {
   return PLACEMENT_PATTERN.test(value) ? value : null;
 }
 
+/** Append ?placement= on an internal /go/ href. Leaves external URLs unchanged. */
+export function appendGoPlacement(
+  href: string,
+  placement?: string | null
+): string {
+  if (!href.startsWith("/go/") || !placement || !PLACEMENT_PATTERN.test(placement)) {
+    return href;
+  }
+
+  const url = new URL(href, GO_URL_ORIGIN);
+  if (!url.searchParams.has("placement")) {
+    url.searchParams.set("placement", placement);
+  }
+  return `${url.pathname}${url.search}`;
+}
+
 /**
  * Record which on-page control was clicked.
  * Writes aff_sub4 only. Does not set aff_sub (reserved for paid click IDs).

@@ -42,7 +42,7 @@ function VisitCta({
   placement: string;
   className?: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(realSexClubOffer.url);
+  const trackedHref = useTrackedAffiliateUrl(realSexClubOffer.url, placement);
   return (
     <a
       href={trackedHref}
@@ -440,6 +440,7 @@ export default function RealSexClubLanding() {
       >
         <TrackedAffiliateLink
           href={realSexClubOffer.url}
+          placement="realsexclub_fixed_cta"
           target="_blank"
           rel={REL}
           onClick={() =>

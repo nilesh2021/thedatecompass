@@ -20,7 +20,7 @@ function ExploreCta({
   label?: string;
   placement: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(OFFER_PATH);
+  const trackedHref = useTrackedAffiliateUrl(OFFER_PATH, placement);
   return (
     <a
       href={trackedHref}

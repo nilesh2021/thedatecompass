@@ -12,6 +12,7 @@ import NoiseOverlay from "@/components/theme/NoiseOverlay";
 
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { appendGoPlacement } from "@/lib/affiliateUrl";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 
 import {
@@ -25,6 +26,7 @@ const REL = "sponsored nofollow noopener noreferrer";
 
 export default function ManFinderLandingV2() {
   const affiliateUrl = useTrackedAffiliateUrl(manFinderOffer.url);
+  const goHref = (placement: string) => appendGoPlacement(affiliateUrl, placement);
 
   const handleClick = (placement: string) => {
     trackAffiliateClick(
@@ -97,7 +99,7 @@ export default function ManFinderLandingV2() {
 
               <div className="mt-8">
                 <a
-                  href={affiliateUrl}
+                  href={goHref("v2-hero")}
                   target="_blank"
                   rel={REL}
                   onClick={() => handleClick("v2-hero")}
@@ -259,7 +261,7 @@ export default function ManFinderLandingV2() {
               </div>
 
               <a
-                href={affiliateUrl}
+                href={goHref("v2-features")}
                 target="_blank"
                 rel={REL}
                 onClick={() => handleClick("v2-features")}
@@ -305,7 +307,7 @@ export default function ManFinderLandingV2() {
                 </p>
 
                 <a
-                  href={affiliateUrl}
+                  href={goHref("v2-final")}
                   target="_blank"
                   rel={REL}
                   onClick={() => handleClick("v2-final")}

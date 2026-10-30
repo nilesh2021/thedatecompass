@@ -62,12 +62,11 @@ export function getGermanyGoHref(slug: string): string {
   return `/go/${slug}`;
 }
 
-/** Sponsored offers append ?placement= so /go/ can set aff_sub4. Others keep href. */
+/** Append ?placement= so /go/ can set aff_sub4. */
 export function getGermanyTrackedHref(
-  offer: Pick<GermanyOffer, "slug" | "href" | "sponsored">,
+  offer: Pick<GermanyOffer, "slug">,
   placement: GermanyClickPlacement,
 ): string {
-  if (!offer.sponsored) return offer.href;
   return `${getGermanyGoHref(offer.slug)}?placement=${placement}`;
 }
 

@@ -65,7 +65,7 @@ function VisitCta({
       "border border-[#b8956c]/50 text-[#f5f0eb] hover:border-[#b8956c] hover:bg-white/5",
   };
 
-  const trackedHref = useTrackedAffiliateUrl(href);
+  const trackedHref = useTrackedAffiliateUrl(href, placement);
   return (
     <a
       href={trackedHref}

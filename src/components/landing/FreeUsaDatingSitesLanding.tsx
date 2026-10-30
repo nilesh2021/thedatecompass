@@ -161,6 +161,7 @@ export default function FreeUsaDatingSitesLanding() {
                 </div>
                 <TrackedAffiliateLink
                   href={offer.href}
+                  placement="usa_free_card"
                   target="_blank"
                   rel={REL}
                   className="mt-4 inline-flex w-full items-center justify-center rounded-full py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:brightness-110"
@@ -281,6 +282,7 @@ export default function FreeUsaDatingSitesLanding() {
                     <td className="px-4 py-4">
                       <TrackedAffiliateLink
                         href={offer.href}
+                        placement="usa_free_table"
                         target="_blank"
                         rel={REL}
                         className="font-semibold hover:underline"

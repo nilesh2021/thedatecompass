@@ -77,6 +77,7 @@ export default function OfferLandingPage({
     return (
       <TrackedAffiliateLink
         href={offer.url}
+        placement={placement}
         target="_blank"
         rel={REL}
         className={primaryCtaClass}
