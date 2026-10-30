@@ -8,8 +8,9 @@ import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
+  readCountryFromRequest,
   readPlacementFromRequest,
-  withAffiliatePlacement,
+  withAffiliateSourceTags,
 } from "@/lib/affiliateUrl";
 import { notFound, redirect } from "next/navigation";
 
@@ -33,12 +34,12 @@ export async function GET(request: Request, context: RouteContext) {
     notFound();
   }
 
-  // Placement (hero, card, lp_end, …) is recorded on aff_sub4.
+  // aff_sub2 is always thedatecompass. Country and placement are optional labels.
   // aff_sub is only attached later, and only when a paid click_id is present.
-  const located = withAffiliatePlacement(
-    destination,
-    readPlacementFromRequest(request)
-  );
+  const located = withAffiliateSourceTags(destination, {
+    country: readCountryFromRequest(request),
+    placement: readPlacementFromRequest(request),
+  });
 
   redirect(buildTrackedAffiliateUrl(located, readClickIdFromRequest(request)));
 }

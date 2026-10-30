@@ -30,7 +30,7 @@ function Cta({
       "bg-[#f7f3ee] text-[#14110f] shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:bg-white",
   };
 
-  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL, placement);
+  const trackedHref = useTrackedAffiliateUrl(AFFILIATE_URL, placement, COUNTRY);
   return (
     <a
       href={trackedHref}

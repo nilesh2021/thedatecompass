@@ -47,6 +47,7 @@ export default function CountryOfferCta({
       <TrackedAffiliateLink
         href={href}
         placement={placement}
+        country={country}
         target="_blank"
         rel={REL}
         className={germanyFeaturedClass}
@@ -70,6 +71,7 @@ export default function CountryOfferCta({
       <TrackedAffiliateLink
         href={href}
         placement={placement}
+        country={country}
         target="_blank"
         rel={REL}
         className={germanyDefaultClass}
@@ -93,6 +95,7 @@ export default function CountryOfferCta({
       <TrackedAffiliateLink
         href={href}
         placement={placement}
+        country={country}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
         className="mt-5 block rounded-full bg-brand-rose px-5 py-2.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink gradient-hover"
@@ -107,6 +110,7 @@ export default function CountryOfferCta({
     <TrackedAffiliateLink
       href={href}
       placement={placement}
+      country={country}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
       className="mt-5 block rounded-full bg-brand-rose px-5 py-3.5 text-center text-sm font-bold text-white transition hover:bg-brand-rose-soft hover:text-ink"

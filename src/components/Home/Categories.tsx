@@ -76,6 +76,7 @@ export default function Categories() {
                   <TrackedAffiliateLink
                     href={category.href}
                     placement="category"
+                    country="usa"
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     className="tdc-btn-primary w-full py-3 text-xs"

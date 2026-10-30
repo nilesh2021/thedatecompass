@@ -5,6 +5,7 @@
  */
 
 import { getOfferAdultImage } from "@/data/adultOfferImages";
+import { getGoHref } from "@/lib/affiliateUrl";
 
 export type CanadaOffer = {
   name: string;
@@ -52,7 +53,7 @@ export const canadaGoDestinations: Record<string, string> = { ...URLS };
 export const CANADA_REVIEW_SLUGS: readonly string[] = Object.keys(URLS);
 
 export function getCanadaGoHref(slug: string): string {
-  return `/go/${slug}`;
+  return getGoHref(slug, { country: "canada" });
 }
 
 export function getCanadaReviewHref(offer: Pick<CanadaOffer, "slug">): string | null {

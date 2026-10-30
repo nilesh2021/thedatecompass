@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import {
-  appendGoPlacement,
+  appendGoParams,
   buildTrackedAffiliateUrl,
   captureClickId,
   getClickId,
@@ -25,7 +25,10 @@ declare global {
 export default function AustraliaPopinConfig() {
   useEffect(() => {
     captureClickId();
-    const goHref = appendGoPlacement("/go/gonaughty", "australia_popin");
+    const goHref = appendGoParams("/go/gonaughty", {
+      country: "australia",
+      placement: "australia_popin",
+    });
     window.crakPopInParamsOverlay = {
       url: `${window.location.origin}${buildTrackedAffiliateUrl(goHref, getClickId())}`,
       decryptUrl: false,

@@ -149,6 +149,7 @@ export default function FreeOnlineDatingUsaSinglesLanding() {
                 <TrackedAffiliateLink
                   href={offer.href}
                   placement="usa_singles_card"
+                  country="usa"
                   target="_blank"
                   rel={REL}
                   className="mt-3 inline-flex w-full items-center justify-center rounded-full py-2.5 text-xs font-bold uppercase tracking-wide text-white transition hover:brightness-110"
@@ -237,6 +238,7 @@ export default function FreeOnlineDatingUsaSinglesLanding() {
                       <TrackedAffiliateLink
                         href={offer.href}
                         placement="usa_singles_table"
+                        country="usa"
                         target="_blank"
                         rel={REL}
                         className="font-semibold hover:underline"

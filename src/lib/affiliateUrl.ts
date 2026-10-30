@@ -2,8 +2,14 @@ const CLICK_ID_STORAGE_KEY = "tdc_click_id";
 export const CLICK_ID_COOKIE = "tdc_click_id";
 const CLICK_ID_COOKIE_MAX_AGE = 60 * 60 * 24 * 30;
 const GO_URL_ORIGIN = "https://www.thedatecompass.com";
-/** Safe token for aff_sub4. aff_sub stays reserved for paid click IDs. */
-const PLACEMENT_PATTERN = /^[a-z0-9_-]{1,32}$/;
+/** Safe token for country and placement query values. aff_sub stays reserved for paid click IDs. */
+const TOKEN_PATTERN = /^[a-z0-9_-]{1,32}$/;
+export const AFFILIATE_SITE_SUB = "thedatecompass";
+
+function sanitizeToken(value?: string | null): string | null {
+  const token = value?.trim().toLowerCase() ?? "";
+  return TOKEN_PATTERN.test(token) ? token : null;
+}
 
 function trimClickId(clickId?: string | null): string | null {
   const trimmed = clickId?.trim();
@@ -50,8 +56,32 @@ export function readClickIdFromRequest(request: Request): string | null {
 }
 
 export function readPlacementFromRequest(request: Request): string | null {
-  const value = new URL(request.url).searchParams.get("placement")?.trim().toLowerCase() ?? "";
-  return PLACEMENT_PATTERN.test(value) ? value : null;
+  return sanitizeToken(new URL(request.url).searchParams.get("placement"));
+}
+
+export function readCountryFromRequest(request: Request): string | null {
+  return sanitizeToken(new URL(request.url).searchParams.get("country"));
+}
+
+/** Append country/placement on an internal /go/ href. Leaves existing keys and external URLs unchanged. */
+export function appendGoParams(
+  href: string,
+  params?: { country?: string | null; placement?: string | null }
+): string {
+  if (!href.startsWith("/go/")) return href;
+
+  const country = sanitizeToken(params?.country);
+  const placement = sanitizeToken(params?.placement);
+  if (!country && !placement) return href;
+
+  const url = new URL(href, GO_URL_ORIGIN);
+  if (country && !url.searchParams.has("country")) {
+    url.searchParams.set("country", country);
+  }
+  if (placement && !url.searchParams.has("placement")) {
+    url.searchParams.set("placement", placement);
+  }
+  return `${url.pathname}${url.search}`;
 }
 
 /** Append ?placement= on an internal /go/ href. Leaves external URLs unchanged. */
@@ -59,15 +89,36 @@ export function appendGoPlacement(
   href: string,
   placement?: string | null
 ): string {
-  if (!href.startsWith("/go/") || !placement || !PLACEMENT_PATTERN.test(placement)) {
-    return href;
-  }
+  return appendGoParams(href, { placement });
+}
 
-  const url = new URL(href, GO_URL_ORIGIN);
-  if (!url.searchParams.has("placement")) {
-    url.searchParams.set("placement", placement);
+export function getGoHref(
+  slug: string,
+  params?: { country?: string | null; placement?: string | null }
+): string {
+  return appendGoParams(`/go/${slug}`, params);
+}
+
+/**
+ * Record site, country, and placement on the destination.
+ * aff_sub2 is always thedatecompass. aff_sub3/aff_sub4 only when tokens are valid.
+ * Does not set aff_sub (reserved for paid click IDs) or rewrite po / aff_sub5.
+ */
+export function withAffiliateSourceTags(
+  destination: string,
+  params?: { country?: string | null; placement?: string | null }
+): string {
+  try {
+    const url = new URL(destination);
+    url.searchParams.set("aff_sub2", AFFILIATE_SITE_SUB);
+    const country = sanitizeToken(params?.country);
+    const placement = sanitizeToken(params?.placement);
+    if (country) url.searchParams.set("aff_sub3", country);
+    if (placement) url.searchParams.set("aff_sub4", placement);
+    return url.toString();
+  } catch {
+    return destination;
   }
-  return `${url.pathname}${url.search}`;
 }
 
 /**
@@ -78,11 +129,12 @@ export function withAffiliatePlacement(
   destination: string,
   placement: string | null,
 ): string {
-  if (!placement || !PLACEMENT_PATTERN.test(placement)) return destination;
+  const token = sanitizeToken(placement);
+  if (!token) return destination;
 
   try {
     const url = new URL(destination);
-    url.searchParams.set("aff_sub4", placement);
+    url.searchParams.set("aff_sub4", token);
     return url.toString();
   } catch {
     return destination;

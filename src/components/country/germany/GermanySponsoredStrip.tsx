@@ -41,6 +41,7 @@ export default function GermanySponsoredStrip() {
           <TrackedAffiliateLink
             href={getGermanyTrackedHref(offer, "homepage")}
             placement="homepage"
+            country="germany"
             rel="sponsored nofollow noopener noreferrer"
             target="_blank"
             onClick={() => trackAffiliateClick(offer.name, "homepage", "germany")}

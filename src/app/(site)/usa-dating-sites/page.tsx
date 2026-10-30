@@ -201,6 +201,7 @@ export default function UsaDatingSitesPage() {
                     <TrackedAffiliateLink
                       href={offer.href}
                       placement="usa_sites_card"
+                      country="usa"
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"
                       className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition duration-300 group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-indigo-500"
@@ -239,6 +240,7 @@ export default function UsaDatingSitesPage() {
                     <TrackedAffiliateLink
                       href={offer.href}
                       placement="usa_sites_category"
+                      country="usa"
                       target="_blank"
                       rel="sponsored nofollow noopener noreferrer"
                       className="mt-5 inline-flex text-xs font-bold uppercase tracking-[0.14em] text-pink-200 transition hover:text-white"

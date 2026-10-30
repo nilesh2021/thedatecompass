@@ -1,4 +1,5 @@
 import { getOfferAdultImage } from "@/data/adultOfferImages";
+import { getGoHref } from "@/lib/affiliateUrl";
 
 export type GermanyOffer = {
   name: string;
@@ -59,15 +60,15 @@ export const GERMANY_REVIEW_SLUGS: readonly string[] = [
 ];
 
 export function getGermanyGoHref(slug: string): string {
-  return `/go/${slug}`;
+  return getGoHref(slug, { country: "germany" });
 }
 
-/** Append ?placement= so /go/ can set aff_sub4. */
+/** Append country and placement so /go/ can set aff_sub3 and aff_sub4. */
 export function getGermanyTrackedHref(
   offer: Pick<GermanyOffer, "slug">,
   placement: GermanyClickPlacement,
 ): string {
-  return `${getGermanyGoHref(offer.slug)}?placement=${placement}`;
+  return getGoHref(offer.slug, { country: "germany", placement });
 }
 
 export function getGermanyReviewHref(offer: Pick<GermanyOffer, "slug">): string | null {

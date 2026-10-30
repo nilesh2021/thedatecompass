@@ -1,4 +1,5 @@
 import { getOfferAdultImage } from "@/data/adultOfferImages";
+import { getGoHref } from "@/lib/affiliateUrl";
 
 export type UsaOffer = {
   name: string;
@@ -65,7 +66,7 @@ export const usaGoDestinations: Record<string, string> = {
 };
 
 export function getUsaGoHref(slug: string): string {
-  return `/go/${slug}`;
+  return getGoHref(slug, { country: "usa" });
 }
 
 /**

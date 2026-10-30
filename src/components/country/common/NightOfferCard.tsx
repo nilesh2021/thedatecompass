@@ -43,6 +43,7 @@ export default function NightOfferCard({
       <TrackedAffiliateLink
         href={href}
         placement="offer_card"
+        country={country}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
         className="group flex flex-1 flex-col text-cream no-underline"

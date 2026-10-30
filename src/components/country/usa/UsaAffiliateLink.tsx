@@ -52,6 +52,7 @@ export default function UsaAffiliateLink({
     <TrackedAffiliateLink
       href={href}
       placement={placement}
+      country={country}
       target="_blank"
       rel="sponsored nofollow noopener noreferrer"
       onClick={() => trackAffiliateClick(offerName, placement, country)}

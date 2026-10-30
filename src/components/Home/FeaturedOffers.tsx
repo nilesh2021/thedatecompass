@@ -210,6 +210,7 @@ export default function FeaturedOffers() {
                   <TrackedAffiliateLink
                     href={offer.href}
                     placement="featured_offer"
+                    country={offer.country?.trim().toLowerCase()}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     className="group flex flex-1 flex-col text-cream no-underline"

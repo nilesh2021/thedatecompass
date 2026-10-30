@@ -73,7 +73,7 @@ function AffiliateLink({
   children: ReactNode;
   className?: string;
 }) {
-  const trackedHref = useTrackedAffiliateUrl(href, placement);
+  const trackedHref = useTrackedAffiliateUrl(href, placement, "norway");
   return (
     <a
       href={trackedHref}

@@ -23,7 +23,7 @@ const PAGE_TITLE = "Fremdgehen69 Erfahrungen 2026: Kosten, Ablauf & Fazit";
 const META_DESCRIPTION =
   "Fremdgehen69: sachlicher Überblick für Erwachsene in Deutschland und Österreich. Anmeldung, Kosten, moderierte Profile, Diskretion und FAQ. Anzeige, 18+.";
 const OG_IMAGE = `${SITE_URL}${adultImages.neon}`;
-const GO_BASE = "/go/fremdgehen69";
+const GO_BASE = "/go/fremdgehen69?country=germany";
 
 const faqs = [
   {
@@ -293,7 +293,7 @@ export default function Fremdgehen69Page() {
                   Österreich eingeordnet.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-                  <Cta href={`${GO_BASE}?placement=lp_hero`}>Kostenlos zur Anbieterseite</Cta>
+                  <Cta href={`${GO_BASE}&placement=lp_hero`}>Kostenlos zur Anbieterseite</Cta>
                   <p className="text-sm font-semibold text-cream/60">
                     Anmeldung kostenlos. Preise siehe Anbieterseite. Nur DE & AT.
                   </p>
@@ -482,7 +482,7 @@ export default function Fremdgehen69Page() {
                 kostenlos.
               </p>
               <div className="relative mt-7">
-                <Cta href={`${GO_BASE}?placement=lp_mid`} tone="light">
+                <Cta href={`${GO_BASE}&placement=lp_mid`} tone="light">
                   Angebot auf der Anbieterseite prüfen
                 </Cta>
               </div>
@@ -558,7 +558,7 @@ export default function Fremdgehen69Page() {
                 </p>
               </div>
               <div className="mt-8">
-                <Cta href={`${GO_BASE}?placement=lp_end`}>Weiter zu Fremdgehen69</Cta>
+                <Cta href={`${GO_BASE}&placement=lp_end`}>Weiter zu Fremdgehen69</Cta>
               </div>
             </div>
           </section>
@@ -582,7 +582,7 @@ export default function Fremdgehen69Page() {
       </div>
       <Footer />
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#ff2d87]/40 bg-[#0c1230]/95 p-3 backdrop-blur md:hidden">
-        <Cta href={`${GO_BASE}?placement=lp_end`} className="w-full">
+        <Cta href={`${GO_BASE}&placement=lp_end`} className="w-full">
           Weiter zu Fremdgehen69
         </Cta>
       </div>

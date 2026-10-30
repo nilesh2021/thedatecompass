@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type AnchorHTMLAttributes } from "react";
 import {
-  appendGoPlacement,
+  appendGoParams,
   buildTrackedAffiliateUrl,
   captureClickId,
   getClickId,
@@ -10,9 +10,10 @@ import {
 
 export function useTrackedAffiliateUrl(
   baseUrl: string,
-  placement?: string
+  placement?: string,
+  country?: string
 ): string {
-  const located = appendGoPlacement(baseUrl, placement);
+  const located = appendGoParams(baseUrl, { placement, country });
   const [href, setHref] = useState(located);
 
   useEffect(() => {
@@ -26,13 +27,15 @@ export function useTrackedAffiliateUrl(
 type TrackedAffiliateLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   placement?: string;
+  country?: string;
 };
 
 export default function TrackedAffiliateLink({
   href,
   placement,
+  country,
   ...props
 }: TrackedAffiliateLinkProps) {
-  const trackedHref = useTrackedAffiliateUrl(appendGoPlacement(href, placement));
+  const trackedHref = useTrackedAffiliateUrl(href, placement, country);
   return <a {...props} href={trackedHref} />;
 }
