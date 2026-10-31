@@ -3,14 +3,15 @@ import GermanyLandingPage from "@/components/country/germany/GermanyLandingPage"
 import {
   GERMANY_PAGE_LAST_UPDATED,
   germanyFaqs,
-  germanyOffers,
+  germanyPageOffers,
   getGermanyReviewHref,
 } from "@/data/germanyOffers";
 import { getHubSeo } from "@/lib/pageSeo";
+import { germanyPageVisuals } from "@/data/germanyPageVisuals";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/germany`;
-const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
+const OG_IMAGE = germanyPageVisuals.og;
 const hub = getHubSeo("germany")!;
 const PAGE_TITLE = hub.title;
 const META_DESCRIPTION = hub.description;
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Adult dating offers comparison for Germany",
+        alt: "Brandenburg Gate in Berlin, used on the Germany dating page",
       },
     ],
   },
@@ -81,7 +82,7 @@ const collectionJsonLd = {
   ],
   mainEntity: {
     "@type": "ItemList",
-    itemListElement: germanyOffers.map((offer, index) => ({
+    itemListElement: germanyPageOffers.map((offer, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: offer.name,

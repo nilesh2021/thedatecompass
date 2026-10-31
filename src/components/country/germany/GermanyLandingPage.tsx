@@ -1,15 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
-import CountryNightPage from "@/components/country/common/CountryNightPage";
-import NightOfferCard from "@/components/country/common/NightOfferCard";
+import { MapPin } from "lucide-react";
+import Header from "@/components/Home/Header";
+import Footer from "@/components/Home/Footer";
+import NoiseOverlay from "@/components/theme/NoiseOverlay";
+import CountryHeroCta from "@/components/country/common/CountryHeroCta";
+import GermanySponsoredStrip from "@/components/country/germany/GermanySponsoredStrip";
+import GermanyOfferCard from "@/components/country/germany/GermanyOfferCard";
 import USAComparisonTable from "@/components/country/usa/USAComparisonTable";
+import UKFaq from "@/components/country/uk/UKFaq";
+import FixedOfferCta from "@/components/landing/FixedOfferCta";
+import GermanyTimedOfferModal from "@/components/country/germany/GermanyTimedOfferModal";
+import { germanyPageVisuals } from "@/data/germanyPageVisuals";
 import {
   GERMANY_PAGE_LAST_UPDATED,
   GERMANY_SPONSORED_LABEL,
   germanyFaqs,
   germanyOffers,
-  getGermanyReviewHref,
+  germanyPageOffers,
+  getGermanyGoHref,
   getGermanyTrackedHref,
 } from "@/data/germanyOffers";
+
+const fremdgehenOffer = germanyOffers.find((item) => item.slug === "fremdgehen69");
 
 const relatedCategories = [
   { href: "/gay-dating", label: "Gay dating" },
@@ -34,7 +47,7 @@ const howWeRankItems = [
   },
   {
     title: "Category",
-    text: "Casual, gay, mature, adult social, trans-inclusive, and niche listings shown in our inventory.",
+    text: "Casual, mature, and sponsored listings shown in this shortlist.",
   },
   {
     title: "Public features",
@@ -42,222 +55,330 @@ const howWeRankItems = [
   },
   {
     title: "Privacy information",
-    text: "We point you to each provider’s own privacy policy and data practices. We do not invent privacy scores.",
+    text: "We point you to each provider’s own privacy policy. We do not invent privacy scores.",
   },
-  {
-    title: "Pricing (where available)",
-    text: "Free and paid options are set by the provider; we do not quote prices here.",
-  },
-  {
-    title: "Usability",
-    text: "How clearly a platform presents its purpose and next steps before you join.",
-  },
-];
+] as const;
 
-const heroImage =
-  "https://images.unsplash.com/flagged/photo-1556151994-b611e5ab3675?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+const pillClass =
+  "inline-flex items-center rounded-full border border-[#ff2d87]/35 bg-[#141a3d] px-4 py-2.5 text-sm font-bold tracking-wide text-cream transition duration-200 hover:bg-[#ff2d87] hover:text-white";
 
 export default function GermanyLandingPage() {
+  const featured = germanyPageOffers[0];
+  const rest = germanyPageOffers.slice(1);
+
   return (
-    <CountryNightPage
-      eyebrow="Germany · Adults 18+"
-      title="Adult Dating Sites in Germany"
-      subtitle="Find the spark you want in Germany."
-      lastUpdated={
-        <>
-          Last updated:{" "}
-          <time dateTime={GERMANY_PAGE_LAST_UPDATED.iso}>
-            {GERMANY_PAGE_LAST_UPDATED.label}
-          </time>
-        </>
-      }
-      lede="Casual dating, niche communities, mature matches, and adult social spaces — compared side by side so you can skip the guesswork and click what fits."
-      note="18+ only. TheDateCompass contains sponsored links. Selecting an offer redirects you to an independent third-party provider site. Fremdgehen69 is listed for Germany and Austria only; outside those countries the provider may show a different page."
-      ctaLabel="Compare now"
-      image={heroImage}
-      imageAlt="Couple enjoying a date in Germany"
-      offerEyebrow="Germany offers"
-      offerTitle="Adult dating platforms compared"
-      offerDescription="Each card lists a category and focus. Confirm pricing, privacy, and membership details on the provider site."
-      offerBanner={
-        <div className="mx-auto mt-8 grid max-w-xl grid-cols-3 gap-3">
-          {[
-            { label: "Platforms compared", value: `${germanyOffers.length}` },
-            { label: "Guide updated", value: GERMANY_PAGE_LAST_UPDATED.label },
-            { label: "Audience", value: "Adults 18+" },
-          ].map((stat) => (
-            <div key={stat.label} className="rounded-2xl border border-[#ff2d87]/30 bg-[#0c1230]/70 p-4 text-center">
-              <p className="text-xl font-extrabold sm:text-2xl">{stat.value}</p>
-              <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#ff2d87]">
-                {stat.label}
+    <div className="pb-24 lg:pb-0">
+      <Header tone="home" />
+      <div className="relative bg-[#0c1230]">
+        <NoiseOverlay />
+        <main className="relative overflow-hidden font-display text-cream">
+          <section className="relative min-h-[88vh]">
+            <Image
+              src={germanyPageVisuals.hero.src}
+              alt={germanyPageVisuals.hero.alt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_30%]"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#070b1c]/78 via-[#070b1c]/45 to-[#070b1c]/15"
+              aria-hidden
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-[#0c1230] via-transparent to-[#070b1c]/20"
+              aria-hidden
+            />
+            <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-6 pb-16 pt-28 lg:justify-center lg:pb-24 lg:pt-20">
+              <p className="flex items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+                <span className="h-px w-10 bg-[#ff2d87]" aria-hidden />
+                Deutschland · Adults 18+
               </p>
-            </div>
-          ))}
-        </div>
-      }
-      offers={germanyOffers.map((offer) => {
-        const reviewHref = getGermanyReviewHref(offer);
-        const detailHref = offer.guideHref ?? reviewHref ?? undefined;
-        const detailLabel = offer.guideHref
-          ? offer.guideLabel ?? "Mehr erfahren"
-          : reviewHref
-            ? "Read review"
-            : undefined;
-        return (
-          <NightOfferCard
-            key={offer.name}
-            name={offer.name.trim()}
-            category={offer.category}
-            points={offer.points}
-            image={offer.image}
-            imageAlt={offer.imageAlt}
-            href={getGermanyTrackedHref(offer, "card")}
-            kicker={
-              offer.sponsored
-                ? `${GERMANY_SPONSORED_LABEL} · DE & AT`
-                : undefined
-            }
-            country="germany"
-            detailHref={detailHref}
-            detailLabel={detailLabel}
-          />
-        );
-      })}
-      afterOffers={
-        <>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
-            18+ only. TheDateCompass contains sponsored links. Listings marked{" "}
-            {GERMANY_SPONSORED_LABEL} are paid placements. Selecting an offer
-            redirects you to an independent third-party provider site.
-            Fremdgehen69 is listed for Germany and Austria only; outside those
-            countries the provider may show a different page.{" "}
-            <Link
-              href="/affiliate-disclosure"
-              className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
-            >
-              Affiliate disclosure
-            </Link>
-            .
-          </p>
-          <USAComparisonTable variant="germany" germanyOffers={germanyOffers} />
-        </>
-      }
-      methodology={
-        <section
-          id="how-we-rank"
-          className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20"
-        >
-          <div className="mx-auto max-w-7xl px-6">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
-              Our approach
-            </p>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">
-              How we rank these sites
-            </h2>
-            <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
-              We organise publicly listed information so you can compare Germany-focused
-              options in one place. We do not operate the dating services ourselves.
-            </p>
-            <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {howWeRankItems.map((item) => (
-                <li
-                  key={item.title}
-                  className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6"
+              <h1 className="mt-5 max-w-3xl text-5xl font-extrabold leading-[0.92] tracking-[-0.045em] md:text-7xl">
+                Dating sites in Germany
+              </h1>
+              <p className="mt-5 max-w-xl font-serif-accent text-2xl italic leading-snug text-[#ff8aa8] sm:text-3xl">
+                Berlin, München, Hamburg — find the spark close to home.
+              </p>
+              <p className="mt-4 text-sm text-cream/55">
+                Last updated:{" "}
+                <time dateTime={GERMANY_PAGE_LAST_UPDATED.iso}>
+                  {GERMANY_PAGE_LAST_UPDATED.label}
+                </time>
+              </p>
+              <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream/75">
+                Three adult platforms compared for Germany visitors. Fremdgehen69 is a paid
+                placement for Germany and Austria.
+              </p>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-cream/55">
+                18+ only. Selecting an offer redirects you to an independent third-party site.
+                TheDateCompass may earn a commission.
+              </p>
+              <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                {fremdgehenOffer ? (
+                  <CountryHeroCta
+                    href={getGermanyTrackedHref(fremdgehenOffer, "lp_hero")}
+                    label={`Visit ${fremdgehenOffer.name}`}
+                    placement="lp_hero"
+                    country="germany"
+                    trackName={fremdgehenOffer.name}
+                    target="_blank"
+                  />
+                ) : null}
+                <a
+                  href="#offers"
+                  className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#ff8aa8] underline-offset-4 hover:underline"
                 >
-                  <h3 className="text-xl font-extrabold tracking-tight text-cream">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
-                </li>
+                  See listed offers
+                </a>
+              </div>
+              <ul className="mt-10 flex flex-wrap gap-2">
+                {germanyPageVisuals.cities.map((city) => (
+                  <li
+                    key={city.name}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-cream/85"
+                  >
+                    <MapPin size={11} aria-hidden />
+                    {city.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section aria-label="Cities across Germany" className="border-y border-[#ff2d87]/15">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {germanyPageVisuals.cities.map((city) => (
+                <figure key={city.name} className="relative aspect-[5/4] overflow-hidden">
+                  <Image
+                    src={city.src}
+                    alt={city.alt}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#070b1c] to-transparent px-4 pb-4 pt-16 text-sm font-extrabold tracking-wide">
+                    {city.name}
+                  </figcaption>
+                </figure>
               ))}
-            </ul>
-            <p className="mt-8 text-sm text-cream/55">
-              For how we work with outbound links, see our{" "}
-              <Link
-                href="/affiliate-disclosure"
-                className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
-              >
-                affiliate disclosure
-              </Link>
-              .
-            </p>
-          </div>
-        </section>
-      }
-      disclaimer="TheDateCompass is an independent comparison site. We may earn a commission when you visit a platform through our links. All listed services are third-party providers for adults 18+. Always confirm current terms and eligibility on the destination site."
-      checklist={
+            </div>
+          </section>
+
+          <section id="offers" className="scroll-mt-20 px-4 py-16 sm:px-6 sm:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+                  Germany offers
+                </p>
+                <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+                  Three platforms, German cities
+                </h2>
+                <p className="mx-auto mt-5 max-w-xl font-serif-accent text-lg italic leading-relaxed text-cream/70 sm:text-xl">
+                  Photos from Berlin, München and historic German streets. Confirm pricing and
+                  terms on each provider site.
+                </p>
+              </div>
+
+              {fremdgehenOffer ? (
+                <div className="mx-auto mt-10 max-w-7xl">
+                  <GermanySponsoredStrip
+                    placement="lp_mid"
+                    variant="embedded"
+                    image={germanyPageVisuals.strip.src}
+                    imageAlt={germanyPageVisuals.strip.alt}
+                  />
+                </div>
+              ) : null}
+
+              <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                {featured ? <GermanyOfferCard offer={featured} featured /> : null}
+                {rest.map((offer) => (
+                  <GermanyOfferCard key={offer.slug} offer={offer} />
+                ))}
+              </div>
+
+              <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-6 text-cream/45">
+                TheDateCompass is an independent comparison site. We may earn a commission when
+                you visit a platform through our links. All listed services are third-party
+                providers for adults 18+. Always confirm current terms and eligibility on the
+                destination site.
+              </p>
+              <p className="mx-auto mt-4 max-w-3xl text-center text-[11px] leading-5 text-cream/55">
+                Listings marked {GERMANY_SPONSORED_LABEL} are paid placements. Fremdgehen69 is
+                listed for Germany and Austria only.{" "}
+                <Link
+                  href="/affiliate-disclosure"
+                  className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
+                >
+                  Affiliate disclosure
+                </Link>
+                .
+              </p>
+
+              <USAComparisonTable variant="germany" germanyOffers={germanyPageOffers} />
+            </div>
+          </section>
+
+          <section
+            id="how-we-rank"
+            className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20"
+          >
+            <div className="mx-auto max-w-7xl px-6">
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+                Our approach
+              </p>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+                How we rank these sites
+              </h2>
+              <p className="mt-5 max-w-2xl font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+                We organise publicly listed information so you can compare Germany-focused
+                options in one place.
+              </p>
+              <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+                {howWeRankItems.map((item) => (
+                  <li
+                    key={item.title}
+                    className="rounded-3xl border border-[#ff2d87]/25 bg-[#141a3d] p-6"
+                  >
+                    <h3 className="text-xl font-extrabold tracking-tight">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-cream/70">{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <UKFaq
+            items={germanyFaqs}
+            eyebrow="FAQ · Germany"
+            title="Questions about dating offers for Germany visitors"
+            subtitle="Clear answers about how this Germany comparison page works."
+          />
+
+          <section
+            id="germany-dating-guide"
+            className="scroll-mt-20 border-t border-[#ff2d87]/15 py-16 sm:py-20"
+          >
+            <div className="mx-auto grid max-w-7xl items-start gap-10 px-6 lg:grid-cols-[1.05fr_0.95fr]">
+              <div>
+                <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+                  Germany dating guide
+                </p>
+                <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-4xl">
+                  How to compare adult dating platforms in Germany
+                </h2>
+                <p className="mt-5 font-serif-accent text-lg italic text-cream/65 sm:text-xl">
+                  A practical walkthrough before you open a provider site.
+                </p>
+                <div className="mt-8 space-y-5 text-base leading-relaxed text-cream/70">
+                  <p>
+                    This page is a shortlist for Germany, not a signup form. The photos are from
+                    German cities and towns so you can place the listings in a real setting —
+                    Berlin nights, Munich streets, Hamburg harbour, Bavarian old towns. We do not
+                    operate the platforms, host profiles, or handle payments.
+                  </p>
+                  <p>
+                    Start with intention. Fremdgehen69 is the sponsored casual listing for
+                    Germany and Austria. DirtyDating sits in the same casual category.
+                    Grannyhunter is the mature option. Matching intention to category first
+                    usually makes the click easier to judge.
+                  </p>
+                  <p>
+                    After you shortlist, open a provider only when the listing fits. Review
+                    current terms, privacy settings, and age rules on that site. You can also
+                    compare similar brands on our{" "}
+                    <Link
+                      href="/usa"
+                      className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline"
+                    >
+                      USA dating page
+                    </Link>
+                    .
+                  </p>
+                </div>
+              </div>
+              <figure className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-[#ff2d87]/25 lg:aspect-[5/6]">
+                <Image
+                  src={germanyPageVisuals.guide.src}
+                  alt={germanyPageVisuals.guide.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#070b1c] to-transparent px-5 pb-5 pt-16 text-sm font-bold">
+                  Bavaria · Neuschwanstein
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section className="border-t border-[#ff2d87]/15 py-16 sm:py-20">
+            <div className="mx-auto max-w-7xl space-y-16 px-6">
+              <div id="germany-related-categories">
+                <div className="mx-auto max-w-3xl text-center">
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+                    Related categories
+                  </p>
+                  <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">
+                    Explore dating categories in Germany
+                  </h2>
+                </div>
+                <ul className="mt-8 flex flex-wrap justify-center gap-3">
+                  {relatedCategories.map((category) => (
+                    <li key={category.href}>
+                      <Link href={category.href} className={pillClass}>
+                        {category.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className="mx-auto max-w-3xl text-center">
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#ff2d87]">
+                    More countries
+                  </p>
+                  <h2
+                    id="germany-other-countries"
+                    className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl"
+                  >
+                    Explore other countries
+                  </h2>
+                </div>
+                <ul className="mt-8 flex flex-wrap justify-center gap-3">
+                  {otherCountries.map((country) => (
+                    <li key={country.href}>
+                      <Link href={country.href} className={pillClass}>
+                        {country.flag} {country.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      <Footer tone="home" />
+      {fremdgehenOffer ? (
         <>
-          <li>
-            <span className="font-semibold text-cream">Categories —</span> Match casual, gay
-            dating, mature, or niche adult social listings to the experience you want.
-          </li>
-          <li>
-            <span className="font-semibold text-cream">Audience fit —</span> Read who each offer
-            says it is for before you invest time in signup.
-          </li>
-          <li>
-            <span className="font-semibold text-cream">Privacy —</span> Check visibility settings
-            and block/report tools on the destination site.
-          </li>
-          <li>
-            <span className="font-semibold text-cream">Age and terms —</span> All offers here are
-            for adults 18+. Confirm current terms and eligibility on the provider site before
-            registering.
-          </li>
+          <FixedOfferCta
+            offer={{
+              name: fremdgehenOffer.name,
+              url: getGermanyGoHref(fremdgehenOffer.slug),
+              promo: `${GERMANY_SPONSORED_LABEL} · DE & AT · 18+`,
+            }}
+            placement="lp_end"
+            ctaLabel={`Visit ${fremdgehenOffer.name} →`}
+          />
+          <GermanyTimedOfferModal
+            offer={fremdgehenOffer}
+            imageSrc={germanyPageVisuals.offers.fremdgehen69.src}
+            imageAlt={germanyPageVisuals.offers.fremdgehen69.alt}
+          />
         </>
-      }
-      faqEyebrow="FAQ · Germany"
-      faqTitle="Questions about dating offers for Germany visitors"
-      faqSubtitle="Clear answers about how this Germany comparison page works."
-      faqs={germanyFaqs}
-      guideId="germany-dating-guide"
-      guideEyebrow="Germany dating guide"
-      guideTitle="How to compare adult dating platforms in Germany"
-      guideDescription="A practical, neutral walkthrough for visitors shortlisting third-party options before signing up."
-      guide={
-        <>
-          <p>
-            This Germany page is built for comparison, not for rushing into a signup. Visitors
-            can scan third-party adult dating listings by category—casual dating, gay dating,
-            mature audiences, and niche adult social spaces—before deciding whether to open a
-            provider site. TheDateCompass presents those options with short descriptions and
-            bullet points. We do not operate the platforms, host profiles, or handle payments and
-            support.
-          </p>
-          <p>
-            Start with intention. If you want low-pressure chats, focus on casual or adult dating
-            cards. If you are looking for gay dating communities, mature connections, or
-            niche adult social spaces, use those category labels to narrow the list.
-            Matching intention to category first usually makes the remaining cards easier to
-            evaluate. You can also compare the same brands on our{" "}
-            <Link href="/usa" className="font-semibold text-[#ff8aa8] underline-offset-4 hover:underline">
-              USA dating page
-            </Link>{" "}
-            and other country shortlists linked below.
-          </p>
-          <p>
-            After you shortlist, click through only when a listing’s framing fits what you want.
-            Every offer button opens an external site where signup rules, privacy settings,
-            messaging tools, and any paid features are defined and can change. Review the
-            provider’s current terms and privacy policy, confirm age and eligibility requirements,
-            and check how reporting or visibility controls work before you create an account.
-          </p>
-          <p>
-            Treat this page as a comparison aid. The offers above are not ranked as winners, and
-            this guide does not claim which option is most popular, cheapest, or right for every
-            visitor. Use the cards, comparison table, and related category links to orient
-            yourself, then verify live details on each destination site. Country links below open
-            our other active regional shortlists if you want to compare how similar pages are
-            organised elsewhere.
-          </p>
-        </>
-      }
-      categoriesId="germany-related-categories"
-      categoriesTitle="Explore dating categories in Germany"
-      categoriesDescription="Category pages that match the Germany offers above — gay dating, adult and mature dating, and niche sites."
-      categories={[...relatedCategories]}
-      countriesTitleId="germany-other-countries"
-      countries={[...otherCountries]}
-    />
+      ) : null}
+    </div>
   );
 }

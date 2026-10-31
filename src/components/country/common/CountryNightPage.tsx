@@ -6,11 +6,15 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import UKFaq from "@/components/country/uk/UKFaq";
+import CountryHeroCta from "@/components/country/common/CountryHeroCta";
 
 type LinkItem = { href: string; label: string; flag?: string };
 
 const pillLinkClass =
   "inline-flex items-center rounded-full border border-[#ff2d87]/35 bg-[#141a3d] px-4 py-2.5 text-sm font-bold tracking-wide text-cream transition duration-200 hover:bg-[#ff2d87] hover:text-white";
+
+const heroCtaClass =
+  "group inline-flex items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-7 py-4 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition duration-300 hover:-translate-y-0.5 hover:brightness-110";
 
 const offerBandStyle = {
   background:
@@ -25,6 +29,12 @@ export default function CountryNightPage({
   lede,
   note,
   ctaLabel,
+  ctaHref = "#offers",
+  ctaPlacement,
+  ctaCountry,
+  ctaTarget,
+  ctaTrackName,
+  ctaSecondary,
   image,
   imageAlt,
   offerEyebrow,
@@ -62,6 +72,13 @@ export default function CountryNightPage({
   lede: string;
   note?: string;
   ctaLabel: string;
+  /** Defaults to the on-page #offers band. Use a /go/ href for a tracked offer CTA. */
+  ctaHref?: string;
+  ctaPlacement?: string;
+  ctaCountry?: string;
+  ctaTarget?: "_self" | "_blank";
+  ctaTrackName?: string;
+  ctaSecondary?: ReactNode;
   image: string;
   imageAlt: string;
   offerEyebrow: string;
@@ -131,14 +148,27 @@ export default function CountryNightPage({
                 {note ? (
                   <p className="mt-4 max-w-xl text-sm leading-7 text-cream/55">{note}</p>
                 ) : null}
-                <div className="mt-10">
-                  <a
-                    href="#offers"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-7 py-4 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(255,45,135,0.28)] transition duration-300 hover:-translate-y-0.5 hover:brightness-110"
-                  >
-                    {ctaLabel}
-                    <ArrowRight size={18} className="transition group-hover:translate-x-1" />
-                  </a>
+                <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                  {ctaHref.startsWith("/go/") ? (
+                    <CountryHeroCta
+                      href={ctaHref}
+                      label={ctaLabel}
+                      placement={ctaPlacement}
+                      country={ctaCountry}
+                      trackName={ctaTrackName}
+                      target={ctaTarget}
+                    />
+                  ) : (
+                    <a href={ctaHref} className={heroCtaClass}>
+                      {ctaLabel}
+                      <ArrowRight
+                        size={18}
+                        className="transition group-hover:translate-x-1"
+                        aria-hidden
+                      />
+                    </a>
+                  )}
+                  {ctaSecondary}
                 </div>
               </div>
               <div className="relative hidden lg:block">

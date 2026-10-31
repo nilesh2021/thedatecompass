@@ -47,7 +47,13 @@ export const GERMANY_SPONSORED_LABEL = "Anzeige / Sponsored";
 export const GERMANY_GEO_NOTE =
   "Listed for adults in Germany and Austria. Outside those countries the provider may show a different page.";
 
-export type GermanyClickPlacement = "card" | "table";
+export type GermanyClickPlacement =
+  | "card"
+  | "table"
+  | "lp_hero"
+  | "lp_mid"
+  | "lp_end"
+  | "lp_popup";
 
 export const GERMANY_REVIEW_SLUGS: readonly string[] = [
   "dirtydating",
@@ -351,6 +357,20 @@ export const germanyOffers: GermanyOffer[] = [
   },
 ];
 
+/** Offers shown on /germany. Remaining inventory stays listed on reviews and other pages. */
+export const GERMANY_PAGE_OFFER_SLUGS = [
+  "fremdgehen69",
+  "dirtydating",
+  "grannyhunter",
+] as const;
+
+export const germanyPageOffers: GermanyOffer[] = GERMANY_PAGE_OFFER_SLUGS.flatMap(
+  (slug) => {
+    const offer = germanyOffers.find((item) => item.slug === slug);
+    return offer ? [offer] : [];
+  },
+);
+
 export const germanyFaqs = [
   {
     question: "Is adult dating legal in Germany?",
@@ -370,7 +390,7 @@ export const germanyFaqs = [
   {
     question: "Which site is best for casual dating?",
     answer:
-      "DirtyDating and FuckFinder are listed in the casual adult dating category on this page. Fremdgehen69 is shown in that category as a paid placement labelled Anzeige / Sponsored, for Germany and Austria. This page does not name a winner. Compare the descriptions, then visit the provider site to confirm whether it matches what you want.",
+      "DirtyDating is listed in the casual adult dating category on this page. Fremdgehen69 is shown in that category as a paid placement labelled Anzeige / Sponsored, for Germany and Austria. This page does not name a winner. Compare the descriptions, then visit the provider site to confirm whether it matches what you want.",
   },
   {
     question: "How do I protect my privacy?",

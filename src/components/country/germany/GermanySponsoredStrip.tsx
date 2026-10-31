@@ -9,21 +9,39 @@ import {
   GERMANY_SPONSORED_LABEL,
   germanyOffers,
   getGermanyTrackedHref,
+  type GermanyClickPlacement,
 } from "@/data/germanyOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 const offer = germanyOffers.find((item) => item.slug === "fremdgehen69");
 
-export default function GermanySponsoredStrip() {
+type GermanySponsoredStripProps = {
+  placement?: GermanyClickPlacement;
+  variant?: "page" | "embedded";
+  image?: string;
+  imageAlt?: string;
+};
+
+export default function GermanySponsoredStrip({
+  placement = "card",
+  variant = "page",
+  image,
+  imageAlt,
+}: GermanySponsoredStripProps) {
   if (!offer) return null;
 
+  const shellClass =
+    variant === "embedded"
+      ? "rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d] py-8 font-display text-cream"
+      : "border-y border-[#ff2d87]/20 bg-[#141a3d] py-10 font-display text-cream";
+
   return (
-    <section className="border-y border-[#ff2d87]/20 bg-[#141a3d] py-10 font-display text-cream">
+    <section className={shellClass}>
       <div className="mx-auto grid max-w-7xl items-center gap-6 px-6 lg:grid-cols-[160px_1fr_auto]">
         <div className="relative hidden h-28 overflow-hidden rounded-2xl lg:block">
           <Image
-            src={offer.image}
-            alt={offer.imageAlt}
+            src={image ?? offer.image}
+            alt={imageAlt ?? offer.imageAlt}
             fill
             sizes="160px"
             className="object-cover object-top"
@@ -39,12 +57,12 @@ export default function GermanySponsoredStrip() {
         </div>
         <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
           <TrackedAffiliateLink
-            href={getGermanyTrackedHref(offer, "card")}
-            placement="card"
+            href={getGermanyTrackedHref(offer, placement)}
+            placement={placement}
             country="germany"
             rel="sponsored nofollow noopener noreferrer"
             target="_blank"
-            onClick={() => trackAffiliateClick(offer.name, "card", "germany")}
+            onClick={() => trackAffiliateClick(offer.name, placement, "germany")}
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#ff2d87] px-5 text-xs font-bold uppercase tracking-[0.1em] text-white"
           >
             Visit {offer.name}
