@@ -69,6 +69,7 @@ const PUBLIC_ROUTES: string[] = [
   "/germany",
   "/de/fremdgehen69",
   "/offers/casual-dating",
+  "/offers/cheekycrush",
   "/offers/dreamz-ai",
   "/offers/gonaughty-australia",
   "/offers/gay-dating-sites",

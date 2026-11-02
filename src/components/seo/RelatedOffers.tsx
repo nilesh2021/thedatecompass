@@ -7,6 +7,8 @@ import { getRelatedOffers } from "@/lib/offerCatalog";
 export default function RelatedOffers({ path }: { path?: string }) {
   const pathname = usePathname();
   const current = path ?? pathname;
+  if (current.replace(/\/$/, "") === "/offers/cheekycrush") return null;
+
   const { items, moreReviews } = getRelatedOffers(current);
 
   if (items.length === 0 && !moreReviews) return null;

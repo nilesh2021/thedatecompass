@@ -53,7 +53,7 @@ export const usaGoDestinations: Record<string, string> = {
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
   milffinder: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
   cheekycrush:
-    "https://t.aslr1.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    "https://t.datsk3.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   gaybloom:
     "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   pridepair:

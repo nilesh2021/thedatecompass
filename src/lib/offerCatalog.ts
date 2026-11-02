@@ -137,6 +137,14 @@ const extras: CatalogOffer[] = [
     path: "/offers/singleflirt",
   },
   {
+    name: "CheekyCrush",
+    category: "Casual dating",
+    country: "USA",
+    countrySlug: "usa",
+    href: "/offers/cheekycrush",
+    path: "/offers/cheekycrush",
+  },
+  {
     name: "GayBloom",
     category: "Gay Dating",
     country: "USA",
