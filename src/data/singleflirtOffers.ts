@@ -88,6 +88,17 @@ export const singleflirtFeatures = [
   },
 ] as const;
 
+export const singleflirtPlaces = {
+  eyebrow: "Nearby, in your country",
+  titleLead: "Singles near you,",
+  titleAccent: "wherever you are",
+  paragraphs: [
+    "People open Singleflirt to meet someone close enough for a real date. That includes singles in Norway, Sweden, Denmark, and Finland, and across the Netherlands, Ireland, Austria, Germany, the United Kingdom, Switzerland, Belgium, Luxembourg, and Liechtenstein.",
+    "The same idea holds in France, Italy, Spain, Portugal, Greece, Cyprus, and Malta, and through Czechia, Slovakia, Poland, Hungary, Estonia, Latvia, Lithuania, Slovenia, Croatia, Bulgaria, Iceland, and Serbia.",
+    "It is also used in the United States, Canada, Puerto Rico, Australia, New Zealand, Israel, Singapore, and South Korea. You still browse people around you. The country only tells the site where that nearby is.",
+  ],
+} as const;
+
 export const singleflirtFaqs = [
   {
     question: "What is Singleflirt?",
@@ -103,6 +114,11 @@ export const singleflirtFaqs = [
     question: "How do you actually meet someone?",
     answer:
       "Make a profile, find someone nearby, and start a conversation. If you both want to, arrange a meetup. The date only happens when you both say yes.",
+  },
+  {
+    question: "Where can I meet singles on Singleflirt?",
+    answer:
+      "Adults use it in Norway, Sweden, Denmark, Finland, the Netherlands, Ireland, Germany, the United Kingdom, France, Italy, Spain, the United States, Canada, Australia, and the other countries named above. You look for people near you, then message the ones you want to meet.",
   },
   {
     question: "Can I use Singleflirt on my phone?",

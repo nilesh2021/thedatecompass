@@ -24,6 +24,7 @@ import {
   singleflirtFaqs,
   singleflirtFeatures,
   singleflirtOffer,
+  singleflirtPlaces,
   singleflirtSparks,
   singleflirtSteps,
   singleflirtVisuals,
@@ -332,6 +333,28 @@ export default function SingleflirtLanding() {
                 placement="lp_mid"
                 label="Join Singleflirt"
               />
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="where"
+          className="scroll-mt-24 border-b border-white/10 px-5 py-16 lg:px-8 lg:py-24"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-rose-soft">
+              {singleflirtPlaces.eyebrow}
+            </p>
+            <h2 className="text-3xl font-black tracking-tight sm:text-5xl">
+              {singleflirtPlaces.titleLead}{" "}
+              <span className="font-serif-accent font-normal italic text-brand-rose-soft">
+                {singleflirtPlaces.titleAccent}
+              </span>
+            </h2>
+            <div className="mt-8 space-y-5 text-left text-sm leading-7 text-fog sm:text-base">
+              {singleflirtPlaces.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
           </div>
         </section>
