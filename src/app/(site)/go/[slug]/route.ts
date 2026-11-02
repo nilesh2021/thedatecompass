@@ -4,6 +4,7 @@ import { denmarkGoDestinations } from "@/data/countries/denmark";
 import { franceGoDestinations } from "@/data/countries/france";
 import { ukGoDestinations } from "@/data/countries/uk";
 import { germanyGoDestinations } from "@/data/germanyOffers";
+import { singleflirtGoDestinations } from "@/data/singleflirtOffers";
 import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
@@ -22,6 +23,7 @@ export async function GET(request: Request, context: RouteContext) {
   const { slug } = await context.params;
   const key = slug.toLowerCase();
   const destination =
+    singleflirtGoDestinations[key] ??
     usaGoDestinations[key] ??
     germanyGoDestinations[key] ??
     franceGoDestinations[key] ??

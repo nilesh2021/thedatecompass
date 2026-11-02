@@ -131,6 +131,12 @@ const extras: CatalogOffer[] = [
     path: "/offers/sex-emulator",
   },
   {
+    name: "Singleflirt",
+    category: "Online dating",
+    href: "/offers/singleflirt",
+    path: "/offers/singleflirt",
+  },
+  {
     name: "GayBloom",
     category: "Gay Dating",
     country: "USA",
