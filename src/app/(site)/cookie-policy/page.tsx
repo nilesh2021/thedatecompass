@@ -108,7 +108,9 @@ export default function CookiePolicyPage() {
 
               <p>
                 These cookies help us understand how visitors use our
-                website so we can improve user experience.
+                website so we can improve the site. Google Analytics and
+                Microsoft Clarity load only after you choose Accept on the
+                cookie banner.
               </p>
 
               <h3 className="mt-6 text-2xl font-semibold text-white">

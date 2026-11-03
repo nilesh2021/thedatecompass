@@ -17,7 +17,7 @@ export const rootMetadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/extra/2.jpg",
+        url: "/images/og/default.jpg",
         width: 1200,
         height: 630,
         alt: "TheDateCompass",
@@ -27,7 +27,7 @@ export const rootMetadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    images: ["/images/extra/2.jpg"],
+    images: ["/images/og/default.jpg"],
   },
 
   robots: {

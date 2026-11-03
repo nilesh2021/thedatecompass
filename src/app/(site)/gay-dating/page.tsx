@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import GayDatingLanding from "@/components/landing/GayDatingLanding";
+import JsonLd from "@/components/seo/JsonLd";
+import { getOfferTabByRoute } from "@/data/datingOffersTabs";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
 const seo = topicSeo(
@@ -55,8 +58,22 @@ export const metadata: Metadata = {
 };
 
 export default function GayDatingPage() {
+  const offers = getOfferTabByRoute("gay-dating")?.offers ?? [];
+
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Gay Dating", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Gay dating sites",
+          offers.map((offer) => ({ name: offer.name })),
+        )}
+      />
       <Header />
       <main>
         <GayDatingLanding />

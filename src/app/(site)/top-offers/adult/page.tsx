@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { topicSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/top-offers/adult";
-const OG_IMAGE = "https://www.thedatecompass.com/images/extra/2.jpg";
+const OG_IMAGE = "https://www.thedatecompass.com/images/og/default.jpg";
 
 export function generateMetadata(): Metadata {
   const tab = getOfferTabByRoute("adult");

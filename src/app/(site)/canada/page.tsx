@@ -10,7 +10,7 @@ import { getHubSeo } from "@/lib/pageSeo";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/canada`;
-const OG_IMAGE = `${SITE_URL}/images/extra/2.jpg`;
+const OG_IMAGE = `${SITE_URL}/images/og/default.jpg`;
 const hub = getHubSeo("canada")!;
 
 /**

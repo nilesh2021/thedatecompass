@@ -13,6 +13,8 @@ import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 
 interface OfferItem {
   id: string;
@@ -272,6 +274,18 @@ export default function OfferHubPage() {
 
   return (
     <div className="min-h-screen bg-ink font-display text-cream">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Cozy Sites", url: "https://www.thedatecompass.com/cozy-sites" },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Cozy and niche dating sites",
+          Object.values(DATA).flat().map((offer) => ({ name: offer.title })),
+        )}
+      />
       <Header />
 
       <main>

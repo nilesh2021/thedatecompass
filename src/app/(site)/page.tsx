@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.thedatecompass.com/images/extra/2.jpg",
+        url: "https://www.thedatecompass.com/images/og/default.jpg",
         width: 1200,
         height: 630,
         alt: "TheDateCompass dating comparison",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: seo.title,
     description: seo.description,
     images: [
-      "https://www.thedatecompass.com/images/extra/2.jpg",
+      "https://www.thedatecompass.com/images/og/default.jpg",
     ],
   },
   robots: {

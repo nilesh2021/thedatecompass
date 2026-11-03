@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import FreeGayDatingSitesLanding from "@/components/landing/FreeGayDatingSitesLanding";
+import JsonLd from "@/components/seo/JsonLd";
+import { getOfferTabByRoute } from "@/data/datingOffersTabs";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/free-gay-dating-sites";
@@ -58,8 +61,22 @@ export const metadata: Metadata = {
 };
 
 export default function FreeGayDatingSitesPage() {
+  const offers = getOfferTabByRoute("gay-dating")?.offers ?? [];
+
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Free Gay Dating Sites", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Free gay dating sites",
+          offers.map((offer) => ({ name: offer.name })),
+        )}
+      />
       <Header />
       <main>
         <FreeGayDatingSitesLanding />

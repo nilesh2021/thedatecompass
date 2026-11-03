@@ -5,6 +5,8 @@ import Footer from "@/components/Home/Footer";
 import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection";
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import { aiGirlfriendOffers } from "@/data/aiGirlfriendOffers";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
 const seo = topicSeo(
@@ -34,6 +36,14 @@ export const metadata: Metadata = {
     url: "https://www.thedatecompass.com/category/ai-girlfriend",
     siteName: "TheDateCompass",
     type: "website",
+    images: [
+      {
+        url: "https://www.thedatecompass.com/images/og/default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TheDateCompass",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -47,6 +57,24 @@ export const metadata: Metadata = {
 export default function AIGirlfriendCategoryPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          {
+            name: "AI Girlfriend",
+            url: "https://www.thedatecompass.com/category/ai-girlfriend",
+          },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "AI companion platforms",
+          aiGirlfriendOffers.map((offer) => ({
+            name: offer.name,
+            url: "https://www.thedatecompass.com/offers/dreamz-ai",
+          })),
+        )}
+      />
       <Header />
 
       <main className="min-h-screen bg-[#07070a] text-white">

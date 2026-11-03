@@ -1,6 +1,8 @@
 import CheekyCrushLanding from "@/components/landing/CheekyCrushLanding";
+import JsonLd from "@/components/seo/JsonLd";
 import type { Metadata } from "next";
 import { cheekycrushVisuals } from "@/data/cheekycrushOffers";
+import { breadcrumbJsonLd } from "@/lib/jsonLd";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/cheekycrush";
 
@@ -57,6 +59,27 @@ export default function CheekyCrushPage() {
   return (
     <div className="font-sans">
       <CheekyCrushLanding />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Offers", url: "https://www.thedatecompass.com/top-offers" },
+          { name: "CheekyCrush", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: TITLE,
+          description: DESCRIPTION,
+          url: PAGE_URL,
+          isPartOf: {
+            "@type": "WebSite",
+            name: "TheDateCompass",
+            url: "https://www.thedatecompass.com",
+          },
+        }}
+      />
     </div>
   );
 }
