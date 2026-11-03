@@ -5,6 +5,12 @@ import { getAustraliaReviewHref, type AustraliaOffer } from "@/data/countries/au
 
 export default function AustraliaOfferCard({ offer }: { offer: AustraliaOffer }) {
   const reviewHref = getAustraliaReviewHref(offer);
+  const detailHref = offer.guideHref ?? reviewHref ?? undefined;
+  const detailLabel = offer.guideHref
+    ? offer.guideLabel ?? "Learn more"
+    : reviewHref
+      ? "Read review"
+      : undefined;
   return (
     <NightOfferCard
       name={offer.name}
@@ -14,8 +20,8 @@ export default function AustraliaOfferCard({ offer }: { offer: AustraliaOffer })
       imageAlt={offer.imageAlt}
       href={offer.href}
       country="australia"
-      detailHref={reviewHref ?? undefined}
-      detailLabel={reviewHref ? "Read review" : undefined}
+      detailHref={detailHref}
+      detailLabel={detailLabel}
     />
   );
 }

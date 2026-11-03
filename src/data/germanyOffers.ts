@@ -99,11 +99,14 @@ export const germanyGoDestinations: Record<string, string> = {
   fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   grannyhunter:
-    "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+    "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
   fetishpartner:
     "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  // Germany-only tracker for /de/fetishpartner. Do not reuse this slug in other countries.
+  "fetishpartner-de":
+    "https://t.datsk3.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
   // CrakRevenue SOI. Placement is added as aff_sub4 on redirect. Do not set aff_sub here.
   fremdgehen69:
     "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN",
@@ -116,6 +119,7 @@ const PRIVACY_NOTE = "See provider privacy policy";
  * Germany inventory ordered by Offer Master priority.
  * Fremdgehen69 is appended as a paid placement (sponsored: true), not a ranked pick.
  * Its German guide lives at /de/fremdgehen69 (guideHref).
+ * FetishPartner's German guide lives at /de/fetishpartner (guideHref).
  */
 export const germanyOffers: GermanyOffer[] = [
   {
@@ -180,6 +184,8 @@ export const germanyOffers: GermanyOffer[] = [
     privacyNote: PRIVACY_NOTE,
     // TODO: Add a verified FuckFinder rating when available. Do not invent scores.
     rating: null,
+    guideHref: "/de/fuckfinder",
+    guideLabel: "Mehr erfahren",
   },
   {
     name: "RealSexClub",
@@ -264,6 +270,8 @@ export const germanyOffers: GermanyOffer[] = [
     priceNote: PRICE_NOTE,
     privacyNote: PRIVACY_NOTE,
     rating: null,
+    guideHref: "/de/manfinder",
+    guideLabel: "Mehr erfahren",
   },
   {
     name: "TransDate",
@@ -323,6 +331,8 @@ export const germanyOffers: GermanyOffer[] = [
     privacyNote: PRIVACY_NOTE,
     // TODO: Add a verified FetishPartner rating when available. Do not invent scores.
     rating: null,
+    guideHref: "/de/fetishpartner",
+    guideLabel: "Mehr erfahren",
   },
   {
     name: "Fremdgehen69",

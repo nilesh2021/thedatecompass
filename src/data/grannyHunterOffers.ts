@@ -4,6 +4,48 @@
 
 export const GRANNY_HUNTER_AFFILIATE_URL = "/go/grannyhunter";
 
+/** Search metadata only. Do not render this full list on the page. */
+export const grannyHunterAcceptedCountries = [
+  "Australia",
+  "Austria",
+  "Belgium",
+  "Bulgaria",
+  "Canada",
+  "Croatia",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Estonia",
+  "Finland",
+  "France",
+  "Germany",
+  "Greece",
+  "Hungary",
+  "Iceland",
+  "Ireland",
+  "Israel",
+  "Italy",
+  "Latvia",
+  "Liechtenstein",
+  "Lithuania",
+  "Luxembourg",
+  "Malta",
+  "Netherlands",
+  "New Zealand",
+  "Norway",
+  "Poland",
+  "Portugal",
+  "Puerto Rico",
+  "Singapore",
+  "Slovakia (Slovak Republic)",
+  "Slovenia",
+  "Spain",
+  "Sweden",
+  "Switzerland",
+  "United Kingdom",
+  "United States",
+] as const;
+
 const GH_HERO =
   "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5";
 
@@ -12,14 +54,14 @@ export const grannyHunterOffer = {
   badge: "Mature connections",
   bestFor: "Experienced singles & refined dating",
   category: "Mature dating",
-  availability: "Worldwide · All countries",
+  availability: "Accepted countries",
   url: GRANNY_HUNTER_AFFILIATE_URL,
   ctaLabel: "Join GrannyHunter Free",
   description:
     "GrannyHunter connects adults with experienced, mature singles who appreciate conversation, confidence, and genuine chemistry — browse profiles, message privately, and connect on your terms.",
   highlights: [
     "Experienced singles",
-    "Worldwide access",
+    "Accepted countries",
     "Private messaging",
     "Discreet browsing",
   ],
@@ -42,7 +84,7 @@ export const grannyHunterSteps = [
   {
     step: "02",
     title: "Browse mature members",
-    text: "Explore profiles from experienced singles worldwide. Filter by interests and discover adults who match your preferences.",
+    text: "Explore profiles from experienced singles. Filter by interests and discover adults who match your preferences.",
   },
   {
     step: "03",
@@ -76,9 +118,9 @@ export const grannyHunterFeatures = [
 
 export const grannyHunterTrustPoints = [
   {
-    stat: "Worldwide",
-    label: "Available in all countries",
-    text: "GrannyHunter is listed here as a globally accessible mature dating platform.",
+    stat: "Accepted",
+    label: "Available in accepted countries",
+    text: "GrannyHunter is listed here for adults in the countries it accepts.",
   },
   {
     stat: "Adults 18+",
@@ -99,9 +141,9 @@ export const grannyHunterFaqs = [
       "GrannyHunter is a mature dating platform for adults looking to meet experienced singles through profiles, messaging, and browsing tools. It is a third-party service, not operated by TheDateCompass.",
   },
   {
-    question: "Is GrannyHunter available worldwide?",
+    question: "Where is GrannyHunter available?",
     answer:
-      "Yes — GrannyHunter is listed on this page as available worldwide across all countries. Availability of specific features may still vary; check the destination site for current details.",
+      "GrannyHunter is available in accepted countries. Specific features may still vary. Check the destination site for current details.",
   },
   {
     question: "Is GrannyHunter free to join?",

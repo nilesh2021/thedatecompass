@@ -10,6 +10,15 @@ export function routeToAppFile(route: string): string {
     `src/app${page}`,
     `src/app/(site)${page}`,
     `src/app/(de)${page}`,
+    `src/app/(fr)${page}`,
+    `src/app/(cs)${page}`,
+    `src/app/(hu)${page}`,
+    `src/app/(it)${page}`,
+    `src/app/(nl)${page}`,
+    `src/app/(da)${page}`,
+    `src/app/(nb)${page}`,
+    `src/app/(sv)${page}`,
+    `src/app/(fi)${page}`,
   ];
 
   for (const candidate of candidates) {

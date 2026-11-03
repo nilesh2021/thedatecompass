@@ -218,7 +218,8 @@ export default function USAOffers({ offers }: USAOffersProps) {
         >
           {displayedOffers.map((offer) => {
             const isFeatured = Boolean(offer.featured);
-            const reviewHref = getUsaReviewHref(offer);
+            const reviewHref = offer.guideHref ?? getUsaReviewHref(offer);
+            const reviewLabel = offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review";
             const keyFocus = offer.keyFocus;
 
             return (
@@ -317,7 +318,7 @@ export default function USAOffers({ offers }: USAOffersProps) {
                           href={reviewHref}
                           className="text-sm font-semibold text-brand-rose-soft underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-rose"
                         >
-                          Read review
+                          {reviewLabel}
                         </Link>
                       ) : (
                         <span className="text-sm text-white/45" aria-hidden={false}>

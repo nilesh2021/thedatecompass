@@ -179,7 +179,7 @@ export default function MilfDatingLanding() {
 
               <p className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-amber-300/90">
                 <span className="h-px w-8 bg-amber-400/60" />
-                Mature dating · Worldwide
+                Mature dating · Accepted countries
               </p>
 
               <h1 className="text-4xl font-black leading-[0.96] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
@@ -289,8 +289,8 @@ export default function MilfDatingLanding() {
               },
               {
                 icon: Globe2,
-                title: "Worldwide access",
-                text: "Available across all countries for adult users 18+.",
+                title: "Accepted countries",
+                text: "Open MilfFinder where membership is accepted. Adults 18+.",
               },
             ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="flex gap-4 px-6 py-7 lg:px-10">
@@ -316,7 +316,7 @@ export default function MilfDatingLanding() {
               <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
                 Trusted mature dating,{" "}
                 <span className="font-serif-accent font-normal italic text-amber-200">
-                  worldwide
+                  on your terms
                 </span>
               </h2>
               <p className="mt-4 text-sm leading-6 text-fog">
@@ -354,7 +354,7 @@ export default function MilfDatingLanding() {
               </span>
               <span className="flex items-center gap-2">
                 <Globe2 size={14} className="text-amber-400" />
-                All countries
+                Accepted countries
               </span>
             </div>
           </div>
@@ -519,7 +519,7 @@ export default function MilfDatingLanding() {
                 {
                   icon: Smartphone,
                   title: "Availability",
-                  text: "Listed as worldwide; specific features may vary by region over time.",
+                  text: "Available in accepted countries. Specific features may vary by region.",
                 },
               ].map(({ icon: Icon, title, text }) => (
                 <div
@@ -623,7 +623,7 @@ export default function MilfDatingLanding() {
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-fog sm:text-base">
                 Continue to MilfFinder and review profiles, messaging, and terms
-                for yourself — available worldwide for adults 18+.
+                for yourself — for adults 18+ in accepted countries.
               </p>
 
               <div className="mt-8 flex justify-center">

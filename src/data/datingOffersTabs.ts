@@ -264,6 +264,23 @@ export const datingOfferTabs: OfferTab[] = [
         logo: getOfferAdultImage("fuckfinder"),
       },
       {
+        id: "sinparty",
+        name: "SinParty",
+        slug: "sinparty",
+        badge: "Live cam",
+        bestFor: "Freemium live cam",
+        description:
+          "SinParty is a new freemium live cam platform for adults. Start free, then review any paid features on the provider site.",
+        highlights: [
+          "Free to start",
+          "Live cam",
+          "Private",
+          "Adults 18+",
+        ],
+        url: "/go/sinparty",
+        logo: getOfferAdultImage("sinparty"),
+      },
+      {
         id: "fetishpartner",
         name: "FetishPartner",
         slug: "fetishpartner",

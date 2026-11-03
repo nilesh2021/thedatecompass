@@ -277,7 +277,7 @@ export default function CasualDatingLanding() {
                 .flatMap(() => [
                   "Casual connections",
                   "Local profiles",
-                  "Free to join",
+                  "Casual dating",
                   "Adults 18+",
                   "FuckFinder",
                   "Worldwide",
@@ -630,14 +630,14 @@ export default function CasualDatingLanding() {
                 Ready to explore FuckFinder?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-fog md:text-base">
-                Join free, browse local profiles, and start connecting with
-                adults looking for casual dating on FuckFinder.
+                Open the provider site, browse profiles, and check current
+                pricing before you continue with FuckFinder.
               </p>
               <div className="mt-8 flex justify-center">
                 <VisitCta
                   href={affiliateUrl}
                   placement="lp_end"
-                  label="Join FuckFinder Free →"
+                  label="Visit FuckFinder →"
                 />
               </div>
               <AffiliateNote className="mt-5 text-[11px] text-fog/55" />

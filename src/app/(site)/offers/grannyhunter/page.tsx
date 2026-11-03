@@ -2,6 +2,7 @@ import GrannyHunterLanding from "@/components/landing/GrannyHunterLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import {
+  grannyHunterAcceptedCountries,
   grannyHunterFaqs,
   grannyHunterOffer,
 } from "@/data/grannyHunterOffers";
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     "experienced singles",
     "mature dating online",
     "adult dating",
-    "worldwide mature dating",
+    ...grannyHunterAcceptedCountries,
   ],
   alternates: {
     canonical: PAGE_URL,
@@ -106,6 +107,23 @@ export default function GrannyHunterPage() {
                 item: PAGE_URL,
               },
             ],
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: TITLE,
+            description: DESCRIPTION,
+            url: PAGE_URL,
+            areaServed: grannyHunterAcceptedCountries.map((name) => ({
+              "@type": "Country",
+              name,
+            })),
           }),
         }}
       />

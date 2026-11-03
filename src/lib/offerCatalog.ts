@@ -54,7 +54,6 @@ const BLOCKED_HREFS = new Set([
   "/offers/dreamz-ai-companion",
   "/offers/manfinder-gay-dating",
   "/offers/free-dating-sites-for-gay",
-  "/offers/gay-dating-usa",
 ]);
 
 function countrySlug(country?: string): string | undefined {
@@ -131,6 +130,18 @@ const extras: CatalogOffer[] = [
     path: "/offers/sex-emulator",
   },
   {
+    name: "BeijosQuentes",
+    category: "Romantic dating",
+    href: "/offers/beijosquentes",
+    path: "/offers/beijosquentes",
+  },
+  {
+    name: "SinParty",
+    category: "Live cam",
+    href: "/offers/sinparty",
+    path: "/offers/sinparty",
+  },
+  {
     name: "Singleflirt",
     category: "Online dating",
     href: "/offers/singleflirt",
@@ -143,6 +154,14 @@ const extras: CatalogOffer[] = [
     countrySlug: "usa",
     href: "/offers/cheekycrush",
     path: "/offers/cheekycrush",
+  },
+  {
+    name: "NaughtyCharm",
+    category: "Casual dating",
+    country: "USA",
+    countrySlug: "usa",
+    href: "/offers/naughtycharm",
+    path: "/offers/naughtycharm",
   },
   {
     name: "GayBloom",
@@ -165,6 +184,21 @@ export const catalogOffers: CatalogOffer[] = [
   ...extras,
 ];
 
+function isGayCategory(category?: string): boolean {
+  return Boolean(category && category.toLowerCase().includes("gay"));
+}
+
+function isGayOfferPath(path: string): boolean {
+  const normalized = path.replace(/\/$/, "").toLowerCase();
+  return (
+    normalized.includes("manfinder") ||
+    normalized.includes("gaybloom") ||
+    normalized.includes("pridepair") ||
+    normalized.includes("gay-dating") ||
+    normalized.includes("dating-sites-for-gay")
+  );
+}
+
 export function getRelatedOffers(currentPath: string): {
   items: CatalogOffer[];
   moreReviews: { name: string; href: string } | null;
@@ -179,37 +213,44 @@ export function getRelatedOffers(currentPath: string): {
   const sameText = (left?: string, right?: string) =>
     Boolean(left && right && left.toLowerCase() === right.toLowerCase());
 
+  const gayOnly = isGayCategory(current?.category) || isGayOfferPath(currentPath);
+  const pool = gayOnly
+    ? catalogOffers.filter((item) => isGayCategory(item.category))
+    : catalogOffers;
+
   const extraMatch = extras.find(
     (item) =>
       item.href !== currentPath &&
       item.path !== currentPath &&
+      (!gayOnly || isGayCategory(item.category)) &&
       (sameText(item.category, current?.category) || sameText(item.name, current?.name)),
   );
 
   const ranked = [
-    ...catalogOffers.filter((item) => current?.country && item.country === current.country),
-    ...catalogOffers.filter((item) => sameText(item.category, current?.category)),
-    ...catalogOffers,
+    ...pool.filter((item) => current?.country && item.country === current.country),
+    ...pool.filter((item) => sameText(item.category, current?.category)),
+    ...pool,
   ];
 
   const limit = extraMatch ? 4 : 5;
 
   for (const item of ranked) {
     if (item.href === currentPath || item.path === currentPath) continue;
+    if (gayOnly && !isGayCategory(item.category)) continue;
     if (seen.has(item.href)) continue;
     seen.add(item.href);
     picked.push(item);
     if (picked.length === limit) break;
   }
 
-  if (extraMatch && !seen.has(extraMatch.href)) {
+  if (extraMatch && !seen.has(extraMatch.href) && (!gayOnly || isGayCategory(extraMatch.category))) {
     picked.push(extraMatch);
   }
 
   const slug = current?.countrySlug;
   const hub = slug ? availableCountries.find((country) => country.slug === slug) : undefined;
   const moreReviews =
-    hub && `/${hub.slug}` !== currentPath
+    !gayOnly && hub && `/${hub.slug}` !== currentPath
       ? { name: hub.name, href: `/${hub.slug}` }
       : null;
 

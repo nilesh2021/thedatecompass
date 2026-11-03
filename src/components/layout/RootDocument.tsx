@@ -7,7 +7,7 @@ export default function RootDocument({
   lang,
   children,
 }: {
-  lang: "en" | "de";
+  lang: "en" | "de" | "fr" | "cs" | "hu" | "it" | "nl" | "da" | "nb" | "sv" | "fi";
   children: React.ReactNode;
 }) {
   return (

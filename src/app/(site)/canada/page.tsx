@@ -75,7 +75,7 @@ const collectionJsonLd = {
       "@type": "ListItem",
       position: index + 1,
       name: offer.name,
-      url: `${SITE_URL}${getCanadaReviewHref(offer) ?? "/canada"}`,
+      url: `${SITE_URL}${offer.guideHref ?? getCanadaReviewHref(offer) ?? "/canada"}`,
     })),
   },
 };

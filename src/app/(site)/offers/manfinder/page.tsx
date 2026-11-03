@@ -2,6 +2,7 @@ import ManFinderLanding from "@/components/landing/ManFinderLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
 import { manFinderFaqs, manFinderOffer } from "@/data/manFinderOffers";
+import { manfinderLanguageAlternates } from "@/data/manfinderCountryPages";
 import { getBrandSeo } from "@/lib/pageSeo";
 
 const seo = getBrandSeo("/offers/manfinder")!;
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "https://www.thedatecompass.com/offers/manfinder",
+    languages: manfinderLanguageAlternates(),
   },
   openGraph: {
     title: seo.title,
@@ -49,7 +51,7 @@ export default function ManFinderPage() {
       <FixedOfferCta
         offer={manFinderOffer}
         placement="lp_end"
-        ctaLabel="Join ManFinder Free →"
+        ctaLabel="Visit ManFinder →"
       />
 
       {/* Breadcrumb Schema */}

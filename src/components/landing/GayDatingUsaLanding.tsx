@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   manFinderOffer,
   manFinderVisuals,
@@ -8,13 +9,26 @@ import {
 import ManFinderLogo from "@/components/landing/ManFinderLogo";
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { usaOffers } from "@/data/usaOffers";
 import FixedOfferCta from "./FixedOfferCta";
 
 const OFFER_PATH = "/go/manfinder";
 const REL = "sponsored nofollow noopener noreferrer";
 
+const GAY_PAGE_BY_SLUG: Record<string, string> = {
+  manfinder: "/usa/manfinder",
+  gaybloom: "/usa/gaybloom",
+  pridepair: "/usa/pridepair-review",
+};
+
+const relatedGayOffers = usaOffers.flatMap((offer) => {
+  if (!offer.slug || !offer.category.toLowerCase().includes("gay")) return [];
+  const href = offer.guideHref ?? GAY_PAGE_BY_SLUG[offer.slug];
+  return href ? [{ name: offer.name, href }] : [];
+});
+
 function ExploreCta({
-  label = "Join ManFinder",
+  label = "Visit Manfinder",
   placement,
 }: {
   label?: string;
@@ -40,18 +54,18 @@ function ExploreCta({
 const points = [
   {
     number: "01",
-    title: "Casual encounters",
-    text: "Connect with men looking for casual encounters and real connections in the USA.",
+    title: "One sponsored offer",
+    text: "This page sends visitors to Manfinder only. GayBloom and PridePair are named below and are not buttons on this page.",
   },
   {
     number: "02",
-    title: "High-intent users",
-    text: "ManFinder is built for people who want to meet men without extra steps.",
+    title: "Profiles and messages",
+    text: "The Manfinder listing covers browsing profiles and sending direct messages. The provider decides which details are visible.",
   },
   {
     number: "03",
-    title: "No-friction experience",
-    text: "A smooth path from signup to browsing and messaging on the destination site.",
+    title: "Adults 18+ only",
+    text: "Prices and paid features are shown on the provider site. This page does not publish a fee.",
   },
 ];
 
@@ -64,25 +78,24 @@ export default function GayDatingUsaLanding() {
             <ManFinderLogo size="md" />
 
             <p className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-[#c82a5c]/40 bg-[#c82a5c]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ff6b93]">
-              Gay dating sites in the USA · Adults 18+
+              Gay adult dating · USA · Adults 18+
             </p>
 
             <h1 className="mt-7 max-w-xl text-5xl font-black uppercase leading-[0.88] tracking-[-0.04em] sm:text-6xl lg:text-[4.4rem]">
-              Gay dating sites
+              Gay adult dating sites
               <span className="mt-2 block font-serif-accent text-4xl font-normal lowercase italic tracking-normal text-[#ff6b93] sm:text-5xl">
                 in the USA.
               </span>
             </h1>
 
             <p className="mt-7 max-w-lg text-base leading-8 text-white/62 sm:text-lg">
-              ManFinder is a well-established gay dating brand focused on
-              connecting men seeking casual encounters and real connections.
-              Built for high-intent users, the platform offers a smooth,
-              no-friction experience that drives strong engagement.
+              Manfinder is the sponsored gay dating offer on this page for adult
+              men in the USA. You can browse profiles and send direct messages
+              on the provider site. Prices are shown there, not here.
             </p>
 
             <div className="mt-10">
-              <ExploreCta label="Join ManFinder" placement="lp_hero" />
+              <ExploreCta label="Visit Manfinder" placement="lp_hero" />
             </div>
           </div>
 
@@ -138,17 +151,40 @@ export default function GayDatingUsaLanding() {
                 </span>
               </h2>
               <p className="mt-6 max-w-lg text-sm leading-7 text-white/60">
-                One offer for USA visitors looking for gay dating sites. Open
-                ManFinder to browse profiles and start conversations.
+                Open Manfinder to review profiles, messaging, and current prices.
+                TheDateCompass does not run the platform.
               </p>
               <div className="mt-9">
                 <ExploreCta
-                  label="Open ManFinder"
+                  label="Visit Manfinder"
                   placement="lp_end"
                 />
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-2xl font-black uppercase tracking-tight">
+            Related gay dating offers
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-white/60">
+            These USA listings are in the gay dating category. The buttons on this page go to Manfinder only.
+          </p>
+          <ul className="mt-6 flex flex-wrap justify-center gap-3">
+            {relatedGayOffers.map((offer) => (
+              <li key={offer.href}>
+                <Link
+                  href={offer.href}
+                  className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-5 text-sm font-semibold text-[#ff6b93] underline-offset-4 hover:underline"
+                >
+                  {offer.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -164,7 +200,8 @@ export default function GayDatingUsaLanding() {
       <FixedOfferCta
         offer={{ ...manFinderOffer, url: OFFER_PATH }}
         placement="lp_end"
-        ctaLabel="Join ManFinder →"
+        country="usa"
+        ctaLabel="Visit Manfinder →"
       />
     </main>
   );

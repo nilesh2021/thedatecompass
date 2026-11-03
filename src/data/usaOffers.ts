@@ -16,6 +16,9 @@ export type UsaOffer = {
   tags: string[];
   rating?: number;
   country?: string;
+  /** Optional on-site guide. Used instead of the review link. */
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 export const USA_PAGE_LAST_UPDATED = {
@@ -26,6 +29,7 @@ export const USA_PAGE_LAST_UPDATED = {
 /** Add a slug here once `/usa/[slug]-review` exists to enable review links. */
 export const USA_REVIEW_SLUGS: readonly string[] = [
   "cheekycrush",
+  "naughtycharm",
   "gaybloom",
   "grannyhunter",
   "litlatinz",
@@ -46,12 +50,12 @@ export function getUsaReviewHref(offer: UsaOffer): string | null {
 /** Affiliate tracking URLs for `/go/[slug]` redirects (not exposed in page HTML). */
 export const usaGoDestinations: Record<string, string> = {
   grannyhunter:
-    "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+    "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
-  milffinder: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+  milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
   cheekycrush:
     "https://t.datsk3.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   gaybloom:
@@ -59,7 +63,7 @@ export const usaGoDestinations: Record<string, string> = {
   pridepair:
     "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   naughtycharm:
-    "https://t.aslr1.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+    "https://t.datsk3.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   dreamz: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
   "sex-emulator":
     "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_006OG000004lmDN",
@@ -123,6 +127,8 @@ export const usaOffers: UsaOffer[] = [
     tags: ["Gay Dating", "USA"],
     rating: 4.8,
     country: "USA",
+    guideHref: "/usa/manfinder",
+    guideLabel: "Learn more",
   },
   {
     name: "RealSexClub",
@@ -187,6 +193,23 @@ export const usaOffers: UsaOffer[] = [
     href: getUsaGoHref("cheekycrush"),
     tags: ["Casual", "USA"],
     rating: 4.9,
+    country: "USA",
+  },
+  {
+    name: "NaughtyCharm",
+    slug: "naughtycharm",
+    category: "Casual dating",
+    featured: false,
+    description:
+      "Casual adult dating for US adults who want discreet, fun connections.",
+    keyFocus: "Discreet, fun connections for US adults",
+    badge: "USA available",
+    mark: "N",
+    accent: "from-[#C8326D] via-[#E83E9B] to-[#F58BC5]",
+    image: getOfferAdultImage("naughtycharm"),
+    href: getUsaGoHref("naughtycharm"),
+    tags: ["Casual", "Adults 18+", "USA"],
+    rating: 4.7,
     country: "USA",
   },
   {

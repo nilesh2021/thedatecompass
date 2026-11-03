@@ -37,8 +37,8 @@ export const UK_PAGE_LAST_UPDATED = {
 };
 
 const URLS = {
-  grannyhunter: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  milffinder: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+  milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",

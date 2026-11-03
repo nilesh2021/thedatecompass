@@ -17,7 +17,7 @@ export const casualDatingOffer = {
   category: "Casual dating",
   availability: "Worldwide",
   url: CASUAL_DATING_AFFILIATE_URL,
-  ctaLabel: "Join FuckFinder Free",
+  ctaLabel: "Visit FuckFinder",
   description:
     "FuckFinder connects adults who want low-pressure, no-strings connections — browse local profiles, message privately, and meet on your terms.",
   highlights: [
@@ -26,7 +26,7 @@ export const casualDatingOffer = {
     "Fast signup",
     "Worldwide access",
   ],
-  promo: "Free to join",
+  promo: "Prices on the provider site",
 } as const;
 
 export const casualDatingVisuals = {
@@ -40,7 +40,7 @@ export const casualDatingSteps = [
   {
     step: "01",
     title: "Create your profile",
-    text: "Sign up in minutes on desktop or mobile — free to get started.",
+    text: "Sign up on desktop or mobile. The provider decides the fields and whether any step has a cost.",
   },
   {
     step: "02",
@@ -109,7 +109,7 @@ export const casualDatingFaqs = [
   {
     question: "Is FuckFinder free to join?",
     answer:
-      "You can create an account and start browsing for free. Premium features may be offered on the destination site. Review current terms and pricing before signing up.",
+      "TheDateCompass does not publish a price for FuckFinder. Current fees and any paid features are shown only on the provider site and can change. Review those terms before you sign up.",
   },
   {
     question: "Who is FuckFinder for?",

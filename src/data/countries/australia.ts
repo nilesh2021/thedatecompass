@@ -29,6 +29,8 @@ export type AustraliaOffer = {
   priceNote: string;
   privacyNote: string;
   rating: number | null;
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 export const AUSTRALIA_PAGE_LAST_UPDATED = {
@@ -41,8 +43,8 @@ const URLS = {
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
   dirtydating: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
-  milffinder: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
-  grannyhunter: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+  milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   fetishpartner: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
   fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
   litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
@@ -118,6 +120,24 @@ export const australiaOffers: AustraliaOffer[] = [
 ];
 
 australiaOffers[0].featured = true;
+
+const fetishPartnerAustralia = australiaOffers.find((offer) => offer.slug === "fetishpartner");
+if (fetishPartnerAustralia) {
+  fetishPartnerAustralia.guideHref = "/australia/fetishpartner";
+  fetishPartnerAustralia.guideLabel = "Learn more";
+}
+
+const fuckFinderAustralia = australiaOffers.find((offer) => offer.slug === "fuckfinder");
+if (fuckFinderAustralia) {
+  fuckFinderAustralia.guideHref = "/australia/fuckfinder";
+  fuckFinderAustralia.guideLabel = "Learn more";
+}
+
+const manfinderAustralia = australiaOffers.find((offer) => offer.slug === "manfinder");
+if (manfinderAustralia) {
+  manfinderAustralia.guideHref = "/australia/manfinder";
+  manfinderAustralia.guideLabel = "Learn more";
+}
 
 export const australiaFaqs = [
   {

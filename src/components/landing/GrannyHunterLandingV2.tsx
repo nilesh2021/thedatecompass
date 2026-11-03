@@ -115,7 +115,7 @@ export default function GrannyHunterLandingV2() {
 
               <p className="mb-4 flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-[#8b5a6b]">
                 <span className="h-px w-6 bg-[#b8956c]/60" />
-                Premium mature dating · Worldwide
+                Premium mature dating · Accepted countries
               </p>
 
               <h1 className="font-serif text-[2.6rem] font-medium leading-[1.05] tracking-tight text-[#1c1917] sm:text-5xl lg:text-[3.4rem]">
@@ -273,11 +273,11 @@ export default function GrannyHunterLandingV2() {
                       {grannyHunterOffer.badge}
                     </span>
                     <p className="mt-6 font-serif text-2xl leading-snug">
-                      Connect with confident, experienced singles worldwide.
+                      Connect with confident, experienced singles.
                     </p>
                     <p className="mt-4 text-sm leading-6 text-white/55">
                       Browse profiles, message privately, and explore mature dating on
-                      your terms — available for adults 18+ in all countries.
+                      your terms — for adults 18+ in accepted countries.
                     </p>
                   </div>
 
@@ -312,8 +312,8 @@ export default function GrannyHunterLandingV2() {
               },
               {
                 num: "III",
-                title: "Worldwide access",
-                text: "Available across all countries for adult users 18+.",
+                title: "Accepted countries",
+                text: "Open GrannyHunter where membership is accepted. Adults 18+.",
               },
             ].map(({ num, title, text }) => (
               <div key={title} className="text-center sm:text-left">
@@ -383,7 +383,7 @@ export default function GrannyHunterLandingV2() {
                 Why adults choose GrannyHunter
               </p>
               <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-                Trusted mature dating, worldwide
+                Trusted mature dating, on your terms
               </h2>
             </div>
 
@@ -482,8 +482,8 @@ export default function GrannyHunterLandingV2() {
                 },
                 {
                   src: grannyHunterVisuals.wide,
-                  alt: "GrannyHunter worldwide mature dating",
-                  caption: "Connect worldwide",
+                  alt: "GrannyHunter mature dating",
+                  caption: "Accepted countries",
                 },
                 {
                   src: grannyHunterVisuals.side,
@@ -590,7 +590,7 @@ export default function GrannyHunterLandingV2() {
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-white/55">
               Continue to GrannyHunter and review profiles, messaging, and terms for
-              yourself — available worldwide for adults 18+.
+              yourself — for adults 18+ in accepted countries.
             </p>
             <div className="mt-9 flex justify-center">
               <VisitCta

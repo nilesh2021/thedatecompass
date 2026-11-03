@@ -7,6 +7,7 @@ import {
   casualDatingFaqs,
   casualDatingOffer,
 } from "@/data/casualDatingOffers";
+import { fuckFinderLanguageAlternates } from "@/data/fuckFinderCountryPages";
 import { getBrandSeo } from "@/lib/pageSeo";
 
 const seo = getBrandSeo("/offers/casual-dating")!;
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: PAGE_URL,
+    languages: fuckFinderLanguageAlternates(),
   },
   openGraph: {
     title: seo.title,
@@ -70,7 +72,7 @@ export default function CasualDatingPage() {
       <FixedOfferCta
         offer={casualDatingOffer}
         placement="lp_end"
-        ctaLabel="Join FuckFinder Free →"
+        ctaLabel="Visit FuckFinder →"
       />
 
       <Script id="fuckfinder-popup-config" strategy="afterInteractive">

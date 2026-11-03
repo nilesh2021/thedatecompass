@@ -36,6 +36,8 @@ export type FranceOffer = {
   privacyNote: string;
   /** Leave null until a verified rating exists. */
   rating: number | null;
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 export const FRANCE_PAGE_LAST_UPDATED = {
@@ -70,7 +72,7 @@ export function getFranceReviewHref(offer: Pick<FranceOffer, "slug">): string | 
  * instead of overwriting the shared entry.
  */
 export const franceGoDestinations: Record<string, string> = {
-  grannyhunter: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   fetishpartner: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
@@ -196,6 +198,8 @@ export const franceOffers: FranceOffer[] = [
     // TODO: Add a verified FetishPartner rating when available. Do not invent scores.
     // TODO: Set reviewReady true only after this listing has real review content.
     rating: null,
+    guideHref: "/fr/fetishpartner",
+    guideLabel: "Learn more",
   },
 ];
 

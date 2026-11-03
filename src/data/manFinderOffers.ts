@@ -14,7 +14,7 @@ export const manFinderOffer = {
   bestFor: "Gay dating for men",
   category: "Gay dating",
   url: MANFINDER_AFFILIATE_URL,
-  ctaLabel: "Join ManFinder Free",
+  ctaLabel: "Visit ManFinder",
   description:
     "ManFinder is a dating and social platform for men looking to meet and connect with other men — chat, browse, and start conversations fast.",
   highlights: [
@@ -23,7 +23,7 @@ export const manFinderOffer = {
     "Quick signup",
     "Private messaging",
   ],
-  promo: "Free to join",
+  promo: "Prices on the provider site",
 } as const;
 
 export const manFinderVisuals = {
@@ -96,7 +96,7 @@ export const manFinderFaqs = [
   {
     question: "Is ManFinder free to join?",
     answer:
-      "Yes — you can create an account and start browsing for free. Premium features may be available on the destination site. Check current terms before signing up.",
+      "TheDateCompass does not publish a price for ManFinder. Current fees and any paid features are shown only on the provider site and can change. Review those terms before you sign up.",
   },
   {
     question: "Who is ManFinder for?",

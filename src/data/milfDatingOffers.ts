@@ -4,6 +4,48 @@
 
 export const MILF_DATING_AFFILIATE_URL = "/go/milffinder";
 
+/** Search metadata only. Do not render this full list on the page. */
+export const milfDatingAcceptedCountries = [
+  "Australia",
+  "Austria",
+  "Belgium",
+  "Bulgaria",
+  "Canada",
+  "Croatia",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Estonia",
+  "Finland",
+  "France",
+  "Germany",
+  "Greece",
+  "Hungary",
+  "Iceland",
+  "Ireland",
+  "Israel",
+  "Italy",
+  "Latvia",
+  "Liechtenstein",
+  "Lithuania",
+  "Luxembourg",
+  "Malta",
+  "Netherlands",
+  "New Zealand",
+  "Norway",
+  "Poland",
+  "Portugal",
+  "Puerto Rico",
+  "Singapore",
+  "Slovakia (Slovak Republic)",
+  "Slovenia",
+  "Spain",
+  "Sweden",
+  "Switzerland",
+  "United Kingdom",
+  "United States",
+] as const;
+
 const MF_PHOTO =
   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2";
 
@@ -12,14 +54,14 @@ export const milfDatingOffer = {
   badge: "Mature singles",
   bestFor: "Mature dating & conversations",
   category: "Mature dating",
-  availability: "Worldwide · All countries",
+  availability: "Accepted countries",
   url: MILF_DATING_AFFILIATE_URL,
   ctaLabel: "Join MilfFinder Free",
   description:
     "MilfFinder connects adults with mature singles who value real conversation, chemistry, and low-pressure dating — browse profiles, message privately, and connect on your terms.",
   highlights: [
     "Mature audience",
-    "Worldwide access",
+    "Accepted countries",
     "Private messaging",
     "Easy signup",
   ],
@@ -49,8 +91,8 @@ export const milfDatingExploreCards = [
     objectPosition: "center top",
   },
   {
-    title: "Worldwide access",
-    text: "Available across countries so you can connect wherever you are.",
+    title: "Accepted countries",
+    text: "Open it where MilfFinder accepts members, then connect from there.",
     image:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&h=1000&q=80",
     objectPosition: "center 30%",
@@ -89,9 +131,9 @@ export const milfDatingFeatures = [
 
 export const milfDatingTrustPoints = [
   {
-    stat: "Worldwide",
-    label: "Available in all countries",
-    text: "MilfFinder is listed here as a globally accessible mature dating platform.",
+    stat: "Accepted",
+    label: "Available in accepted countries",
+    text: "MilfFinder is listed here for adults in the countries it accepts.",
   },
   {
     stat: "Adults 18+",
@@ -112,9 +154,9 @@ export const milfDatingFaqs = [
       "MilfFinder is a mature dating platform for adults looking to meet experienced singles through profiles, messaging, and browsing tools. It is a third-party service, not operated by TheDateCompass.",
   },
   {
-    question: "Is MilfFinder available worldwide?",
+    question: "Where is MilfFinder available?",
     answer:
-      "Yes — MilfFinder is listed on this page as available worldwide across all countries. Availability of specific features may still vary; check the destination site for current details.",
+      "MilfFinder is available in accepted countries. Specific features may still vary. Check the destination site for current details.",
   },
   {
     question: "Is MilfFinder free to join?",

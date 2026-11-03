@@ -4,6 +4,9 @@ import { canadaOffers } from "@/data/countries/canada";
 import { denmarkOffers } from "@/data/countries/denmark";
 import { franceOffers } from "@/data/countries/france";
 import { ukOffers } from "@/data/countries/uk";
+import { fetishPartnerCountryPages } from "@/data/fetishPartnerCountryPages";
+import { fuckFinderCountryPages } from "@/data/fuckFinderCountryPages";
+import { manfinderCountryPages } from "@/data/manfinderCountryPages";
 import { germanyOffers } from "@/data/germanyOffers";
 import { USA_REVIEW_SLUGS } from "@/data/usaOffers";
 import { SITE_URL } from "@/lib/sitemap";
@@ -56,6 +59,7 @@ const PUBLIC_ROUTES: string[] = [
   "/affiliate-disclosure",
   "/australia",
   "/canada",
+  "/canada/fetishpartner",
   "/category/ai-girlfriend",
   "/cookie-policy",
   "/cozy-sites",
@@ -68,17 +72,22 @@ const PUBLIC_ROUTES: string[] = [
   "/gay-dating",
   "/germany",
   "/de/fremdgehen69",
+  "/de/fetishpartner",
+  "/offers/beijosquentes",
   "/offers/casual-dating",
   "/offers/cheekycrush",
+  "/offers/naughtycharm",
   "/offers/dreamz-ai",
   "/offers/gonaughty-australia",
   "/offers/gay-dating-sites",
   "/offers/grannyhunter",
   "/offers/manfinder",
+  "/offers/gay-dating-usa",
   "/offers/milf-dating",
   "/offers/realsexclub",
   "/offers/realsexclub-denmark",
   "/offers/sex-emulator",
+  "/offers/sinparty",
   "/offers/singleflirt",
   "/offers/transdate-dating",
   "/offers/transdate-dating-sites",
@@ -91,6 +100,9 @@ const PUBLIC_ROUTES: string[] = [
   "/usa",
   "/usa/gaybloom",
   "/usa-dating-sites",
+  ...fetishPartnerCountryPages.map((page) => page.path),
+  ...fuckFinderCountryPages.map((page) => page.path),
+  ...manfinderCountryPages.map((page) => page.path),
 ];
 
 const ROUTE_META: Record<string, RouteMeta> = {
@@ -109,11 +121,31 @@ const ROUTE_META: Record<string, RouteMeta> = {
   "/usa/gaybloom": { priority: 0.85, changeFrequency: "weekly" },
   "/germany": { priority: 0.85, changeFrequency: "weekly" },
   "/de/fremdgehen69": { priority: 0.85, changeFrequency: "weekly" },
+  "/de/fetishpartner": { priority: 0.85, changeFrequency: "weekly" },
   "/france": { priority: 0.85, changeFrequency: "weekly" },
   "/canada": { priority: 0.85, changeFrequency: "weekly" },
+  "/canada/fetishpartner": { priority: 0.85, changeFrequency: "weekly" },
   "/australia": { priority: 0.85, changeFrequency: "weekly" },
   "/uk": { priority: 0.85, changeFrequency: "weekly" },
   "/denmark": { priority: 0.85, changeFrequency: "weekly" },
+  ...Object.fromEntries(
+    fetishPartnerCountryPages.map((page) => [
+      page.path,
+      { priority: 0.85, changeFrequency: "weekly" as const },
+    ]),
+  ),
+  ...Object.fromEntries(
+    fuckFinderCountryPages.map((page) => [
+      page.path,
+      { priority: 0.85, changeFrequency: "weekly" as const },
+    ]),
+  ),
+  ...Object.fromEntries(
+    manfinderCountryPages.map((page) => [
+      page.path,
+      { priority: 0.85, changeFrequency: "weekly" as const },
+    ]),
+  ),
   "/privacy-policy": { priority: 0.3, changeFrequency: "yearly" },
   "/terms-and-conditions": { priority: 0.3, changeFrequency: "yearly" },
   "/cookie-policy": { priority: 0.3, changeFrequency: "yearly" },

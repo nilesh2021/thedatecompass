@@ -12,6 +12,9 @@ import { manFinderOffer } from "@/data/manFinderOffers";
 import { milfDatingOffer } from "@/data/milfDatingOffers";
 import { realSexClubOffer } from "@/data/realSexClubOffer";
 import { transDateOffer } from "@/data/transDateDatingOffers";
+import { fetishPartnerCountryPages } from "@/data/fetishPartnerCountryPages";
+import { fuckFinderCountryPages } from "@/data/fuckFinderCountryPages";
+import { manfinderCountryPages } from "@/data/manfinderCountryPages";
 import { usaOffers } from "@/data/usaOffers";
 
 export const SITE_NAME = "TheDateCompass";
@@ -145,10 +148,13 @@ function offerBySlug<T extends { slug?: string }>(offers: T[], slug: string): T 
 const gonaughty = offerBySlug(australiaOffers, "gonaughty");
 const gayBloom = offerBySlug(usaOffers, "gaybloom");
 const fremdgehen = offerBySlug(germanyOffers, "fremdgehen69");
+const fetishPartner = offerBySlug(germanyOffers, "fetishpartner");
+const fetishPartnerCanada = offerBySlug(canadaOffers, "fetishpartner");
 
 const INDEXABLE_OFFERS = new Set([
   "/offers/dreamz-ai",
   "/offers/manfinder",
+  "/offers/gay-dating-usa",
   "/offers/grannyhunter",
   "/offers/milf-dating",
   "/offers/casual-dating",
@@ -159,6 +165,11 @@ const INDEXABLE_OFFERS = new Set([
   "/offers/transdate-dating-sites",
   "/usa/gaybloom",
   "/de/fremdgehen69",
+  "/de/fetishpartner",
+  "/canada/fetishpartner",
+  ...fetishPartnerCountryPages.map((page) => page.path),
+  ...fuckFinderCountryPages.map((page) => page.path),
+  ...manfinderCountryPages.map((page) => page.path),
 ]);
 
 const brandPages: BrandPage[] = [
@@ -250,6 +261,40 @@ const brandPages: BrandPage[] = [
     german: true,
     localeHint: "de",
   },
+  {
+    path: "/de/fetishpartner",
+    brand: fetishPartner?.name ?? "FetishPartner",
+    category: fetishPartner?.category,
+    german: true,
+    localeHint: "de",
+  },
+  {
+    path: "/canada/fetishpartner",
+    brand: fetishPartnerCanada?.name ?? "FetishPartner",
+    country: "Canada",
+    category: fetishPartnerCanada?.category,
+    localeHint: "canada",
+  },
+  ...fetishPartnerCountryPages.map((page) => ({
+    path: page.path,
+    brand: "FetishPartner",
+    country: page.ui.country,
+    category: "Adult social",
+  })),
+  ...fuckFinderCountryPages.map((page) => ({
+    path: page.path,
+    brand: "FuckFinder",
+    country: page.ui.country,
+    category: "Casual dating",
+    german: false,
+  })),
+  ...manfinderCountryPages.map((page) => ({
+    path: page.path,
+    brand: "Manfinder",
+    country: page.ui.country,
+    category: "Gay dating",
+    german: false,
+  })),
 ];
 
 function pageRank(page: BrandPage): number {

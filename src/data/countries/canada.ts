@@ -29,6 +29,9 @@ export type CanadaOffer = {
   priceNote: string;
   privacyNote: string;
   rating: number | null;
+  /** Optional on-site guide. Used instead of the review link. */
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 export const CANADA_PAGE_LAST_UPDATED = {
@@ -42,13 +45,17 @@ const URLS = {
   litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   dirtydating: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
-  grannyhunter: "https://t.aslr1.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-  milffinder: "https://t.aslr1.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
+  milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
   fetishpartner: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
 } as const;
 
-export const canadaGoDestinations: Record<string, string> = { ...URLS };
+export const canadaGoDestinations: Record<string, string> = {
+  ...URLS,
+  // Canada-only tracker for /canada/fetishpartner. Do not reuse this slug in other countries.
+  "fetishpartner-ca": URLS.fetishpartner,
+};
 
 export const CANADA_REVIEW_SLUGS: readonly string[] = Object.keys(URLS);
 
@@ -115,6 +122,24 @@ export const canadaOffers: CanadaOffer[] = [
 ];
 
 canadaOffers[0].featured = true;
+
+const fetishPartnerCanada = canadaOffers.find((offer) => offer.slug === "fetishpartner");
+if (fetishPartnerCanada) {
+  fetishPartnerCanada.guideHref = "/canada/fetishpartner";
+  fetishPartnerCanada.guideLabel = "Learn more";
+}
+
+const fuckFinderCanada = canadaOffers.find((offer) => offer.slug === "fuckfinder");
+if (fuckFinderCanada) {
+  fuckFinderCanada.guideHref = "/canada/fuckfinder";
+  fuckFinderCanada.guideLabel = "Learn more";
+}
+
+const manfinderCanada = canadaOffers.find((offer) => offer.slug === "manfinder");
+if (manfinderCanada) {
+  manfinderCanada.guideHref = "/canada/manfinder";
+  manfinderCanada.guideLabel = "Learn more";
+}
 
 export const canadaFaqs = [
   {

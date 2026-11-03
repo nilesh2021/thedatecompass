@@ -11,12 +11,14 @@ type FixedOfferCtaProps = {
   };
   placement: string;
   ctaLabel?: string;
+  country?: string;
 };
 
 export default function FixedOfferCta({
   offer,
   placement,
   ctaLabel,
+  country,
 }: FixedOfferCtaProps) {
   return (
     <div
@@ -33,6 +35,7 @@ export default function FixedOfferCta({
           <TrackedAffiliateLink
             href={offer.url}
             placement={placement}
+            country={country}
             target="_self"
             rel="sponsored nofollow noopener noreferrer"
             onClick={() => trackAffiliateClick(offer.name, placement)}

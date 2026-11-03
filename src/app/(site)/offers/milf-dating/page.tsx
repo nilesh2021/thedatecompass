@@ -1,7 +1,11 @@
 import MilfDatingLanding from "@/components/landing/MilfDatingLanding";
 import FixedOfferCta from "@/components/landing/FixedOfferCta";
 import type { Metadata } from "next";
-import { milfDatingFaqs, milfDatingOffer } from "@/data/milfDatingOffers";
+import {
+  milfDatingAcceptedCountries,
+  milfDatingFaqs,
+  milfDatingOffer,
+} from "@/data/milfDatingOffers";
 import { getBrandSeo } from "@/lib/pageSeo";
 
 const seo = getBrandSeo("/offers/milf-dating")!;
@@ -18,6 +22,7 @@ export const metadata: Metadata = {
     "mature dating online",
     "mature singles",
     "adult dating",
+    ...milfDatingAcceptedCountries,
   ],
   alternates: {
     canonical: "https://www.thedatecompass.com/offers/milf-dating",
@@ -78,6 +83,23 @@ export default function MilfDatingPage() {
                 item: "https://www.thedatecompass.com/offers/milf-dating",
               },
             ],
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: seo.title,
+            description: seo.description,
+            url: "https://www.thedatecompass.com/offers/milf-dating",
+            areaServed: milfDatingAcceptedCountries.map((name) => ({
+              "@type": "Country",
+              name,
+            })),
           }),
         }}
       />

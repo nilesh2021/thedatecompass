@@ -13,7 +13,7 @@ const OG_IMAGE =
 
 const TITLE = "GrannyHunter | Mature Dating for Experienced Singles";
 const DESCRIPTION =
-  "Meet experienced singles on GrannyHunter — a worldwide mature dating platform for adults 18+. Browse profiles, message privately, and connect on your terms.";
+  "Meet experienced singles on GrannyHunter — mature dating for adults 18+ in accepted countries. Browse profiles, message privately, and connect on your terms.";
 
 export const metadata: Metadata = {
   title: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "experienced singles",
     "mature dating online",
     "adult dating",
-    "worldwide mature dating",
+    "accepted countries",
   ],
   alternates: {
     canonical: PAGE_URL,

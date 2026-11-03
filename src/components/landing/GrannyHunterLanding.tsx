@@ -177,7 +177,7 @@ export default function GrannyHunterLanding() {
 
               <p className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#d4a574]">
                 <span className="h-px w-8 bg-[#c9a87c]/55" />
-                Premium mature dating · Worldwide
+                Premium mature dating · Accepted countries
               </p>
 
               <h1 className="text-4xl font-black leading-[0.95] tracking-[-0.04em] sm:text-5xl lg:text-[3.6rem]">
@@ -287,8 +287,8 @@ export default function GrannyHunterLanding() {
               },
               {
                 icon: Globe2,
-                title: "Worldwide access",
-                text: "Available across all countries for adult users 18+.",
+                title: "Accepted countries",
+                text: "Open GrannyHunter where membership is accepted. Adults 18+.",
               },
             ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="flex gap-4 px-6 py-7 lg:px-10">
@@ -367,7 +367,7 @@ export default function GrannyHunterLanding() {
               <h2 className="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
                 Trusted mature dating,{" "}
                 <span className="font-serif-accent font-normal italic text-[#e8c9a8]">
-                  worldwide
+                  on your terms
                 </span>
               </h2>
               <p className="mt-4 text-sm leading-6 text-fog">
@@ -405,7 +405,7 @@ export default function GrannyHunterLanding() {
               </span>
               <span className="flex items-center gap-2">
                 <Globe2 size={14} className="text-[#c9a87c]" />
-                All countries
+                Accepted countries
               </span>
             </div>
           </div>
@@ -571,7 +571,7 @@ export default function GrannyHunterLanding() {
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-fog sm:text-base">
                 Continue to GrannyHunter and review profiles, messaging, and
-                terms for yourself — available worldwide for adults 18+.
+                terms for yourself — for adults 18+ in accepted countries.
               </p>
 
               <div className="mt-8 flex justify-center">

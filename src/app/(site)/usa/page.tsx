@@ -159,7 +159,7 @@ const usaFaqs = [
   {
     question: "What dating offers are listed for USA users on this page?",
     answer:
-      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current listings include Grannyhunter, LitLatinz, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, GayBloom, and PridePair.",
+      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current listings include Grannyhunter, LitLatinz, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, NaughtyCharm, GayBloom, and PridePair.",
   },
   {
     question: "How do I choose an adult dating site in the USA?",
@@ -169,7 +169,7 @@ const usaFaqs = [
   {
     question: "Which casual dating offers are listed for USA users?",
     answer:
-      "CheekyCrush, LitLatinz, and RealSexClub appear under casual and adult categories on this page. Select the 'Casual & Adult' tab to compare them side by side.",
+      "CheekyCrush, NaughtyCharm, LitLatinz, and RealSexClub appear under casual and adult categories on this page. Select the 'Casual & Adult' tab to compare them side by side.",
   },
   {
     question: "Are there gay dating offers for USA users?",

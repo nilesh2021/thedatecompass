@@ -50,6 +50,8 @@ type NightCompareOffer = {
   privacyNote: string;
   rating: number | null;
   href: string;
+  guideHref?: string;
+  guideLabel?: string;
 };
 
 type NightCompareVariant = "canada" | "australia" | "uk" | "denmark";
@@ -68,6 +70,7 @@ function renderNightComparison(
   variant: NightCompareVariant,
   rows: NightCompareOffer[],
   reviewHrefFor: (offer: NightCompareOffer) => string | null,
+  detailLabelFor: (offer: NightCompareOffer) => string = () => "Read review",
 ) {
   const copy = nightCompareCopy[variant];
   const showRating = rows.some((offer) => offer.rating != null);
@@ -112,7 +115,7 @@ function renderNightComparison(
                     <span className="block">{offer.name}</span>
                     {reviewHref ? (
                       <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-1 inline-block text-xs`}>
-                        Read review
+                        {detailLabelFor(offer)}
                       </Link>
                     ) : null}
                   </th>
@@ -144,7 +147,7 @@ function renderNightComparison(
               <h3 className="text-xl font-extrabold text-cream">{offer.name}</h3>
               {reviewHref ? (
                 <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-2 inline-block text-sm`}>
-                  Read review
+                  {detailLabelFor(offer)}
                 </Link>
               ) : null}
               <dl className="mt-4 space-y-3 text-sm">
@@ -219,10 +222,20 @@ export default function USAComparisonTable({
   variant = "usa",
 }: USAComparisonTableProps) {
   if (variant === "canada") {
-    return renderNightComparison(variant, canadaOffers, getCanadaReviewHref);
+    return renderNightComparison(
+      variant,
+      canadaOffers,
+      (offer) => offer.guideHref ?? getCanadaReviewHref(offer),
+      (offer) => (offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review"),
+    );
   }
   if (variant === "australia") {
-    return renderNightComparison(variant, australiaOffers, getAustraliaReviewHref);
+    return renderNightComparison(
+      variant,
+      australiaOffers,
+      (offer) => offer.guideHref ?? getAustraliaReviewHref(offer),
+      (offer) => (offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review"),
+    );
   }
   if (variant === "uk") {
     return renderNightComparison(variant, ukOffers, getUkReviewHref);
@@ -282,7 +295,8 @@ export default function USAComparisonTable({
             </thead>
             <tbody>
               {franceOffers.map((offer) => {
-                const reviewHref = getFranceReviewHref(offer);
+                const reviewHref = offer.guideHref ?? getFranceReviewHref(offer);
+                const reviewLabel = offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review";
                 return (
                   <tr
                     key={offer.name}
@@ -292,7 +306,7 @@ export default function USAComparisonTable({
                       <span className="block">{offer.name}</span>
                       {reviewHref ? (
                         <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-1 inline-block text-xs`}>
-                          Read review
+                          {reviewLabel}
                         </Link>
                       ) : null}
                     </th>
@@ -323,7 +337,8 @@ export default function USAComparisonTable({
 
         <ul className="mt-10 space-y-4 md:hidden">
           {franceOffers.map((offer) => {
-            const reviewHref = getFranceReviewHref(offer);
+            const reviewHref = offer.guideHref ?? getFranceReviewHref(offer);
+            const reviewLabel = offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review";
             return (
               <li
                 key={offer.name}
@@ -332,7 +347,7 @@ export default function USAComparisonTable({
                 <h3 className="text-xl font-extrabold text-cream">{offer.name}</h3>
                 {reviewHref ? (
                   <Link href={reviewHref} className={`${germanyReviewLinkClass} mt-2 inline-block text-sm`}>
-                    Read review
+                    {reviewLabel}
                   </Link>
                 ) : null}
                 <dl className="mt-4 space-y-3 text-sm">
@@ -607,7 +622,8 @@ export default function USAComparisonTable({
             </thead>
             <tbody>
               {offers.map((offer) => {
-                const reviewHref = getUsaReviewHref(offer);
+                const reviewHref = offer.guideHref ?? getUsaReviewHref(offer);
+                const reviewLabel = offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review";
                 return (
                   <tr
                     key={offer.name}
@@ -629,7 +645,7 @@ export default function USAComparisonTable({
                     <td className="px-4 py-3.5">
                       {reviewHref ? (
                         <Link href={reviewHref} className={usaReviewLinkClass}>
-                          Read review
+                          {reviewLabel}
                         </Link>
                       ) : (
                         <span className="text-white/45">—</span>
@@ -654,7 +670,8 @@ export default function USAComparisonTable({
         {/* Mobile cards */}
         <ul className="mt-10 space-y-4 md:hidden">
           {offers.map((offer) => {
-            const reviewHref = getUsaReviewHref(offer);
+            const reviewHref = offer.guideHref ?? getUsaReviewHref(offer);
+            const reviewLabel = offer.guideHref ? offer.guideLabel ?? "Learn more" : "Read review";
             return (
               <li
                 key={offer.name}
@@ -688,7 +705,7 @@ export default function USAComparisonTable({
                       <dd>
                         {reviewHref ? (
                           <Link href={reviewHref} className={`text-sm ${usaReviewLinkClass}`}>
-                            Read review
+                            {reviewLabel}
                           </Link>
                         ) : (
                           <span className="text-sm text-white/45">Review —</span>
