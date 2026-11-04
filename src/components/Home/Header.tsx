@@ -14,7 +14,6 @@ const primaryNav = [
 
 const moreNav = [
   { href: "/gay-dating", label: "Gay Dating" },
-  { href: "/category/ai-girlfriend", label: "AI Girlfriend" },
 ];
 
 export default function Header({ tone = "default" }: { tone?: "default" | "home" }) {

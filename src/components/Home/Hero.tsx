@@ -55,8 +55,8 @@ export default function Hero() {
 
           <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-cream/68">
             A grown-up directory for late-night browsing. Compare adult dating
-            platforms and AI companions where you live — then slip through to
-            the provider that matches your mood.
+            platforms where you live — then slip through to the provider that
+            matches your mood.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">

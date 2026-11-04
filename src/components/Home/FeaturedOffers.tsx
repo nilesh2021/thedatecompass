@@ -27,9 +27,6 @@ function getExploreLink(category: string): { href: string; label: string } | nul
   if (key === "gay dating") {
     return { href: "/gay-dating", label: "Explore gay dating offers" };
   }
-  if (key === "ai") {
-    return { href: "/category/ai-girlfriend", label: "Explore AI companions" };
-  }
   if (key === "adult dating") {
     return { href: "/top-offers/adult", label: "See adult dating options" };
   }
@@ -50,8 +47,8 @@ function matchesTab(offer: { name: string; category: string }, tab: OfferTab): b
   const key = offer.category.trim().toLowerCase();
   const name = offer.name.trim().toLowerCase();
 
-  if (tab === "All") return !key.includes("ai") && !name.includes("dreamz");
-  if (tab === "AI") return key.includes("ai") || name.includes("dreamz");
+  if (tab === "All") return !key.includes("ai");
+  if (tab === "AI") return key.includes("ai");
   if (tab === "Gay") return key.includes("gay");
   if (tab === "TransDate") return key.includes("trans") || name.includes("transdate");
   if (tab === "Mature") return key.includes("mature");
@@ -79,7 +76,6 @@ function matchesTab(offer: { name: string; category: string }, tab: OfferTab): b
 
 const discoveryOffers = usaOffers.filter(
   (offer, index, list) =>
-    !offer.name.trim().toLowerCase().includes("dreamz") &&
     list.findIndex((item) => item.name === offer.name) === index
 );
 

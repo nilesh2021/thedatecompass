@@ -40,7 +40,6 @@ const URLS = {
   grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
 } as const;
 
@@ -102,7 +101,6 @@ export const ukOffers: UkOffer[] = [
   row("grannyhunter", "Grannyhunter", "Mature dating", "An adult dating option focused on mature connections and age-specific preferences.", "Mature connections and age-specific preferences", "Grannyhunter logo – mature dating site in the UK", "G"),
   row("milffinder", "MilfFinder", "Mature dating", "An adult dating option for mature singles interested in genuine conversations and chemistry.", "Mature singles and genuine conversations", "MilfFinder logo – mature dating site in the UK", "M"),
   row("realsexclub", "RealSexClub", "Adult dating", "An adult social and dating option for people looking for direct connections.", "Direct adult social and dating connections", "RealSexClub logo – adult dating site in the UK", "R"),
-  row("litlatinz", "LitLatinz", "Adult dating", "An adult dating option focused on Latino community connections.", "Latino community connections", "LitLatinz logo – adult dating site in the UK", "L"),
   row("transdate", "TransDate", "Trans dating", "A dating option for people interested in transgender and inclusive connections.", "Transgender and inclusive connections", "TransDate logo – inclusive dating site in the UK", "T"),
 ];
 
@@ -127,7 +125,7 @@ export const ukFaqs = [
   {
     question: "Which site is best for casual dating?",
     answer:
-      "RealSexClub and LitLatinz are listed in the adult dating category on this page. Compare their descriptions, then visit the provider site to confirm whether it matches what you want.",
+      "RealSexClub is listed in the adult dating category on this page. Compare the listings, then visit the provider site to confirm whether it matches what you want.",
   },
   {
     question: "How do I protect my privacy?",

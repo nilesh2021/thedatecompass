@@ -42,7 +42,6 @@ export const CANADA_PAGE_LAST_UPDATED = {
 const URLS = {
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
   fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
-  litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   dirtydating: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
   grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
@@ -112,7 +111,6 @@ function row(
 export const canadaOffers: CanadaOffer[] = [
   row("transdate", "TransDate", "Trans dating", "A dating option for people interested in transgender and inclusive connections.", "Transgender and inclusive connections", "TransDate logo – inclusive dating site in Canada", "T"),
   row("fuckfinder", "FuckFinder", "Casual dating", "An adult dating option for casual encounters and direct connections.", "Casual encounters and direct connections", "FuckFinder logo – adult dating site in Canada", "F"),
-  row("litlatinz", "LitLatinz", "Adult dating", "An adult dating option focused on Latino community connections.", "Latino community connections", "LitLatinz logo – adult dating site in Canada", "L"),
   row("realsexclub", "RealSexClub", "Adult dating", "An adult social and dating option for people looking for direct connections.", "Direct adult social and dating connections", "RealSexClub logo – adult dating site in Canada", "R"),
   row("dirtydating", "DirtyDating", "Casual dating", "A casual adult dating option for people interested in meeting new connections.", "Casual adult dating and new connections", "DirtyDating logo – adult dating site in Canada", "D"),
   row("grannyhunter", "Grannyhunter", "Mature dating", "An adult dating option focused on mature connections and age-specific preferences.", "Mature connections and age-specific preferences", "Grannyhunter logo – mature dating site in Canada", "G"),

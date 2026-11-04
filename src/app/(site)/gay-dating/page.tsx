@@ -9,7 +9,7 @@ import { topicSeo } from "@/lib/pageSeo";
 
 const seo = topicSeo(
   "Gay Dating Sites & Apps | TheDateCompass",
-  "Compare gay dating and LGBTQ dating listings on TheDateCompass, including GayBloom, PridePair, Manfinder, and TransDate.",
+  "Compare gay dating and LGBTQ dating listings on TheDateCompass, including GayBloom, Manfinder, and TransDate.",
 );
 
 const PAGE_URL = "https://www.thedatecompass.com/gay-dating";
@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     "gay dating offers",
     "Manfinder",
     "GayBloom",
-    "PridePair",
   ],
   alternates: {
     canonical: PAGE_URL,
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: seo.title,
     description:
-      "Compare gay dating and LGBTQ+ dating listings, including GayBloom, PridePair, Manfinder, and TransDate.",
+      "Compare gay dating and LGBTQ+ dating listings, including GayBloom, Manfinder, and TransDate.",
     url: PAGE_URL,
     siteName: "TheDateCompass",
     type: "website",
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seo.title,
     description:
-      "Compare gay dating and LGBTQ+ dating listings, including GayBloom, PridePair, Manfinder, and TransDate.",
+      "Compare gay dating and LGBTQ+ dating listings, including GayBloom, Manfinder, and TransDate.",
     images: [OG_IMAGE],
   },
   robots: {

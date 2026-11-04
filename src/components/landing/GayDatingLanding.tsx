@@ -74,9 +74,8 @@ export default function GayDatingLanding() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-fog">
-              Compare gay dating sites and LGBTQ+ apps — GayBloom, PridePair,
-              Manfinder, and TransDate — with curated offers for real
-              conversations.
+              Compare gay dating sites and LGBTQ+ apps — GayBloom, Manfinder,
+              and TransDate — with curated offers for real conversations.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -127,7 +126,6 @@ export default function GayDatingLanding() {
           "Men seeking men",
           "LGBTQ+ connections",
           "GayBloom",
-          "PridePair",
           "Manfinder",
           "Adults 18+",
         ]}
@@ -314,7 +312,7 @@ export default function GayDatingLanding() {
               {
                 step: "01",
                 title: "Pick a gay dating offer",
-                body: "Browse GayBloom, PridePair, Manfinder, or TransDate based on the connection you want.",
+                body: "Browse GayBloom, Manfinder, or TransDate based on the connection you want.",
               },
               {
                 step: "02",

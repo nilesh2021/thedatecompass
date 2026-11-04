@@ -32,12 +32,10 @@ export const USA_REVIEW_SLUGS: readonly string[] = [
   "naughtycharm",
   "gaybloom",
   "grannyhunter",
-  "litlatinz",
   "manfinder",
   "realsexclub",
   "transdate",
   "milffinder",
-  "pridepair",
 ];
 
 export function getUsaReviewHref(offer: UsaOffer): string | null {
@@ -51,7 +49,6 @@ export function getUsaReviewHref(offer: UsaOffer): string | null {
 export const usaGoDestinations: Record<string, string> = {
   grannyhunter:
     "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
   realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
   transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
@@ -60,11 +57,8 @@ export const usaGoDestinations: Record<string, string> = {
     "https://t.datsk3.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   gaybloom:
     "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-  pridepair:
-    "https://t.aslr1.com/358917/10379/0?po=6456&aff_sub5=SF_006OG000004lmDN",
   naughtycharm:
     "https://t.datsk3.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-  dreamz: "https://t.vlmai-1.com/358917/10461/0?aff_sub5=SF_006OG000004lmDN",
   "sex-emulator":
     "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_006OG000004lmDN",
 };
@@ -92,23 +86,6 @@ export const usaOffers: UsaOffer[] = [
     href: getUsaGoHref("grannyhunter"),
     tags: ["Mature", "Adults 18+", "USA"],
     rating: 4.5,
-    country: "USA",
-  },
-  {
-    name: "LitLatinz",
-    slug: "litlatinz",
-    category: "Adult dating",
-    featured: true,
-    description:
-      "Adult dating with a focus on Latino community connections in the United States.",
-    keyFocus: "Latino community connections in the US",
-    badge: "USA available",
-    mark: "L",
-    accent: "from-[#6138A8] via-[#9C5CDB] to-[#E83E9B]",
-    image: getOfferAdultImage("litlatinz"),
-    href: getUsaGoHref("litlatinz"),
-    tags: ["Adult", "Adults 18+", "USA"],
-    rating: 4.7,
     country: "USA",
   },
   {
@@ -229,23 +206,6 @@ export const usaOffers: UsaOffer[] = [
     rating: 4.8,
     country: "USA",
   },
-  {
-    name: "PridePair",
-    slug: "pridepair",
-    category: "Gay Dating",
-    featured: false,
-    description:
-      "Inclusive gay dating where users can match, chat, and connect with like-minded people.",
-    keyFocus: "Match, chat, and gay community connections",
-    badge: "USA available",
-    mark: "P",
-    accent: "from-[#E83E9B] via-[#C026D3] to-[#6366F1]",
-    image: getOfferAdultImage("pridepair"),
-    href: getUsaGoHref("pridepair"),
-    tags: ["Gay Dating", "USA"],
-    rating: 4.8,
-    country: "USA",
-  },
 ];
 
 export const featuredUsaOffers = usaOffers.filter((offer) => offer.featured);
@@ -290,9 +250,9 @@ export const usaCategories = [
     hash: "offers-adult",
     description:
       "Adult dating offers for USA users who want direct, open-minded connections.",
-    image: getOfferAdultImage("litlatinz"),
-    href: getUsaGoHref("litlatinz"),
-    offerName: "LitLatinz",
+    image: getOfferAdultImage("realsexclub"),
+    href: getUsaGoHref("realsexclub"),
+    offerName: "RealSexClub",
     color: "from-rose-600 to-pink-500",
   },
   {

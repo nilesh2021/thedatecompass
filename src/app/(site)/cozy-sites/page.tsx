@@ -89,20 +89,6 @@ const DATA: Record<string, OfferItem[]> = {
       ],
     },
     {
-      id: "litlatinz",
-      title: "LitLatinz",
-      categoryLabel: "Latino dating",
-      description:
-        "Focused on Latino community connections with adult-friendly profiles and chat.",
-      url: "/go/litlatinz",
-      image: IMG.portraitE,
-      highlights: [
-        "Community vibe",
-        "Active chat",
-        "Easy browse",
-      ],
-    },
-    {
       id: "dirtydating",
       title: "DirtyDating",
       categoryLabel: "Casual adult",
@@ -132,68 +118,6 @@ const DATA: Record<string, OfferItem[]> = {
     },
   ],
 
-  "AI Platform": [
-    {
-      id: "dreamz-ai",
-      title: "Dreamz.ai",
-      categoryLabel: "AI companion",
-      description:
-        "Create your own personalized AI companion with immersive conversations and customizable personalities.",
-      url: "/go/dreamz",
-      featured: true,
-      image: IMG.companion1,
-      highlights: [
-        "Personalized companions",
-        "Immersive roleplay",
-        "Custom personalities",
-        "Private conversations",
-        "Available 24/7",
-      ],
-    },
-    {
-      id: "dreamz-ella",
-      title: "Dreamz — Ella",
-      categoryLabel: "AI companion",
-      description:
-        "Confident, flirty companion energy for immersive stories and late-night chats.",
-      url: "/go/dreamz",
-      image: IMG.companion2,
-      highlights: [
-        "Flirty tone",
-        "Story-ready",
-        "Always online",
-      ],
-    },
-    {
-      id: "dreamz-maya",
-      title: "Dreamz — Maya",
-      categoryLabel: "AI companion",
-      description:
-        "Warm and thoughtful AI companionship when you want deeper emotional conversations.",
-      url: "/go/dreamz",
-      image: IMG.companion3,
-      highlights: [
-        "Emotional depth",
-        "Calm pace",
-        "Private chats",
-      ],
-    },
-    {
-      id: "dreamz-luna",
-      title: "Dreamz — Luna",
-      categoryLabel: "AI companion",
-      description:
-        "Creative muse energy — chat, flirt, or build a fantasy world together.",
-      url: "/go/dreamz",
-      image: IMG.companion4,
-      highlights: [
-        "Creative roleplay",
-        "Fantasy chats",
-        "Custom vibe",
-      ],
-    },
-  ],
-
   "Gay Dating": [
     {
       id: "gaybloom",
@@ -208,20 +132,6 @@ const DATA: Record<string, OfferItem[]> = {
         "LGBTQ+ community",
         "Private messaging",
         "Verified-style profiles",
-      ],
-    },
-    {
-      id: "pridepair",
-      title: "PridePair",
-      categoryLabel: "Gay dating community",
-      description:
-        "Match and chat with like-minded gay singles in a community-first dating experience.",
-      url: "/go/pridepair",
-      image: getOfferAdultImage("pridepair"),
-      highlights: [
-        "Inclusive matching",
-        "Fast conversations",
-        "Safe community",
       ],
     },
     {
@@ -319,7 +229,7 @@ export default function OfferHubPage() {
             </h1>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-fog sm:text-lg">
-              Browse dating, gay dating, AI companions, and trans dating picks
+              Browse dating, gay dating, and trans dating picks
               — curated with the right visual for every listing.
             </p>
           </div>
@@ -330,7 +240,6 @@ export default function OfferHubPage() {
           items={[
             "Casual dating",
             "Gay dating",
-            "AI companions",
             "Trans dating",
             "Adults 18+",
             "Affiliate links",
@@ -521,15 +430,8 @@ export default function OfferHubPage() {
 
             <div className="mt-5 flex flex-wrap justify-center gap-3">
               <Link
-                href="/category/ai-girlfriend"
-                className="tdc-btn-primary"
-              >
-                AI girlfriend picks
-              </Link>
-
-              <Link
                 href="/top-offers/adult"
-                className="tdc-btn-line"
+                className="tdc-btn-primary"
               >
                 Adult dating offers
               </Link>

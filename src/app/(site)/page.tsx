@@ -11,8 +11,8 @@ import GermanySponsoredStrip from "@/components/country/germany/GermanySponsored
 import { topicSeo } from "@/lib/pageSeo";
 
 const seo = topicSeo(
-  "Dating Sites & AI Companion Platforms by Country | TheDateCompass",
-  "Compare dating websites, adult dating platforms, and AI companion services by country on this independent directory.",
+  "Dating Sites by Country | TheDateCompass",
+  "Compare dating websites and adult dating platforms by country on this independent directory.",
 );
 
 export const metadata: Metadata = {
@@ -24,8 +24,6 @@ export const metadata: Metadata = {
     "dating sites",
     "adult dating sites",
     "dating by country",
-    "AI girlfriend",
-    "AI companion",
     "casual dating",
     "gay dating",
     "dating site comparison",

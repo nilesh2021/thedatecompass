@@ -71,23 +71,6 @@ export const datingOfferTabs: OfferTab[] = [
         url: "/go/naughtycharm",
         logo: getOfferAdultImage("naughtycharm"),
       },
-      {
-        id: "litlatinz",
-        name: "LitLatinz",
-        slug: "litlatinz",
-        badge: "Latino community",
-        bestFor: "Latino community dating",
-        description:
-          "LitLatinz connects users seeking flirty conversations and passionate encounters within the Latino community across the US and Canada.",
-        highlights: [
-          "Latino community",
-          "Casual dating",
-          "Active chat",
-          "Mobile friendly",
-        ],
-        url: "/go/litlatinz",
-        logo: getOfferAdultImage("litlatinz"),
-      },
     ],
   },
   {
@@ -117,23 +100,6 @@ export const datingOfferTabs: OfferTab[] = [
         url: "/go/gaybloom",
         logo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
         featured: true,
-      },
-      {
-        id: "pridepair",
-        name: "PridePair",
-        slug: "pridepair",
-        badge: "Inclusive",
-        bestFor: "Broad LGBTQ+ matching",
-        description:
-          "PridePair helps LGBTQ+ singles match, chat, and connect with like-minded people through an inclusive, easy-to-use interface.",
-        highlights: [
-          "Inclusive matching",
-          "Smart filters",
-          "Private messaging",
-          "Safe community",
-        ],
-        url: "/go/pridepair",
-        logo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
       },
       {
         id: "manfinder",
@@ -331,6 +297,6 @@ export const seoFaqs = [
   {
     question: "Which listings focus on LGBTQ+ dating?",
     answer:
-      "Gay dating listings such as GayBloom and PridePair are grouped for visitors comparing LGBTQ+ community-focused options. Compare their categories and descriptions before visiting a provider site.",
+      "Gay dating listings such as GayBloom and Manfinder are grouped for visitors comparing LGBTQ+ community-focused options. Compare their categories and descriptions before visiting a provider site.",
   },
 ];

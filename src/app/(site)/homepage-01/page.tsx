@@ -19,7 +19,6 @@ import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 import BrandLogo from "@/components/Home/BrandLogo";
 import { adultImages } from "@/data/adultOfferImages";
-import { dreamzOffer } from "@/data/aiGirlfriendOffers";
 import { australiaOffers } from "@/data/countries/australia";
 import { canadaOffers } from "@/data/countries/canada";
 import { ukOffers } from "@/data/countries/uk";
@@ -39,7 +38,6 @@ type Intent =
   | "casual"
   | "adult"
   | "lgbtq"
-  | "ai"
   | "international";
 
 type Platform = {
@@ -70,7 +68,6 @@ const INTENTS: { id: Intent; label: string }[] = [
   { id: "casual", label: "Casual Dating" },
   { id: "adult", label: "Adult Dating" },
   { id: "lgbtq", label: "LGBTQ+" },
-  { id: "ai", label: "AI Companions" },
   { id: "international", label: "International" },
 ];
 
@@ -84,7 +81,6 @@ const CATEGORY_TILES: {
   { id: "casual", label: "Casual Dating", href: "/top-offers", hint: "Low-pressure chats" },
   { id: "adult", label: "Adult Dating", href: "/top-offers/adult", hint: "Direct connections" },
   { id: "lgbtq", label: "LGBTQ+", href: "/gay-dating", hint: "Inclusive platforms" },
-  { id: "ai", label: "AI Companions", href: "/category/ai-girlfriend", hint: "Private AI chat" },
   { id: "international", label: "International", hint: "Browse by country" },
 ];
 
@@ -187,22 +183,9 @@ const INVENTORY: Record<CountrySlug, Platform[]> = {
   australia: normalizeList(australiaOffers),
 };
 
-const AI_PLATFORM: Platform = {
-  name: dreamzOffer.name,
-  category: dreamzOffer.badge,
-  description: dreamzOffer.description,
-  image: adultImages.aiCompanion,
-  href: dreamzOffer.url,
-  rating: 4.7,
-  features: dreamzOffer.highlights.slice(0, 3),
-};
-
 function matchesIntent(platform: Platform, intent: Intent): boolean {
   const key = `${platform.name} ${platform.category} ${platform.description}`.toLowerCase();
   if (intent === "international") return true;
-  if (intent === "ai") {
-    return key.includes("ai") || key.includes("dreamz") || key.includes("companion");
-  }
   if (intent === "lgbtq") {
     return (
       key.includes("gay") ||
@@ -224,10 +207,7 @@ function selectShortlist(
   intent: Intent,
   query: string
 ): Platform[] {
-  const inventory =
-    intent === "ai"
-      ? uniqueByName([AI_PLATFORM, ...INVENTORY[country]])
-      : INVENTORY[country];
+  const inventory = INVENTORY[country];
 
   const q = query.trim().toLowerCase();
   let list = inventory.filter((item) => matchesIntent(item, intent));
@@ -279,7 +259,6 @@ export default function Homepage01() {
           <nav className="hidden items-center gap-5 text-[13px] text-white/65 lg:flex">
             <Link href="/top-offers" className="hover:text-white">Dating</Link>
             <Link href="/top-offers/adult" className="hover:text-white">Adult Dating</Link>
-            <Link href="/category/ai-girlfriend" className="hover:text-white">AI Companions</Link>
             <a href="#countries" className="hover:text-white">Countries</a>
             <a href="#categories" className="hover:text-white">Categories</a>
           </nav>
@@ -327,7 +306,6 @@ export default function Homepage01() {
             <div className="flex flex-col gap-3 text-sm text-white/75">
               <Link href="/top-offers" onClick={() => setMenuOpen(false)}>Dating</Link>
               <Link href="/top-offers/adult" onClick={() => setMenuOpen(false)}>Adult Dating</Link>
-              <Link href="/category/ai-girlfriend" onClick={() => setMenuOpen(false)}>AI Companions</Link>
               <a href="#countries" onClick={() => setMenuOpen(false)}>Countries</a>
               <a href="#categories" onClick={() => setMenuOpen(false)}>Categories</a>
               <input

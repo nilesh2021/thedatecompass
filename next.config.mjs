@@ -45,23 +45,143 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/offers/dreamz-ai",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/offers/dreamz-ai/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/offers/dreamz-ai-v2",
-        destination: "/offers/dreamz-ai",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/offers/dreamz-ai-v2/",
-        destination: "/offers/dreamz-ai",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/offers/dreamz-ai-companion",
-        destination: "/offers/dreamz-ai",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/offers/dreamz-ai-companion/",
-        destination: "/offers/dreamz-ai",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/offers/ai-companion",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/offers/ai-companion/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-girlfriend",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-girlfriend/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-girlfriend-v2",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-girlfriend-v2/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-girlfriend-sites",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-girlfriend-sites/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-chat-platform",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/category/ai-chat-platform/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/offers/litlatinz",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/offers/litlatinz/",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/usa/litlatinz-review",
+        destination: "/usa",
+        permanent: true,
+      },
+      {
+        source: "/usa/litlatinz-review/",
+        destination: "/usa",
+        permanent: true,
+      },
+      {
+        source: "/australia/litlatinz-review",
+        destination: "/australia",
+        permanent: true,
+      },
+      {
+        source: "/australia/litlatinz-review/",
+        destination: "/australia",
+        permanent: true,
+      },
+      {
+        source: "/canada/litlatinz-review",
+        destination: "/canada",
+        permanent: true,
+      },
+      {
+        source: "/canada/litlatinz-review/",
+        destination: "/canada",
+        permanent: true,
+      },
+      {
+        source: "/uk/litlatinz-review",
+        destination: "/uk",
+        permanent: true,
+      },
+      {
+        source: "/uk/litlatinz-review/",
+        destination: "/uk",
+        permanent: true,
+      },
+      {
+        source: "/usa/pridepair-review",
+        destination: "/gay-dating",
+        permanent: true,
+      },
+      {
+        source: "/usa/pridepair-review/",
+        destination: "/gay-dating",
         permanent: true,
       },
       {

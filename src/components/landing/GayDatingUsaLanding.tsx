@@ -18,7 +18,6 @@ const REL = "sponsored nofollow noopener noreferrer";
 const GAY_PAGE_BY_SLUG: Record<string, string> = {
   manfinder: "/usa/manfinder",
   gaybloom: "/usa/gaybloom",
-  pridepair: "/usa/pridepair-review",
 };
 
 const relatedGayOffers = usaOffers.flatMap((offer) => {
@@ -55,7 +54,7 @@ const points = [
   {
     number: "01",
     title: "One sponsored offer",
-    text: "This page sends visitors to Manfinder only. GayBloom and PridePair are named below and are not buttons on this page.",
+    text: "This page sends visitors to Manfinder only. GayBloom is named below and is not a button on this page.",
   },
   {
     number: "02",

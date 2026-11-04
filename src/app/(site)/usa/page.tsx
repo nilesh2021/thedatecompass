@@ -89,7 +89,7 @@ const intentions = [
     title: "Find your community",
     text: "Discover gay dating platforms and connections that fit your preferences.",
     filter: "Gay Dating",
-    image: getOfferAdultImage("pridepair"),
+    image: getOfferAdultImage("gaybloom"),
   },
   {
     number: "03",
@@ -159,7 +159,7 @@ const usaFaqs = [
   {
     question: "What dating offers are listed for USA users on this page?",
     answer:
-      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current listings include Grannyhunter, LitLatinz, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, NaughtyCharm, GayBloom, and PridePair.",
+      "This page lists third-party casual dating, gay dating, mature dating, adult dating, and trans dating offers for eligible visitors in the United States. Current listings include Grannyhunter, Manfinder, RealSexClub, TransDate, MilfFinder, CheekyCrush, NaughtyCharm, and GayBloom.",
   },
   {
     question: "How do I choose an adult dating site in the USA?",
@@ -169,12 +169,12 @@ const usaFaqs = [
   {
     question: "Which casual dating offers are listed for USA users?",
     answer:
-      "CheekyCrush, NaughtyCharm, LitLatinz, and RealSexClub appear under casual and adult categories on this page. Select the 'Casual & Adult' tab to compare them side by side.",
+      "CheekyCrush, NaughtyCharm, and RealSexClub appear under casual and adult categories on this page. Select the 'Casual & Adult' tab to compare them side by side.",
   },
   {
     question: "Are there gay dating offers for USA users?",
     answer:
-      "Yes. GayBloom, PridePair, and Manfinder are gay dating platforms listed for USA users and eligible LGBTQ+ visitors. Use the 'Gay Dating' tab to view all three.",
+      "Yes. GayBloom and Manfinder are gay dating platforms listed for USA users and eligible LGBTQ+ visitors. Use the 'Gay Dating' tab to view them.",
   },
   {
     question: "How does TheDateCompass compare these platforms?",

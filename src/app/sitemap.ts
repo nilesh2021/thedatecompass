@@ -60,7 +60,6 @@ const PUBLIC_ROUTES: string[] = [
   "/australia",
   "/canada",
   "/canada/fetishpartner",
-  "/category/ai-girlfriend",
   "/cookie-policy",
   "/cozy-sites",
   "/denmark",
@@ -77,7 +76,6 @@ const PUBLIC_ROUTES: string[] = [
   "/offers/casual-dating",
   "/offers/cheekycrush",
   "/offers/naughtycharm",
-  "/offers/dreamz-ai",
   "/offers/gonaughty-australia",
   "/offers/gay-dating-sites",
   "/offers/grannyhunter",
@@ -107,8 +105,6 @@ const PUBLIC_ROUTES: string[] = [
 
 const ROUTE_META: Record<string, RouteMeta> = {
   "/": { priority: 1, changeFrequency: "weekly" },
-  "/category/ai-girlfriend": { priority: 0.9, changeFrequency: "weekly" },
-  "/offers/dreamz-ai": { priority: 0.9, changeFrequency: "weekly" },
   "/offers/realsexclub": { priority: 0.9, changeFrequency: "weekly" },
   "/offers/realsexclub-denmark": { priority: 0.9, changeFrequency: "weekly" },
   "/gay-dating": { priority: 0.85, changeFrequency: "weekly" },

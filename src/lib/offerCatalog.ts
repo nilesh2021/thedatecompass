@@ -5,7 +5,6 @@ import { denmarkOffers } from "@/data/countries/denmark";
 import { franceOffers } from "@/data/countries/france";
 import { ukOffers } from "@/data/countries/uk";
 import { germanyOffers } from "@/data/germanyOffers";
-import { dreamzOffer } from "@/data/aiGirlfriendOffers";
 import { USA_REVIEW_SLUGS, usaOffers } from "@/data/usaOffers";
 
 export type CatalogOffer = {
@@ -47,7 +46,6 @@ const LANDING_BY_SLUG: Record<string, string> = {
   realsexclub: "/offers/realsexclub",
   gonaughty: "/offers/gonaughty-australia",
   gaybloom: "/usa/gaybloom",
-  dreamz: "/offers/dreamz-ai",
 };
 
 const BLOCKED_HREFS = new Set([
@@ -104,12 +102,6 @@ function fromCountry(offers: OfferLike[], hub: string): CatalogOffer[] {
 }
 
 const extras: CatalogOffer[] = [
-  {
-    name: dreamzOffer.name,
-    category: dreamzOffer.badge,
-    href: "/offers/dreamz-ai",
-    path: "/offers/dreamz-ai",
-  },
   {
     name: "TransDate",
     category: "Trans dating",

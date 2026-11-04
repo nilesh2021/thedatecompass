@@ -19,7 +19,6 @@ export type OfferData = {
 const AFFILIATE_URLS: Partial<Record<string, string>> = {
   realsexclub: "/go/realsexclub",
   milffinder: "/go/milffinder",
-  litlatinz: "/go/litlatinz",
   fetishpartner: "/go/fetishpartner",
   transdate: "/go/transdate",
 };
@@ -61,7 +60,6 @@ export const offers: OfferData[] = [
   makeOffer("manfinder"),
   makeOffer("milffinder"),
   makeOffer("transdate"),
-  makeOffer("litlatinz"),
   makeOffer("fetishpartner"),
 ];
 

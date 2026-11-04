@@ -47,7 +47,6 @@ const URLS = {
   grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
   fetishpartner: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
   fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
-  litlatinz: "https://t.aslr1.com/358917/7410?aff_sub5=SF_006OG000004lmDN",
   manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
 } as const;
 
@@ -115,7 +114,6 @@ export const australiaOffers: AustraliaOffer[] = [
   row("grannyhunter", "Grannyhunter", "Mature dating", "An adult dating option focused on mature connections and age-specific preferences.", "Mature connections and age-specific preferences", "Grannyhunter logo – mature dating site in Australia", "G"),
   row("fetishpartner", "FetishPartner", "Adult social", "An adult-focused platform for exploring connections around specific interests.", "Connections around specific adult interests", "FetishPartner logo – adult dating site in Australia", "F"),
   row("fuckfinder", "FuckFinder", "Casual dating", "An adult dating option for casual encounters and direct connections.", "Casual encounters and direct connections", "FuckFinder logo – adult dating site in Australia", "F"),
-  row("litlatinz", "LitLatinz", "Adult dating", "An adult dating option focused on Latino community connections.", "Latino community connections", "LitLatinz logo – adult dating site in Australia", "L"),
   row("manfinder", "Manfinder", "Gay Dating", "A dating and social platform for men looking to meet and connect with other men.", "Men looking to meet and connect with other men", "Manfinder logo – gay dating site in Australia", "M"),
 ];
 

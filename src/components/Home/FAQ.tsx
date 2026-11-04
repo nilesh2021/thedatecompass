@@ -10,12 +10,12 @@ const faqs = [
   {
     question: "What is TheDateCompass?",
     answer:
-      "TheDateCompass is an independent dating site comparison directory for adults. We help you discover dating offers, online dating platforms, and AI companion services by country so you can find better connections without guessing which provider fits.",
+      "TheDateCompass is an independent dating site comparison directory for adults. We help you discover dating offers and online dating platforms by country so you can find better connections without guessing which provider fits.",
   },
   {
     question: "Is TheDateCompass a dating website or dating app?",
     answer:
-      "No. TheDateCompass is not a dating website and does not host profiles, chats, or memberships. We compare third-party dating platforms and AI girlfriend / AI companion services, then send you to the provider you choose.",
+      "No. TheDateCompass is not a dating website and does not host profiles, chats, or memberships. We compare third-party dating platforms, then send you to the provider you choose.",
   },
   {
     question: "What dating offers can I compare?",
@@ -28,11 +28,6 @@ const faqs = [
       "Casual dating platforms are built for flirty chats, low-pressure meetups, and fast connections. Browse our country pages and casual dating categories to compare dating offers that focus on chemistry and easy messaging rather than long onboarding.",
   },
   {
-    question: "Do you list AI companion and AI girlfriend platforms?",
-    answer:
-      "Yes. Alongside traditional online dating sites, we compare AI companion and AI girlfriend platforms for private chats, custom personalities, and always-available virtual connections. These dating-adjacent offers are useful if you want conversation without a live meetup.",
-  },
-  {
     question: "Can I find gay dating and LGBTQ+ connection options?",
     answer:
       "Yes. Our comparisons include gay dating sites and inclusive LGBTQ+ dating platforms designed for men seeking men and community-first connections. Check country and category pages for gay dating offers currently available.",
@@ -40,7 +35,7 @@ const faqs = [
   {
     question: "Why browse dating platforms by country?",
     answer:
-      "Dating site availability, adult dating eligibility, pricing, and member focus can vary by region. Country pages help you find dating offers and AI companion platforms that are relevant where you live, including live USA and Germany guides.",
+      "Dating site availability, adult dating eligibility, pricing, and member focus can vary by region. Country pages help you find dating offers that are relevant where you live, including live USA and Germany guides.",
   },
   {
     question: "How do affiliate links on dating offers work?",

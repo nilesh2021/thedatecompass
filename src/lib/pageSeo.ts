@@ -1,4 +1,3 @@
-import { dreamzOffer } from "@/data/aiGirlfriendOffers";
 import { australiaOffers } from "@/data/countries/australia";
 import { canadaOffers } from "@/data/countries/canada";
 import { countries } from "@/data/countries";
@@ -152,7 +151,6 @@ const fetishPartner = offerBySlug(germanyOffers, "fetishpartner");
 const fetishPartnerCanada = offerBySlug(canadaOffers, "fetishpartner");
 
 const INDEXABLE_OFFERS = new Set([
-  "/offers/dreamz-ai",
   "/offers/manfinder",
   "/offers/gay-dating-usa",
   "/offers/grannyhunter",
@@ -180,11 +178,6 @@ const brandPages: BrandPage[] = [
   ...reviewPages(australiaOffers, "australia", "Australia"),
   ...reviewPages(ukOffers, "uk", "UK"),
   ...reviewPages(denmarkOffers, "denmark", "Denmark"),
-  {
-    path: "/offers/dreamz-ai",
-    brand: dreamzOffer.name,
-    category: dreamzOffer.badge,
-  },
   {
     path: "/offers/manfinder",
     brand: manFinderOffer.name,

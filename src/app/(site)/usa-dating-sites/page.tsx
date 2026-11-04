@@ -20,7 +20,7 @@ const OG_IMAGE = `${SITE_URL}${adultImages.alt}`;
 
 const FEATURED_NAMES = [
   "CheekyCrush",
-  "LitLatinz",
+  "RealSexClub",
   "GayBloom",
   "Grannyhunter",
 ] as const;
