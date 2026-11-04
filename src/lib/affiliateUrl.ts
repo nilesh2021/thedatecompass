@@ -63,7 +63,38 @@ export function readCountryFromRequest(request: Request): string | null {
   return sanitizeToken(new URL(request.url).searchParams.get("country"));
 }
 
-const DEFAULT_GO_COUNTRY = "global";
+/** Placeholder on internal /go/ URLs when the page did not set a country. Not sent to trackers. */
+export const DEFAULT_GO_COUNTRY = "global";
+
+const EDGE_COUNTRY_HEADERS = [
+  "x-vercel-ip-country",
+  "cf-ipcountry",
+  "x-country-code",
+] as const;
+
+function readCountryFromEdgeHeaders(request: Request): string | null {
+  for (const header of EDGE_COUNTRY_HEADERS) {
+    const value = request.headers.get(header);
+    const token = sanitizeToken(value?.toLowerCase());
+    if (token && token !== DEFAULT_GO_COUNTRY) return token;
+  }
+  return null;
+}
+
+/** ISO-style country for aff_sub3: explicit ?country= wins; otherwise infer from CDN geo headers. */
+export function resolveAffiliateCountryFromRequest(
+  request: Request
+): string | null {
+  const fromQuery = readCountryFromRequest(request);
+  if (fromQuery && fromQuery !== DEFAULT_GO_COUNTRY) return fromQuery;
+  return readCountryFromEdgeHeaders(request);
+}
+
+function countryForAffiliateSub(country?: string | null): string | null {
+  const token = sanitizeToken(country);
+  if (!token || token === DEFAULT_GO_COUNTRY) return null;
+  return token;
+}
 
 /** Append country/placement on an internal /go/ href. Leaves existing keys and external URLs unchanged. Defaults a missing country to global. */
 export function appendGoParams(
@@ -118,7 +149,7 @@ export function withAffiliateSourceTags(
   try {
     const url = new URL(destination);
     url.searchParams.set("aff_sub2", AFFILIATE_SITE_SUB);
-    const country = sanitizeToken(params?.country);
+    const country = countryForAffiliateSub(params?.country);
     const placement = sanitizeToken(params?.placement);
     if (country) url.searchParams.set("aff_sub3", country);
     if (placement) url.searchParams.set("aff_sub4", placement);

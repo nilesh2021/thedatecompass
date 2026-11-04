@@ -14,8 +14,8 @@ import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
-  readCountryFromRequest,
   readPlacementFromRequest,
+  resolveAffiliateCountryFromRequest,
   withAffiliateSourceTags,
 } from "@/lib/affiliateUrl";
 import { notFound, redirect } from "next/navigation";
@@ -24,9 +24,24 @@ type RouteContext = {
   params: Promise<{ slug: string }>;
 };
 
+/** Direct SOI links for DACH — avoids offer-group fallback when Singleflirt geo rules miss. */
+const DACH_COUNTRIES = new Set(["de", "at"]);
+
+function resolveGoDestination(
+  slug: string,
+  destination: string,
+  country: string | null
+): string {
+  if (slug !== "singleflirt" || !country || !DACH_COUNTRIES.has(country)) {
+    return destination;
+  }
+  return germanyGoDestinations.fremdgehen69 ?? destination;
+}
+
 export async function GET(request: Request, context: RouteContext) {
   const { slug } = await context.params;
   const key = slug.toLowerCase();
+  const affiliateCountry = resolveAffiliateCountryFromRequest(request);
   const destination =
     beijosquentesGoDestinations[key] ??
     sinpartyGoDestinations[key] ??
@@ -46,10 +61,12 @@ export async function GET(request: Request, context: RouteContext) {
     notFound();
   }
 
+  const outbound = resolveGoDestination(key, destination, affiliateCountry);
+
   // aff_sub2 is always thedatecompass. Country and placement are optional labels.
   // aff_sub is only attached later, and only when a paid click_id is present.
-  const located = withAffiliateSourceTags(destination, {
-    country: readCountryFromRequest(request),
+  const located = withAffiliateSourceTags(outbound, {
+    country: affiliateCountry,
     placement: readPlacementFromRequest(request),
   });
 

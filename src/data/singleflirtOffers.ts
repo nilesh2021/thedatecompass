@@ -1,6 +1,8 @@
 /**
  * Singleflirt landing — /offers/singleflirt
  * Public CTAs use /go/singleflirt. The tracking URL stays in the go map.
+ * DACH (de/at) redirects use the direct Fremdgehen69 link in go/[slug]/route.ts
+ * so clicks do not fall through to TrafficStars group fallback (Dating 04).
  */
 
 export const SINGLEFLIRT_AFFILIATE_URL = "/go/singleflirt";
