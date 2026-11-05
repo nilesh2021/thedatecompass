@@ -1,8 +1,10 @@
 import Image from "next/image";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { selectGeoTopOffers } from "@/lib/geoTopOffers";
+import { visitorPageCountry } from "@/lib/visitorCountry";
 
 export default function GeoTopOffers({ country }: { country: string }) {
+  const pageCountry = visitorPageCountry(country).country;
   const offers = selectGeoTopOffers(country);
 
   if (offers.length === 0) return null;
@@ -34,7 +36,7 @@ export default function GeoTopOffers({ country }: { country: string }) {
               <TrackedAffiliateLink
                 href={offer.href}
                 placement="geo_top"
-                country={country}
+                country={pageCountry}
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
                 className="group flex flex-1 flex-col text-cream no-underline"
