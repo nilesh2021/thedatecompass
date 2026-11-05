@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import OffersCategoryLanding from "@/components/landing/OffersCategoryLanding";
+import JsonLd from "@/components/seo/JsonLd";
 import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import { notFound } from "next/navigation";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/top-offers/mature";
@@ -54,5 +56,22 @@ export default function MatureOffersPage() {
   const tab = getOfferTabByRoute("mature");
   if (!tab) notFound();
 
-  return <OffersCategoryLanding tab={tab} />;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Top Offers", url: "https://www.thedatecompass.com/top-offers" },
+          { name: "Mature", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Mature dating sites",
+          tab.offers.map((offer) => ({ name: offer.name })),
+        )}
+      />
+      <OffersCategoryLanding tab={tab} />
+    </>
+  );
 }

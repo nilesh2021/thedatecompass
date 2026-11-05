@@ -14,6 +14,7 @@ import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
+  readCountryFromRequest,
   readPlacementFromRequest,
   resolveAffiliateCountryFromRequest,
   withAffiliateSourceTags,
@@ -63,10 +64,10 @@ export async function GET(request: Request, context: RouteContext) {
 
   const outbound = resolveGoDestination(key, destination, affiliateCountry);
 
-  // aff_sub2 is always thedatecompass. Country and placement are optional labels.
-  // aff_sub is only attached later, and only when a paid click_id is present.
+  // aff_sub2 is always thedatecompass. aff_sub3 is ?country=, including global.
+  // Visitor geo fills aff_sub3 only when country is omitted. aff_sub is attached later for a paid click_id.
   const located = withAffiliateSourceTags(outbound, {
-    country: affiliateCountry,
+    country: readCountryFromRequest(request) ?? affiliateCountry,
     placement: readPlacementFromRequest(request),
   });
 

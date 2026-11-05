@@ -2,13 +2,12 @@
  * FuckFinder single-offer page — /offers/casual-dating
  */
 
+import { adultImages } from "@/data/adultOfferImages";
+
 export const CASUAL_DATING_AFFILIATE_URL = "/go/fuckfinder";
 
 export const CASUAL_DATING_BANNER_URL =
   "https://www.imglnkx.com/9956/DAT-460_DESIGN-23859_4_300250.gif";
-
-const FF_PHOTO =
-  "https://images.unsplash.com/photo-1470225620780-d1e8cb453f3f";
 
 export const casualDatingOffer = {
   name: "FuckFinder",
@@ -30,10 +29,10 @@ export const casualDatingOffer = {
 } as const;
 
 export const casualDatingVisuals = {
-  hero: `${FF_PHOTO}?auto=format&fit=crop&w=1800&q=80`,
-  portrait: `${FF_PHOTO}?auto=format&fit=crop&w=900&h=1200&q=80`,
-  wide: "https://images.unsplash.com/photo-1517456793572-08b25ac8d0e0?auto=format&fit=crop&w=1800&h=900&q=80",
-  side: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&h=1200&q=80",
+  hero: adultImages.portraitA,
+  portrait: adultImages.portraitB,
+  wide: adultImages.gay,
+  side: adultImages.alt,
 } as const;
 
 export const casualDatingSteps = [

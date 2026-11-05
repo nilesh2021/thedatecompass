@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import FreeUsaDatingSitesLanding from "@/components/landing/FreeUsaDatingSitesLanding";
+import JsonLd from "@/components/seo/JsonLd";
 import { adultImages } from "@/data/adultOfferImages";
+import { usaOffers } from "@/data/usaOffers";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 
 const PAGE_URL = "https://www.thedatecompass.com/free-usa-dating-sites";
 const OG_IMAGE = `https://www.thedatecompass.com${adultImages.alt}`;
@@ -49,6 +52,18 @@ export const metadata: Metadata = {
 export default function FreeUsaDatingSitesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Free USA Dating Sites", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Free USA dating sites",
+          usaOffers.map((offer) => ({ name: offer.name })),
+        )}
+      />
       <Header />
       <main>
         <FreeUsaDatingSitesLanding />

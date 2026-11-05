@@ -39,22 +39,6 @@ const IMG = {
   companion3: "/images/dreamz/companion-3.webp",
   companion4: "/images/dreamz/companion-4.webp",
   companion5: "/images/dreamz/companion-5.webp",
-
-  neon: "/images/extra/2.jpg",
-
-  portraitA:
-    "/images/extra/1eqyiSccso7couzchcXqVLjQF8PFkPWvsBwD9ptKVCw9ztaCl92n4L7nhdgjLvk46LfHmeLlhFLsWD3idQzAi1t9afPweJcUW9UlkwZQyQT3-qtwayhtiXo5DKJD_6WpHC6XOr0iBiMZ5aOctCGRWDT69PkJ7LY6hdewU3kp4Ne.jpg",
-
-  portraitB:
-    "/images/extra/808vP-M-5b6gTi0tN1Yc-6H4TwhXsw_gO_zVgTJzfnMfUCrQsSJS4SHm4VhudkvN0j6pITl47QVYDUxnKXnqB_TJjeuZikZ6Bme7G1u__7XfxMA6xxsaUBBjQoqsz3F4r8MLSWm4O7Lxb4bLXGucr2V69UMS15YGEvT5eAhmb0s.jpg",
-
-  portraitC: "/images/extra/ai-model.jpg",
-
-  portraitD:
-    "/images/extra/IuJU7xxK5CBG801VwI4LrRyJZrR3nvIbBpM-A6Ig59zbMHpDjDcfTsmLinTPxKj3XtpB4vk1lOlp9WKaOeJZSD9eDNOar8yIAHvLjURnTPuAXngQObP8aqve7qEg6c1TZ5U3On8ZMYDnCDary9VzstCL2pTdpEAsNSgB14sEER8.jpg",
-
-  portraitE:
-    "/images/extra/XWB8SOkp9vB_OqUj38mQvKq_6eHMmAediIcYizJkB1Oo9D7UV-wxfv6CVV4iDy5lgsUwIYbU0iwl4qrCpzWcSUfiKHEnb_W6NSSSxnU1yxTWyR_VyqqyVZvhDxfloBSKDGdPczBLjGIXrtMVtDFARfOAFZI8P0wefRpNnUThZ36.jpg",
 } as const;
 
 const DATA: Record<string, OfferItem[]> = {
@@ -67,7 +51,7 @@ const DATA: Record<string, OfferItem[]> = {
         "Fast signup for flirty adult dating with active members looking for chemistry — not endless swiping.",
       url: "/go/cheekycrush",
       featured: true,
-      image: IMG.portraitA,
+      image: getOfferAdultImage("cheekycrush"),
       highlights: [
         "Quick registration",
         "Verified-style profiles",
@@ -81,7 +65,7 @@ const DATA: Record<string, OfferItem[]> = {
       description:
         "Direct adult dating for people who know what they want — straightforward profiles and messaging.",
       url: "/go/naughtycharm",
-      image: IMG.portraitD,
+      image: getOfferAdultImage("naughtycharm"),
       highlights: [
         "No-games connections",
         "Discreet profiles",
@@ -95,7 +79,7 @@ const DATA: Record<string, OfferItem[]> = {
       description:
         "Casual dating with an adult edge — browse, message, and meet without the pressure.",
       url: "/go/dirtydating",
-      image: IMG.neon,
+      image: getOfferAdultImage("dirtydating"),
       highlights: [
         "Fast signup",
         "Adult profiles",
@@ -109,7 +93,7 @@ const DATA: Record<string, OfferItem[]> = {
       description:
         "Niche matching for alternative interests beyond mainstream dating apps.",
       url: "/go/fetishpartner",
-      image: IMG.portraitB,
+      image: getOfferAdultImage("fetishpartner"),
       highlights: [
         "Niche filters",
         "Engaged community",

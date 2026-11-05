@@ -11,6 +11,25 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   };
 }
 
+export function webPageJsonLd(params: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: params.name,
+    description: params.description,
+    url: params.url,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "TheDateCompass",
+      url: "https://www.thedatecompass.com",
+    },
+  };
+}
+
 export function itemListJsonLd(
   name: string,
   items: { name: string; url?: string }[],

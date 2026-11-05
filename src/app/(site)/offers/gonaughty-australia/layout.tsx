@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/jsonLd";
 import { getBrandSeo } from "@/lib/pageSeo";
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/gonaughty-australia";
@@ -44,5 +46,23 @@ export default function GoNaughtyAustraliaLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Offers", url: "https://www.thedatecompass.com/top-offers" },
+          { name: "GoNaughty Australia", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={webPageJsonLd({
+          name: seo.title,
+          description: seo.description,
+          url: PAGE_URL,
+        })}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,8 +1,11 @@
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import type { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
+const PAGE_URL = "https://www.thedatecompass.com/disclaimer";
 const seo = topicSeo(
   "Disclaimer | TheDateCompass",
   "Read the Disclaimer on TheDateCompass. It explains the limits of this independent comparison site and its third-party dating listings.",
@@ -12,14 +15,27 @@ export const metadata: Metadata = {
     title: { absolute: seo.title },
     description: seo.description,
     alternates: {
-        canonical: "https://www.thedatecompass.com/disclaimer",
+        canonical: PAGE_URL,
     },
 };
 
 export default function DisclaimerPage() {
     return (
 
-<>  
+<>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Disclaimer", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={webPageJsonLd({
+          name: seo.title,
+          description: seo.description,
+          url: PAGE_URL,
+        })}
+      />
 
 <Header />
 

@@ -4,8 +4,11 @@ import { ArrowLeft } from "lucide-react";
 
 import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
+const PAGE_URL = "https://www.thedatecompass.com/affiliate-disclosure";
 const seo = topicSeo(
   "Affiliate Disclosure | TheDateCompass",
   "Read the Affiliate Disclosure on TheDateCompass. It explains that some listings are sponsored links to third-party dating providers.",
@@ -15,13 +18,26 @@ export const metadata: Metadata = {
   title: { absolute: seo.title },
   description: seo.description,
   alternates: {
-    canonical: "https://www.thedatecompass.com/affiliate-disclosure",
+    canonical: PAGE_URL,
   },
 };
 
 export default function AffiliateDisclosurePage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Affiliate Disclosure", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={webPageJsonLd({
+          name: seo.title,
+          description: seo.description,
+          url: PAGE_URL,
+        })}
+      />
       <Header />
 
       <main className="bg-[#080808] text-white">

@@ -2,8 +2,11 @@ import Header from "@/components/Home/Header";
 import Footer from "@/components/Home/Footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
+const PAGE_URL = "https://www.thedatecompass.com/privacy-policy";
 const seo = topicSeo(
   "Privacy Policy | TheDateCompass",
   "Read the Privacy Policy on TheDateCompass. It explains how this independent comparison site describes its handling of visitor information.",
@@ -13,13 +16,26 @@ export const metadata = {
   title: { absolute: seo.title },
   description: seo.description,
   alternates: {
-    canonical: "https://www.thedatecompass.com/privacy-policy",
+    canonical: PAGE_URL,
   },
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Privacy Policy", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={webPageJsonLd({
+          name: seo.title,
+          description: seo.description,
+          url: PAGE_URL,
+        })}
+      />
       <Header />
      <main className="bg-[#080808] text-white">
   <section className="mx-auto max-w-5xl px-6 py-20">

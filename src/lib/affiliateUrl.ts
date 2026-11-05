@@ -63,7 +63,7 @@ export function readCountryFromRequest(request: Request): string | null {
   return sanitizeToken(new URL(request.url).searchParams.get("country"));
 }
 
-/** Placeholder on internal /go/ URLs when the page did not set a country. Not sent to trackers. */
+/** Placeholder on internal /go/ URLs when the page did not set a country. Forwarded as aff_sub3 when the request includes it. */
 export const DEFAULT_GO_COUNTRY = "global";
 
 const EDGE_COUNTRY_HEADERS = [
@@ -91,9 +91,7 @@ export function resolveAffiliateCountryFromRequest(
 }
 
 function countryForAffiliateSub(country?: string | null): string | null {
-  const token = sanitizeToken(country);
-  if (!token || token === DEFAULT_GO_COUNTRY) return null;
-  return token;
+  return sanitizeToken(country);
 }
 
 /** Append country/placement on an internal /go/ href. Leaves existing keys and external URLs unchanged. Defaults a missing country to global. */

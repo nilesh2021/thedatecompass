@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import OffersCategoryLanding from "@/components/landing/OffersCategoryLanding";
+import JsonLd from "@/components/seo/JsonLd";
 import { getOfferTabByRoute } from "@/data/datingOffersTabs";
 import { notFound } from "next/navigation";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 import { topicSeo } from "@/lib/pageSeo";
 
 const seo = topicSeo(
@@ -51,5 +53,21 @@ export default function TopOffersPage() {
   const tab = getOfferTabByRoute("casual");
   if (!tab) notFound();
 
-  return <OffersCategoryLanding tab={tab} />;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "https://www.thedatecompass.com" },
+          { name: "Top Offers", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Casual dating sites",
+          tab.offers.map((offer) => ({ name: offer.name })),
+        )}
+      />
+      <OffersCategoryLanding tab={tab} />
+    </>
+  );
 }

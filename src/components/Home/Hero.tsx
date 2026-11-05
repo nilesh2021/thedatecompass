@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Globe2, Layers3 } from "lucide-react";
-import { countries, availableCountries } from "@/data/countries";
-import { usaOffers } from "@/data/usaOffers";
 import { adultImages } from "@/data/adultOfferImages";
 import MarqueeBand from "@/components/theme/MarqueeBand";
 
@@ -75,16 +73,16 @@ export default function Hero() {
 
           <div className="mt-12 grid max-w-xl grid-cols-3 gap-3">
             {[
-              { number: `${countries.length}`, label: "Countries", icon: Globe2 },
-              { number: `${usaOffers.length}+`, label: "Platforms", icon: Layers3 },
-              { number: "18+", label: "Adults only", icon: ShieldCheck },
+              { kicker: "Listed", label: "Countries", icon: Globe2 },
+              { kicker: "Compared", label: "Platforms", icon: Layers3 },
+              { kicker: "18+", label: "Adults only", icon: ShieldCheck },
             ].map((item) => (
               <div
                 key={item.label}
                 className="rounded-2xl border border-[#ff2d87]/30 bg-[#141a3d]/80 p-4 backdrop-blur-sm transition hover:border-[#ff2d87]"
               >
                 <item.icon size={20} className="mb-3 text-[#ff2d87]" />
-                <p className="text-2xl font-extrabold text-cream">{item.number}</p>
+                <p className="text-2xl font-extrabold text-cream">{item.kicker}</p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#ff2d87]/80">
                   {item.label}
                 </p>
@@ -93,7 +91,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-5 text-xs text-cream/40">
-            {availableCountries.length} country pages live · more expanding
+            Country pages live · more expanding
           </p>
         </div>
 

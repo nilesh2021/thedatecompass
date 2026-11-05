@@ -180,8 +180,7 @@ export default function FeaturedOffers() {
         </div>
 
         <p className="sr-only" aria-live="polite">
-          Showing {visibleOffers.length} {activeTab === "All" ? "dating" : activeTab}{" "}
-          platforms.
+          Showing dating platforms in this category.
         </p>
 
         {visibleOffers.length === 0 ? (

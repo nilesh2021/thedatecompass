@@ -11,8 +11,10 @@ import {
 } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import Header from "@/components/Home/Header";
+import JsonLd from "@/components/seo/JsonLd";
 import { adultImages } from "@/data/adultOfferImages";
 import { usaOffers } from "@/data/usaOffers";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/jsonLd";
 
 const SITE_URL = "https://www.thedatecompass.com";
 const PAGE_URL = `${SITE_URL}/usa-dating-sites`;
@@ -98,6 +100,18 @@ export const metadata: Metadata = {
 export default function UsaDatingSitesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: SITE_URL },
+          { name: "USA Dating Sites", url: PAGE_URL },
+        ])}
+      />
+      <JsonLd
+        data={itemListJsonLd(
+          "Dating sites in the USA",
+          featuredOffers.map((offer) => ({ name: offer.name })),
+        )}
+      />
       <Header />
       <main className="relative min-h-screen overflow-x-hidden bg-[#05060c] text-white antialiased">
         <div className="pointer-events-none absolute inset-0 -z-10">

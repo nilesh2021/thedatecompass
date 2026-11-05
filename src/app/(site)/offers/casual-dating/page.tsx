@@ -7,6 +7,7 @@ import {
   casualDatingFaqs,
   casualDatingOffer,
 } from "@/data/casualDatingOffers";
+import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
 import { fuckFinderLanguageAlternates } from "@/data/fuckFinderCountryPages";
 import { getBrandSeo } from "@/lib/pageSeo";
 
@@ -14,8 +15,10 @@ const seo = getBrandSeo("/offers/casual-dating")!;
 
 const PAGE_URL = "https://www.thedatecompass.com/offers/casual-dating";
 
-const OG_IMAGE =
-  "https://images.unsplash.com/photo-1470225620780-d1e8cb453f3f?auto=format&fit=crop&w=1200&q=80";
+const OG_IMAGE = getAbsoluteOfferImageUrl(
+  "fuckfinder",
+  "https://www.thedatecompass.com",
+);
 
 export const metadata: Metadata = {
   title: {

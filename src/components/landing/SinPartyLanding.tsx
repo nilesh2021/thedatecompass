@@ -310,7 +310,7 @@ export default function SinPartyLanding() {
             <div className="mt-10 flex justify-center">
               <VisitCta
                 href={sinpartyOffer.url}
-                placement="lp_steps"
+                placement="lp_mid"
                 label="Continue to SinParty"
               />
             </div>
@@ -379,7 +379,7 @@ export default function SinPartyLanding() {
               <div className="mt-8">
                 <VisitCta
                   href={sinpartyOffer.url}
-                  placement="lp_benefits"
+                  placement="lp_mid"
                   label="Open SinParty"
                 />
               </div>
@@ -417,7 +417,7 @@ export default function SinPartyLanding() {
                 <div className="mt-8">
                   <VisitCta
                     href={sinpartyOffer.url}
-                    placement="lp_banner"
+                    placement="lp_mid"
                     label="Visit SinParty"
                   />
                 </div>
@@ -486,7 +486,7 @@ export default function SinPartyLanding() {
       >
         <VisitCta
           href={sinpartyOffer.url}
-          placement="lp_sticky"
+          placement="lp_end"
           compact
           label="Visit SinParty"
           className="flex min-h-[52px] w-full items-center justify-center rounded-full bg-brand-rose px-6 text-sm font-extrabold uppercase tracking-[0.1em] text-cream shadow-[0_12px_40px_rgba(255,61,110,0.35)]"

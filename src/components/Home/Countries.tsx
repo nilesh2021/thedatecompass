@@ -2,9 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Globe2, CheckCircle2, Clock3 } from "lucide-react";
 import { availableCountries, countries } from "@/data/countries";
-import { usaOffers } from "@/data/usaOffers";
-import { germanyOffers } from "@/data/germanyOffers";
-import { denmarkOffers } from "@/data/countries/denmark";
 import { adultImages } from "@/data/adultOfferImages";
 
 const countryImages: Record<string, string> = {
@@ -23,13 +20,6 @@ function getFlagEmoji(countryCode: string) {
     .replace(/./g, (char) =>
       String.fromCodePoint(127397 + char.charCodeAt(0))
     );
-}
-
-function getOfferCount(slug: string) {
-  if (slug === "usa") return usaOffers.length;
-  if (slug === "germany") return germanyOffers.length;
-  if (slug === "denmark") return denmarkOffers.length;
-  return null;
 }
 
 const comingSoonCountries = countries.filter((c) => !c.isAvailable);
@@ -64,8 +54,6 @@ export default function Countries() {
           }`}
         >
           {availableCountries.map((country) => {
-            const offerCount = getOfferCount(country.slug);
-
             return (
               <article
                 key={country.slug}
@@ -97,15 +85,13 @@ export default function Countries() {
                 <h3 className="mt-5 text-2xl font-extrabold">{country.name}</h3>
 
                 <p className="mt-3 flex-1 text-sm leading-6 text-cream/65">
-                  {offerCount
-                    ? `Compare ${offerCount}+ dating offers across casual, gay dating, mature, and AI categories.`
-                    : country.description}
+                  Compare dating offers across casual, gay dating, mature, and AI categories.
                 </p>
 
                 <div className="mt-6 flex items-center justify-between border-t border-[#ff2d87]/15 pt-5">
                   <div>
                     <p className="text-sm font-bold text-[#ff2d87]">
-                      {offerCount ? `${offerCount}+ offers` : "Live page"}
+                      Offers live
                     </p>
                     <p className="text-[10px] uppercase tracking-[0.16em] text-cream/40">
                       Status
@@ -131,7 +117,7 @@ export default function Countries() {
             <div className="mb-4 flex flex-wrap items-center gap-2">
               <Clock3 size={14} className="text-[#ff2d87]" />
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#ff2d87]">
-                Coming soon · {comingSoonCountries.length} regions
+                Coming soon
               </p>
             </div>
 

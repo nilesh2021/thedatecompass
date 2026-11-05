@@ -38,6 +38,7 @@ type BrandPage = {
   category?: string;
   german?: boolean;
   localeHint?: string;
+  description?: string;
 };
 
 type OfferLike = {
@@ -246,6 +247,8 @@ const brandPages: BrandPage[] = [
     country: gayBloom?.country ?? "USA",
     category: gayBloom?.category,
     localeHint: "usa",
+    description:
+      "GayBloom is listed for gay dating in the USA. See category focus and listed features before you visit the provider.",
   },
   {
     path: "/de/fremdgehen69",
@@ -317,7 +320,9 @@ export function getBrandSeo(path: string): BrandSeo | null {
   return {
     title,
     headline,
-    description: brandDescription(page),
+    description: page.description
+      ? fitDescription([page.description])
+      : brandDescription(page),
     locale: ogLocaleForCountry(page.german ? "de" : page.localeHint ?? page.country),
   };
 }
