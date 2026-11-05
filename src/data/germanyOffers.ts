@@ -53,7 +53,8 @@ export type GermanyClickPlacement =
   | "lp_hero"
   | "lp_mid"
   | "lp_end"
-  | "lp_popup";
+  | "lp_popup"
+  | "geo_top";
 
 export const GERMANY_REVIEW_SLUGS: readonly string[] = [
   "dirtydating",

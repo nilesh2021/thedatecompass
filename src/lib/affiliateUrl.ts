@@ -6,6 +6,19 @@ const GO_URL_ORIGIN = "https://www.thedatecompass.com";
 const TOKEN_PATTERN = /^[a-z0-9_-]{1,32}$/;
 export const AFFILIATE_SITE_SUB = "thedatecompass";
 
+/** Placements already used on the site, plus the homepage geo block. */
+export const GO_PLACEMENTS = [
+  "card",
+  "table",
+  "lp_hero",
+  "lp_mid",
+  "lp_end",
+  "lp_popup",
+  "geo_top",
+] as const;
+
+const GO_PLACEMENT_SET: ReadonlySet<string> = new Set(GO_PLACEMENTS);
+
 function sanitizeToken(value?: string | null): string | null {
   const token = value?.trim().toLowerCase() ?? "";
   return TOKEN_PATTERN.test(token) ? token : null;
@@ -56,7 +69,8 @@ export function readClickIdFromRequest(request: Request): string | null {
 }
 
 export function readPlacementFromRequest(request: Request): string | null {
-  return sanitizeToken(new URL(request.url).searchParams.get("placement"));
+  const token = sanitizeToken(new URL(request.url).searchParams.get("placement"));
+  return token && GO_PLACEMENT_SET.has(token) ? token : null;
 }
 
 export function readCountryFromRequest(request: Request): string | null {

@@ -8,7 +8,7 @@ import { trackAffiliateClick } from "@/lib/analytics";
 type UsaAffiliateLinkProps = {
   href: string;
   offerName: string;
-  placement: "card" | "table" | "lp_hero" | "lp_end";
+  placement: "card" | "table" | "lp_hero" | "lp_end" | "geo_top";
   country?: "usa" | "germany" | "france" | "canada" | "australia" | "uk" | "denmark";
   className?: string;
   children?: ReactNode;

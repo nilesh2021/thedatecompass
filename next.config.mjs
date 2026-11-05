@@ -23,6 +23,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/geo/:country",
+        destination: "/",
+        permanent: false,
+      },
+      {
         source: "/",
         has: [{ type: "host", value: "thedatecompass.com" }],
         destination: "https://www.thedatecompass.com",
