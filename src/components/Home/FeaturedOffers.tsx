@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { useCountriesOpen } from "@/components/Home/CountriesOpen";
-import { usaOffers } from "@/data/usaOffers";
+import { selectFeaturedOffers } from "@/lib/geoTopOffers";
 import { trackAffiliateClick } from "@/lib/analytics";
 
 type OfferTab =
@@ -74,22 +74,18 @@ function matchesTab(offer: { name: string; category: string }, tab: OfferTab): b
   return false;
 }
 
-const discoveryOffers = usaOffers.filter(
-  (offer, index, list) =>
-    list.findIndex((item) => item.name === offer.name) === index
-);
-
-export default function FeaturedOffers() {
+export default function FeaturedOffers({ country }: { country: string }) {
   const { toggle } = useCountriesOpen();
   const [activeTab, setActiveTab] = useState<OfferTab>("All");
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const discoveryOffers = useMemo(() => selectFeaturedOffers(country), [country]);
 
   const visibleOffers = useMemo(
     () =>
       discoveryOffers
         .filter((offer) => matchesTab(offer, activeTab))
         .slice(0, 6),
-    [activeTab]
+    [activeTab, discoveryOffers]
   );
 
   const selectTab = (tab: OfferTab, index: number, focus = false) => {
@@ -137,8 +133,7 @@ export default function FeaturedOffers() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl font-serif-accent text-lg italic leading-relaxed text-cream/70 sm:mt-6 sm:text-xl">
-            Hand-picked adult dating offers. Chemistry first — availability
-            still depends on your country.
+            Hand-picked adult dating offers for where you are. Chemistry first.
           </p>
         </div>
 
@@ -199,22 +194,17 @@ export default function FeaturedOffers() {
 
               return (
                 <article
-                  key={`${offer.name}-${offer.href}`}
+                  key={`${offer.slug}-${offer.href}`}
                   className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#ff2d87]/35 bg-[#141a3d]"
                 >
                   <TrackedAffiliateLink
                     href={offer.href}
                     placement="card"
-                    country={offer.country?.trim().toLowerCase()}
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     className="group flex flex-1 flex-col text-cream no-underline"
                     onClick={() =>
-                      trackAffiliateClick(
-                        offer.name,
-                        "card",
-                        offer.country?.trim().toLowerCase() || undefined
-                      )
+                      trackAffiliateClick(offer.name, "card", offer.countryLabel)
                     }
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
@@ -239,7 +229,7 @@ export default function FeaturedOffers() {
                     <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
                       <p className="text-[10px] font-bold uppercase tracking-wider text-[#ff2d87]">
                         {offer.category}
-                        {offer.country ? ` · ${offer.country}` : ""}
+                        {offer.countryLabel ? ` · ${offer.countryLabel}` : ""}
                       </p>
                       <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
                         {offer.name}

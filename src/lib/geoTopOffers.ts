@@ -13,6 +13,7 @@ import { visitorPageCountry, type VisitorPageCountry } from "@/lib/visitorCountr
 
 const GEO_TOP_PLACEMENT = "geo_top";
 const GEO_TOP_COUNT = 3;
+const FEATURED_COUNT = 6;
 
 const COUNTRY_GO_SLUGS = new Set<string>([
   ...Object.keys(usaGoDestinations),
@@ -33,7 +34,9 @@ type InventoryOffer = {
   category: string;
   description: string;
   image: string;
+  featured?: boolean;
   sponsored?: boolean;
+  country?: string;
 };
 
 export type GeoTopOffer = {
@@ -45,13 +48,26 @@ export type GeoTopOffer = {
   href: string;
 };
 
-/** Existing country inventories, in Offer Master order. */
+export type FeaturedOfferCard = {
+  name: string;
+  slug: string;
+  category: string;
+  description: string;
+  image: string;
+  href: string;
+  featured?: boolean;
+  /** Shown on the card when the visitor has a mapped country inventory. */
+  countryLabel?: string;
+};
+
+/** Existing country inventories, in Offer Master order. AT uses the DE lineup. */
 const INVENTORY_BY_COUNTRY: Record<string, readonly InventoryOffer[]> = {
   us: usaOffers,
   gb: ukOffers,
   ca: canadaOffers,
   au: australiaOffers,
   de: germanyOffers,
+  at: germanyOffers,
   fr: franceOffers,
   dk: denmarkOffers,
 };
@@ -63,11 +79,24 @@ function geoGoSlug(slug: string, suffix: string | null): string {
   return COUNTRY_GO_SLUGS.has(specific) ? specific : slug;
 }
 
+function goParams(
+  page: VisitorPageCountry,
+  placement: string,
+): { country?: string; placement: string } {
+  // Mapped countries keep the page token. Unmapped omit country so /go/ uses edge geo.
+  if (page.country === "global") return { placement };
+  return { country: page.country, placement };
+}
+
 function takeOffers(
   offers: readonly InventoryOffer[],
   page: VisitorPageCountry,
-): GeoTopOffer[] {
-  const picked: GeoTopOffer[] = [];
+  placement: string,
+  limit: number,
+  options?: { includeCountryLabel?: boolean },
+): FeaturedOfferCard[] {
+  const picked: FeaturedOfferCard[] = [];
+  const params = goParams(page, placement);
 
   for (const offer of offers) {
     if (offer.sponsored || !offer.slug) continue;
@@ -78,24 +107,74 @@ function takeOffers(
       category: offer.category,
       description: offer.description,
       image: offer.image,
-      href: getGoHref(slug, { country: page.country, placement: GEO_TOP_PLACEMENT }),
+      featured: offer.featured,
+      href: getGoHref(slug, params),
+      countryLabel: options?.includeCountryLabel
+        ? offer.country?.trim() || undefined
+        : undefined,
     });
-    if (picked.length === GEO_TOP_COUNT) break;
+    if (picked.length === limit) break;
   }
 
   return picked;
 }
 
+function asGeoTop(offers: FeaturedOfferCard[]): GeoTopOffer[] {
+  return offers.map(({ name, slug, category, description, image, href }) => ({
+    name,
+    slug,
+    category,
+    description,
+    image,
+    href,
+  }));
+}
+
+function resolveInventory(code: string): {
+  inventory: readonly InventoryOffer[];
+  page: VisitorPageCountry;
+  mapped: boolean;
+} {
+  const page = visitorPageCountry(code);
+  const inventory = INVENTORY_BY_COUNTRY[code];
+  if (inventory) return { inventory, page, mapped: true };
+  return { inventory: usaOffers, page, mapped: false };
+}
+
 /**
  * First offers in the matching inventory. Unmapped countries, `global`,
- * and an empty match use the homepage list. country= is the country-page token, or global.
+ * and an empty match use the homepage list without a hardcoded country=.
  */
 export function selectGeoTopOffers(country: string): GeoTopOffer[] {
   const code = country.trim().toLowerCase();
-  const page = visitorPageCountry(code);
-  const inventory = INVENTORY_BY_COUNTRY[code];
-  if (!inventory) return takeOffers(usaOffers, page);
+  const { inventory, page, mapped } = resolveInventory(code);
+  const matched = takeOffers(inventory, page, GEO_TOP_PLACEMENT, GEO_TOP_COUNT);
+  if (matched.length > 0) return asGeoTop(matched);
+  if (mapped) {
+    return asGeoTop(takeOffers(usaOffers, page, GEO_TOP_PLACEMENT, GEO_TOP_COUNT));
+  }
+  return asGeoTop(matched);
+}
 
-  const matched = takeOffers(inventory, page);
-  return matched.length > 0 ? matched : takeOffers(usaOffers, page);
+/** Homepage discovery cards for the visitor country. Unmapped visitors get global links. */
+export function selectFeaturedOffers(country: string): FeaturedOfferCard[] {
+  const code = country.trim().toLowerCase();
+  const { inventory, page, mapped } = resolveInventory(code);
+  const unique = inventory.filter(
+    (offer, index, list) =>
+      Boolean(offer.slug) &&
+      !offer.sponsored &&
+      list.findIndex((item) => item.slug === offer.slug) === index,
+  );
+  const matched = takeOffers(unique, page, "card", FEATURED_COUNT, {
+    includeCountryLabel: mapped,
+  });
+  if (matched.length > 0) return matched;
+  return takeOffers(usaOffers, visitorPageCountry("global"), "card", FEATURED_COUNT);
+}
+
+/** DE/AT homepage sponsored strip only. */
+export function showGermanySponsoredStrip(country: string): boolean {
+  const code = country.trim().toLowerCase();
+  return code === "de" || code === "at";
 }

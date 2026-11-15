@@ -108,7 +108,11 @@ function countryForAffiliateSub(country?: string | null): string | null {
   return sanitizeToken(country);
 }
 
-/** Append country/placement on an internal /go/ href. Leaves existing keys and external URLs unchanged. Defaults a missing country to global. */
+/**
+ * Append country/placement on an internal /go/ href. Leaves existing keys and
+ * external URLs unchanged. Does not invent country=global — omit country so
+ * `/go/` can fill aff_sub3 from the visitor's CDN geo header.
+ */
 export function appendGoParams(
   href: string,
   params?: { country?: string | null; placement?: string | null }
@@ -117,16 +121,15 @@ export function appendGoParams(
 
   const url = new URL(href, GO_URL_ORIGIN);
   const hasCountry = url.searchParams.has("country");
+  const country = sanitizeToken(params?.country);
   const placement = sanitizeToken(params?.placement);
+  const needsCountry = Boolean(country) && !hasCountry;
   const needsPlacement = Boolean(placement) && !url.searchParams.has("placement");
 
-  if (hasCountry && !needsPlacement) return href;
+  if (!needsCountry && !needsPlacement) return href;
 
-  if (!hasCountry) {
-    url.searchParams.set(
-      "country",
-      sanitizeToken(params?.country) ?? DEFAULT_GO_COUNTRY
-    );
+  if (needsCountry && country) {
+    url.searchParams.set("country", country);
   }
   if (needsPlacement && placement) {
     url.searchParams.set("placement", placement);

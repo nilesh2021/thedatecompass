@@ -5,7 +5,13 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, ShieldCheck, Globe } from "lucide-react";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { usaCategories } from "@/data/usaOffers";
+import { getGoHref } from "@/lib/affiliateUrl";
 import { trackAffiliateClick } from "@/lib/analytics";
+
+function categoryGoHref(href: string): string {
+  const slug = href.split("?")[0]?.replace(/^\/go\//, "") ?? "";
+  return slug ? getGoHref(slug, { placement: "card" }) : href;
+}
 
 const homeCategories = usaCategories.filter((category) =>
   ["casual", "gay-dating", "mature", "adult"].includes(category.slug)
@@ -74,9 +80,8 @@ export default function Categories() {
 
                 <div className="mt-5 grid gap-2">
                   <TrackedAffiliateLink
-                    href={category.href}
+                    href={categoryGoHref(category.href)}
                     placement="card"
-                    country="usa"
                     target="_blank"
                     rel="sponsored nofollow noopener noreferrer"
                     className="tdc-btn-primary w-full py-3 text-xs"

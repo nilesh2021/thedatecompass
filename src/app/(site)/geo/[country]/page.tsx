@@ -8,7 +8,7 @@ const COUNTRY_PARAM = /^(?:global|[a-z]{2})$/;
 export const metadata: Metadata = homeMetadata;
 
 export function generateStaticParams() {
-  return ["global", "us", "gb", "ca", "au", "de", "fr", "dk"].map((country) => ({
+  return ["global", "us", "gb", "ca", "au", "de", "at", "fr", "dk"].map((country) => ({
     country,
   }));
 }

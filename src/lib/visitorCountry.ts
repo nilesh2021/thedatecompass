@@ -11,6 +11,8 @@ const PAGE_COUNTRY_BY_ISO = {
   ca: { country: "canada", goSlugSuffix: "ca" },
   au: { country: "australia", goSlugSuffix: "au" },
   de: { country: "germany", goSlugSuffix: "de" },
+  /** Austria uses the Germany inventory; country-specific /go/ slugs use -at. */
+  at: { country: "germany", goSlugSuffix: "at" },
   fr: { country: "france", goSlugSuffix: "fr" },
   dk: { country: "denmark", goSlugSuffix: "dk" },
 } as const;

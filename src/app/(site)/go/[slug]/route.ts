@@ -14,11 +14,11 @@ import { usaGoDestinations } from "@/data/usaOffers";
 import {
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
-  readCountryFromRequest,
   readPlacementFromRequest,
   resolveAffiliateCountryFromRequest,
   withAffiliateSourceTags,
 } from "@/lib/affiliateUrl";
+import { isGoBotUserAgent } from "@/lib/goBot";
 import { notFound, redirect } from "next/navigation";
 
 type RouteContext = {
@@ -40,6 +40,10 @@ function resolveGoDestination(
 }
 
 export async function GET(request: Request, context: RouteContext) {
+  if (isGoBotUserAgent(request.headers.get("user-agent"))) {
+    return new Response(null, { status: 204 });
+  }
+
   const { slug } = await context.params;
   const key = slug.toLowerCase();
   const affiliateCountry = resolveAffiliateCountryFromRequest(request);
@@ -64,10 +68,10 @@ export async function GET(request: Request, context: RouteContext) {
 
   const outbound = resolveGoDestination(key, destination, affiliateCountry);
 
-  // aff_sub2 is always thedatecompass. aff_sub3 is ?country=, including global.
-  // Visitor geo fills aff_sub3 only when country is omitted. aff_sub is attached later for a paid click_id.
+  // aff_sub2 is always thedatecompass. aff_sub3 is explicit ?country= when set
+  // (and not global); otherwise the visitor CDN geo. aff_sub comes from click_id.
   const located = withAffiliateSourceTags(outbound, {
-    country: readCountryFromRequest(request) ?? affiliateCountry,
+    country: affiliateCountry,
     placement: readPlacementFromRequest(request),
   });
 

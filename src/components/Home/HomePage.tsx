@@ -8,6 +8,7 @@ import { CountriesOpenProvider } from "@/components/Home/CountriesOpen";
 import FAQ from "@/components/Home/FAQ";
 import NoiseOverlay from "@/components/theme/NoiseOverlay";
 import GermanySponsoredStrip from "@/components/country/germany/GermanySponsoredStrip";
+import { showGermanySponsoredStrip } from "@/lib/geoTopOffers";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -39,8 +40,8 @@ export default function HomePage({ country }: { country: string }) {
         <Hero />
         <GeoTopOffers country={country} />
         <CountriesOpenProvider>
-          <FeaturedOffers />
-          <GermanySponsoredStrip />
+          <FeaturedOffers country={country} />
+          {showGermanySponsoredStrip(country) ? <GermanySponsoredStrip /> : null}
           <CountriesGate />
         </CountriesOpenProvider>
         <FAQ />
