@@ -4,6 +4,12 @@
  * Inventory ordered by Offer Master priority for France.
  */
 
+import {
+  FETISHPARTNER_TRACKING_URL,
+  GRANNY_HUNTER_TRACKING_URL,
+  MANFINDER_TRACKING_URL,
+  REAL_SEX_CLUB_TRACKING_URL,
+} from "@/data/affiliateTracking";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 import { getGoHref } from "@/lib/affiliateUrl";
 
@@ -72,10 +78,10 @@ export function getFranceReviewHref(offer: Pick<FranceOffer, "slug">): string | 
  * instead of overwriting the shared entry.
  */
 export const franceGoDestinations: Record<string, string> = {
-  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  fetishpartner: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: GRANNY_HUNTER_TRACKING_URL,
+  manfinder: MANFINDER_TRACKING_URL,
+  realsexclub: REAL_SEX_CLUB_TRACKING_URL,
+  fetishpartner: FETISHPARTNER_TRACKING_URL,
 };
 
 const PRICE_NOTE = "See provider site";

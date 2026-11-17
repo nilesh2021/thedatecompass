@@ -84,7 +84,6 @@ const PUBLIC_ROUTES: string[] = [
   "/offers/milf-dating",
   "/offers/realsexclub",
   "/offers/realsexclub-denmark",
-  "/offers/sex-emulator",
   "/offers/sinparty",
   "/offers/singleflirt",
   "/offers/transdate-dating",

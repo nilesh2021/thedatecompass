@@ -1,16 +1,5 @@
-import { fuckFinderCountryDestinations } from "@/data/fuckFinderCountryPages";
-import { manfinderCountryDestinations } from "@/data/manfinderCountryPages";
-import { fetishPartnerCountryDestinations } from "@/data/fetishPartnerCountryPages";
-import { australiaGoDestinations } from "@/data/countries/australia";
-import { canadaGoDestinations } from "@/data/countries/canada";
-import { denmarkGoDestinations } from "@/data/countries/denmark";
-import { franceGoDestinations } from "@/data/countries/france";
-import { ukGoDestinations } from "@/data/countries/uk";
 import { germanyGoDestinations } from "@/data/germanyOffers";
-import { beijosquentesGoDestinations } from "@/data/beijosquentesOffers";
-import { sinpartyGoDestinations } from "@/data/sinpartyOffers";
-import { singleflirtGoDestinations } from "@/data/singleflirtOffers";
-import { usaGoDestinations } from "@/data/usaOffers";
+import { lookupGoDestination } from "@/data/resolveGoDestination";
 import {
   buildTrackedAffiliateUrl,
   readClickIdFromRequest,
@@ -47,20 +36,7 @@ export async function GET(request: Request, context: RouteContext) {
   const { slug } = await context.params;
   const key = slug.toLowerCase();
   const affiliateCountry = resolveAffiliateCountryFromRequest(request);
-  const destination =
-    beijosquentesGoDestinations[key] ??
-    sinpartyGoDestinations[key] ??
-    singleflirtGoDestinations[key] ??
-    usaGoDestinations[key] ??
-    germanyGoDestinations[key] ??
-    franceGoDestinations[key] ??
-    canadaGoDestinations[key] ??
-    australiaGoDestinations[key] ??
-    ukGoDestinations[key] ??
-    denmarkGoDestinations[key] ??
-    fetishPartnerCountryDestinations[key] ??
-    fuckFinderCountryDestinations[key] ??
-    manfinderCountryDestinations[key];
+  const destination = lookupGoDestination(key);
 
   if (!destination) {
     notFound();

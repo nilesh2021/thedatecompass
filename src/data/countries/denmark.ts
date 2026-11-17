@@ -4,6 +4,15 @@
  * Denmark availability is not independently verified.
  */
 
+import {
+  DIRTYDATING_TRACKING_URL,
+  FETISHPARTNER_TRACKING_URL,
+  FUCKFINDER_TRACKING_URL,
+  GRANNY_HUNTER_TRACKING_URL,
+  MANFINDER_TRACKING_URL,
+  REAL_SEX_CLUB_TRACKING_URL,
+  TRANS_DATE_TRACKING_URL,
+} from "@/data/affiliateTracking";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 import { getGoHref } from "@/lib/affiliateUrl";
 
@@ -39,13 +48,13 @@ export const DENMARK_PAGE_LAST_UPDATED = {
 };
 
 const URLS = {
-  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  dirtydating: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
-  fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
-  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-  transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
-  fetishpartner: "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  realsexclub: REAL_SEX_CLUB_TRACKING_URL,
+  dirtydating: DIRTYDATING_TRACKING_URL,
+  fuckfinder: FUCKFINDER_TRACKING_URL,
+  grannyhunter: GRANNY_HUNTER_TRACKING_URL,
+  manfinder: MANFINDER_TRACKING_URL,
+  transdate: TRANS_DATE_TRACKING_URL,
+  fetishpartner: FETISHPARTNER_TRACKING_URL,
 } as const;
 
 export const denmarkGoDestinations: Record<string, string> = { ...URLS };

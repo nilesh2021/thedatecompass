@@ -1,5 +1,5 @@
-import SexEmulatorLanding from "@/components/landing/SexEmulatorLanding";
+import { redirect } from "next/navigation";
 
 export default function SexEmulatorOfferPage() {
-  return <SexEmulatorLanding />;
+  redirect("/top-offers/adult");
 }

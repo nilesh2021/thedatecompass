@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { MANFINDER_TRACKING_URL } from "@/data/affiliateTracking";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 
 export const MANFINDER_SITE_URL = "https://www.thedatecompass.com";
 export const MANFINDER_GENERAL_PATH = "/offers/manfinder";
 
-const OFFER_URL = "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN";
+const OFFER_URL = MANFINDER_TRACKING_URL;
 
 export type ManfinderFaq = { question: string; answer: string };
 export type ManfinderFact = { label: string; value: string };

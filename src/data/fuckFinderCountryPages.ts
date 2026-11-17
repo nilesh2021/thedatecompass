@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { FUCKFINDER_TRACKING_URL } from "@/data/affiliateTracking";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 
 export const FUCKFINDER_SITE_URL = "https://www.thedatecompass.com";
 export const FUCKFINDER_GENERAL_PATH = "/offers/casual-dating";
 
-const OFFER_URL = "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN";
+const OFFER_URL = FUCKFINDER_TRACKING_URL;
 
 export type FuckFinderFaq = { question: string; answer: string };
 export type FuckFinderFact = { label: string; value: string };

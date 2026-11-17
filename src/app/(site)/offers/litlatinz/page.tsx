@@ -1,24 +1,5 @@
-import type { Metadata } from "next";
-import OfferLandingPage from "@/components/landing/OfferLandingPage";
-import { getOfferPageData } from "@/data/offerLandingData";
-
-const SLUG = "litlatinz";
-
-const data = getOfferPageData(SLUG);
-
-export const metadata: Metadata = {
-  title: "LitLatinz | TheDateCompass",
-  description: "Placeholder page for LitLatinz.",
-  alternates: {
-    canonical: "https://www.thedatecompass.com/offers/litlatinz",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+import { redirect } from "next/navigation";
 
 export default function LitLatinzPage() {
-  if (!data) return null;
-  return <div className="pb-24 font-sans lg:pb-0"><OfferLandingPage data={data} /></div>;
+  redirect("/top-offers/adult");
 }

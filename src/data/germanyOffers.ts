@@ -1,4 +1,14 @@
 import { getOfferAdultImage } from "@/data/adultOfferImages";
+import {
+  DIRTYDATING_TRACKING_URL,
+  FETISHPARTNER_TRACKING_URL,
+  FREMDGEHEN69_TRACKING_URL,
+  FUCKFINDER_TRACKING_URL,
+  GRANNY_HUNTER_TRACKING_URL,
+  MANFINDER_TRACKING_URL,
+  REAL_SEX_CLUB_TRACKING_URL,
+  TRANS_DATE_TRACKING_URL,
+} from "@/data/affiliateTracking";
 import { getGoHref } from "@/lib/affiliateUrl";
 
 export type GermanyOffer = {
@@ -96,21 +106,17 @@ export function getGermanyReviewHref(offer: Pick<GermanyOffer, "slug">): string 
  * overwriting the USA entry.
  */
 export const germanyGoDestinations: Record<string, string> = {
-  dirtydating: "https://t.aslr1.com/358917/5421?aff_sub5=SF_006OG000004lmDN",
-  fuckfinder: "https://t.aslr1.com/358917/7346?aff_sub5=SF_006OG000004lmDN",
-  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  grannyhunter:
-    "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-  transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
-  fetishpartner:
-    "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
-  // Germany-only tracker for /de/fetishpartner. Do not reuse this slug in other countries.
-  "fetishpartner-de":
-    "https://t.datsk3.com/358917/5055?aff_sub5=SF_006OG000004lmDN",
+  dirtydating: DIRTYDATING_TRACKING_URL,
+  fuckfinder: FUCKFINDER_TRACKING_URL,
+  realsexclub: REAL_SEX_CLUB_TRACKING_URL,
+  grannyhunter: GRANNY_HUNTER_TRACKING_URL,
+  manfinder: MANFINDER_TRACKING_URL,
+  transdate: TRANS_DATE_TRACKING_URL,
+  fetishpartner: FETISHPARTNER_TRACKING_URL,
+  // Germany-only slug for /de/fetishpartner — same Crak offer as default fetishpartner.
+  "fetishpartner-de": FETISHPARTNER_TRACKING_URL,
   // CrakRevenue SOI. Placement is added as aff_sub4 on redirect. Do not set aff_sub here.
-  fremdgehen69:
-    "https://t.datsk3.com/358917/5282/0?po=6456&aff_sub5=SF_006OG000004lmDN",
+  fremdgehen69: FREMDGEHEN69_TRACKING_URL,
 };
 
 const PRICE_NOTE = "See provider site";

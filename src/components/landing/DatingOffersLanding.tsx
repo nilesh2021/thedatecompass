@@ -7,7 +7,7 @@ import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateL
 import { appendGoPlacement } from "@/lib/affiliateUrl";
 import "@/app/top-offers/sparq.css";
 
-const AFFILIATE_LINK = "/go/dreamz";
+const AFFILIATE_LINK = "/go/cheekycrush";
 
 const navLinks = [
   { label: "Pricing", href: "#offers" },

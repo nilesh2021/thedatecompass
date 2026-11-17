@@ -8,7 +8,7 @@ import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateL
 import { trackAffiliateClick } from "@/lib/analytics";
 import { appendGoPlacement } from "@/lib/affiliateUrl";
 
-const AFFILIATE_URL = "/go/dreamz";
+const AFFILIATE_URL = "/top-offers";
 const OFFER_NAME = "Dreamz.ai";
 
 export default function AIGirlfriendLanding() {

@@ -116,12 +116,6 @@ const extras: CatalogOffer[] = [
     path: "/offers/gay-dating-sites",
   },
   {
-    name: "Virtual Experience",
-    category: "Adult dating",
-    href: "/offers/sex-emulator",
-    path: "/offers/sex-emulator",
-  },
-  {
     name: "BeijosQuentes",
     category: "Romantic dating",
     href: "/offers/beijosquentes",

@@ -21,7 +21,7 @@ export const dreamzOffer: AiGirlfriendOffer = {
     "Private chat",
     "Mobile friendly",
   ],
-  url: "/go/dreamz",
+  url: "/top-offers",
   promo: "Free to start",
 };
 export const aiGirlfriendOffers: AiGirlfriendOffer[] = [

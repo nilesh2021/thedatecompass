@@ -1,3 +1,13 @@
+import {
+  CHEEKYCRUSH_TRACKING_URL,
+  GAYBLOOM_TRACKING_URL,
+  GRANNY_HUNTER_TRACKING_URL,
+  MANFINDER_TRACKING_URL,
+  MILFFINDER_TRACKING_URL,
+  NAUGHTYCHARM_TRACKING_URL,
+  REAL_SEX_CLUB_TRACKING_URL,
+  TRANS_DATE_TRACKING_URL,
+} from "@/data/affiliateTracking";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 import { getGoHref } from "@/lib/affiliateUrl";
 
@@ -47,20 +57,14 @@ export function getUsaReviewHref(offer: UsaOffer): string | null {
 
 /** Affiliate tracking URLs for `/go/[slug]` redirects (not exposed in page HTML). */
 export const usaGoDestinations: Record<string, string> = {
-  grannyhunter:
-    "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  manfinder: "https://t.aslr1.com/358917/6488?aff_sub5=SF_006OG000004lmDN",
-  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
-  milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
-  cheekycrush:
-    "https://t.datsk3.com/358917/10377/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-  gaybloom:
-    "https://t.aslr1.com/358917/10378/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-  naughtycharm:
-    "https://t.datsk3.com/358917/10376/0?po=6456&aff_sub5=SF_006OG000004lmDN",
-  "sex-emulator":
-    "https://t.bbwafx.com/358917/9294/0?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: GRANNY_HUNTER_TRACKING_URL,
+  manfinder: MANFINDER_TRACKING_URL,
+  realsexclub: REAL_SEX_CLUB_TRACKING_URL,
+  transdate: TRANS_DATE_TRACKING_URL,
+  milffinder: MILFFINDER_TRACKING_URL,
+  cheekycrush: CHEEKYCRUSH_TRACKING_URL,
+  gaybloom: GAYBLOOM_TRACKING_URL,
+  naughtycharm: NAUGHTYCHARM_TRACKING_URL,
 };
 
 export function getUsaGoHref(slug: string): string {

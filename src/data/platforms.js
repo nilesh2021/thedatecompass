@@ -67,39 +67,6 @@ const platforms = [
 },
 
   {
-  id: 3,
-  slug: "litlatinz",
-  name: "LitLatinz",
-
-  featured: true,
-
-  badge: "Popular",
-
-  rating: 4.7,
-  reviews: 161,
-
-  bestFor: "Latino Casual Dating",
-
-  category: "Casual Dating",
-
-  country: ["US", "CA"],
-
-  logo: "https://api.dicebear.com/9.x/shapes/svg?seed=LitLatinz",
-
-  description:
-    "LitLatinz is a casual dating platform designed for users seeking flirty conversations and passionate encounters within the Latino community.",
-
-  features: [
-    "Latino Community",
-    "Casual Dating",
-    "Private Messaging",
-    "Mobile Friendly",
-  ],
-
-  affiliateLink: "/go/litlatinz",
-},
-
-  {
   id: 4,
   slug: "naughtycharm",
   name: "NaughtyCharm",
@@ -130,38 +97,6 @@ const platforms = [
   ],
 
   affiliateLink: "/go/naughtycharm",
-},
-  {
-  id: 5,
-  slug: "pridepair",
-  name: "PridePair",
-
-  featured: true,
-
-  badge: "Inclusive",
-
-  rating: 4.8,
-  reviews: 170,
-
-  bestFor: "LGBTQ+ Dating",
-
-  category: "LGBTQ+ Dating",
-
-  country: ["US"],
-
-  logo: "https://api.dicebear.com/9.x/shapes/svg?seed=PridePair",
-
-  description:
-    "PridePair is an inclusive LGBTQ+ dating platform where users can match, chat, and connect with like-minded people.",
-
-  features: [
-    "LGBTQ+ Community",
-    "Smart Matching",
-    "Private Messaging",
-    "Mobile Friendly",
-  ],
-
-  affiliateLink: "/go/pridepair",
 },
 
   {
@@ -254,29 +189,6 @@ const platforms = [
       "Safe Community",
     ],
     affiliateLink: "/go/transdate",
-  },
-
-  {
-    id: 10,
-    slug: "sexyfans",
-    name: "SexyFans",
-    featured: false,
-    badge: "Trending",
-    rating: 4.7,
-    reviews: 144,
-    bestFor: "Premium Content",
-    category: "Adult Content",
-    country: ["US", "CA"],
-    logo: "https://api.dicebear.com/9.x/shapes/svg?seed=SexyFans",
-    description:
-      "Explore premium creator content and exclusive interactions.",
-    features: [
-      "Premium Content",
-      "Private Chat",
-      "Verified",
-      "Mobile Friendly",
-    ],
-    affiliateLink: "#",
   },
 ];
 

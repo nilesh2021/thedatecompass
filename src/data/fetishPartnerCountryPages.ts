@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { FETISHPARTNER_TRACKING_URL } from "@/data/affiliateTracking";
 
 export const FETISHPARTNER_SITE_URL = "https://www.thedatecompass.com";
 
-const OFFER_URL = "https://t.aslr1.com/358917/5055?aff_sub5=SF_006OG000004lmDN";
+const OFFER_URL = FETISHPARTNER_TRACKING_URL;
 
 export type FetishPartnerFaq = { question: string; answer: string };
 export type FetishPartnerFact = { label: string; value: string };

@@ -130,6 +130,56 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/offers/sex-emulator",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/offers/sex-emulator/",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/go/sex-emulator",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/go/sex-emulator/",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/go/dreamz",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/go/dreamz/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/go/litlatinz",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/go/litlatinz/",
+        destination: "/top-offers/adult",
+        permanent: true,
+      },
+      {
+        source: "/go/pridepair",
+        destination: "/gay-dating",
+        permanent: true,
+      },
+      {
+        source: "/go/pridepair/",
+        destination: "/gay-dating",
+        permanent: true,
+      },
+      {
         source: "/offers/litlatinz",
         destination: "/top-offers/adult",
         permanent: true,

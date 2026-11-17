@@ -2,7 +2,7 @@
 
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 
-export const SEX_EMULATOR_AFFILIATE_URL = "/go/sex-emulator";
+export const SEX_EMULATOR_AFFILIATE_URL = "/top-offers/adult";
 
 export const SEX_EMULATOR_CTA_REL =
   "sponsored nofollow noopener noreferrer";

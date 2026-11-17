@@ -1,3 +1,5 @@
+import { SINGLEFLIRT_TRACKING_URL } from "@/data/affiliateTracking";
+
 /**
  * Singleflirt landing — /offers/singleflirt
  * Public CTAs use /go/singleflirt. The tracking URL stays in the go map.
@@ -8,8 +10,7 @@
 export const SINGLEFLIRT_AFFILIATE_URL = "/go/singleflirt";
 
 export const singleflirtGoDestinations: Record<string, string> = {
-  singleflirt:
-    "https://t.datsk3.com/358917/5528?aff_sub5=SF_006OG000004lmDN",
+  singleflirt: SINGLEFLIRT_TRACKING_URL,
 };
 
 export const singleflirtOffer = {

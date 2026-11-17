@@ -4,6 +4,12 @@
  * SexyFans / WannaHookup omitted — no real affiliate URL exists in project data.
  */
 
+import {
+  GRANNY_HUNTER_TRACKING_URL,
+  MILFFINDER_TRACKING_URL,
+  REAL_SEX_CLUB_TRACKING_URL,
+  TRANS_DATE_TRACKING_URL,
+} from "@/data/affiliateTracking";
 import { getOfferAdultImage } from "@/data/adultOfferImages";
 import { getGoHref } from "@/lib/affiliateUrl";
 
@@ -37,10 +43,10 @@ export const UK_PAGE_LAST_UPDATED = {
 };
 
 const URLS = {
-  grannyhunter: "https://t.datsk3.com/358917/7570?aff_sub5=SF_006OG000004lmDN",
-  milffinder: "https://t.datsk3.com/358917/4999?aff_sub5=SF_006OG000004lmDN",
-  realsexclub: "https://t.aslr1.com/358917/7964?aff_sub5=SF_006OG000004lmDN",
-  transdate: "https://t.aslr1.com/358917/6497?aff_sub5=SF_006OG000004lmDN",
+  grannyhunter: GRANNY_HUNTER_TRACKING_URL,
+  milffinder: MILFFINDER_TRACKING_URL,
+  realsexclub: REAL_SEX_CLUB_TRACKING_URL,
+  transdate: TRANS_DATE_TRACKING_URL,
 } as const;
 
 export const ukGoDestinations: Record<string, string> = { ...URLS };

@@ -1,3 +1,5 @@
+import { SINPARTY_TRACKING_URL } from "@/data/affiliateTracking";
+
 /**
  * SinParty landing — /offers/sinparty
  * Public CTAs use /go/sinparty. The tracking URL stays in the go map.
@@ -7,8 +9,7 @@
 export const SINPARTY_AFFILIATE_URL = "/go/sinparty";
 
 export const sinpartyGoDestinations: Record<string, string> = {
-  sinparty:
-    "https://t.camsk5.com/358917/10525/0?po=6533&aff_sub5=SF_006OG000004lmDN",
+  sinparty: SINPARTY_TRACKING_URL,
 };
 
 export const sinpartyOffer = {
