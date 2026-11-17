@@ -2,10 +2,11 @@
  * TransDate Dating single-offer page copy.
  */
 
+import { getOfferVisuals } from "@/data/adultOfferImages";
+
 export const TRANSDATE_AFFILIATE_URL = "/go/transdate";
 
-const TD_PHOTO =
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac";
+const transDateVisualSet = getOfferVisuals("transdate");
 
 export const transDateOffer = {
   name: "TransDate",
@@ -26,10 +27,10 @@ export const transDateOffer = {
 } as const;
 
 export const transDateVisuals = {
-  hero: `${TD_PHOTO}?auto=format&fit=crop&w=1800&q=80`,
-  community: `${TD_PHOTO}?auto=format&fit=crop&w=1400&h=800&q=80`,
-  connect: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&h=700&q=80",
-  profile: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&h=700&q=80",
+  hero: transDateVisualSet.hero,
+  community: transDateVisualSet.wide,
+  connect: transDateVisualSet.side,
+  profile: transDateVisualSet.portrait,
 } as const;
 
 export const transDateSteps = [

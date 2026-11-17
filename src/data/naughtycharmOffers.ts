@@ -1,3 +1,5 @@
+import { getOfferHeroImage } from "@/data/adultOfferImages";
+
 /**
  * NaughtyCharm prelander — /offers/naughtycharm
  * Public CTAs use /go/naughtycharm. The tracking URL stays in usaGoDestinations.
@@ -21,7 +23,7 @@ export const naughtycharmOffer = {
 } as const;
 
 export const naughtycharmVisuals = {
-  hero: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1600&q=80",
+  hero: getOfferHeroImage("naughtycharm"),
 } as const;
 
 export const naughtycharmAges = Array.from({ length: 78 - 18 + 1 }, (_, index) =>

@@ -3,10 +3,11 @@
  * Affiliate URL and product facts are taken from existing project listings only.
  */
 
+import { getOfferAdultImage, getOfferVisuals } from "@/data/adultOfferImages";
+
 export const MANFINDER_AFFILIATE_URL = "/go/manfinder";
 
-const MF_PHOTO =
-  "https://images.unsplash.com/photo-1579650382425-256093056bca";
+const manFinderVisualSet = getOfferVisuals("manfinder");
 
 export const manFinderOffer = {
   name: "ManFinder",
@@ -26,40 +27,31 @@ export const manFinderOffer = {
   promo: "Prices on the provider site",
 } as const;
 
-export const manFinderVisuals = {
-  hero: `${MF_PHOTO}?auto=format&fit=crop&w=1800&q=80`,
-  portrait: `${MF_PHOTO}?auto=format&fit=crop&w=900&h=1200&q=80`,
-  wide: `${MF_PHOTO}?auto=format&fit=crop&w=1800&h=900&q=80`,
-  side: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&h=1200&q=80",
-} as const;
+export const manFinderVisuals = manFinderVisualSet;
 
 export const manFinderExploreCards = [
   {
     title: "Men seeking men",
     text: "Browse and connect with guys looking for dates, chat, and real connections.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: getOfferAdultImage("gaybloom"),
     objectPosition: "center 20%",
   },
   {
     title: "Private messaging",
     text: "Message matches directly and start conversations on your terms.",
-    image:
-      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: manFinderVisualSet.portrait,
     objectPosition: "center top",
   },
   {
     title: "Quick signup",
     text: "Create a profile and start browsing in minutes on desktop or mobile.",
-    image:
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: manFinderVisualSet.wide,
     objectPosition: "center 30%",
   },
   {
     title: "Dating + social",
     text: "A platform built for gay dating and social connections between men.",
-    image:
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: manFinderVisualSet.side,
     objectPosition: "center top",
   },
 ] as const;

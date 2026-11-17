@@ -2,7 +2,7 @@
  * FuckFinder single-offer page — /offers/casual-dating
  */
 
-import { adultImages } from "@/data/adultOfferImages";
+import { getOfferVisuals } from "@/data/adultOfferImages";
 
 export const CASUAL_DATING_AFFILIATE_URL = "/go/fuckfinder";
 
@@ -28,12 +28,7 @@ export const casualDatingOffer = {
   promo: "Prices on the provider site",
 } as const;
 
-export const casualDatingVisuals = {
-  hero: adultImages.portraitA,
-  portrait: adultImages.portraitB,
-  wide: adultImages.gay,
-  side: adultImages.alt,
-} as const;
+export const casualDatingVisuals = getOfferVisuals("fuckfinder");
 
 export const casualDatingSteps = [
   {

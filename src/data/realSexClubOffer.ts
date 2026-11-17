@@ -3,30 +3,34 @@
  * Affiliate URL and product facts are taken from existing project listings only.
  */
 
+import {
+  getOfferAdultImage,
+  getOfferVisuals,
+} from "@/data/adultOfferImages";
+
 export const REALSEXCLUB_AFFILIATE_URL = "/go/realsexclub";
 
-const RSC_PHOTO =
-  "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2";
+const rscVisuals = getOfferVisuals("realsexclub");
 
 export const realSexClubOffer = {
   name: "RealSexClub",
   category: "Adult dating",
   url: REALSEXCLUB_AFFILIATE_URL,
   ctaLabel: "Visit RealSexClub",
-  image: `${RSC_PHOTO}?auto=format&fit=crop&w=1800&q=80`,
+  image: getOfferAdultImage("realsexclub"),
   description:
     "An adult social and dating option for people looking for direct connections.",
 } as const;
 
-/** Same RealSexClub listing photo, cropped for editorial layouts. */
+/** RealSexClub listing photo, cropped for editorial layouts. */
 export const realSexClubVisuals = {
-  hero: `${RSC_PHOTO}?auto=format&fit=crop&w=1800&q=80`,
-  portrait: `${RSC_PHOTO}?auto=format&fit=crop&w=900&h=1200&q=80`,
-  wide: `${RSC_PHOTO}?auto=format&fit=crop&w=1800&h=900&q=80`,
-  faces: `${RSC_PHOTO}?auto=format&fit=crop&w=800&h=1000&q=80&crop=faces`,
-  entropy: `${RSC_PHOTO}?auto=format&fit=crop&w=800&h=1000&q=80&crop=entropy`,
-  edges: `${RSC_PHOTO}?auto=format&fit=crop&w=800&h=1000&q=80&crop=edges`,
-  top: `${RSC_PHOTO}?auto=format&fit=crop&w=800&h=1000&q=80&crop=top`,
+  hero: rscVisuals.hero,
+  portrait: rscVisuals.portrait,
+  wide: rscVisuals.wide,
+  faces: `${rscVisuals.portrait.split("?")[0]}?auto=format&fit=crop&w=800&h=1000&q=80&crop=faces`,
+  entropy: `${rscVisuals.portrait.split("?")[0]}?auto=format&fit=crop&w=800&h=1000&q=80&crop=entropy`,
+  edges: `${rscVisuals.wide.split("?")[0]}?auto=format&fit=crop&w=800&h=1000&q=80&crop=edges`,
+  top: `${rscVisuals.hero.split("?")[0]}?auto=format&fit=crop&w=800&h=1000&q=80&crop=top`,
 } as const;
 
 export const realSexClubFeatures = [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FETISHPARTNER_TRACKING_URL } from "@/data/affiliateTracking";
+import { getAbsoluteOfferImageUrl } from "@/data/adultOfferImages";
 
 export const FETISHPARTNER_SITE_URL = "https://www.thedatecompass.com";
 
@@ -1312,7 +1313,7 @@ export function fetishPartnerLanguageAlternates(): Record<string, string> {
 
 export function fetishPartnerCountryMetadata(page: FetishPartnerCountryPage): Metadata {
   const url = `${FETISHPARTNER_SITE_URL}${page.path}`;
-  const image = `${FETISHPARTNER_SITE_URL}/images/extra/a.jpg`;
+  const image = getAbsoluteOfferImageUrl("fetishpartner", FETISHPARTNER_SITE_URL);
   return {
     title: { absolute: page.title },
     description: page.description,

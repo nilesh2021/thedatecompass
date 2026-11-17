@@ -1,3 +1,5 @@
+import { getOfferVisuals } from "@/data/adultOfferImages";
+
 /**
  * BeijosQuentes landing — /offers/beijosquentes
  * Public CTAs use /go/beijosquentes. The tracking URL stays in the go map.
@@ -24,12 +26,7 @@ export const beijosquentesOffer = {
   promo: "Free to start",
 } as const;
 
-export const beijosquentesVisuals = {
-  hero: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1800&q=80",
-  portrait:
-    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&h=1200&q=80",
-  wide: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1800&h=900&q=80",
-} as const;
+export const beijosquentesVisuals = getOfferVisuals("beijosquentes");
 
 export const beijosquentesSteps = [
   {

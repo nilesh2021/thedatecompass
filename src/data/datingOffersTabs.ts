@@ -98,7 +98,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Mobile friendly",
         ],
         url: "/go/gaybloom",
-        logo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+        logo: getOfferAdultImage("gaybloom"),
         featured: true,
       },
       {
@@ -116,7 +116,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Private messaging",
         ],
         url: "/go/manfinder",
-        logo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+        logo: getOfferAdultImage("manfinder"),
       },
       {
         id: "transdate",
@@ -133,7 +133,7 @@ export const datingOfferTabs: OfferTab[] = [
           "Supportive community",
         ],
         url: "/go/transdate",
-        logo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80",
+        logo: getOfferAdultImage("transdate"),
       },
     ],
   },

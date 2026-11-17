@@ -46,8 +46,7 @@ export const milfDatingAcceptedCountries = [
   "United States",
 ] as const;
 
-const MF_PHOTO =
-  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2";
+import { getOfferVisuals } from "@/data/adultOfferImages";
 
 export const milfDatingOffer = {
   name: "MilfFinder",
@@ -68,40 +67,32 @@ export const milfDatingOffer = {
   promo: "Free to join",
 } as const;
 
-export const milfDatingVisuals = {
-  hero: `${MF_PHOTO}?auto=format&fit=crop&w=1800&q=80`,
-  portrait: `${MF_PHOTO}?auto=format&fit=crop&w=900&h=1200&q=80`,
-  wide: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1800&h=900&q=80",
-  side: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&h=1200&q=80",
-} as const;
+const milfVisuals = getOfferVisuals("milffinder");
+export const milfDatingVisuals = milfVisuals;
 
 export const milfDatingExploreCards = [
   {
     title: "Mature singles",
     text: "Browse profiles from adults who prefer meaningful, low-pressure connections.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: milfVisuals.portrait,
     objectPosition: "center 20%",
   },
   {
     title: "Private messaging",
     text: "Start conversations privately and explore chemistry at your own pace.",
-    image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: milfVisuals.wide,
     objectPosition: "center top",
   },
   {
     title: "Accepted countries",
     text: "Open it where MilfFinder accepts members, then connect from there.",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: milfVisuals.side,
     objectPosition: "center 30%",
   },
   {
     title: "Quick signup",
     text: "Create a profile in minutes on desktop or mobile and start browsing.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&h=1000&q=80",
+    image: milfVisuals.hero,
     objectPosition: "center top",
   },
 ] as const;

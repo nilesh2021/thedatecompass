@@ -143,7 +143,7 @@ const DATA: Record<string, OfferItem[]> = {
         "Inclusive dating for trans connections with clear preferences and respectful private messaging.",
       url: "/go/transdate",
       featured: true,
-      image: IMG.companion5,
+      image: getOfferAdultImage("transdate"),
       highlights: [
         "Trans-inclusive",
         "Clear preferences",

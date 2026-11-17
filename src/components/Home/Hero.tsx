@@ -7,17 +7,17 @@ import MarqueeBand from "@/components/theme/MarqueeBand";
 const heroVisuals = [
   {
     name: "Casual nights",
-    image: adultImages.portraitA,
+    image: adultImages.portraitB,
     className: "row-span-2 h-[420px] xl:h-[520px]",
   },
   {
     name: "Gay dating",
-    image: adultImages.gay,
+    image: adultImages.gaybloom,
     className: "h-[200px] xl:h-[250px]",
   },
   {
     name: "Mature desire",
-    image: adultImages.stairs,
+    image: adultImages.portraitE,
     className: "h-[200px] xl:h-[250px]",
   },
 ];

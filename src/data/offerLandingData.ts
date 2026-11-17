@@ -1,3 +1,5 @@
+import { getOfferAdultImage } from "@/data/adultOfferImages";
+
 const PLACEHOLDER = "https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80";
 
 export type OfferData = {
@@ -30,8 +32,12 @@ const makeOffer = (slug: string): OfferData => {
     slug,
     category: "Adult dating",
     shortDescription: `Placeholder short description for ${name}. Replace with real copy.`,
-    heroImage: PLACEHOLDER,
-    galleryImages: [PLACEHOLDER, PLACEHOLDER, PLACEHOLDER],
+    heroImage: getOfferAdultImage(slug) || PLACEHOLDER,
+    galleryImages: [
+      getOfferAdultImage(slug) || PLACEHOLDER,
+      PLACEHOLDER,
+      PLACEHOLDER,
+    ],
     features: [
       { title: "Direct connections", text: "Messaging and profile tools for direct contact." },
       { title: "Profile tools", text: "Create and browse profiles on the destination site." },

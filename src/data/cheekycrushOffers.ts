@@ -1,3 +1,5 @@
+import { getOfferHeroImage } from "@/data/adultOfferImages";
+
 /**
  * CheekyCrush prelander — /offers/cheekycrush
  * Public CTAs use /go/cheekycrush. The tracking URL stays in usaGoDestinations.
@@ -21,7 +23,7 @@ export const cheekycrushOffer = {
 } as const;
 
 export const cheekycrushVisuals = {
-  hero: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=80",
+  hero: getOfferHeroImage("cheekycrush"),
 } as const;
 
 export const cheekycrushAges = Array.from({ length: 78 - 18 + 1 }, (_, index) =>

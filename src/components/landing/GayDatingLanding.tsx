@@ -9,32 +9,31 @@ import BrowseByCountrySection from "@/components/landing/BrowseByCountrySection"
 import { getCountryBrowseLinks } from "@/data/countryBrowseLinks";
 import TrackedAffiliateLink from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import {
+  getOfferAdultImage,
+  getOfferVisuals,
+} from "@/data/adultOfferImages";
 
 const gayTab = getOfferTabByRoute("gay-dating")!;
 
-/** Male model portraits for gay dating offers */
+const gayBloomVisuals = getOfferVisuals("gaybloom");
+const manfinderVisuals = getOfferVisuals("manfinder");
+const transdateVisuals = getOfferVisuals("transdate");
+
+/** Editorial dating lifestyle imagery for the gay dating hub */
 const MODEL = {
-  hero: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1600&q=80",
-  heroSide:
-    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
-  stripA:
-    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80",
-  stripB:
-    "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=800&q=80",
-  stripC:
-    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80",
-  cta: "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=1400&q=80",
+  hero: gayBloomVisuals.hero,
+  heroSide: manfinderVisuals.portrait,
+  stripA: gayBloomVisuals.side,
+  stripB: manfinderVisuals.wide,
+  stripC: transdateVisuals.portrait,
+  cta: manfinderVisuals.side,
 } as const;
 
 const offerModels: Record<string, string> = {
-  gaybloom:
-    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-  pridepair:
-    "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=80",
-  manfinder:
-    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
-  transdate:
-    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=80",
+  gaybloom: getOfferAdultImage("gaybloom"),
+  manfinder: getOfferAdultImage("manfinder"),
+  transdate: getOfferAdultImage("transdate"),
 };
 
 const ctaClass =

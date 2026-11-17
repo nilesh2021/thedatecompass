@@ -1,4 +1,5 @@
 import { SINPARTY_TRACKING_URL } from "@/data/affiliateTracking";
+import { getOfferVisuals } from "@/data/adultOfferImages";
 
 /**
  * SinParty landing — /offers/sinparty
@@ -26,11 +27,12 @@ export const sinpartyOffer = {
   promo: "Free to start",
 } as const;
 
+const sinpartyVisualSet = getOfferVisuals("sinparty");
+
 export const sinpartyVisuals = {
-  hero: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1800&q=80",
-  portrait:
-    "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&h=1200&q=80",
-  wide: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1800&h=900&q=80",
+  hero: sinpartyVisualSet.hero,
+  portrait: sinpartyVisualSet.portrait,
+  wide: sinpartyVisualSet.wide,
 } as const;
 
 export const sinpartySteps = [

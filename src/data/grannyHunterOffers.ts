@@ -46,8 +46,7 @@ export const grannyHunterAcceptedCountries = [
   "United States",
 ] as const;
 
-const GH_HERO =
-  "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5";
+import { getOfferVisuals } from "@/data/adultOfferImages";
 
 export const grannyHunterOffer = {
   name: "GrannyHunter",
@@ -68,12 +67,7 @@ export const grannyHunterOffer = {
   promo: "Free to join",
 } as const;
 
-export const grannyHunterVisuals = {
-  hero: `${GH_HERO}?auto=format&fit=crop&w=1800&q=80`,
-  portrait: `${GH_HERO}?auto=format&fit=crop&w=900&h=1200&q=80`,
-  wide: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1800&h=900&q=80",
-  side: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&h=1200&q=80",
-} as const;
+export const grannyHunterVisuals = getOfferVisuals("grannyhunter");
 
 export const grannyHunterSteps = [
   {

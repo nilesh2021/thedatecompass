@@ -8,6 +8,7 @@ import { ArrowRight, Compass, MessageCircle, Sparkles } from "lucide-react";
 import { getOfferTabByRoute, type DatingOffer } from "@/data/datingOffersTabs";
 import { useTrackedAffiliateUrl } from "@/components/affiliate/TrackedAffiliateLink";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { getOfferAdultImage, getOfferHeroImage } from "@/data/adultOfferImages";
 
 const gayTab = getOfferTabByRoute("gay-dating")!;
 const REL = "sponsored nofollow noopener noreferrer";
@@ -15,18 +16,12 @@ const REL = "sponsored nofollow noopener noreferrer";
 /** Confirmed “free to join” in existing gay dating sites offer data. */
 const FREE_TO_JOIN_IDS = new Set(["gaybloom", "manfinder"]);
 
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1568590320589-8a16645ec483?auto=format&fit=crop&w=1400&q=80";
+const HERO_IMG = getOfferHeroImage("gaybloom");
 
 const offerImages: Record<string, string> = {
-  gaybloom:
-    "https://images.unsplash.com/photo-1567476783296-fff06012e17a?auto=format&fit=crop&w=900&q=80",
-  pridepair:
-    "https://images.unsplash.com/photo-1577130661762-1e4944ba63ac?auto=format&fit=crop&w=900&q=80",
-  manfinder:
-    "https://images.unsplash.com/photo-1580353588316-395bcff2eb2d?auto=format&fit=crop&w=900&q=80",
-  transdate:
-    "https://images.unsplash.com/photo-1650550740607-24aa0eff1c4a?auto=format&fit=crop&w=900&q=80",
+  gaybloom: getOfferAdultImage("gaybloom"),
+  manfinder: getOfferAdultImage("manfinder"),
+  transdate: getOfferAdultImage("transdate"),
 };
 
 function accessLabel(offer: DatingOffer) {

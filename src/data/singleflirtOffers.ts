@@ -1,4 +1,5 @@
 import { SINGLEFLIRT_TRACKING_URL } from "@/data/affiliateTracking";
+import { getOfferVisuals } from "@/data/adultOfferImages";
 
 /**
  * Singleflirt landing — /offers/singleflirt
@@ -27,13 +28,7 @@ export const singleflirtOffer = {
   promo: "Free to start",
 } as const;
 
-export const singleflirtVisuals = {
-  hero: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1800&q=80",
-  portrait:
-    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&h=1200&q=80",
-  wide: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1800&h=900&q=80",
-  side: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&h=1200&q=80",
-} as const;
+export const singleflirtVisuals = getOfferVisuals("singleflirt");
 
 export const singleflirtSteps = [
   {

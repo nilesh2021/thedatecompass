@@ -3,10 +3,9 @@
  * Facts are taken from existing USA and gay-dating listings only.
  */
 
-import { adultImages } from "@/data/adultOfferImages";
+import { getOfferAdultImage, getOfferVisuals } from "@/data/adultOfferImages";
 
-const GB_PHOTO =
-  "https://images.unsplash.com/photo-1567476783296-fff06012e17a";
+const gayBloomVisuals = getOfferVisuals("gaybloom");
 
 export const GAYBLOOM_USA_OFFER_PATH = "/go/gaybloom";
 
@@ -29,9 +28,9 @@ export const gayBloomUsaOffer = {
 } as const;
 
 export const gayBloomUsaVisuals = {
-  portrait: `${GB_PHOTO}?auto=format&fit=crop&w=900&h=1200&q=80`,
-  wide: `${GB_PHOTO}?auto=format&fit=crop&w=1800&h=900&q=80`,
-  card: adultImages.gaybloom,
+  portrait: gayBloomVisuals.portrait,
+  wide: gayBloomVisuals.wide,
+  card: getOfferAdultImage("gaybloom"),
 } as const;
 
 export const gayBloomUsaPoints = [

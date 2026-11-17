@@ -1,3 +1,5 @@
+import { getOfferAdultImage } from "@/data/adultOfferImages";
+
 const unsplash = (id: string, width = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`;
 
@@ -31,18 +33,18 @@ export const germanyPageVisuals = {
   ],
   offers: {
     fremdgehen69: {
-      src: unsplash("photo-1528728329032-2972f65dfb3f", 1400),
-      alt: "Berlin at night with the Fernsehturm and river lights",
+      src: getOfferAdultImage("fremdgehen69"),
+      alt: "Adults on a casual outdoor date",
       city: "Berlin",
     },
     dirtydating: {
-      src: unsplash("photo-1741120026139-8ae0036ebe6d", 1400),
-      alt: "Evening crowds at Munich’s Marienplatz",
+      src: getOfferAdultImage("dirtydating"),
+      alt: "Couple enjoying a sunset date",
       city: "München",
     },
     grannyhunter: {
-      src: unsplash("photo-1467269204594-9661b134dd2b", 1400),
-      alt: "Historic street in a German old town",
+      src: getOfferAdultImage("grannyhunter"),
+      alt: "Mature woman in a confident lifestyle portrait",
       city: "Bayern",
     },
   },
